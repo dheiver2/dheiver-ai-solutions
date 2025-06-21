@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const ProjectsSection = () => {
@@ -12,8 +11,7 @@ const ProjectsSection = () => {
       challenge: "Alta complexidade na interpretação de imagens médicas com precisão clínica"
     },
     {
-      title: "Ot
-imização de Cadeia de Suprimentos",
+      title: "Otimização de Cadeia de Suprimentos",
       category: "Logística & Supply Chain",
       description: "Sistema preditivo para otimização de inventário e logística, reduzindo custos operacionais em 25% através de algoritmos de machine learning avançados.",
       technologies: ["Machine Learning", "Otimização", "Python", "SQL"],
