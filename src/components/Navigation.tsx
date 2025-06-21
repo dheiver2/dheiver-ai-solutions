@@ -1,10 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,13 +17,7 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
-    }
-  };
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -29,47 +25,54 @@ const Navigation = () => {
     }`}>
       <div className="container-width section-padding">
         <div className="flex items-center justify-between h-16">
-          <div className="font-playfair font-bold text-xl text-black">
+          <Link to="/" className="font-playfair font-bold text-xl text-black">
             Dr. Dheiver Santos
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('home')}
-              className="text-gray-700 hover:text-black transition-colors duration-200 font-medium"
+            <Link 
+              to="/"
+              className={`transition-colors duration-200 font-medium ${
+                isActive('/') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
+              }`}
             >
               Início
-            </button>
-            <button 
-              onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-black transition-colors duration-200 font-medium"
+            </Link>
+            <Link 
+              to="/about"
+              className={`transition-colors duration-200 font-medium ${
+                isActive('/about') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
+              }`}
             >
               Sobre
-            </button>
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="text-gray-700 hover:text-black transition-colors duration-200 font-medium"
+            </Link>
+            <Link 
+              to="/services"
+              className={`transition-colors duration-200 font-medium ${
+                isActive('/services') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
+              }`}
             >
               Serviços
-            </button>
-            <button 
-              onClick={() => scrollToSection('projects')}
-              className="text-gray-700 hover:text-black transition-colors duration-200 font-medium"
+            </Link>
+            <Link 
+              to="/projects"
+              className={`transition-colors duration-200 font-medium ${
+                isActive('/projects') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
+              }`}
             >
               Projetos
-            </button>
-            <button 
-              onClick={() => scrollToSection('insights')}
-              className="text-gray-700 hover:text-black transition-colors duration-200 font-medium"
+            </Link>
+            <Link 
+              to="/insights"
+              className={`transition-colors duration-200 font-medium ${
+                isActive('/insights') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
+              }`}
             >
               Insights
-            </button>
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-black text-white hover:bg-gray-800 px-6"
-            >
-              Contato
+            </Link>
+            <Button asChild className="bg-black text-white hover:bg-gray-800 px-6">
+              <Link to="/contact">Contato</Link>
             </Button>
           </div>
 
@@ -96,41 +99,53 @@ const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
             <div className="flex flex-col space-y-4 pt-4">
-              <button 
-                onClick={() => scrollToSection('home')}
-                className="text-gray-700 hover:text-black transition-colors duration-200 font-medium text-left"
+              <Link 
+                to="/"
+                className={`transition-colors duration-200 font-medium text-left ${
+                  isActive('/') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Início
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="text-gray-700 hover:text-black transition-colors duration-200 font-medium text-left"
+              </Link>
+              <Link 
+                to="/about"
+                className={`transition-colors duration-200 font-medium text-left ${
+                  isActive('/about') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Sobre
-              </button>
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="text-gray-700 hover:text-black transition-colors duration-200 font-medium text-left"
+              </Link>
+              <Link 
+                to="/services"
+                className={`transition-colors duration-200 font-medium text-left ${
+                  isActive('/services') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Serviços
-              </button>
-              <button 
-                onClick={() => scrollToSection('projects')}
-                className="text-gray-700 hover:text-black transition-colors duration-200 font-medium text-left"
+              </Link>
+              <Link 
+                to="/projects"
+                className={`transition-colors duration-200 font-medium text-left ${
+                  isActive('/projects') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Projetos
-              </button>
-              <button 
-                onClick={() => scrollToSection('insights')}
-                className="text-gray-700 hover:text-black transition-colors duration-200 font-medium text-left"
+              </Link>
+              <Link 
+                to="/insights"
+                className={`transition-colors duration-200 font-medium text-left ${
+                  isActive('/insights') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Insights
-              </button>
-              <Button 
-                onClick={() => scrollToSection('contact')}
-                className="bg-black text-white hover:bg-gray-800 w-fit"
-              >
-                Contato
+              </Link>
+              <Button asChild className="bg-black text-white hover:bg-gray-800 w-fit">
+                <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contato</Link>
               </Button>
             </div>
           </div>

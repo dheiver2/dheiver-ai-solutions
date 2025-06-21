@@ -1,15 +1,9 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-white">
       <div className="container-width section-padding">
@@ -34,20 +28,11 @@ const HeroSection = () => {
           </div>
 
           <div className="animate-fade-in-up delay-500 flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              onClick={() => scrollToSection('services')}
-              size="lg"
-              className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105"
-            >
-              Explore Nossos Serviços
+            <Button asChild size="lg" className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg font-medium transition-all duration-300 hover:scale-105">
+              <Link to="/services">Explore Nossos Serviços</Link>
             </Button>
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              variant="outline"
-              size="lg"
-              className="border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg font-medium transition-all duration-300"
-            >
-              Agende uma Consulta
+            <Button asChild variant="outline" size="lg" className="border-black text-black hover:bg-black hover:text-white px-8 py-3 text-lg font-medium transition-all duration-300">
+              <Link to="/contact">Agende uma Consulta</Link>
             </Button>
           </div>
 

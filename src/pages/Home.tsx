@@ -1,17 +1,13 @@
 
 import React from 'react';
-import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
-import Footer from '@/components/Footer';
 
-const Index = () => {
+const Home = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
       <HeroSection />
-      <Footer />
     </div>
   );
 };
 
-export default Index;
+export default Home;
