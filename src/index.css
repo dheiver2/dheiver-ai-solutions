@@ -38,6 +38,7 @@
 
   * {
     @apply border-border;
+    box-sizing: border-box;
   }
 
   body {
@@ -45,21 +46,44 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
   }
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
-  /* Prevent text overlap issues */
+  /* Improved text rendering and spacing */
   h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    line-height: 1.2;
   }
 
   p {
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 1rem;
+    max-width: 65ch;
+  }
+
+  /* Fix for responsive images */
+  img {
+    max-width: 100%;
+    height: auto;
   }
 
   /* Custom scrollbar */
@@ -80,14 +104,15 @@
     background: hsl(var(--foreground));
   }
 
-  /* Fix for form elements */
+  /* Form elements */
   input, textarea, select {
     line-height: 1.5;
   }
 
-  /* Ensure proper text rendering */
+  /* Font rendering improvements */
   .font-playfair {
     line-height: 1.1;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -112,12 +137,16 @@
     @apply backdrop-blur-sm bg-white/95 border border-gray-200/50;
   }
 
-  /* Improved text rendering */
+  /* Improved text balance and spacing */
   .text-balance {
     text-wrap: balance;
   }
 
-  /* Fix overlapping issues */
+  /* Consistent spacing system */
+  .safe-spacing {
+    @apply space-y-4;
+  }
+
   .safe-spacing > * + * {
     margin-top: 1rem;
   }
@@ -128,11 +157,77 @@
   .safe-spacing h4,
   .safe-spacing h5,
   .safe-spacing h6 {
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }
 
-  .safe-spacing p {
-    margin-bottom: 1rem;
+  .safe-spacing h1:first-child,
+  .safe-spacing h2:first-child,
+  .safe-spacing h3:first-child,
+  .safe-spacing h4:first-child,
+  .safe-spacing h5:first-child,
+  .safe-spacing h6:first-child {
+    margin-top: 0;
+  }
+
+  /* Prevent layout shifts */
+  .prevent-layout-shift {
+    min-height: 1px;
+    contain: layout;
+  }
+
+  /* Better mobile responsiveness */
+  @media (max-width: 768px) {
+    .section-padding {
+      @apply px-4;
+    }
+    
+    h1 {
+      font-size: clamp(1.75rem, 8vw, 2.5rem);
+    }
+    
+    h2 {
+      font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+    
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  }
+}
+
+/* Animation improvements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

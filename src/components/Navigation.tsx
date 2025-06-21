@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link, useLocation } from 'react-router-dom';
+import Logo from '@/components/Logo';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,8 +26,11 @@ const Navigation = () => {
     }`}>
       <div className="container-width section-padding">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="font-playfair font-bold text-xl text-black">
-            Dr. Dheiver Santos
+          <Link to="/" className="flex items-center gap-3">
+            <Logo className="w-8 h-8" />
+            <span className="font-playfair font-bold text-xl text-black">
+              Dr. Dheiver Santos
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
