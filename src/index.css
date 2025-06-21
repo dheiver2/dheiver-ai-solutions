@@ -42,10 +42,24 @@
 
   body {
     @apply bg-background text-foreground font-inter;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Prevent text overlap issues */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
   }
 
   /* Custom scrollbar */
@@ -64,6 +78,16 @@
 
   ::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--foreground));
+  }
+
+  /* Fix for form elements */
+  input, textarea, select {
+    line-height: 1.5;
+  }
+
+  /* Ensure proper text rendering */
+  .font-playfair {
+    line-height: 1.1;
   }
 }
 
@@ -85,6 +109,30 @@
   }
 
   .glass-effect {
-    @apply backdrop-blur-sm bg-white/80 border border-gray-200/50;
+    @apply backdrop-blur-sm bg-white/95 border border-gray-200/50;
+  }
+
+  /* Improved text rendering */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Fix overlapping issues */
+  .safe-spacing > * + * {
+    margin-top: 1rem;
+  }
+
+  .safe-spacing h1,
+  .safe-spacing h2,
+  .safe-spacing h3,
+  .safe-spacing h4,
+  .safe-spacing h5,
+  .safe-spacing h6 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .safe-spacing p {
+    margin-bottom: 1rem;
   }
 }
