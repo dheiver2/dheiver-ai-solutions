@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
@@ -39,7 +38,7 @@ const ContactSection = () => {
   };
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = '5551989889898'; // Formato internacional
+    const phoneNumber = '5551989889898'; // Formato internacional correto
     const message = encodeURIComponent('Olá! Gostaria de saber mais sobre seus serviços de IA.');
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank');
@@ -74,7 +73,7 @@ const ContactSection = () => {
                     </div>
                     <div className="min-w-0 flex-1">
                       <h4 className="font-semibold text-black mb-2">E-mail</h4>
-                      <p className="text-gray-600 break-all">contato@dheiversantos.com</p>
+                      <p className="text-gray-600 break-all">dheiver.santos@gmail.com</p>
                       <p className="text-sm text-gray-500 mt-1">Resposta em até 24 horas</p>
                     </div>
                   </div>
@@ -96,8 +95,8 @@ const ContactSection = () => {
                     </div>
                     <div className="min-w-0 flex-1">
                       <h4 className="font-semibold text-black mb-2">Localização</h4>
-                      <p className="text-gray-600">São Paulo, SP - Brasil</p>
-                      <p className="text-sm text-gray-500 mt-1">Atendimento remoto e presencial</p>
+                      <p className="text-gray-600">Porto Alegre, RS - Brasil</p>
+                      <p className="text-sm text-gray-500 mt-1">Atendimento nacional remoto e presencial</p>
                     </div>
                   </div>
 

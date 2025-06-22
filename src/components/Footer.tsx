@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Footer = () => {
@@ -20,46 +19,67 @@ const Footer = () => {
               </p>
               <div className="flex gap-4">
                 <a 
-                  href="#" 
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
-                  aria-label="LinkedIn"
+                  href="https://www.linkedin.com/in/dheiver-santos/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gold-600 transition-colors group"
+                  aria-label="LinkedIn - Dr. Dheiver Santos"
                 >
-                  💼
+                  <span className="text-lg group-hover:scale-110 transition-transform">💼</span>
                 </a>
                 <a 
-                  href="#" 
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
-                  aria-label="Email"
+                  href="mailto:dheiver.santos@gmail.com" 
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gold-600 transition-colors group"
+                  aria-label="Email - dheiver.santos@gmail.com"
                 >
-                  📧
+                  <span className="text-lg group-hover:scale-110 transition-transform">📧</span>
                 </a>
                 <a 
-                  href="#" 
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
-                  aria-label="Lattes"
+                  href="https://www.instagram.com/santos.dheiver/?hl=en" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gold-600 transition-colors group"
+                  aria-label="Instagram - @santos.dheiver"
                 >
-                  🎓
+                  <span className="text-lg group-hover:scale-110 transition-transform">📸</span>
+                </a>
+                <a 
+                  href="https://wa.me/5551989889898?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20IA." 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-600 transition-colors group"
+                  aria-label="WhatsApp - (51) 98988-9898"
+                >
+                  <span className="text-lg group-hover:scale-110 transition-transform">💬</span>
                 </a>
               </div>
             </div>
             
             <div>
-              <h4 className="font-semibold text-lg mb-4">Serviços</h4>
+              <h4 className="font-semibold text-lg mb-4 text-gold-400">Serviços</h4>
               <ul className="space-y-2 text-gray-300">
-                <li><a href="#services" className="hover:text-white transition-colors">Machine Learning</a></li>
-                <li><a href="#services" className="hover:text-white transition-colors">Visão Computacional</a></li>
-                <li><a href="#services" className="hover:text-white transition-colors">Processamento NLP</a></li>
-                <li><a href="#services" className="hover:text-white transition-colors">Estratégia de IA</a></li>
+                <li><a href="/services" className="hover:text-white transition-colors">Machine Learning</a></li>
+                <li><a href="/services" className="hover:text-white transition-colors">Visão Computacional</a></li>
+                <li><a href="/services" className="hover:text-white transition-colors">Processamento NLP</a></li>
+                <li><a href="/services" className="hover:text-white transition-colors">Estratégia de IA</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold text-lg mb-4">Navegação</h4>
+              <h4 className="font-semibold text-lg mb-4 text-gold-400">Contato</h4>
               <ul className="space-y-2 text-gray-300">
-                <li><a href="#home" className="hover:text-white transition-colors">Início</a></li>
-                <li><a href="#about" className="hover:text-white transition-colors">Sobre</a></li>
-                <li><a href="#projects" className="hover:text-white transition-colors">Projetos</a></li>
-                <li><a href="#contact" className="hover:text-white transition-colors">Contato</a></li>
+                <li>
+                  <a href="mailto:dheiver.santos@gmail.com" className="hover:text-white transition-colors">
+                    dheiver.santos@gmail.com
+                  </a>
+                </li>
+                <li>
+                  <a href="https://wa.me/5551989889898" className="hover:text-white transition-colors">
+                    (51) 98988-9898
+                  </a>
+                </li>
+                <li className="text-gray-400">Porto Alegre, RS</li>
+                <li className="text-gray-400">Atendimento Nacional</li>
               </ul>
             </div>
           </div>
@@ -69,10 +89,10 @@ const Footer = () => {
               © {currentYear} Dr. Dheiver Santos. Todos os direitos reservados.
             </p>
             <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+              <a href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Política de Privacidade
               </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+              <a href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">
                 Termos de Uso
               </a>
             </div>

@@ -1,73 +1,145 @@
-# Welcome to your Lovable project
+# Dr. Dheiver Santos - Consultoria Avançada em Inteligência Artificial
 
-## Project info
+## Sobre o Projeto
 
-**URL**: https://lovable.dev/projects/01998b27-4484-4ee6-be83-5fb7706c102f
+Site profissional para consultoria especializada em soluções de Inteligência Artificial avançada e projetos de alta complexidade. Desenvolvido com foco em performance, SEO e conversão para Google Ads.
 
-## How can I edit this code?
+## Características Principais
 
-There are several ways of editing your application.
+- **Design Responsivo**: Interface otimizada para todos os dispositivos
+- **SEO Avançado**: Implementação completa de meta tags, schema markup e otimizações técnicas
+- **Performance**: Carregamento rápido e otimizado para Core Web Vitals
+- **Acessibilidade**: Seguindo as diretrizes WCAG 2.1
+- **Google Ads Ready**: Estrutura otimizada para campanhas de marketing digital
 
-**Use Lovable**
+## Tecnologias Utilizadas
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/01998b27-4484-4ee6-be83-5fb7706c102f) and start prompting.
+- **Frontend**: React 18 com TypeScript
+- **Estilização**: Tailwind CSS + shadcn/ui
+- **Roteamento**: React Router DOM
+- **Build Tool**: Vite
+- **Gerenciamento de Estado**: React Query
+- **Fontes**: Inter + Playfair Display
 
-Changes made via Lovable will be committed automatically to this repo.
+## Instalação e Configuração
 
-**Use your preferred IDE**
+### Pré-requisitos
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js versão 18 ou superior
+- npm ou yarn
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Passos para instalação
 
-Follow these steps:
+```bash
+# Clone o repositório
+git clone [URL_DO_REPOSITORIO]
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Navegue até o diretório do projeto
+cd dheiver-ai-solutions
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Instale as dependências
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Inicie o servidor de desenvolvimento
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Scripts Disponíveis
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Desenvolvimento
+npm run dev
 
-**Use GitHub Codespaces**
+# Build para produção
+npm run build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Build para desenvolvimento
+npm run build:dev
 
-## What technologies are used for this project?
+# Lint do código
+npm run lint
 
-This project is built with:
+# Preview da build
+npm run preview
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Estrutura do Projeto
 
-## How can I deploy this project?
+```
+src/
+├── components/          # Componentes reutilizáveis
+│   ├── ui/             # Componentes da biblioteca shadcn/ui
+│   ├── AboutSection.tsx
+│   ├── ContactSection.tsx
+│   ├── Footer.tsx
+│   ├── HeroSection.tsx
+│   ├── Navigation.tsx
+│   └── ...
+├── pages/              # Páginas da aplicação
+│   ├── About.tsx
+│   ├── Contact.tsx
+│   ├── Home.tsx
+│   ├── Services.tsx
+│   └── ...
+├── hooks/              # Custom hooks
+├── lib/                # Utilitários
+└── styles/             # Estilos globais
+```
 
-Simply open [Lovable](https://lovable.dev/projects/01998b27-4484-4ee6-be83-5fb7706c102f) and click on Share -> Publish.
+## Otimizações Implementadas
 
-## Can I connect a custom domain to my Lovable project?
+### SEO
+- Meta tags completas e dinâmicas
+- Schema markup para rich snippets
+- Sitemap XML automatizado
+- Open Graph e Twitter Cards
+- Canonical URLs
+- Otimização de imagens
 
-Yes, you can!
+### Performance
+- Lazy loading de componentes
+- Compressão de imagens
+- Minificação de CSS/JS
+- Cache otimizado
+- Critical CSS inline
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Acessibilidade
+- Navegação por teclado
+- Screen reader friendly
+- Contraste adequado
+- Alt text em imagens
+- Landmarks semânticos
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Configuração para Produção
+
+### Variáveis de Ambiente
+
+Crie um arquivo `.env` na raiz do projeto:
+
+```env
+VITE_SITE_URL=https://seudominio.com
+VITE_CONTACT_EMAIL=contato@seudominio.com
+VITE_GOOGLE_ANALYTICS_ID=GA_TRACKING_ID
+```
+
+### Deploy
+
+O projeto está configurado para deploy em:
+- Vercel
+- Netlify
+- GitHub Pages
+- Qualquer servidor estático
+
+## Suporte e Manutenção
+
+Para suporte técnico ou dúvidas sobre o projeto:
+- Email: suporte@dheiver.com
+- Documentação: Consulte os comentários no código
+
+## Licença
+
+Este projeto é proprietário e confidencial. Todos os direitos reservados.
+
+---
+
+**Desenvolvido com foco em excelência técnica e resultados de negócio**

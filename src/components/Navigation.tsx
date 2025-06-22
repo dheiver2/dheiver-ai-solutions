@@ -1,161 +1,191 @@
-
 import React, { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import Logo from '@/components/Logo';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import Logo from './Logo';
 
 const Navigation = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navItems = [
+    { name: 'Início', path: '/' },
+    { name: 'Sobre', path: '/about' },
+    { name: 'Serviços', path: '/services' },
+    { name: 'Projetos', path: '/projects' },
+    { name: 'Insights', path: '/insights' },
+    { name: 'Contato', path: '/contact' },
+  ];
+
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'
-    }`}>
-      <div className="container-width section-padding">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-3">
-            <Logo className="w-8 h-8" />
-            <span className="font-playfair font-bold text-xl text-black">
-              Dr. Dheiver Santos
-            </span>
+    <motion.nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-200/50' 
+          : 'bg-transparent'
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div className="container-width">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Link to="/" className="flex items-center">
+              <Logo className="h-12 w-auto" />
           </Link>
+          </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-1">
+            {navItems.map((item) => (
+              <motion.div
+                key={item.name}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
             <Link 
-              to="/"
-              className={`transition-colors duration-200 font-medium ${
-                isActive('/') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
-              }`}
-            >
-              Início
+                  to={item.path}
+                  className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    isActive(item.path)
+                      ? 'text-black bg-gold-100 shadow-sm'
+                      : isScrolled
+                      ? 'text-gray-700 hover:text-black hover:bg-gray-50'
+                      : 'text-gray-800 hover:text-black hover:bg-white/20'
+                  }`}
+                >
+                  {item.name}
+                  {isActive(item.path) && (
+                    <motion.div
+                      className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-gold-500 rounded-full"
+                      layoutId="activeIndicator"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.2 }}
+                    />
+                  )}
             </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <div className="hidden lg:block">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
             <Link 
-              to="/about"
-              className={`transition-colors duration-200 font-medium ${
-                isActive('/about') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
-              }`}
-            >
-              Sobre
+                to="/contact"
+                className="bg-black hover:bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg border border-gold-500/20"
+              >
+                Consulta Gratuita
             </Link>
-            <Link 
-              to="/services"
-              className={`transition-colors duration-200 font-medium ${
-                isActive('/services') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
-              }`}
-            >
-              Serviços
-            </Link>
-            <Link 
-              to="/projects"
-              className={`transition-colors duration-200 font-medium ${
-                isActive('/projects') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
-              }`}
-            >
-              Projetos
-            </Link>
-            <Link 
-              to="/insights"
-              className={`transition-colors duration-200 font-medium ${
-                isActive('/insights') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
-              }`}
-            >
-              Insights
-            </Link>
-            <Button asChild className="bg-black text-white hover:bg-gray-800 px-6">
-              <Link to="/contact">Contato</Link>
-            </Button>
+            </motion.div>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          <motion.button
+            className="lg:hidden p-2 rounded-lg text-gray-700 hover:text-black hover:bg-gray-100 transition-colors"
+            onClick={() => setIsOpen(!isOpen)}
+            whileTap={{ scale: 0.95 }}
           >
-            <div className="w-6 h-5 relative flex flex-col justify-between">
-              <span className={`w-full h-0.5 bg-black transition-all duration-300 ${
-                isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
-              }`}></span>
-              <span className={`w-full h-0.5 bg-black transition-all duration-300 ${
-                isMobileMenuOpen ? 'opacity-0' : ''
-              }`}></span>
-              <span className={`w-full h-0.5 bg-black transition-all duration-300 ${
-                isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
-              }`}></span>
-            </div>
-          </button>
+            <AnimatePresence mode="wait">
+              {isOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X className="w-6 h-6" />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu className="w-6 h-6" />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
+        </div>
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
-            <div className="flex flex-col space-y-4 pt-4">
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="lg:hidden fixed inset-x-0 top-20 bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-xl"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="container-width py-6">
+              <div className="space-y-2">
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                  >
               <Link 
-                to="/"
-                className={`transition-colors duration-200 font-medium text-left ${
-                  isActive('/') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
-                }`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Início
+                      to={item.path}
+                      className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
+                        isActive(item.path)
+                          ? 'text-black bg-gold-100 border-l-4 border-gold-500'
+                          : 'text-gray-700 hover:text-black hover:bg-gray-50'
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
               </Link>
+                  </motion.div>
+                ))}
+                
+                <motion.div
+                  className="pt-4 border-t border-gray-200"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
+                >
               <Link 
-                to="/about"
-                className={`transition-colors duration-200 font-medium text-left ${
-                  isActive('/about') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
-                }`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Sobre
+                    to="/contact"
+                    className="block w-full text-center bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-lg text-base font-semibold transition-all duration-200 shadow-md"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Consulta Gratuita
               </Link>
-              <Link 
-                to="/services"
-                className={`transition-colors duration-200 font-medium text-left ${
-                  isActive('/services') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
-                }`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Serviços
-              </Link>
-              <Link 
-                to="/projects"
-                className={`transition-colors duration-200 font-medium text-left ${
-                  isActive('/projects') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
-                }`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Projetos
-              </Link>
-              <Link 
-                to="/insights"
-                className={`transition-colors duration-200 font-medium text-left ${
-                  isActive('/insights') ? 'text-black font-semibold' : 'text-gray-700 hover:text-black'
-                }`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Insights
-              </Link>
-              <Button asChild className="bg-black text-white hover:bg-gray-800 w-fit">
-                <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contato</Link>
-              </Button>
+                </motion.div>
+              </div>
             </div>
-          </div>
+          </motion.div>
         )}
-      </div>
-    </nav>
+      </AnimatePresence>
+    </motion.nav>
   );
 };
 
