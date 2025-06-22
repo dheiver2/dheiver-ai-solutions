@@ -130,7 +130,7 @@ const Navigation = () => {
               )}
             </AnimatePresence>
           </motion.button>
-        </div>
+            </div>
         </div>
 
         {/* Mobile Menu */}
