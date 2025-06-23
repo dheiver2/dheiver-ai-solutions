@@ -359,7 +359,7 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              O que nossos <span className="text-gold-400">clientes dizem</span>
+              <span className="text-white">O que nossos</span> <span className="text-amber-400">clientes dizem</span>
             </h2>
           </motion.div>
 
@@ -371,14 +371,14 @@ const Index = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gray-900 p-8 rounded-2xl border border-gray-800 hover:border-gold-600/50 transition-colors duration-300"
+                className="bg-gray-900 p-8 rounded-2xl border border-gray-800 hover:border-amber-500/50 transition-colors duration-300"
               >
                 <div className="flex mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-gold-400 fill-current" />
+                    <Star key={i} className="w-5 h-5 text-amber-400 fill-current" />
                   ))}
                 </div>
-                <Quote className="w-8 h-8 text-gold-400 mb-4" />
+                <Quote className="w-8 h-8 text-amber-400 mb-4" />
                 <p className="text-gray-300 mb-6 italic">"{testimonial.content}"</p>
                 <div>
                   <div className="font-semibold text-white">{testimonial.name}</div>
@@ -394,7 +394,7 @@ const Index = () => {
       <section className="py-20 bg-gradient-to-r from-gray-900 to-black text-white relative overflow-hidden">
         {/* Gold accent */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gold-500 rounded-full filter blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-amber-400 rounded-full filter blur-3xl"></div>
         </div>
         
         <div className="container-width relative z-10">
@@ -406,7 +406,7 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Pronto para <span className="text-gold-400">revolucionar</span> seu negócio?
+              <span className="text-white">Pronto para</span> <span className="text-amber-400">revolucionar</span> <span className="text-white">seu negócio?</span>
             </h2>
             <p className="text-xl text-gray-300 mb-8">
               Agende uma consulta gratuita e descubra como a IA pode transformar seus resultados

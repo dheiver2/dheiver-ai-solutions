@@ -64,7 +64,7 @@ const Navigation = () => {
                   to={item.path}
                   className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActive(item.path)
-                      ? 'text-black bg-gold-100 shadow-sm'
+                      ? 'text-black bg-gray-100 shadow-sm'
                       : isScrolled
                       ? 'text-gray-700 hover:text-black hover:bg-gray-50'
                       : 'text-gray-800 hover:text-black hover:bg-white/20'
@@ -73,7 +73,7 @@ const Navigation = () => {
                   {item.name}
                   {isActive(item.path) && (
                     <motion.div
-                      className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-gold-500 rounded-full"
+                      className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-gray-500 rounded-full"
                       layoutId="activeIndicator"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -93,7 +93,7 @@ const Navigation = () => {
             >
             <Link 
                 to="/contact"
-                className="bg-black hover:bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg border border-gold-500/20"
+                className="bg-black hover:bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg border border-gray-500/20"
               >
                 Consulta Gratuita
             </Link>
@@ -156,7 +156,7 @@ const Navigation = () => {
                       to={item.path}
                       className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
                         isActive(item.path)
-                          ? 'text-black bg-gold-100 border-l-4 border-gold-500'
+                          ? 'text-black bg-gray-100 border-l-4 border-gray-500'
                           : 'text-gray-700 hover:text-black hover:bg-gray-50'
                       }`}
                       onClick={() => setIsOpen(false)}
