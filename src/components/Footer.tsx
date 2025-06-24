@@ -1,4 +1,5 @@
 import React from 'react';
+import { Instagram, Linkedin, WhatsApp } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -25,32 +26,25 @@ const Footer = () => {
                   className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gold-600 transition-colors group"
                   aria-label="LinkedIn - Dr. Dheiver Santos"
                 >
-                  <span className="text-lg group-hover:scale-110 transition-transform">💼</span>
+                  <Linkedin size={20} className="group-hover:scale-110 transition-transform" />
                 </a>
-                <a 
-                  href="mailto:dheiver.santos@gmail.com" 
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gold-600 transition-colors group"
-                  aria-label="Email - dheiver.santos@gmail.com"
-                >
-                  <span className="text-lg group-hover:scale-110 transition-transform">📧</span>
-                </a>
-                <a 
-                  href="https://www.instagram.com/santos.dheiver/?hl=en" 
+                <a
+                  href="https://www.instagram.com/santos.dheiver/?hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gold-600 transition-colors group"
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-pink-600 transition-colors group"
                   aria-label="Instagram - @santos.dheiver"
                 >
-                  <span className="text-lg group-hover:scale-110 transition-transform">📸</span>
+                  <Instagram size={20} className="group-hover:scale-110 transition-transform" />
                 </a>
-                <a 
-                  href="https://wa.me/5551989889898?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20IA." 
+                <a
+                  href="https://wa.me/5551989889898?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20IA."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-600 transition-colors group"
                   aria-label="WhatsApp - (51) 98988-9898"
                 >
-                  <span className="text-lg group-hover:scale-110 transition-transform">💬</span>
+                  <WhatsApp size={20} className="group-hover:scale-110 transition-transform" />
                 </a>
               </div>
             </div>
