@@ -33,6 +33,22 @@ const ProjectsSection = () => {
       technologies: ["Machine Learning", "Real-time Processing", "Apache Kafka", "Python"],
       impact: "60% de redução em perdas por fraude",
       challenge: "Detecção de padrões complexos em transações financeiras em tempo real"
+    },
+    {
+      title: "Chatbot Inteligente para Atendimento ao Cliente",
+      category: "Varejo & E-commerce",
+      description: "Implementação de um chatbot com NLP avançado para atendimento ao cliente 24/7, resultando em uma redução de 30% nos custos de suporte e aumento de 20% na satisfação do cliente.",
+      technologies: ["NLP", "Dialogflow", "Node.js", "Firebase"],
+      impact: "30% de redução nos custos de suporte",
+      challenge: "Compreensão precisa da intenção do usuário e integração com sistemas legados"
+    },
+    {
+      title: "Manutenção Preditiva para Indústria 4.0",
+      category: "Manufatura & Indústria",
+      description: "Sistema de IA que analisa dados de sensores em tempo real para prever falhas em equipamentos industriais, aumentando o uptime da produção em 15% e reduzindo custos de manutenção.",
+      technologies: ["IoT", "Machine Learning", "Time Series Analysis", "Azure ML"],
+      impact: "15% de aumento no uptime da produção",
+      challenge: "Análise de grandes volumes de dados de sensores e identificação de padrões sutis de falha"
     }
   ];
 

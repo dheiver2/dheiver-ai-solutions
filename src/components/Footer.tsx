@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Linkedin, WhatsApp } from 'lucide-react';
+import { Instagram, Linkedin, MessageCircle } from 'lucide-react'; // Alterado WhatsApp para MessageCircle
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -44,7 +44,7 @@ const Footer = () => {
                   className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-green-600 transition-colors group"
                   aria-label="WhatsApp - (51) 98988-9898"
                 >
-                  <WhatsApp size={20} className="group-hover:scale-110 transition-transform" />
+                  <MessageCircle size={20} className="group-hover:scale-110 transition-transform" /> {/* Alterado WhatsApp para MessageCircle */}
                 </a>
               </div>
             </div>
