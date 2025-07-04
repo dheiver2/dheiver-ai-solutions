@@ -22,7 +22,6 @@ const Navigation = () => {
     { name: 'Início', path: '/' },
     { name: 'Sobre', path: '/about' },
     { name: 'Serviços', path: '/services' },
-    { name: 'Agentes Inteligentes', path: '/#intelligent-agents' }, // Novo item
     { name: 'Projetos', path: '/projects' },
     { name: 'Insights', path: '/insights' },
     { name: 'Contato', path: '/contact' },
