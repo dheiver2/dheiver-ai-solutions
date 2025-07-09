@@ -31,10 +31,12 @@ export default defineConfig({
   server: {
     port: 3000,
     host: true,
+    historyApiFallback: true,
   },
   preview: {
     port: 3000,
     host: true,
+    historyApiFallback: true,
   },
   define: {
     __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
