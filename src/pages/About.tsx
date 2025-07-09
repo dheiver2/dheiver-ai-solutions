@@ -59,48 +59,27 @@ const About = () => {
   const expertise = [
     {
       icon: Brain,
-      title: "Machine Learning",
-      description: "Algoritmos avançados para análise preditiva e otimização de processos empresariais."
+      title: "Machine Learning Avançado",
+      description: "Desenvolvimento de algoritmos de aprendizado profundo, redes neurais convolucionais e modelos preditivos para análise de dados complexos e otimização de processos empresariais."
     },
     {
       icon: Zap,
       title: "Visão Computacional",
-      description: "Sistemas de reconhecimento e análise visual para automação industrial."
+      description: "Criação de sistemas inteligentes de reconhecimento de padrões, detecção de objetos, análise de imagens médicas e controle de qualidade visual para automação industrial."
     },
     {
       icon: Target,
-      title: "NLP Avançado",
-      description: "Processamento de linguagem natural para chatbots e análise de sentimentos."
+      title: "Processamento de Linguagem Natural",
+      description: "Implementação de chatbots avançados, análise de sentimentos, extração de informações e sistemas de tradução automática usando técnicas de NLP de última geração."
     },
     {
       icon: Lightbulb,
-      title: "Consultoria Estratégica",
-      description: "Transformação digital através de estratégias de IA personalizadas."
+      title: "Consultoria Estratégica em IA",
+      description: "Desenvolvimento de roadmaps de IA, auditoria técnica de sistemas existentes, governança de dados e estratégias de transformação digital personalizadas."
     }
   ];
 
-  const timeline = [
-    {
-      year: "2015",
-      title: "Doutorado em IA",
-      description: "Especialização em Machine Learning e redes neurais"
-    },
-    {
-      year: "2018",
-      title: "Primeiro Projeto Corporativo",
-      description: "Sistema de IA para empresa Fortune 500"
-    },
-    {
-      year: "2020",
-      title: "Fundação da Consultoria",
-      description: "Início da consultoria especializada em IA"
-    },
-    {
-      year: "2024",
-      title: "Líder de Mercado",
-      description: "Reconhecido como especialista em IA no Brasil"
-    }
-  ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
@@ -151,16 +130,25 @@ const About = () => {
                 <p>
                   Dr. Dheiver Santos é um renomado especialista em Inteligência Artificial com 
                   PhD pela Universidade Federal da Bahia, focando em algoritmos de machine learning 
-                  e suas aplicações práticas no mundo empresarial.
+                  e suas aplicações práticas no mundo empresarial. Sua pesquisa acadêmica se concentra 
+                  em redes neurais profundas, processamento de linguagem natural e visão computacional.
                 </p>
                 <p>
-                  Com mais de 200 publicações em artigos e 10 anos de 
-                  experiência prática, Dr. Dheiver tem liderado projetos de transformação 
-                  digital em empresas Fortune 500, startups inovadoras e instituições governamentais.
+                  Com mais de 200 publicações em artigos científicos e 10 anos de experiência prática, 
+                  Dr. Dheiver tem liderado projetos de transformação digital em empresas Fortune 500, 
+                  startups inovadoras e instituições governamentais. Seus projetos abrangem desde 
+                  sistemas de diagnóstico médico até otimização de cadeias de suprimentos.
                 </p>
                 <p>
                   Sua abordagem única combina rigor acadêmico com pragmatismo empresarial, 
-                  entregando soluções de IA que geram impacto real e ROI mensurável para seus clientes.
+                  entregando soluções de IA que geram impacto real e ROI mensurável para seus clientes. 
+                  Dr. Dheiver é reconhecido por sua capacidade de traduzir conceitos complexos de IA 
+                  em estratégias de negócio claras e implementáveis.
+                </p>
+                <p>
+                  Além da consultoria, Dr. Dheiver é palestrante internacional em conferências de IA, 
+                  mentor de startups de tecnologia e colaborador regular em projetos de pesquisa 
+                  aplicada que conectam academia e indústria.
                 </p>
               </div>
             </motion.div>
@@ -208,29 +196,7 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Timeline */}
-          <motion.div variants={itemVariants}>
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Marcos da Carreira</h2>
-            <div className="max-w-4xl mx-auto">
-              {timeline.map((milestone, index) => (
-                <motion.div
-                  key={milestone.year}
-                  whileHover={{ x: 10 }}
-                  className="flex items-start gap-8 mb-8 last:mb-0"
-                >
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gray-900 text-white rounded-full flex items-center justify-center font-bold">
-                      {milestone.year}
-                    </div>
-                  </div>
-                  <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{milestone.title}</h3>
-                    <p className="text-gray-600">{milestone.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+
 
           {/* CTA */}
           <motion.div variants={itemVariants} className="text-center mt-20">

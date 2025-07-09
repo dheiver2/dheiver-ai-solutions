@@ -19,7 +19,7 @@ const consultationSchema = z.object({
   phone: z.string().min(10, 'Telefone deve ter pelo menos 10 dígitos'),
   company: z.string().min(2, 'Nome da empresa é obrigatório'),
   projectType: z.string().min(1, 'Selecione um tipo de projeto'),
-  budget: z.string().min(1, 'Selecione uma faixa de orçamento'),
+  budget: z.string().min(1, 'Selecione o escopo do projeto'),
   description: z.string().min(20, 'Descrição deve ter pelo menos 20 caracteres'),
   preferredContactMethod: z.enum(['email', 'phone', 'whatsapp']),
   urgency: z.enum(['low', 'medium', 'high']),
@@ -211,17 +211,17 @@ const ConsultationForm = () => {
             </div>
 
             <div>
-              <Label htmlFor="budget">Orçamento Estimado *</Label>
+              <Label htmlFor="budget">Escopo do Projeto *</Label>
               <Select onValueChange={(value) => setValue('budget', value)}>
                 <SelectTrigger className={errors.budget ? 'border-red-500' : ''}>
-                  <SelectValue placeholder="Selecione a faixa de orçamento" />
+                  <SelectValue placeholder="Selecione o escopo do projeto" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="5k-15k">R$ 5.000 - R$ 15.000</SelectItem>
-                  <SelectItem value="15k-50k">R$ 15.000 - R$ 50.000</SelectItem>
-                  <SelectItem value="50k-100k">R$ 50.000 - R$ 100.000</SelectItem>
-                  <SelectItem value="100k+">R$ 100.000+</SelectItem>
-                  <SelectItem value="discuss">Prefiro discutir</SelectItem>
+                  <SelectItem value="small">Projeto Piloto/Prova de Conceito</SelectItem>
+                  <SelectItem value="medium">Implementação Departamental</SelectItem>
+                  <SelectItem value="large">Solução Corporativa</SelectItem>
+                  <SelectItem value="enterprise">Transformação Digital Completa</SelectItem>
+                  <SelectItem value="discuss">Prefiro discutir detalhes</SelectItem>
                 </SelectContent>
               </Select>
               {errors.budget && <p className="text-sm text-red-600 mt-1">{errors.budget.message}</p>}
@@ -334,4 +334,4 @@ const ConsultationForm = () => {
   );
 };
 
-export default ConsultationForm; 
+export default ConsultationForm;

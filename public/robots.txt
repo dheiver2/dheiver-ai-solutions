@@ -1,19 +1,56 @@
+# Robots.txt for Dr. Dheiver Santos - Consultoria em IA
+# https://dheiver-ai-solutions.com
+
 User-agent: *
 Allow: /
 
-# Sitemap
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Sitemap location
 Sitemap: https://dheiver-ai-solutions.com/sitemap.xml
 
-# Disallow admin pages
+# Disallow admin and private areas
 Disallow: /admin/
 Disallow: /api/
+Disallow: /private/
 Disallow: /*.json$
 Disallow: /*?*
+Disallow: /temp/
+Disallow: /cache/
 
-# Allow important resources
-Allow: /favicon.ico
+# Allow important resources and files
+# Favicon removed as requested
 Allow: /robots.txt
 Allow: /sitemap.xml
+Allow: /manifest.json
+Allow: /site.webmanifest
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.ico$
+Allow: /*.woff$
+Allow: /*.woff2$
+Allow: /*.ttf$
+Allow: /*.eot$
 
-# Crawl-delay (optional)
+# Crawl-delay for respectful crawling
 Crawl-delay: 1
+
+# Host preference
+Host: https://dheiver-ai-solutions.com

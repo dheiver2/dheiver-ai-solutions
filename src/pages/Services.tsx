@@ -40,9 +40,7 @@ const Services = () => {
         "Otimização de Processos",
         "Sistemas de Recomendação",
         "Detecção de Anomalias"
-      ],
-      pricing: "A partir de R$ 15.000",
-      duration: "6-12 semanas"
+      ]
     },
     {
       icon: Eye,
@@ -53,9 +51,7 @@ const Services = () => {
         "Controle de Qualidade",
         "Análise de Imagens Médicas",
         "Automação Industrial"
-      ],
-      pricing: "A partir de R$ 20.000",
-      duration: "8-16 semanas"
+      ]
     },
     {
       icon: MessageSquare,
@@ -66,9 +62,7 @@ const Services = () => {
         "Análise de Sentimentos",
         "Extração de Informações",
         "Tradução Automática"
-      ],
-      pricing: "A partir de R$ 12.000",
-      duration: "4-10 semanas"
+      ]
     },
     {
       icon: Zap,
@@ -79,9 +73,7 @@ const Services = () => {
         "Workflows Inteligentes",
         "Automação de Decisões",
         "Integração de Sistemas"
-      ],
-      pricing: "A partir de R$ 25.000",
-      duration: "10-20 semanas"
+      ]
     },
     {
       icon: TrendingUp,
@@ -92,9 +84,7 @@ const Services = () => {
         "Análise de Viabilidade",
         "Planejamento Estratégico",
         "Treinamento de Equipes"
-      ],
-      pricing: "A partir de R$ 8.000",
-      duration: "2-6 semanas"
+      ]
     },
     {
       icon: Shield,
@@ -105,9 +95,7 @@ const Services = () => {
         "Compliance LGPD",
         "IA Explicável",
         "Mitigação de Vieses"
-      ],
-      pricing: "A partir de R$ 10.000",
-      duration: "4-8 semanas"
+      ]
     }
   ];
 
@@ -184,17 +172,13 @@ const Services = () => {
                       </ul>
                     </div>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                      <div>
-                        <div className="text-lg font-bold text-gray-900">{service.pricing}</div>
-                        <div className="text-sm text-gray-500">{service.duration}</div>
-                      </div>
+                    <div className="pt-4 border-t border-gray-100">
                       <Button 
                         asChild 
-                        className="bg-gray-900 hover:bg-gray-800 text-white"
+                        className="bg-gray-900 hover:bg-gray-800 text-white w-full"
                       >
-                        <Link to="/contact" className="flex items-center gap-2">
-                          Consultar
+                        <Link to="/contact" className="flex items-center justify-center gap-2">
+                          Solicitar Orçamento
                           <ArrowRight className="w-4 h-4" />
                         </Link>
                       </Button>

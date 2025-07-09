@@ -1,0 +1,40 @@
+{
+  "name": "Dr. Dheiver Santos - Consultoria em Inteligência Artificial",
+  "short_name": "Dheiver IA",
+  "description": "Consultoria especializada em Inteligência Artificial avançada - Machine Learning, Visão Computacional, NLP e Estratégias de IA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": ["business", "technology", "consulting", "artificial-intelligence"],
+  "icons": [],
+  "screenshots": [
+    {
+      "src": "/dheiver-photo.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "Dr. Dheiver Santos - Especialista em IA"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Serviços de IA",
+      "short_name": "Serviços",
+      "description": "Conheça nossos serviços especializados em IA",
+      "url": "/services",
+      "icons": []
+    },
+    {
+      "name": "Contato",
+      "short_name": "Contato",
+      "description": "Entre em contato para consultoria",
+      "url": "/contact",
+      "icons": []
+    }
+  ]
+}
