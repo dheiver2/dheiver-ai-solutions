@@ -1,13 +1,22 @@
 // Google Analytics configuration
-export const GA_TRACKING_ID = typeof window !== 'undefined' ? (window as any).VITE_GA_TRACKING_ID || '' : '';
+export const GA_TRACKING_ID = typeof window !== 'undefined' ? (window as unknown as { VITE_GA_TRACKING_ID?: string }).VITE_GA_TRACKING_ID || '' : '';
 
 // Google Ads configuration
-export const GOOGLE_ADS_ID = typeof window !== 'undefined' ? (window as any).VITE_GOOGLE_ADS_ID || '' : '';
+export const GOOGLE_ADS_ID = typeof window !== 'undefined' ? (window as unknown as { VITE_GOOGLE_ADS_ID?: string }).VITE_GOOGLE_ADS_ID || '' : '';
 
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
-    dataLayer: any[];
+    gtag: (...args: unknown[]) => void;
+    dataLayer: unknown[];
+  }
+
+  interface LayoutShift extends PerformanceEntry {
+    value: number;
+    hadRecentInput: boolean;
+  }
+
+  interface PerformanceEventTiming extends PerformanceEntry {
+    processingStart: number;
   }
 }
 
@@ -120,7 +129,7 @@ export const trackEvents = {
 };
 
 // Enhanced e-commerce tracking for service packages
-export const trackPurchase = (transactionId: string, value: number, items: any[]) => {
+export const trackPurchase = (transactionId: string, value: number, items: Record<string, unknown>[]) => {
   if (typeof window === 'undefined' || typeof window.gtag === 'undefined') return;
 
   window.gtag('event', 'purchase', {
@@ -129,4 +138,150 @@ export const trackPurchase = (transactionId: string, value: number, items: any[]
     currency: 'BRL',
     items: items
   });
+};
+
+// Core Web Vitals tracking for SEO performance
+export const trackWebVitals = () => {
+  if (typeof window === 'undefined') return;
+
+  // Track FCP (First Contentful Paint)
+  const observer = new PerformanceObserver((list) => {
+    for (const entry of list.getEntries()) {
+      if (entry.entryType === 'paint' && entry.name === 'first-contentful-paint') {
+        trackEvent('core_web_vitals', 'fcp', 'first_contentful_paint', Math.round(entry.startTime));
+      }
+    }
+  });
+  observer.observe({ entryTypes: ['paint'] });
+
+  // Track LCP (Largest Contentful Paint) 
+  const lcpObserver = new PerformanceObserver((list) => {
+    for (const entry of list.getEntries()) {
+      trackEvent('core_web_vitals', 'lcp', 'largest_contentful_paint', Math.round(entry.startTime));
+    }
+  });
+  lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+
+  // Track CLS (Cumulative Layout Shift)
+  let clsValue = 0;
+  const clsObserver = new PerformanceObserver((list) => {
+    for (const entry of list.getEntries()) {
+      const layoutShift = entry as LayoutShift;
+      if (!layoutShift.hadRecentInput) {
+        clsValue += layoutShift.value;
+      }
+    }
+    trackEvent('core_web_vitals', 'cls', 'cumulative_layout_shift', Math.round(clsValue * 1000));
+  });
+  clsObserver.observe({ entryTypes: ['layout-shift'] });
+
+  // Track FID (First Input Delay)
+  const fidObserver = new PerformanceObserver((list) => {
+    for (const entry of list.getEntries()) {
+      const perfEntry = entry as PerformanceEventTiming;
+      trackEvent('core_web_vitals', 'fid', 'first_input_delay', Math.round(perfEntry.processingStart - perfEntry.startTime));
+    }
+  });
+  fidObserver.observe({ entryTypes: ['first-input'] });
+};
+
+// Enhanced user engagement tracking
+export const setupEngagementTracking = () => {
+  if (typeof window === 'undefined') return;
+
+  const startTime = Date.now();
+  let maxScroll = 0;
+  let hasTracked25 = false;
+  let hasTracked50 = false;
+  let hasTracked75 = false;
+  let hasTracked100 = false;
+
+  // Scroll depth tracking
+  const trackScroll = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+
+    if (scrollPercent > maxScroll) {
+      maxScroll = scrollPercent;
+      
+      if (scrollPercent >= 25 && !hasTracked25) {
+        trackEvents.scrollDepth(25);
+        hasTracked25 = true;
+      }
+      if (scrollPercent >= 50 && !hasTracked50) {
+        trackEvents.scrollDepth(50);
+        hasTracked50 = true;
+      }
+      if (scrollPercent >= 75 && !hasTracked75) {
+        trackEvents.scrollDepth(75);
+        hasTracked75 = true;
+      }
+      if (scrollPercent >= 100 && !hasTracked100) {
+        trackEvents.scrollDepth(100);
+        hasTracked100 = true;
+      }
+    }
+  };
+
+  // Time on page tracking
+  const trackTimeOnPage = () => {
+    const timeSpent = Math.floor((Date.now() - startTime) / 1000);
+    trackEvents.timeOnPage(timeSpent);
+  };
+
+  // Event listeners
+  window.addEventListener('scroll', trackScroll, { passive: true });
+  
+  // Track time intervals
+  setTimeout(() => trackTimeOnPage(), 30000); // 30 seconds
+  setTimeout(() => trackTimeOnPage(), 60000); // 1 minute  
+  setTimeout(() => trackTimeOnPage(), 180000); // 3 minutes
+
+  // Track on page unload
+  window.addEventListener('beforeunload', trackTimeOnPage);
+};
+
+// AI-specific conversion tracking
+export const trackAIConsultingEvents = {
+  // Specific AI service interests
+  machineLearningInterest: () => {
+    trackEvent('ai_service_interest', 'machine_learning', 'ml_page_view');
+    trackConversion(GOOGLE_ADS_ID, 'ml_interest', 75);
+  },
+  
+  computerVisionInterest: () => {
+    trackEvent('ai_service_interest', 'computer_vision', 'cv_page_view');
+    trackConversion(GOOGLE_ADS_ID, 'cv_interest', 75);
+  },
+  
+  nlpInterest: () => {
+    trackEvent('ai_service_interest', 'nlp', 'nlp_page_view');
+    trackConversion(GOOGLE_ADS_ID, 'nlp_interest', 75);
+  },
+  
+  automationInterest: () => {
+    trackEvent('ai_service_interest', 'automation', 'automation_page_view');
+    trackConversion(GOOGLE_ADS_ID, 'automation_interest', 75);
+  },
+
+  // Lead qualification events
+  highValueLead: () => {
+    trackEvent('lead_qualification', 'high_value', 'enterprise_inquiry');
+    trackConversion(GOOGLE_ADS_ID, 'high_value_lead', 500);
+  },
+
+  techLeadView: () => {
+    trackEvent('content_engagement', 'technical', 'tech_lead_content');
+  },
+
+  caseStudyView: (caseStudy: string) => {
+    trackEvent('case_study', 'view', caseStudy);
+    trackConversion(GOOGLE_ADS_ID, 'case_study_view', 30);
+  },
+
+  portfolioDownload: () => {
+    trackEvent('lead_generation', 'portfolio', 'portfolio_download');
+    trackConversion(GOOGLE_ADS_ID, 'portfolio_download', 150);
+  }
 }; 
