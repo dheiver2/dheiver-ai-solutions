@@ -11,7 +11,7 @@ export const defaultSEO: SEOConfig = {
   title: "Dr. Dheiver Santos - Consultoria Avançada em Inteligência Artificial",
   description: "🚀 Consultoria especializada em IA avançada e projetos complexos. Dr. Dheiver Santos oferece soluções inovadoras em Machine Learning, Visão Computacional e Processamento de Linguagem Natural. Transforme seu negócio com IA!",
   keywords: "consultoria inteligência artificial, especialista IA, machine learning, deep learning, visão computacional, processamento linguagem natural, automação inteligente, chatbots, análise preditiva, computer vision, NLP, neural networks, data science, AI consulting",
-  image: "https://dheiver-ai-solutions.com/og-image.jpg",
+  image: "https://dheiver-ai-solutions.com/dheiver-photo.jpg",
   url: "https://dheiver-ai-solutions.com",
   type: "website"
 };
@@ -56,7 +56,7 @@ export const generateStructuredData = (config: SEOConfig) => {
     "name": config.title,
     "description": config.description,
     "url": config.url,
-    "logo": "https://dheiver-ai-solutions.com/logo.png",
+    "logo": "https://dheiver-ai-solutions.com/logo.svg",
     "image": config.image,
     "founder": {
       "@type": "Person",
@@ -84,6 +84,157 @@ export const generateStructuredData = (config: SEOConfig) => {
       "contactType": "customer service",
       "availableLanguage": "Portuguese"
     }
+  };
+};
+
+export const getLocalBusinessSchema = () => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Dr. Dheiver Santos - Consultoria IA",
+    "description": "Consultoria especializada em soluções de Inteligência Artificial avançada e projetos de alta complexidade",
+    "url": "https://dheiver-ai-solutions.com",
+    "telephone": "+55-51-99999-9999",
+    "email": "contato@dheiver-ai-solutions.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Porto Alegre",
+      "addressRegion": "RS",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -30.0346,
+      "longitude": -51.2177
+    },
+    "openingHours": [
+      "Mo-Fr 09:00-18:00"
+    ],
+    "priceRange": "$$-$$$",
+    "image": "https://dheiver-ai-solutions.com/dheiver-photo.jpg",
+    "logo": "https://dheiver-ai-solutions.com/logo.svg",
+    "sameAs": [
+      "https://linkedin.com/in/dheiver-santos",
+      "https://github.com/dheiver2"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Serviços de Consultoria IA",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Consultoria em Machine Learning",
+            "description": "Desenvolvimento de soluções personalizadas em ML"
+          }
+        },
+        {
+          "@type": "Offer", 
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Visão Computacional",
+            "description": "Implementação de sistemas de computer vision"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service", 
+            "name": "Processamento de Linguagem Natural",
+            "description": "Soluções em NLP e chatbots inteligentes"
+          }
+        }
+      ]
+    }
+  };
+};
+
+export const getFAQSchema = () => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "O que é consultoria em Inteligência Artificial?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A consultoria em IA envolve análise, desenvolvimento e implementação de soluções baseadas em inteligência artificial para resolver problemas complexos de negócio, incluindo machine learning, deep learning, visão computacional e processamento de linguagem natural."
+        }
+      },
+      {
+        "@type": "Question", 
+        "name": "Quais são os principais serviços oferecidos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oferecemos consultoria estratégica em IA, desenvolvimento de modelos de machine learning, implementação de sistemas de visão computacional, criação de chatbots e assistentes virtuais, automação inteligente de processos e análise preditiva de dados."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como funciona o processo de consultoria?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O processo inicia com uma consulta gratuita para entender suas necessidades, seguido de análise técnica detalhada, proposta customizada, desenvolvimento da solução e acompanhamento pós-implementação para garantir os melhores resultados."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qual o tempo médio para implementar uma solução de IA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O tempo varia conforme a complexidade do projeto, podendo ir de 2-4 semanas para soluções simples até 3-6 meses para projetos complexos de machine learning ou visão computacional."
+        }
+      }
+    ]
+  };
+};
+
+export const getBreadcrumbSchema = (items: Array<{name: string, url: string}>) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.name,
+      "item": item.url
+    }))
+  };
+};
+
+export const getPersonSchema = () => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dr. Dheiver Santos",
+    "jobTitle": "Especialista em Inteligência Artificial",
+    "description": "Doutor e especialista em IA com mais de 10 anos de experiência em projetos complexos de Machine Learning, Visão Computacional e Processamento de Linguagem Natural",
+    "url": "https://dheiver-ai-solutions.com/about",
+    "image": "https://dheiver-ai-solutions.com/dheiver-photo.jpg",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Dr. Dheiver Santos - Consultoria IA"
+    },
+    "alumniOf": {
+      "@type": "Organization",
+      "name": "Universidade Federal do Rio Grande do Sul"
+    },
+    "knowsAbout": [
+      "Inteligência Artificial",
+      "Machine Learning", 
+      "Deep Learning",
+      "Visão Computacional",
+      "Processamento de Linguagem Natural",
+      "Automação Inteligente",
+      "Neural Networks",
+      "Data Science"
+    ],
+    "sameAs": [
+      "https://linkedin.com/in/dheiver-santos",
+      "https://github.com/dheiver2"
+    ]
   };
 };
 

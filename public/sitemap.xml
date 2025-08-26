@@ -2,12 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     
     <url>
         <loc>https://dheiver-ai-solutions.com/</loc>
-        <lastmod>2024-12-19</lastmod>
+        <lastmod>2024-12-20</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
         <image:image>
@@ -15,41 +16,80 @@
             <image:title>Dr. Dheiver Santos - Consultoria em IA</image:title>
             <image:caption>Especialista em Inteligência Artificial e Machine Learning</image:caption>
         </image:image>
+        <image:image>
+            <image:loc>https://dheiver-ai-solutions.com/dheiver-photo.jpg</image:loc>
+            <image:title>Dr. Dheiver Santos - Foto Profissional</image:title>
+            <image:caption>Doutor especialista em Inteligência Artificial</image:caption>
+        </image:image>
     </url>
     
     <url>
         <loc>https://dheiver-ai-solutions.com/about</loc>
-        <lastmod>2024-12-19</lastmod>
+        <lastmod>2024-12-20</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://dheiver-ai-solutions.com/dheiver-photo.jpg</image:loc>
+            <image:title>Sobre Dr. Dheiver Santos</image:title>
+            <image:caption>Especialista em IA com mais de 10 anos de experiência</image:caption>
+        </image:image>
     </url>
     
     <url>
         <loc>https://dheiver-ai-solutions.com/services</loc>
-        <lastmod>2024-12-19</lastmod>
+        <lastmod>2024-12-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
         <loc>https://dheiver-ai-solutions.com/projects</loc>
-        <lastmod>2024-12-19</lastmod>
+        <lastmod>2024-12-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://dheiver-ai-solutions.com/insights</loc>
-        <lastmod>2024-12-19</lastmod>
+        <lastmod>2024-12-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
         <loc>https://dheiver-ai-solutions.com/contact</loc>
-        <lastmod>2024-12-19</lastmod>
+        <lastmod>2024-12-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+    </url>
+    
+    <!-- Páginas específicas de serviços para melhor indexação -->
+    <url>
+        <loc>https://dheiver-ai-solutions.com/services/machine-learning</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://dheiver-ai-solutions.com/services/computer-vision</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://dheiver-ai-solutions.com/services/nlp</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://dheiver-ai-solutions.com/services/automation</loc>
+        <lastmod>2024-12-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     
 </urlset>
