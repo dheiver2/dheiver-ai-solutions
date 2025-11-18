@@ -2,6 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import PricingSection from '@/components/PricingSection';
+import ResultsShowcase from '@/components/ResultsShowcase';
+import VideoShowcase from '@/components/VideoShowcase';
+import BookingWidget from '@/components/BookingWidget';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { 
@@ -420,6 +424,12 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* New Sections */}
+      <ResultsShowcase />
+      <VideoShowcase />
+      <BookingWidget />
+      <PricingSection />
 
       <Footer />
     </div>
