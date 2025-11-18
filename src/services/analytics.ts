@@ -8,9 +8,9 @@ import { logger } from '@/services/logger';
 
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void;
-    fbq?: (...args: any[]) => void;
-    dataLayer?: any[];
+    gtag: ((...args: any[]) => void) | undefined;
+    fbq: ((...args: any[]) => void) | undefined;
+    dataLayer: any[] | undefined;
   }
 }
 

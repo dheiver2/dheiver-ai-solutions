@@ -1,34 +1,67 @@
-# Dr. Dheiver Santos - Consultoria Avançada em Inteligência Artificial
+# Dr. Dheiver Santos - Consultoria em Inteligência Artificial
 
-## Sobre o Projeto
+[![CI/CD](https://github.com/dheiver2/dheiver-ai-solutions/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/dheiver2/dheiver-ai-solutions/actions)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-18.3-61dafb)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.4-646cff)](https://vitejs.dev/)
 
-Site profissional para consultoria especializada em soluções de Inteligência Artificial avançada e projetos de alta complexidade. Desenvolvido com foco em performance, SEO e conversão para Google Ads.
+## 🚀 Plataforma Enterprise de Consultoria em IA
 
-## Características Principais
+Plataforma profissional madura com infraestrutura completa de nível enterprise para consultoria em soluções de Inteligência Artificial de alta complexidade.
 
-- **Design Responsivo**: Interface otimizada para todos os dispositivos
-- **SEO Avançado**: Implementação completa de meta tags, schema markup e otimizações técnicas
-- **Performance**: Carregamento rápido e otimizado para Core Web Vitals
-- **Acessibilidade**: Seguindo as diretrizes WCAG 2.1
-- **Google Ads Ready**: Estrutura otimizada para campanhas de marketing digital
+## ✨ Features Enterprise
 
-## Tecnologias Utilizadas
+### ⚡ Performance & Otimização
+- **Code Splitting**: Lazy loading de rotas e componentes
+- **Bundle Optimization**: Chunks otimizados manualmente
+- **Web Vitals**: Monitoramento de Core Web Vitals (LCP, FID, CLS)
+- **React Query**: Cache inteligente e gerenciamento de estado
 
-- **Frontend**: React 18 com TypeScript
-- **Estilização**: Tailwind CSS + shadcn/ui
-- **Roteamento**: React Router DOM
-- **Build Tool**: Vite
-- **Gerenciamento de Estado**: React Query
-- **Fontes**: Inter + Playfair Display
+### 🛡️ Segurança & Confiabilidade
+- **Error Boundary**: Captura global de erros React
+- **Rate Limiting**: Proteção contra spam e abuso
+- **Input Validation**: Validação rigorosa com Zod
+- **Sentry Integration**: Error tracking em produção
+- **Security Policy**: LGPD compliant
 
-## Instalação e Configuração
+### 📊 Monitoramento & Analytics
+- **Google Analytics 4**: Tracking completo de eventos
+- **Facebook Pixel**: Integração para campanhas
+- **Performance Monitoring**: Web Vitals e métricas customizadas
+- **Structured Logging**: Sistema centralizado de logs
+- **Error Tracking**: Sentry com session replay
+
+### 🧪 Qualidade de Código
+- **TypeScript Strict**: Type safety completo
+- **Vitest**: Testing framework moderno
+- **ESLint**: Padronização de código
+- **CI/CD**: GitHub Actions automatizado
+- **Code Coverage**: ≥ 70% de cobertura
+
+## 📦 Tech Stack Completo
+
+```
+Frontend:       React 18.3 + TypeScript 5.5
+Build Tool:     Vite 5.4
+UI Library:     Radix UI + Tailwind CSS
+Routing:        React Router DOM v6
+State:          React Query (TanStack Query)
+Forms:          React Hook Form + Zod
+Animation:      Framer Motion
+Analytics:      Google Analytics 4 + Facebook Pixel
+Monitoring:     Sentry + Web Vitals
+Testing:        Vitest + Testing Library
+CI/CD:          GitHub Actions
+```
+
+## 🛠️ Instalação & Setup
 
 ### Pré-requisitos
-
-- Node.js versão 18 ou superior
-- npm ou yarn
-
-### Passos para instalação
+```bash
+Node.js >= 18.x
+npm >= 9.x
+Git
+```
 
 ```bash
 # Clone o repositório
@@ -48,98 +81,79 @@ npm run dev
 
 ```bash
 # Desenvolvimento
-npm run dev
+npm run dev              # Inicia servidor de desenvolvimento
 
-# Build para produção
-npm run build
+# Build
+npm run build            # Build de produção otimizado
+npm run build:dev        # Build de desenvolvimento
 
-# Build para desenvolvimento
-npm run build:dev
+# Qualidade de Código
+npm run lint             # Executa linting
+npm run type-check       # Verifica tipos TypeScript
 
-# Lint do código
-npm run lint
+# Testes
+npm run test             # Executa testes (watch mode)
+npm run test:ui          # Interface UI para testes
+npm run test:coverage    # Gera relatório de cobertura
 
 # Preview da build
-npm run preview
+npm run preview          # Preview da build de produção
 ```
 
-## Estrutura do Projeto
+## 📊 Monitoramento & Analytics
 
-```
-src/
-├── components/          # Componentes reutilizáveis
-│   ├── ui/             # Componentes da biblioteca shadcn/ui
-│   ├── AboutSection.tsx
-│   ├── ContactSection.tsx
-│   ├── Footer.tsx
-│   ├── HeroSection.tsx
-│   ├── Navigation.tsx
-│   └── ...
-├── pages/              # Páginas da aplicação
-│   ├── About.tsx
-│   ├── Contact.tsx
-│   ├── Home.tsx
-│   ├── Services.tsx
-│   └── ...
-├── hooks/              # Custom hooks
-├── lib/                # Utilitários
-└── styles/             # Estilos globais
-```
-
-## Otimizações Implementadas
-
-### SEO
-- Meta tags completas e dinâmicas
-- Schema markup para rich snippets
-- Sitemap XML automatizado
-- Open Graph e Twitter Cards
-- Canonical URLs
-- Otimização de imagens
-
-### Performance
-- Lazy loading de componentes
-- Compressão de imagens
-- Minificação de CSS/JS
-- Cache otimizado
-- Critical CSS inline
-
-### Acessibilidade
-- Navegação por teclado
-- Screen reader friendly
-- Contraste adequado
-- Alt text em imagens
-- Landmarks semânticos
-
-## Configuração para Produção
-
-### Variáveis de Ambiente
-
-Crie um arquivo `.env` na raiz do projeto:
-
+### Configurar Sentry
 ```env
-VITE_SITE_URL=https://seudominio.com
-VITE_CONTACT_EMAIL=contato@seudominio.com
-VITE_GOOGLE_ANALYTICS_ID=GA_TRACKING_ID
+VITE_SENTRY_DSN=your_sentry_dsn
+SENTRY_ORG=your_org
+SENTRY_PROJECT=your_project
+SENTRY_AUTH_TOKEN=your_token
 ```
 
-### Deploy
+### Configurar Analytics
+```env
+VITE_GOOGLE_ANALYTICS_ID=GA_TRACKING_ID
+VITE_FACEBOOK_PIXEL_ID=PIXEL_ID
+```
 
-O projeto está configurado para deploy em:
-- Vercel
-- Netlify
-- GitHub Pages
-- Qualquer servidor estático
+## 🚀 Deploy & CI/CD
 
-## Suporte e Manutenção
+### Deploy Automático
+- **Production**: Push para `main` → Deploy automático
+- **Staging**: Push para `develop` → Deploy automático
 
-Para suporte técnico ou dúvidas sobre o projeto:
-- Email: suporte@dheiver.com
-- Documentação: Consulte os comentários no código
+### Plataformas Suportadas
+- ✅ Vercel (Recomendado)
+- ✅ Netlify
+- ✅ GitHub Pages
 
-## Licença
+## 📁 Arquitetura
 
-Este projeto é proprietário e confidencial. Todos os direitos reservados.
+Veja [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) para documentação completa da arquitetura.
+
+## 🤝 Contribuindo
+
+Veja [CONTRIBUTING.md](./CONTRIBUTING.md) para diretrizes de contribuição.
+
+## 🔒 Segurança
+
+Veja [SECURITY.md](./SECURITY.md) para política de segurança.
+
+## 📝 Changelog
+
+Veja [CHANGELOG.md](./CHANGELOG.md) para histórico de versões.
+
+## 📄 Licença
+
+Projeto proprietário e confidencial. Todos os direitos reservados.
+
+## 👨‍💻 Contato
+
+**Dr. Dheiver Santos**
+- Website: dheiver.com
+- Email: contato@dheiver.com
+- LinkedIn: linkedin.com/in/dheiver
 
 ---
 
-**Desenvolvido com foco em excelência técnica e resultados de negócio**
+**Desenvolvido com ❤️ e tecnologias enterprise**

@@ -51,20 +51,12 @@ export const reportWebVitals = () => {
   if (typeof window === 'undefined') return;
 
   // Use the web-vitals library for accurate measurements
-  import('web-vitals').then(({ onCLS, onFID, onFCP, onLCP, onTTFB, onINP }) => {
+  import('web-vitals').then(({ onCLS, onFCP, onLCP, onTTFB, onINP }) => {
     onCLS((metric) => {
       reportMetric({
         name: 'CLS',
         value: metric.value,
         rating: getRating('CLS', metric.value),
-      });
-    });
-
-    onFID((metric) => {
-      reportMetric({
-        name: 'FID',
-        value: metric.value,
-        rating: getRating('FID', metric.value),
       });
     });
 

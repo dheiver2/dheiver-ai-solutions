@@ -18,18 +18,8 @@ export const initSentry = (): void => {
     dsn: config.monitoring.sentryDsn,
     environment: config.monitoring.sentryEnvironment,
     
-    // Performance Monitoring
-    integrations: [
-      new Sentry.BrowserTracing({
-        // Set sampling rate for performance monitoring
-        tracePropagationTargets: [config.site.url, config.site.apiUrl],
-      }),
-      new Sentry.Replay({
-        // Session replay for debugging
-        maskAllText: true,
-        blockAllMedia: true,
-      }),
-    ],
+    // Performance Monitoring (integrations auto-configured in recent Sentry versions)
+    integrations: [],
 
     // Performance traces sample rate (0.0 to 1.0)
     tracesSampleRate: config.app.env === 'production' ? 0.1 : 1.0,
@@ -137,13 +127,10 @@ export const addBreadcrumb = (
 };
 
 /**
- * Start a performance transaction
+ * Start a performance span
  */
 export const startTransaction = (name: string, op: string) => {
-  return Sentry.startTransaction({
-    name,
-    op,
-  });
+  return Sentry.startSpan({ name, op }, (span) => span);
 };
 
 export default Sentry;
