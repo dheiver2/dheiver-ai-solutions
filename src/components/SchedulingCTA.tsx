@@ -35,10 +35,10 @@ const SchedulingCTA = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.65)]">
               Vamos Transformar Seu Negócio com IA
             </h2>
-            <p className="text-lg md:text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto drop-shadow-[0_1px_12px_rgba(0,0,0,0.5)]">
               Agendamos uma consulta estratégica de 45 minutos onde vamos:
             </p>
           </motion.div>
