@@ -19,12 +19,12 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: 'Início', path: '/' },
-    { name: 'Sobre', path: '/about' },
-    { name: 'Serviços', path: '/services' },
-    { name: 'Projetos', path: '/projects' },
-    { name: 'Insights', path: '/insights' },
-    { name: 'Contato', path: '/contact' },
+    { name: 'Início', path: '/', anchor: 'hero' },
+    { name: 'Problemas & Soluções', path: '/', anchor: 'problemas' },
+    { name: 'Cases', path: '/', anchor: 'cases' },
+    { name: 'Serviços', path: '/', anchor: 'servicos' },
+    { name: 'Investimento', path: '/', anchor: 'pricing' },
+    { name: 'FAQ', path: '/', anchor: 'faq' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -60,8 +60,8 @@ const Navigation = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-            <Link 
-                  to={item.path}
+            <a 
+                  href={item.anchor ? `#${item.anchor}` : item.path}
                   className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActive(item.path)
                       ? 'text-black bg-gray-100 shadow-sm'
@@ -80,7 +80,7 @@ const Navigation = () => {
                       transition={{ duration: 0.2 }}
                     />
                   )}
-            </Link>
+            </a>
               </motion.div>
             ))}
           </div>
@@ -91,12 +91,12 @@ const Navigation = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-            <Link 
-                to="/contact"
+            <a 
+                href="#agendamento"
                 className="bg-black hover:bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg border border-gray-500/20"
               >
-                Consulta Gratuita
-            </Link>
+                Consulta Grátis
+            </a>
             </motion.div>
           </div>
 
@@ -152,17 +152,13 @@ const Navigation = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                   >
-              <Link 
-                      to={item.path}
-                      className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
-                        isActive(item.path)
-                          ? 'text-black bg-gray-100 border-l-4 border-gray-500'
-                          : 'text-gray-700 hover:text-black hover:bg-gray-50'
-                      }`}
+              <a 
+                      href={item.anchor ? `#${item.anchor}` : item.path}
+                      className="block px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 text-gray-700 hover:text-black hover:bg-gray-50"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.name}
-              </Link>
+              </a>
                   </motion.div>
                 ))}
                 
@@ -172,13 +168,13 @@ const Navigation = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
                 >
-              <Link 
-                    to="/contact"
+              <a 
+                    href="#agendamento"
                     className="block w-full text-center bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-lg text-base font-semibold transition-all duration-200 shadow-md"
                     onClick={() => setIsOpen(false)}
                   >
-                    Consulta Gratuita
-              </Link>
+                    Agendar Consulta
+              </a>
                 </motion.div>
               </div>
             </div>
