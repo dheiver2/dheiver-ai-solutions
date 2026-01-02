@@ -96,7 +96,7 @@ const VideoShowcase = () => {
             </span>
           </h2>
           
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-100 max-w-3xl mx-auto">
             Não acredite apenas nas palavras. Veja empresas reais alcançando resultados extraordinários com nossas soluções
           </p>
         </motion.div>
@@ -143,10 +143,10 @@ const VideoShowcase = () => {
                   <h3 className="text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
                     {video.title}
                   </h3>
-                  <p className="text-sm text-gray-400 mb-4">
+                  <p className="text-sm text-gray-200 mb-4">
                     {video.description}
                   </p>
-                  <div className="flex items-center justify-between text-xs text-gray-500">
+                  <div className="flex items-center justify-between text-xs text-gray-300">
                     <span>{video.views} visualizações</span>
                     <span className="flex items-center gap-1 text-amber-400 font-semibold">
                       Assistir <ArrowRight className="w-3 h-3" />
@@ -172,7 +172,7 @@ const VideoShowcase = () => {
                 <benefit.icon className="w-8 h-8 text-black" />
               </div>
               <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
-              <p className="text-gray-400">{benefit.description}</p>
+              <p className="text-gray-100">{benefit.description}</p>
             </div>
           ))}
         </motion.div>
@@ -188,7 +188,7 @@ const VideoShowcase = () => {
           <Button size="lg" className="bg-amber-400 hover:bg-amber-500 text-black font-bold px-10 py-6 text-lg">
             Agende Sua Demonstração Gratuita
           </Button>
-          <p className="text-sm text-gray-400 mt-4">
+          <p className="text-sm text-gray-200 mt-4">
             30 minutos de consulta • Análise personalizada • Sem compromisso
           </p>
         </motion.div>

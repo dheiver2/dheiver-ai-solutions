@@ -27,85 +27,95 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative overflow-hidden min-h-screen flex items-center pt-20 bg-gradient-to-br from-gray-50 via-white to-gray-100">
-      {/* Background Blur Elements */}
+    <section className="relative overflow-hidden min-h-screen flex items-center pt-20 bg-gradient-to-br from-gray-900 via-black to-gray-950">
+      {/* Premium Background - Golden Gradient */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-20"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20"></div>
+        <div className="absolute -top-32 -right-32 w-96 h-96 bg-yellow-500/20 rounded-full mix-blend-screen filter blur-3xl opacity-60"></div>
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-yellow-400/10 rounded-full mix-blend-screen filter blur-3xl opacity-40"></div>
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-yellow-600/5 rounded-full mix-blend-multiply filter blur-3xl opacity-20" style={{ transform: 'translate(-50%, -50%)' }}></div>
       </div>
+
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(255,255,255,.05) 25%, rgba(255,255,255,.05) 26%, transparent 27%, transparent 74%, rgba(255,255,255,.05) 75%, rgba(255,255,255,.05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255,255,255,.05) 25%, rgba(255,255,255,.05) 26%, transparent 27%, transparent 74%, rgba(255,255,255,.05) 75%, rgba(255,255,255,.05) 76%, transparent 77%, transparent)',
+        backgroundSize: '50px 50px'
+      }}></div>
 
       <div className="container-width section-padding relative z-10 w-full">
         <motion.div
-          className="max-w-4xl mx-auto text-center"
+          className="max-w-5xl mx-auto text-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Badge */}
+          {/* Premium Badge with Glow */}
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-yellow-100 text-yellow-900 rounded-full text-xs md:text-sm font-semibold mb-8 shadow-sm"
+            className="inline-flex items-center gap-2 px-5 py-3 md:px-7 md:py-4 bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 border border-yellow-500/50 text-yellow-300 rounded-full text-xs md:text-sm font-semibold mb-8 shadow-lg shadow-yellow-500/20 backdrop-blur-sm hover:shadow-yellow-500/40 transition-all duration-300"
           >
-            <Sparkles className="w-3.5 h-3.5" />
-            Consultoria IA para Crescimento
+            <Sparkles className="w-4 h-4 animate-pulse" />
+            ✨ Transformação de Negócios com IA
           </motion.div>
 
-          {/* Main Headline - Focado em Valor */}
+          {/* Main Headline - Ultra Bold */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight tracking-tight"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-[1.1] tracking-tighter"
           >
-            Transforme Dados em Crescimento Exponencial
+            Transforme Dados em
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600 mt-2">
+              Crescimento Exponencial
+            </span>
           </motion.h1>
 
-          {/* Subheadline - Value Proposition */}
+          {/* Subheadline - Compelling */}
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-2xl text-gray-100 mb-10 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            IA estratégica para empresas que querem automatizar processos, 
-            aumentar conversão e tomar decisões baseadas em inteligência real. 
-            Não templates prontos—soluções customizadas que geram ROI mensurável.
+            Soluções de IA estratégicas customizadas que geram
+            <span className="block text-yellow-400 font-semibold">ROI mensurável em 90 dias.</span>
           </motion.p>
 
-          {/* CTA Buttons - Conversion Focused */}
+          {/* CTA Buttons - Premium Design */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-20"
           >
             <a
               href="#agendamento"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black px-8 py-4 rounded-lg font-semibold text-base transition-all duration-200 shadow-lg hover:shadow-xl group"
+              className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 shadow-lg shadow-yellow-500/50 hover:shadow-yellow-500/80 hover:scale-105 active:scale-95"
             >
-              Agendar Consulta Grátis
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <span>Agendar Consulta Grátis</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </a>
             <a
-              href="#problemas"
-              className="inline-flex items-center gap-2 border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-8 py-4 rounded-lg font-semibold text-base transition-all duration-200"
+              href="#cases"
+              className="group relative inline-flex items-center gap-3 border-2 border-yellow-500 text-yellow-400 hover:bg-yellow-500/10 px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 backdrop-blur-sm hover:border-yellow-400"
             >
-              Ver Casos de Sucesso
+              <span>Ver Resultados</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </a>
           </motion.div>
 
-          {/* Proof Elements */}
+          {/* Trust Metrics - Premium Cards */}
           <motion.div
             variants={itemVariants}
-            className="bg-white/50 backdrop-blur-sm border border-gray-200 rounded-2xl p-8 max-w-2xl mx-auto"
+            className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 max-w-2xl mx-auto shadow-2xl"
           >
-            <p className="text-sm text-gray-600 mb-4">Confiam em Nossas Soluções</p>
-            <div className="grid grid-cols-3 gap-8 text-center">
-              <div>
-                <p className="text-2xl md:text-3xl font-bold text-yellow-600">50+</p>
-                <p className="text-xs md:text-sm text-gray-700 mt-1">Projetos Entregues</p>
+            <p className="text-sm font-semibold text-yellow-400 mb-6 uppercase tracking-widest">Confiam em Nossas Soluções</p>
+            <div className="grid grid-cols-3 gap-6 text-center">
+              <div className="group hover:scale-110 transition-transform duration-300">
+                <p className="text-3xl md:text-4xl font-black text-yellow-400 group-hover:text-yellow-300">50+</p>
+                <p className="text-xs md:text-sm text-gray-400 mt-2 group-hover:text-gray-300 transition-colors">Projetos Entregues</p>
               </div>
-              <div>
-                <p className="text-2xl md:text-3xl font-bold text-yellow-600">3.2x</p>
-                <p className="text-xs md:text-sm text-gray-700 mt-1">ROI Médio</p>
+              <div className="group hover:scale-110 transition-transform duration-300 border-l border-r border-white/10">
+                <p className="text-3xl md:text-4xl font-black text-yellow-400 group-hover:text-yellow-300">3.2x</p>
+                <p className="text-xs md:text-sm text-gray-400 mt-2 group-hover:text-gray-300 transition-colors">ROI Médio</p>
               </div>
-              <div>
-                <p className="text-2xl md:text-3xl font-bold text-yellow-600">98%</p>
-                <p className="text-xs md:text-sm text-gray-700 mt-1">Satisfação</p>
+              <div className="group hover:scale-110 transition-transform duration-300">
+                <p className="text-3xl md:text-4xl font-black text-yellow-400 group-hover:text-yellow-300">98%</p>
+                <p className="text-xs md:text-sm text-gray-400 mt-2 group-hover:text-gray-300 transition-colors">Satisfação</p>
               </div>
             </div>
           </motion.div>
@@ -114,12 +124,15 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:block"
-        animate={{ y: [0, 10, 0] }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        animate={{ y: [0, 12, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-gray-600 rounded-full mt-2"></div>
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-xs text-gray-400 font-semibold">SCROLL</span>
+          <svg className="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
         </div>
       </motion.div>
     </section>

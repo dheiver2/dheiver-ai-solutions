@@ -195,10 +195,10 @@ const PricingSection = () => {
                       : 'bg-black hover:bg-gray-800 text-white'
                   } font-semibold py-6 text-lg group`}
                 >
-                  <Link to="/contact" className="flex items-center justify-center gap-2">
+                  <a href="#agendamento" className="flex items-center justify-center gap-2">
                     <span>{plan.cta}</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  </a>
                 </Button>
               </div>
             </motion.div>
@@ -239,9 +239,9 @@ const PricingSection = () => {
             Agende uma consulta gratuita de 30 minutos e vamos encontrar a solução perfeita
           </p>
           <Button asChild size="lg" className="bg-amber-400 hover:bg-amber-500 text-black font-bold px-8 py-6 text-lg">
-            <Link to="/contact">
+            <a href="#agendamento">
               Agendar Consulta Gratuita
-            </Link>
+            </a>
           </Button>
         </motion.div>
       </div>

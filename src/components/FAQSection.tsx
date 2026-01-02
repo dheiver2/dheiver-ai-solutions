@@ -92,7 +92,7 @@ export default function FAQSection() {
             Ainda tem dúvidas? Entre em contato para uma consulta gratuita!
           </p>
           <a 
-            href="/contact" 
+            href="#agendamento" 
             className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8 font-medium transition-colors"
           >
             Agendar Consulta Gratuita

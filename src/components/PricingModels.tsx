@@ -108,9 +108,9 @@ const PricingModels = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className={`rounded-xl p-8 border transition-all duration-300 ${
+              className={`relative rounded-xl p-8 border transition-all duration-300 flex flex-col h-full ${
                 plan.popular
-                  ? 'bg-gradient-to-br from-yellow-500 to-yellow-600 text-black border-yellow-600 shadow-xl transform lg:scale-105'
+                  ? 'bg-gradient-to-br from-yellow-500 to-yellow-600 text-black border-yellow-600 shadow-xl lg:scale-105 z-10'
                   : 'bg-white border-gray-200 hover:shadow-lg'
               }`}
             >
@@ -179,7 +179,7 @@ const PricingModels = () => {
               {/* CTA */}
               <a
                 href="#agendamento"
-                className={`w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-semibold transition-all ${
+                className={`mt-auto w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-semibold transition-all ${
                   plan.popular
                     ? 'bg-white text-yellow-600 hover:bg-gray-100'
                     : 'bg-gray-100 text-gray-900 hover:bg-gray-200'

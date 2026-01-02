@@ -1,307 +1,140 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Calendar, Phone, Mail, CheckCircle2 } from 'lucide-react';
-
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  company: string;
-  industry: string;
-  challenge: string;
-  budget: string;
-  timeline: string;
-}
+import { MessageCircle, Phone, Mail, CheckCircle2, Clock, Users, Zap } from 'lucide-react';
 
 const SchedulingCTA = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    industry: '',
-    challenge: '',
-    budget: '',
-    timeline: '',
-  });
+  const whatsappNumber = '5551989889898';
+  const whatsappMessage = encodeURIComponent(
+    'Olá! 👋 Gostaria de agendar uma consulta estratégica de 45 minutos sobre IA para meu negócio.\n\nPode ser?'
+  );
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const consultationBenefits = [
+    'Entender seus principais desafios e objetivos',
+    'Identificar oportunidades de IA específicas para seu negócio',
+    'Mostrar cases similares ao seu cenário',
+    'Apresentar um roadmap personalizado',
+    'Discutir investimento e timeline realistas',
+  ];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-
-    // Simular envio (integrar com seu backend/email service)
-    try {
-      // Aqui você integraria com Formspree, SendGrid, ou outro serviço
-      console.log('Form data:', formData);
-      
-      // Simular delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      setSubmitted(true);
-      setFormData({
-        name: '', email: '', phone: '', company: '', industry: '',
-        challenge: '', budget: '', timeline: '',
-      });
-
-      // Redirecionar ou mostrar sucesso
-      setTimeout(() => {
-        setSubmitted(false);
-      }, 5000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const consultationDetails = [
+    { icon: Clock, label: '45 minutos', value: 'Consulta Estratégica' },
+    { icon: Users, label: 'Especialista', value: 'IA Expert' },
+    { icon: Zap, label: 'Sem Custo', value: 'Totalmente Gratuito' },
+  ];
 
   return (
-    <section id="agendamento" className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+    <section id="agendamento" className="py-20 md:py-28 bg-gradient-to-br from-black via-gray-900 to-black text-white">
       <div className="container-width section-padding">
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          {/* Left: Content */}
+        <div className="max-w-4xl mx-auto">
+          {/* Main Heading */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Vamos Transformar Seu Negócio com IA
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-lg md:text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
               Agendamos uma consulta estratégica de 45 minutos onde vamos:
             </p>
-
-            <div className="space-y-4 mb-8">
-              {[
-                'Entender seus principais desafios e objetivos',
-                'Identificar oportunidades de IA específicas para seu negócio',
-                'Mostrar cases similares ao seu cenário',
-                'Apresentar um roadmap personalizado',
-                'Discutir investimento e timeline realistas',
-              ].map((item, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle2 className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
-                  <p className="text-gray-700">{item}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Quick Facts */}
-            <div className="grid grid-cols-2 gap-4 pt-8 border-t border-gray-200">
-              <div>
-                <p className="text-2xl font-bold text-yellow-600">45 min</p>
-                <p className="text-sm text-gray-600">Consulta estratégica</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-yellow-600">Grátis</p>
-                <p className="text-sm text-gray-600">Sem compromisso</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-yellow-600">Expert</p>
-                <p className="text-sm text-gray-600">Especialista em IA</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-yellow-600">Personalizado</p>
-                <p className="text-sm text-gray-600">Para seu contexto</p>
-              </div>
-            </div>
           </motion.div>
 
-          {/* Right: Form */}
+          {/* Benefits List */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200"
+            className="space-y-3 mb-12 max-w-2xl mx-auto"
           >
-            {submitted ? (
+            {consultationBenefits.map((benefit, idx) => (
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="flex flex-col items-center justify-center py-12 text-center"
+                key={idx}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="flex items-start gap-4 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
               >
-                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
-                  <CheckCircle2 className="w-8 h-8 text-yellow-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  Agendamento Confirmado!
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Confirme o link do calendário enviado para seu email e aguarde nossa chamada.
-                </p>
+                <CheckCircle2 className="w-6 h-6 text-yellow-500 flex-shrink-0 mt-0.5" />
+                <span className="text-lg text-gray-100">{benefit}</span>
               </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">
-                    Nome Completo
-                  </label>
-                  <Input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Seu nome"
-                    required
-                    className="w-full"
-                  />
+            ))}
+          </motion.div>
+
+          {/* Consultation Details */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="grid md:grid-cols-3 gap-6 mb-12"
+          >
+            {consultationDetails.map((detail, idx) => {
+              const Icon = detail.icon;
+              return (
+                <div key={idx} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center hover:bg-white/15 transition-colors">
+                  <Icon className="w-10 h-10 text-yellow-500 mx-auto mb-3" />
+                  <p className="text-sm font-semibold text-gray-100 mb-1">{detail.label}</p>
+                  <p className="text-lg font-bold text-white">{detail.value}</p>
                 </div>
+              );
+            })}
+          </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">
-                      Email
-                    </label>
-                    <Input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="seu@email.com"
-                      required
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">
-                      Telefone
-                    </label>
-                    <Input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="(51) 98988-9898"
-                      className="w-full"
-                    />
-                  </div>
-                </div>
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap"
+          >
+            {/* Primary: WhatsApp */}
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl group"
+            >
+              <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              Conversar no WhatsApp
+            </a>
 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">
-                      Empresa
-                    </label>
-                    <Input
-                      type="text"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      placeholder="Sua empresa"
-                      required
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">
-                      Indústria
-                    </label>
-                    <select
-                      name="industry"
-                      value={formData.industry}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
-                      required
-                    >
-                      <option value="">Selecione...</option>
-                      <option value="fintech">Fintech</option>
-                      <option value="ecommerce">E-commerce</option>
-                      <option value="manufatura">Manufatura</option>
-                      <option value="saude">Saúde</option>
-                      <option value="educacao">Educação</option>
-                      <option value="logistica">Logística</option>
-                      <option value="outras">Outras</option>
-                    </select>
-                  </div>
-                </div>
+            {/* Secondary: Phone */}
+            <a
+              href="tel:+5551989889898"
+              className="inline-flex items-center gap-3 border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200"
+            >
+              <Phone className="w-5 h-5" />
+              Ligar Agora
+            </a>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">
-                    Qual é seu maior desafio com dados/processos?
-                  </label>
-                  <Textarea
-                    name="challenge"
-                    value={formData.challenge}
-                    onChange={handleChange}
-                    placeholder="Descreva brevemente o desafio que você está enfrentando..."
-                    required
-                    className="w-full"
-                    rows={3}
-                  />
-                </div>
+            {/* Tertiary: Email */}
+            <a
+              href="mailto:dheiver.santos@gmail.com?subject=Agendamento%20de%20Consulta%20IA&body=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20sobre%20IA."
+              className="inline-flex items-center gap-3 border-2 border-gray-500 text-gray-300 hover:bg-gray-500 hover:text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200"
+            >
+              <Mail className="w-5 h-5" />
+              Enviar Email
+            </a>
+          </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">
-                      Orçamento Estimado
-                    </label>
-                    <select
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
-                      required
-                    >
-                      <option value="">Selecione...</option>
-                      <option value="10-30">R$ 10k - 30k</option>
-                      <option value="30-60">R$ 30k - 60k</option>
-                      <option value="60-150">R$ 60k - 150k</option>
-                      <option value="150+">R$ 150k+</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">
-                      Timeline
-                    </label>
-                    <select
-                      name="timeline"
-                      value={formData.timeline}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
-                      required
-                    >
-                      <option value="">Selecione...</option>
-                      <option value="imediato">Imediato (próximas 2 semanas)</option>
-                      <option value="proximo-mes">Próximo mês</option>
-                      <option value="proximo-trimestre">Próximo trimestre</option>
-                      <option value="explorando">Apenas explorando</option>
-                    </select>
-                  </div>
-                </div>
-
-                <Button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black py-3 text-base font-semibold rounded-lg transition-all"
-                >
-                  {loading ? 'Agendando...' : 'Agendar Consulta Grátis'}
-                </Button>
-
-                <p className="text-xs text-gray-500 text-center">
-                  Prometemos: sem spam, sem vendas pesadas, apenas consultoria genuína.
-                </p>
-              </form>
-            )}
+          {/* Trust Message */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mt-12 text-center text-gray-400 text-sm"
+          >
+            <p>
+              ✓ Resposta em até 2 horas  |  ✓ Sem spam  |  ✓ 100% confidencial
+            </p>
           </motion.div>
         </div>
       </div>

@@ -13,7 +13,7 @@ const Footer = () => {
               <h3 className="text-xl md:text-2xl font-bold mb-4">
                 Dheiver Santos
               </h3>
-              <p className="text-gray-300 text-sm mb-6 leading-relaxed">
+              <p className="text-gray-100 text-sm mb-6 leading-relaxed">
                 Soluções de IA estratégica que transformam dados em crescimento exponencial.
               </p>
               <div className="flex gap-4">
@@ -54,7 +54,7 @@ const Footer = () => {
             {/* Quick Links */}
             <div>
               <h4 className="font-semibold text-lg mb-4">Links Rápidos</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
+              <ul className="space-y-2 text-gray-200 text-sm">
                 <li><a href="#hero" className="hover:text-white transition-colors">Início</a></li>
                 <li><a href="#problemas" className="hover:text-white transition-colors">Problemas & Soluções</a></li>
                 <li><a href="#cases" className="hover:text-white transition-colors">Cases</a></li>
@@ -66,7 +66,7 @@ const Footer = () => {
             {/* Contact */}
             <div>
               <h4 className="font-semibold text-lg mb-4">Contato</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
+              <ul className="space-y-2 text-gray-200 text-sm">
                 <li>
                   <a href="mailto:dheiver.santos@gmail.com" className="hover:text-white transition-colors">
                     dheiver.santos@gmail.com
@@ -86,14 +86,14 @@ const Footer = () => {
           {/* Divider */}
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-500 text-sm">
+              <p className="text-gray-300 text-sm">
                 © {currentYear} Dr. Dheiver Santos. Todos os direitos reservados.
               </p>
               <div className="flex gap-6 text-sm">
-                <a href="/" className="text-gray-500 hover:text-white transition-colors">
+                <a href="/" className="text-gray-300 hover:text-white transition-colors">
                   Política de Privacidade
                 </a>
-                <a href="/" className="text-gray-500 hover:text-white transition-colors">
+                <a href="/" className="text-gray-300 hover:text-white transition-colors">
                   Termos de Uso
                 </a>
               </div>

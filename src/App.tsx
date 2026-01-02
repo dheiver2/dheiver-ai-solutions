@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -34,6 +34,33 @@ const queryClient = new QueryClient({
   },
 });
 
+// Componente que monitora hash e faz scroll automático
+const ScrollToHash = () => {
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        // Aguarda um pouco para garantir que o DOM foi renderizado
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
+    };
+
+    // Executar na primeira carga
+    handleHashChange();
+
+    // Listener para mudanças de hash
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  return null;
+};
+
 const App = () => {
   return (
     <ErrorBoundary>
@@ -43,10 +70,10 @@ const App = () => {
             <Toaster />
             <Sonner />
             <HashRouter>
+              <ScrollToHash />
               <Suspense fallback={<PageLoader />}>
                 <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="*" element={<NotFound />} />
+                  <Route path="/*" element={<Index />} />
                 </Routes>
               </Suspense>
             </HashRouter>
