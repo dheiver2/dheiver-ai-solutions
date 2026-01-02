@@ -4,29 +4,39 @@
 
 @layer base {
   :root {
-    /* Professional Grayscale Palette */
+    /* Gold, Black & White Palette */
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 44 100% 50%;
+    --primary-foreground: 0 0% 3.9%;
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --accent: 44 100% 50%;
+    --accent-foreground: 0 0% 3.9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
+    --ring: 44 100% 50%;
     --radius: 0.75rem;
     
-    /* Professional Extensions */
+    /* Gold Tones */
+    --gold-50: 44 100% 97%;
+    --gold-100: 44 100% 94%;
+    --gold-300: 44 100% 70%;
+    --gold-400: 44 100% 60%;
+    --gold-500: 44 100% 50%;
+    --gold-600: 44 100% 40%;
+    --gold-700: 44 100% 30%;
+    
+    /* Grayscale - Black & White */
+    --white: 0 0% 100%;
     --gray-50: 0 0% 98%;
     --gray-100: 0 0% 96%;
     --gray-200: 0 0% 89%;
@@ -37,9 +47,9 @@
     --gray-700: 0 0% 25%;
     --gray-800: 0 0% 15%;
     --gray-900: 0 0% 9%;
-    --gray-950: 0 0% 4%;
+    --black: 0 0% 0%;
     
-    /* Shadows and Elevations */
+    /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);

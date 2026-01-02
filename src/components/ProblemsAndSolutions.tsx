@@ -100,9 +100,9 @@ const ProblemsAndSolutions = () => {
 
                 <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded">
                   <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
                     <p className="text-sm text-gray-700">
-                      <span className="font-semibold text-green-600">Solução:</span> {item.solution}
+                      <span className="font-semibold text-yellow-700">Solução:</span> {item.solution}
                     </p>
                   </div>
                 </div>

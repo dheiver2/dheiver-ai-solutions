@@ -110,14 +110,14 @@ const PricingModels = () => {
               viewport={{ once: true }}
               className={`rounded-xl p-8 border transition-all duration-300 ${
                 plan.popular
-                  ? 'bg-gradient-to-br from-blue-600 to-blue-700 text-white border-blue-600 shadow-xl transform lg:scale-105'
+                  ? 'bg-gradient-to-br from-yellow-500 to-yellow-600 text-black border-yellow-600 shadow-xl transform lg:scale-105'
                   : 'bg-white border-gray-200 hover:shadow-lg'
               }`}
             >
               {/* Popular Badge */}
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-yellow-400 text-blue-700 px-4 py-1 rounded-full text-xs font-bold">
+                  <span className="bg-white text-yellow-600 px-4 py-1 rounded-full text-xs font-bold">
                     MAIS POPULAR
                   </span>
                 </div>
@@ -127,19 +127,19 @@ const PricingModels = () => {
               <div className="text-4xl mb-4">{plan.icon}</div>
 
               {/* Title */}
-              <h3 className={`text-2xl font-bold mb-1 ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
+              <h3 className={`text-2xl font-bold mb-1 ${plan.popular ? 'text-black' : 'text-gray-900'}`}>
                 {plan.name}
               </h3>
-              <p className={`text-sm mb-4 ${plan.popular ? 'text-blue-100' : 'text-gray-600'}`}>
+              <p className={`text-sm mb-4 ${plan.popular ? 'text-gray-800' : 'text-gray-600'}`}>
                 {plan.description}
               </p>
 
               {/* Investment */}
-              <div className={`mb-2 pb-4 border-b ${plan.popular ? 'border-blue-500' : 'border-gray-200'}`}>
+              <div className={`mb-2 pb-4 border-b ${plan.popular ? 'border-yellow-400' : 'border-gray-200'}`}>
                 <p className={`text-sm ${plan.popular ? 'text-blue-100' : 'text-gray-500'} mb-1`}>
                   Investimento
                 </p>
-                <p className={`text-2xl font-bold ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
+                <p className={`text-2xl font-bold ${plan.popular ? 'text-black' : 'text-gray-900'}`}>
                   {plan.investment}
                 </p>
               </div>
@@ -168,8 +168,8 @@ const PricingModels = () => {
               <ul className="space-y-2 mb-6">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm">
-                    <Check className={`w-4 h-4 flex-shrink-0 mt-0.5 ${plan.popular ? 'text-yellow-300' : 'text-green-600'}`} />
-                    <span className={plan.popular ? 'text-blue-50' : 'text-gray-700'}>
+                    <Check className={`w-4 h-4 flex-shrink-0 mt-0.5 ${plan.popular ? 'text-black' : 'text-yellow-600'}`} />
+                    <span className={plan.popular ? 'text-gray-800' : 'text-gray-700'}>
                       {feature}
                     </span>
                   </li>
@@ -181,7 +181,7 @@ const PricingModels = () => {
                 href="#agendamento"
                 className={`w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-semibold transition-all ${
                   plan.popular
-                    ? 'bg-white text-blue-600 hover:bg-blue-50'
+                    ? 'bg-white text-yellow-600 hover:bg-gray-100'
                     : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                 }`}
               >
@@ -194,19 +194,19 @@ const PricingModels = () => {
 
         {/* CTA */}
         <motion.div
-          className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-8 text-white text-center"
+          className="bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-xl p-8 text-black text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-bold mb-2">Dúvida sobre qual modelo escolher?</h3>
-          <p className="mb-4 text-blue-100">
+          <p className="mb-4 text-gray-800">
             Nossa primeira consulta é gratuita. Vamos entender sua situação e recomendar o melhor caminho.
           </p>
           <a
             href="#agendamento"
-            className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+            className="inline-flex items-center gap-2 bg-black text-yellow-500 px-8 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors"
           >
             Agendar Consulta Grátis
             <ArrowRight className="w-4 h-4" />

@@ -105,11 +105,11 @@ const CasesShowcase = () => {
                 <div className="space-y-3">
                   {caseStudy.results.map((result, i) => (
                     <div key={i} className="flex items-center gap-3">
-                      <div className="text-green-600">{result.icon}</div>
+                      <div className="text-yellow-600">{result.icon}</div>
                       <div className="flex-1">
                         <p className="text-sm text-gray-700">{result.metric}</p>
                       </div>
-                      <p className="font-bold text-lg text-green-600">{result.value}</p>
+                      <p className="font-bold text-lg text-yellow-600">{result.value}</p>
                     </div>
                   ))}
                 </div>
@@ -129,7 +129,7 @@ const CasesShowcase = () => {
           <p className="text-gray-700 mb-4">Quer ver seu negócio crescer assim também?</p>
           <a
             href="#agendamento"
-            className="inline-flex items-center gap-2 bg-black hover:bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200"
+            className="inline-flex items-center gap-2 bg-black hover:bg-gray-900 text-yellow-500 px-8 py-3 rounded-lg font-semibold transition-all duration-200"
           >
             Agendar Consulta Estratégica
           </a>

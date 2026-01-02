@@ -139,7 +139,7 @@ const ServicesGrid = () => {
               className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-8 border border-gray-200 hover:shadow-xl transition-all duration-300 group"
             >
               {/* Icon */}
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+              <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-yellow-600 mb-4 group-hover:bg-yellow-600 group-hover:text-white transition-colors">
                 {service.icon}
               </div>
 
@@ -167,7 +167,7 @@ const ServicesGrid = () => {
                   {service.useCases.map((useCase, i) => (
                     <span
                       key={i}
-                      className="text-xs bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full"
+                      className="text-xs bg-yellow-100 text-yellow-800 px-2.5 py-1 rounded-full"
                     >
                       {useCase}
                     </span>

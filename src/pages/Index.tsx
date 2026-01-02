@@ -4,6 +4,7 @@ import ProblemsAndSolutions from '@/components/ProblemsAndSolutions';
 import CasesShowcase from '@/components/CasesShowcase';
 import ServicesGrid from '@/components/ServicesGrid';
 import PricingModels from '@/components/PricingModels';
+import FAQSimple from '@/components/FAQSimple';
 import SchedulingCTA from '@/components/SchedulingCTA';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -28,6 +29,10 @@ const Index = () => {
 
       <section id="pricing">
         <PricingModels />
+      </section>
+
+      <section id="faq">
+        <FAQSimple />
       </section>
 
       <section id="agendamento">

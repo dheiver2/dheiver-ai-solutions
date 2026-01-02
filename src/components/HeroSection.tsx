@@ -44,7 +44,7 @@ const HeroSection = () => {
           {/* Badge */}
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-blue-100 text-blue-700 rounded-full text-xs md:text-sm font-semibold mb-8 shadow-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-yellow-100 text-yellow-900 rounded-full text-xs md:text-sm font-semibold mb-8 shadow-sm"
           >
             <Sparkles className="w-3.5 h-3.5" />
             Consultoria IA para Crescimento
@@ -75,7 +75,7 @@ const HeroSection = () => {
           >
             <a
               href="#agendamento"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-base transition-all duration-200 shadow-lg hover:shadow-xl group"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black px-8 py-4 rounded-lg font-semibold text-base transition-all duration-200 shadow-lg hover:shadow-xl group"
             >
               Agendar Consulta Grátis
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
