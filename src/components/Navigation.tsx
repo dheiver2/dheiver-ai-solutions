@@ -48,7 +48,7 @@ const Navigation = () => {
             transition={{ duration: 0.2 }}
           >
             <Link to="/" className="flex items-center">
-              <Logo className="h-12 w-auto" />
+              <Logo className={`h-12 w-auto ${isScrolled ? 'text-gray-900' : 'text-white drop-shadow'}`} />
           </Link>
           </motion.div>
 
