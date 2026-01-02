@@ -62,8 +62,18 @@ const CasesShowcase = () => {
         <div className="absolute top-0 left-1/4 w-80 h-80 bg-yellow-500/20 rounded-full mix-blend-screen filter blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-yellow-400/10 rounded-full mix-blend-screen filter blur-3xl"></div>
       </div>
+      <div
+        className="absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            'linear-gradient(to right, rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.6) 1px, transparent 1px)',
+          backgroundSize: '72px 72px',
+          maskImage: 'radial-gradient(70% 55% at 50% 25%, black 0%, transparent 70%)',
+        }}
+        aria-hidden="true"
+      />
 
-      <div className="container-width section-padding relative z-10">
+      <div className="container-width relative z-10">
         {/* Header */}
         <motion.div
           className="max-w-3xl mx-auto text-center mb-20"
@@ -96,11 +106,11 @@ const CasesShowcase = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
               viewport={{ once: true }}
-              className="group relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-2xl p-8 hover:border-yellow-500/50 transition-all duration-300 shadow-2xl hover:shadow-yellow-500/20"
+              className="ui-card-dark group p-8"
             >
               {/* ROI Badge */}
               <div className="absolute top-6 right-6">
-                <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-lg px-4 py-2">
+                <div className="ui-shine bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-lg px-4 py-2 shadow-lg shadow-yellow-500/25">
                   <p className="text-xs font-bold text-black uppercase tracking-widest">
                     <span className="text-lg">{caseStudy.roi}</span> ROI
                   </p>
@@ -149,7 +159,7 @@ const CasesShowcase = () => {
               {/* CTA */}
               <a
                 href="#agendamento"
-                className="mt-8 w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black px-6 py-3 rounded-lg font-bold text-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-yellow-500/50 group-hover:scale-105"
+                className="ui-shine mt-8 w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black px-6 py-3 rounded-lg font-bold text-sm transition-all duration-300 shadow-lg shadow-yellow-500/20 hover:shadow-yellow-500/35"
               >
                 Quero Resultados Similares
                 <TrendingUp className="w-4 h-4" />

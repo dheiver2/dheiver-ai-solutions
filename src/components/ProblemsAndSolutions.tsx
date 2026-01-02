@@ -46,8 +46,9 @@ const ProblemsAndSolutions = () => {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-white">
-      <div className="container-width section-padding">
+    <section className="ui-section-light py-20 md:py-28">
+      <div className="ui-grid-overlay" aria-hidden="true" />
+      <div className="container-width">
         <motion.div
           className="max-w-3xl mx-auto text-center mb-16"
           initial={{ opacity: 0, y: -20 }}
@@ -75,25 +76,25 @@ const ProblemsAndSolutions = () => {
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="group rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-xl transition-all duration-300"
+              className="ui-card group p-8"
             >
               <div className="flex items-start justify-between gap-6 mb-6">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">Ponto {String(idx + 1).padStart(2, '0')}</p>
                   <h3 className="text-2xl font-bold text-gray-900 mt-2">{item.title}</h3>
                 </div>
-                <div className="h-12 w-12 rounded-xl border border-gray-200 bg-gradient-to-br from-gray-50 to-white flex items-center justify-center text-gray-400 group-hover:text-yellow-600 group-hover:border-yellow-200 transition-colors">
+                <div className="h-12 w-12 rounded-xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 flex items-center justify-center text-gray-400 group-hover:text-yellow-600 group-hover:border-yellow-200 transition-colors">
                   <span className="text-sm font-bold">{String(idx + 1).padStart(2, '0')}</span>
                 </div>
               </div>
 
               <div className="space-y-5">
-                <div className="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                <div className="rounded-xl border border-gray-200 bg-white/60 p-5 backdrop-blur">
                   <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">Problema</p>
                   <p className="text-sm md:text-base text-gray-700 leading-relaxed">{item.problem}</p>
                 </div>
 
-                <div className="rounded-xl border border-yellow-200 bg-yellow-50/60 p-5">
+                <div className="rounded-xl border border-yellow-200 bg-gradient-to-br from-yellow-50/80 to-white/70 p-5 backdrop-blur">
                   <div className="flex items-start gap-3">
                     <div className="mt-0.5 h-8 w-8 rounded-lg bg-yellow-500/10 border border-yellow-300/40 flex items-center justify-center flex-shrink-0">
                       <CheckCircle2 className="w-4 h-4 text-yellow-700" />

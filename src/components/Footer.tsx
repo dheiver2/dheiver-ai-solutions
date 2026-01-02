@@ -5,7 +5,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-b from-gray-900 to-black text-white py-12 md:py-16">
-      <div className="container-width section-padding">
+      <div className="container-width">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             {/* Brand & Description */}

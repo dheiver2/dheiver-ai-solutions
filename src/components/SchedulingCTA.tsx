@@ -25,7 +25,7 @@ const SchedulingCTA = () => {
 
   return (
     <section id="agendamento" className="py-20 md:py-28 bg-gradient-to-br from-black via-gray-900 to-black text-white">
-      <div className="container-width section-padding">
+      <div className="container-width">
         <div className="max-w-4xl mx-auto">
           {/* Main Heading */}
           <motion.div

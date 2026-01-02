@@ -39,7 +39,7 @@ const FAQSection = () => {
 
   return (
     <section className="py-20 md:py-28 bg-white">
-      <div className="container-width section-padding">
+      <div className="container-width">
         <motion.div
           className="max-w-3xl mx-auto text-center mb-16"
           initial={{ opacity: 0, y: -20 }}

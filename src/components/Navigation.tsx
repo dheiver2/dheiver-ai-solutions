@@ -27,13 +27,18 @@ const Navigation = () => {
     { name: 'FAQ', path: '/', anchor: 'faq' },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string, anchor?: string) => {
+    if (anchor) {
+      return location.hash === `#${anchor}` || (anchor === 'hero' && location.hash === '');
+    }
+    return location.pathname === path;
+  };
 
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-200/50' 
+          ? 'bg-white/85 backdrop-blur-lg shadow-lg border-b border-gray-200/60' 
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
@@ -63,15 +68,15 @@ const Navigation = () => {
             <a 
                   href={item.anchor ? `#${item.anchor}` : item.path}
                   className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    isActive(item.path)
+                    isActive(item.path, item.anchor)
                       ? 'text-black bg-gray-100 shadow-sm'
                       : isScrolled
                       ? 'text-gray-700 hover:text-black hover:bg-gray-50'
-                      : 'text-gray-800 hover:text-black hover:bg-white/20'
+                      : 'text-white hover:text-white hover:bg-white/15'
                   }`}
                 >
                   {item.name}
-                  {isActive(item.path) && (
+                  {isActive(item.path, item.anchor) && (
                     <motion.div
                       className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-gray-500 rounded-full"
                       layoutId="activeIndicator"
@@ -102,7 +107,11 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="lg:hidden p-2 rounded-lg text-gray-700 hover:text-black hover:bg-gray-100 transition-colors"
+            className={`lg:hidden p-2 rounded-lg transition-colors ${
+              isScrolled
+                ? 'text-gray-700 hover:text-black hover:bg-gray-100'
+                : 'text-white hover:text-white hover:bg-white/15'
+            }`}
             onClick={() => setIsOpen(!isOpen)}
             whileTap={{ scale: 0.95 }}
           >
