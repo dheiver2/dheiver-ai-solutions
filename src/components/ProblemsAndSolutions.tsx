@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 interface Problem {
-  icon: React.ReactNode;
   title: string;
   problem: string;
   solution: string;
@@ -12,28 +11,24 @@ interface Problem {
 const ProblemsAndSolutions = () => {
   const problems: Problem[] = [
     {
-      icon: <div className="text-2xl">📊</div>,
-      title: "Dados Caóticos",
-      problem: "Seus dados estão espalhados, desorganizados e não geram insights",
-      solution: "IA que estrutura, limpa e transforma dados em inteligência competitiva"
+      title: "Dados Fragmentados",
+      problem: "Informações dispersas, inconsistentes e difíceis de transformar em decisão.",
+      solution: "Arquitetura, qualidade e pipelines para converter dados em inteligência acionável."
     },
     {
-      icon: <div className="text-2xl">⏱️</div>,
-      title: "Processos Lentos",
-      problem: "Tarefas repetitivas consomem 60% do tempo da sua equipe",
-      solution: "Automação inteligente que libera equipe para estratégia e inovação"
+      title: "Operação Ineficiente",
+      problem: "Tarefas repetitivas e retrabalho consomem tempo e elevam custo operacional.",
+      solution: "Automação inteligente com governança para escala, velocidade e previsibilidade."
     },
     {
-      icon: <div className="text-2xl">🎯</div>,
-      title: "Sem Previsibilidade",
-      problem: "Você não consegue prever demanda, churn ou comportamento do cliente",
-      solution: "Modelos preditivos que antecipam cenários e oportunidades"
+      title: "Baixa Previsibilidade",
+      problem: "Sem clareza de demanda, churn e comportamento, o planejamento vira tentativa e erro.",
+      solution: "Modelos preditivos com monitoramento e melhoria contínua para decisões confiáveis."
     },
     {
-      icon: <div className="text-2xl">🤖</div>,
-      title: "IA Genérica",
-      problem: "Soluções prontas não resolvem seus problemas únicos",
-      solution: "IA customizada para seu negócio, indústria e desafios específicos"
+      title: "Soluções Genéricas",
+      problem: "Ferramentas prontas não endereçam contexto, dados e restrições do seu negócio.",
+      solution: "Soluções sob medida (MVP → produção) alinhadas a ROI, risco e compliance."
     },
   ];
 
@@ -63,9 +58,9 @@ const ProblemsAndSolutions = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Seus Problemas, Nossas Soluções
           </h2>
-          <p className="text-lg text-gray-600">
-            Deixe de perder tempo e dinheiro com soluções genéricas. 
-            IA estratégica que entrega ROI real.
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Pare de desperdiçar tempo e orçamento com iniciativas sem direção.
+            Construímos IA aplicada com método, governança e impacto mensurável.
           </p>
         </motion.div>
 
@@ -80,30 +75,33 @@ const ProblemsAndSolutions = () => {
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-shadow"
+              className="group rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-xl transition-all duration-300"
             >
-              <div className="flex items-start gap-4 mb-4">
-                <div className="flex-shrink-0">{item.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
+              <div className="flex items-start justify-between gap-6 mb-6">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">Ponto {String(idx + 1).padStart(2, '0')}</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mt-2">{item.title}</h3>
+                </div>
+                <div className="h-12 w-12 rounded-xl border border-gray-200 bg-gradient-to-br from-gray-50 to-white flex items-center justify-center text-gray-400 group-hover:text-yellow-600 group-hover:border-yellow-200 transition-colors">
+                  <span className="text-sm font-bold">{String(idx + 1).padStart(2, '0')}</span>
+                </div>
               </div>
 
-              <div className="space-y-4">
-                <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded">
-                  <p className="text-sm text-gray-700">
-                    <span className="font-semibold text-red-600">Problema:</span> {item.problem}
-                  </p>
+              <div className="space-y-5">
+                <div className="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-2">Problema</p>
+                  <p className="text-sm md:text-base text-gray-700 leading-relaxed">{item.problem}</p>
                 </div>
 
-                <div className="flex justify-center">
-                  <ArrowRight className="w-5 h-5 text-gray-400 rotate-90" />
-                </div>
-
-                <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
-                    <p className="text-sm text-gray-700">
-                      <span className="font-semibold text-yellow-700">Solução:</span> {item.solution}
-                    </p>
+                <div className="rounded-xl border border-yellow-200 bg-yellow-50/60 p-5">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-0.5 h-8 w-8 rounded-lg bg-yellow-500/10 border border-yellow-300/40 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle2 className="w-4 h-4 text-yellow-700" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-yellow-800/80 mb-2">Solução</p>
+                      <p className="text-sm md:text-base text-gray-800 leading-relaxed">{item.solution}</p>
+                    </div>
                   </div>
                 </div>
               </div>
