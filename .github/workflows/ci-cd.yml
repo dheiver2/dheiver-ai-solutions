@@ -153,9 +153,9 @@ jobs:
     name: Deploy to Staging
     runs-on: ubuntu-latest
     needs: [quality, build]
-    if: github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
     environment:
-      name: staging
+      name: development
       url: https://staging.dheiver.com
     
     steps:
@@ -180,7 +180,7 @@ jobs:
   notify:
     name: Notify Team
     runs-on: ubuntu-latest
-    needs: [deploy-production]
+    needs: [deploy-production, deploy-staging]
     if: always()
     
     steps:
@@ -188,6 +188,7 @@ jobs:
         uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
-          text: 'Deployment ${{ job.status }}'
-          webhook_url: ${{ secrets.SLACK_WEBHOOK }}
-        if: always() && secrets.SLACK_WEBHOOK != ''
+          text: 'CI/CD ${{ job.status }} (prod: ${{ needs.deploy-production.result }}, dev: ${{ needs.deploy-staging.result }})'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        if: ${{ always() && secrets.SLACK_WEBHOOK != '' }}
