@@ -136,7 +136,7 @@ const PricingModels = () => {
 
               {/* Investment */}
               <div className={`mb-2 pb-4 border-b ${plan.popular ? 'border-yellow-400' : 'border-gray-200'}`}>
-                <p className={`text-sm ${plan.popular ? 'text-blue-100' : 'text-gray-500'} mb-1`}>
+                <p className={`text-sm ${plan.popular ? 'text-yellow-100' : 'text-gray-500'} mb-1`}>
                   Investimento
                 </p>
                 <p className={`text-2xl font-bold ${plan.popular ? 'text-black' : 'text-gray-900'}`}>
@@ -146,7 +146,7 @@ const PricingModels = () => {
 
               {/* Timeline */}
               <div className="mb-4">
-                <p className={`text-xs font-semibold uppercase tracking-wide mb-1 ${plan.popular ? 'text-blue-100' : 'text-gray-500'}`}>
+                <p className={`text-xs font-semibold uppercase tracking-wide mb-1 ${plan.popular ? 'text-yellow-100' : 'text-gray-500'}`}>
                   Timeline
                 </p>
                 <p className={`text-sm ${plan.popular ? 'text-white' : 'text-gray-700'}`}>
@@ -156,10 +156,10 @@ const PricingModels = () => {
 
               {/* Best For */}
               <div className="mb-6">
-                <p className={`text-xs font-semibold uppercase tracking-wide mb-1 ${plan.popular ? 'text-blue-100' : 'text-gray-500'}`}>
+                <p className={`text-xs font-semibold uppercase tracking-wide mb-1 ${plan.popular ? 'text-yellow-100' : 'text-gray-500'}`}>
                   Ideal para
                 </p>
-                <p className={`text-sm ${plan.popular ? 'text-blue-50' : 'text-gray-600'}`}>
+                <p className={`text-sm ${plan.popular ? 'text-yellow-50' : 'text-gray-600'}`}>
                   {plan.bestFor}
                 </p>
               </div>

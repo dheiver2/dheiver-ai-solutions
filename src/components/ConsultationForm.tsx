@@ -106,9 +106,9 @@ const ConsultationForm = () => {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-          className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+          className="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6"
         >
-          <CheckCircle className="w-10 h-10 text-green-600" />
+          <CheckCircle className="w-10 h-10 text-yellow-600" />
         </motion.div>
         <h3 className="text-2xl font-bold text-gray-900 mb-4">Solicitação Enviada!</h3>
         <p className="text-gray-600 mb-6">

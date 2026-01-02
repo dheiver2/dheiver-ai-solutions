@@ -78,8 +78,8 @@ const ContactSection = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-4 p-4 rounded-xl bg-green-50 hover:bg-green-100 transition-colors">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                  <div className="flex items-start gap-4 p-4 rounded-xl bg-yellow-50 hover:bg-yellow-100 transition-colors">
+                    <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-xl flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                       <Phone size={20} />
                     </div>
                     <div className="min-w-0 flex-1">
@@ -89,8 +89,8 @@ const ContactSection = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-4 p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white flex-shrink-0 shadow-lg">
+                  <div className="flex items-start gap-4 p-4 rounded-xl bg-yellow-50 hover:bg-yellow-100 transition-colors">
+                    <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-xl flex items-center justify-center text-white flex-shrink-0 shadow-lg">
                       <MapPin size={20} />
                     </div>
                     <div className="min-w-0 flex-1">
@@ -115,7 +115,7 @@ const ContactSection = () => {
                 <div className="mt-8 text-center">
                   <Button 
                     onClick={handleWhatsAppClick}
-                    className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 w-full"
+                    className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 w-full"
                   >
                     💬 Conversar no WhatsApp
                   </Button>
@@ -136,7 +136,7 @@ const ContactSection = () => {
                     'Auditoria Técnica'
                   ].map((skill, index) => (
                     <div key={skill} className="flex items-center p-3 rounded-lg bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
-                      <span className="w-3 h-3 bg-gradient-to-r from-green-400 to-blue-400 rounded-full mr-4 flex-shrink-0 animate-pulse" style={{ animationDelay: `${index * 0.2}s` }}></span>
+                      <span className="w-3 h-3 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full mr-4 flex-shrink-0 animate-pulse" style={{ animationDelay: `${index * 0.2}s` }}></span>
                       <span className="text-white font-medium">{skill}</span>
                     </div>
                   ))}

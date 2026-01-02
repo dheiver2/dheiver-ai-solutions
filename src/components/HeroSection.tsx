@@ -30,7 +30,7 @@ const HeroSection = () => {
     <section className="relative overflow-hidden min-h-screen flex items-center pt-20 bg-gradient-to-br from-gray-50 via-white to-gray-100">
       {/* Background Blur Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-20"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20"></div>
       </div>
 
@@ -96,15 +96,15 @@ const HeroSection = () => {
             <p className="text-sm text-gray-600 mb-4">Confiam em Nossas Soluções</p>
             <div className="grid grid-cols-3 gap-8 text-center">
               <div>
-                <p className="text-2xl md:text-3xl font-bold text-blue-600">50+</p>
+                <p className="text-2xl md:text-3xl font-bold text-yellow-600">50+</p>
                 <p className="text-xs md:text-sm text-gray-700 mt-1">Projetos Entregues</p>
               </div>
               <div>
-                <p className="text-2xl md:text-3xl font-bold text-blue-600">3.2x</p>
+                <p className="text-2xl md:text-3xl font-bold text-yellow-600">3.2x</p>
                 <p className="text-xs md:text-sm text-gray-700 mt-1">ROI Médio</p>
               </div>
               <div>
-                <p className="text-2xl md:text-3xl font-bold text-blue-600">98%</p>
+                <p className="text-2xl md:text-3xl font-bold text-yellow-600">98%</p>
                 <p className="text-xs md:text-sm text-gray-700 mt-1">Satisfação</p>
               </div>
             </div>

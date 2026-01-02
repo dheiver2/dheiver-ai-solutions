@@ -82,7 +82,7 @@ const CasesShowcase = () => {
               {/* Header */}
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{caseStudy.company}</h3>
-                <p className="text-sm font-semibold text-blue-600 bg-blue-50 w-fit px-3 py-1 rounded-full">
+                <p className="text-sm font-semibold text-yellow-600 bg-yellow-50 w-fit px-3 py-1 rounded-full">
                   {caseStudy.industry}
                 </p>
               </div>

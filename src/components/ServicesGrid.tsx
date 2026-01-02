@@ -153,7 +153,7 @@ const ServicesGrid = () => {
                 <ul className="space-y-1">
                   {service.features.map((feature, i) => (
                     <li key={i} className="text-sm text-gray-700 flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+                      <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full"></span>
                       {feature}
                     </li>
                   ))}

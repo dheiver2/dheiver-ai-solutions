@@ -98,7 +98,7 @@ const ProblemsAndSolutions = () => {
                   <ArrowRight className="w-5 h-5 text-gray-400 rotate-90" />
                 </div>
 
-                <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
                     <p className="text-sm text-gray-700">

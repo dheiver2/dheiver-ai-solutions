@@ -143,7 +143,7 @@ const BookingWidget = () => {
                   viewport={{ once: true }}
                   className="flex items-center gap-3"
                 >
-                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <Check className="w-4 h-4 text-white" />
                   </div>
                   <span className="text-gray-700">{benefit}</span>

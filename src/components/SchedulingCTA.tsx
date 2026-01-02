@@ -99,7 +99,7 @@ const SchedulingCTA = () => {
                   viewport={{ once: true }}
                   className="flex items-start gap-3"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
                   <p className="text-gray-700">{item}</p>
                 </motion.div>
               ))}
@@ -108,19 +108,19 @@ const SchedulingCTA = () => {
             {/* Quick Facts */}
             <div className="grid grid-cols-2 gap-4 pt-8 border-t border-gray-200">
               <div>
-                <p className="text-2xl font-bold text-blue-600">45 min</p>
+                <p className="text-2xl font-bold text-yellow-600">45 min</p>
                 <p className="text-sm text-gray-600">Consulta estratégica</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-blue-600">Grátis</p>
+                <p className="text-2xl font-bold text-yellow-600">Grátis</p>
                 <p className="text-sm text-gray-600">Sem compromisso</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-blue-600">Expert</p>
+                <p className="text-2xl font-bold text-yellow-600">Expert</p>
                 <p className="text-sm text-gray-600">Especialista em IA</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-blue-600">Personalizado</p>
+                <p className="text-2xl font-bold text-yellow-600">Personalizado</p>
                 <p className="text-sm text-gray-600">Para seu contexto</p>
               </div>
             </div>
@@ -140,8 +140,8 @@ const SchedulingCTA = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 className="flex flex-col items-center justify-center py-12 text-center"
               >
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <CheckCircle2 className="w-8 h-8 text-blue-600" />
+                <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                  <CheckCircle2 className="w-8 h-8 text-yellow-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   Agendamento Confirmado!
@@ -292,7 +292,7 @@ const SchedulingCTA = () => {
                 <Button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white py-3 text-base font-semibold rounded-lg transition-all"
+                  className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black py-3 text-base font-semibold rounded-lg transition-all"
                 >
                   {loading ? 'Agendando...' : 'Agendar Consulta Grátis'}
                 </Button>

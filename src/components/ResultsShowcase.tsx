@@ -30,7 +30,7 @@ const ResultsShowcase = () => {
       author: 'Carlos Silva',
       role: 'CEO, TechCorp',
       image: '💼',
-      color: 'from-blue-500 to-blue-600',
+      color: 'from-yellow-500 to-yellow-600',
     },
     {
       company: 'IndustryMax',
@@ -47,7 +47,7 @@ const ResultsShowcase = () => {
       author: 'Ana Costa',
       role: 'Diretora de Operações',
       image: '🏭',
-      color: 'from-green-500 to-green-600',
+      color: 'from-yellow-500 to-yellow-600',
     },
     {
       company: 'FinanceFlow',
@@ -86,14 +86,14 @@ const ResultsShowcase = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-sm font-semibold mb-6">
             <TrendingUp className="w-4 h-4" />
             <span>Resultados Comprovados</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
             Transformações Reais,
-            <span className="block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-yellow-600 to-yellow-600 bg-clip-text text-transparent">
               Resultados Mensuráveis
             </span>
           </h2>
