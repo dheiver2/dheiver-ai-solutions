@@ -1,90 +1,51 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, ArrowRight } from 'lucide-react';
+import { Check, MessageCircle } from 'lucide-react';
 
 interface PricingPlan {
   name: string;
   description: string;
-  icon: string;
-  popular?: boolean;
+  price: string;
   features: string[];
-  investment: string;
-  timeline: string;
-  bestFor: string;
 }
 
 const PricingModels = () => {
+  const whatsappNumber = '5551989889898';
+
   const plans: PricingPlan[] = [
     {
-      name: "Diagnóstico & Roadmap",
-      description: "Entenda suas oportunidades",
-      icon: "🔍",
+      name: "Consultoria",
+      description: "Diagnóstico e estratégia de IA",
+      price: "a partir de R$ 5.000",
       features: [
-        "Análise de 3-5 processos",
-        "Identificação de oportunidades IA",
+        "Análise de oportunidades",
         "Roadmap estratégico",
         "Estimativa de ROI",
-        "Recomendações de tecnologia",
-        "1 reunião de kickoff"
-      ],
-      investment: "R$ 5k - 15k",
-      timeline: "2-4 semanas",
-      bestFor: "Empresas explorando IA"
+        "Recomendações"
+      ]
     },
     {
-      name: "MVP & Prototipagem",
-      description: "Valide sua ideia rapidamente",
-      icon: "⚡",
-      popular: true,
+      name: "Implementação",
+      description: "Solução personalizada em produção",
+      price: "a partir de R$ 15.000",
       features: [
-        "Prototipagem de solução",
-        "Dataset preparation",
-        "Modelo inicial treinado",
-        "Documentação técnica",
-        "Plano de escalabilidade",
-        "4 semanas de suporte"
-      ],
-      investment: "R$ 20k - 50k",
-      timeline: "4-8 semanas",
-      bestFor: "Validar conceito antes de escalar"
-    },
-    {
-      name: "Implementação Completa",
-      description: "Solução em produção",
-      icon: "🚀",
-      features: [
-        "Desenvolvimento end-to-end",
-        "Pipeline de dados",
-        "Modelo em produção",
-        "Dashboard & monitoramento",
-        "Treinamento da equipe",
-        "3 meses de suporte"
-      ],
-      investment: "R$ 60k - 250k+",
-      timeline: "8-16 semanas",
-      bestFor: "Implementação de IA estratégica"
-    },
-    {
-      name: "Suporte & Evolução",
-      description: "Otimize continuamente",
-      icon: "📈",
-      features: [
-        "Monitoramento 24/7",
-        "Otimização de modelos",
-        "Novas features",
-        "Retraining periódico",
-        "Consultoria estratégica",
-        "Acesso a especialistas"
-      ],
-      investment: "R$ 10k - 30k/mês",
-      timeline: "Contínuo",
-      bestFor: "Sistemas em produção"
+        "Desenvolvimento completo",
+        "Integração de dados",
+        "Dashboard e monitoramento",
+        "Suporte 24/7"
+      ]
     },
   ];
 
+  const getWhatsappLink = (plan: string) => {
+    const message = encodeURIComponent(
+      `Olá! 👋 Gostaria de contratar o pacote ${plan}.`
+    );
+    return `https://wa.me/${whatsappNumber}?text=${message}`;
+  };
+
   return (
-    <section className="ui-section-light py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
-      <div className="ui-grid-overlay" aria-hidden="true" />
+    <section className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
       <div className="container-width">
         <motion.div
           className="max-w-3xl mx-auto text-center mb-16"
@@ -93,15 +54,15 @@ const PricingModels = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Modelos de Investimento Flexíveis
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Investimento
           </h2>
           <p className="text-lg text-gray-600">
-            Do diagnóstico ao scaling. Escolha o modelo que faz sentido para seu negócio.
+            Pacotes simples e diretos para seu negócio.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {plans.map((plan, idx) => (
             <motion.div
               key={idx}
@@ -109,110 +70,34 @@ const PricingModels = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className={`relative p-8 transition-all duration-300 flex flex-col h-full ${
-                plan.popular
-                  ? 'ui-card ui-shine bg-gradient-to-br from-yellow-500 to-yellow-600 text-black border-yellow-600 shadow-xl lg:scale-105 z-10'
-                  : 'ui-card'
-              }`}
+              className="border border-gray-200 rounded-lg p-8 hover:border-yellow-500 hover:bg-yellow-50/30 transition-all duration-300 flex flex-col"
             >
-              {/* Popular Badge */}
-              {plan.popular && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-white text-yellow-600 px-4 py-1 rounded-full text-xs font-bold">
-                    MAIS POPULAR
-                  </span>
-                </div>
-              )}
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+              <p className="text-gray-600 text-sm mb-4">{plan.description}</p>
 
-              {/* Icon */}
-              <div className="text-4xl mb-4">{plan.icon}</div>
+              <p className="text-3xl font-bold text-yellow-600 mb-6">{plan.price}</p>
 
-              {/* Title */}
-              <h3 className={`text-2xl font-bold mb-1 ${plan.popular ? 'text-black' : 'text-gray-900'}`}>
-                {plan.name}
-              </h3>
-              <p className={`text-sm mb-4 ${plan.popular ? 'text-gray-800' : 'text-gray-600'}`}>
-                {plan.description}
-              </p>
-
-              {/* Investment */}
-              <div className={`mb-2 pb-4 border-b ${plan.popular ? 'border-yellow-400/70' : 'border-gray-200'}`}>
-                <p className={`text-sm ${plan.popular ? 'text-yellow-100' : 'text-gray-500'} mb-1`}>
-                  Investimento
-                </p>
-                <p className={`text-2xl font-bold ${plan.popular ? 'text-black' : 'text-gray-900'}`}>
-                  {plan.investment}
-                </p>
-              </div>
-
-              {/* Timeline */}
-              <div className="mb-4">
-                <p className={`text-xs font-semibold uppercase tracking-wide mb-1 ${plan.popular ? 'text-yellow-100' : 'text-gray-500'}`}>
-                  Timeline
-                </p>
-                <p className={`text-sm ${plan.popular ? 'text-white' : 'text-gray-700'}`}>
-                  {plan.timeline}
-                </p>
-              </div>
-
-              {/* Best For */}
-              <div className="mb-6">
-                <p className={`text-xs font-semibold uppercase tracking-wide mb-1 ${plan.popular ? 'text-yellow-100' : 'text-gray-500'}`}>
-                  Ideal para
-                </p>
-                <p className={`text-sm ${plan.popular ? 'text-yellow-50' : 'text-gray-600'}`}>
-                  {plan.bestFor}
-                </p>
-              </div>
-
-              {/* Features */}
-              <ul className="space-y-2 mb-6">
+              <ul className="space-y-3 mb-8 flex-grow">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm">
-                    <Check className={`w-4 h-4 flex-shrink-0 mt-0.5 ${plan.popular ? 'text-black' : 'text-yellow-600'}`} />
-                    <span className={plan.popular ? 'text-gray-800' : 'text-gray-700'}>
-                      {feature}
-                    </span>
+                  <li key={i} className="flex items-start gap-3 text-sm text-gray-700">
+                    <Check className="w-4 h-4 text-yellow-600 flex-shrink-0 mt-0.5" />
+                    {feature}
                   </li>
                 ))}
               </ul>
 
-              {/* CTA */}
               <a
-                href="#agendamento"
-                className={`mt-auto w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg font-semibold transition-all ui-shine ${
-                  plan.popular
-                    ? 'bg-white text-yellow-600 hover:bg-gray-100'
-                    : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                }`}
+                href={getWhatsappLink(plan.name)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300"
               >
-                Conversar
-                <ArrowRight className="w-4 h-4" />
+                <MessageCircle className="w-4 h-4" />
+                Escolher pacote
               </a>
             </motion.div>
           ))}
         </div>
-
-        {/* CTA */}
-        <motion.div
-          className="bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-xl p-8 text-black text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl font-bold mb-2">Dúvida sobre qual modelo escolher?</h3>
-          <p className="mb-4 text-gray-800">
-            Nossa primeira consulta é gratuita. Vamos entender sua situação e recomendar o melhor caminho.
-          </p>
-          <a
-            href="#agendamento"
-            className="inline-flex items-center gap-2 bg-black text-yellow-500 px-8 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors"
-          >
-            Agendar Consulta Grátis
-            <ArrowRight className="w-4 h-4" />
-          </a>
-        </motion.div>
       </div>
     </section>
   );

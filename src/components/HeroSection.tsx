@@ -1,8 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 
 const HeroSection = () => {
+  const whatsappNumber = '5551989889898';
+  const whatsappMessage = encodeURIComponent(
+    'Olá! 👋 Estou interessado em transformar meu negócio com IA.'
+  );
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -60,76 +66,43 @@ const HeroSection = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Premium Badge with Glow */}
-          <motion.div
-            variants={itemVariants}
-            className="ui-shine inline-flex items-center gap-2 px-5 py-3 md:px-7 md:py-4 bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 border border-yellow-500/50 text-yellow-300 rounded-full text-xs md:text-sm font-semibold mb-8 shadow-lg shadow-yellow-500/20 backdrop-blur-sm hover:shadow-yellow-500/40 transition-all duration-300"
-          >
-            <Sparkles className="w-4 h-4 animate-pulse" />
-            ✨ Transformação de Negócios com IA
-          </motion.div>
-
-          {/* Main Headline - Ultra Bold */}
+          {/* Main Headline */}
           <motion.h1
             variants={itemVariants}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-[1.1] tracking-tighter"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-black text-white mb-6 leading-[1.1] tracking-tighter"
           >
-            Transforme Dados em
+            Transforme seu negócio com
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600 mt-2">
-              Crescimento Exponencial
+              Inteligência Artificial
             </span>
           </motion.h1>
 
-          {/* Subheadline - Compelling */}
+          {/* Subheadline */}
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-2xl text-gray-100 mb-10 max-w-3xl mx-auto leading-relaxed font-light"
+            className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto"
           >
-            Soluções de IA estratégicas customizadas que geram
-            <span className="block text-yellow-400 font-semibold">ROI mensurável em 90 dias.</span>
+            Soluções personalizadas de IA com ROI comprovado em 90 dias.
           </motion.p>
 
-          {/* CTA Buttons - Premium Design */}
-          <motion.div
+          {/* CTA Button */}
+          <motion.a
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-20"
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black px-10 py-5 rounded-lg font-bold text-lg transition-all duration-300 shadow-lg shadow-yellow-500/50 hover:shadow-yellow-500/80 hover:scale-105 active:scale-95 mb-16"
           >
-            <a
-              href="#agendamento"
-              className="ui-shine group relative inline-flex items-center gap-3 bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 shadow-lg shadow-yellow-500/50 hover:shadow-yellow-500/80 hover:scale-105 active:scale-95"
-            >
-              <span>Agendar Consulta Grátis</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-            </a>
-            <a
-              href="#cases"
-              className="ui-shine group relative inline-flex items-center gap-3 border-2 border-yellow-500 text-yellow-400 hover:bg-yellow-500/10 px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 backdrop-blur-sm hover:border-yellow-400"
-            >
-              <span>Ver Resultados</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-            </a>
-          </motion.div>
+            <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            <span>Falar com Especialista</span>
+          </motion.a>
 
-          {/* Trust Metrics - Premium Cards */}
+          {/* Quick Trust Metrics */}
           <motion.div
             variants={itemVariants}
-            className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 max-w-2xl mx-auto shadow-2xl"
+            className="text-center text-gray-400 text-sm space-y-2"
           >
-            <p className="text-sm font-semibold text-yellow-400 mb-6 uppercase tracking-widest">Confiam em Nossas Soluções</p>
-            <div className="grid grid-cols-3 gap-6 text-center">
-              <div className="group hover:scale-110 transition-transform duration-300">
-                <p className="text-3xl md:text-4xl font-black text-yellow-400 group-hover:text-yellow-300">50+</p>
-                <p className="text-xs md:text-sm text-gray-400 mt-2 group-hover:text-gray-300 transition-colors">Projetos Entregues</p>
-              </div>
-              <div className="group hover:scale-110 transition-transform duration-300 border-l border-r border-white/10">
-                <p className="text-3xl md:text-4xl font-black text-yellow-400 group-hover:text-yellow-300">3.2x</p>
-                <p className="text-xs md:text-sm text-gray-400 mt-2 group-hover:text-gray-300 transition-colors">ROI Médio</p>
-              </div>
-              <div className="group hover:scale-110 transition-transform duration-300">
-                <p className="text-3xl md:text-4xl font-black text-yellow-400 group-hover:text-yellow-300">98%</p>
-                <p className="text-xs md:text-sm text-gray-400 mt-2 group-hover:text-gray-300 transition-colors">Satisfação</p>
-              </div>
-            </div>
+            <p>✓ 50+ Projetos Entregues  |  ✓ ROI Médio 3.2x  |  ✓ 98% de Satisfação</p>
           </motion.div>
         </motion.div>
       </div>

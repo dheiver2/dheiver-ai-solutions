@@ -1,98 +1,40 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Brain, 
-  Eye, 
-  MessageSquare, 
-  Zap, 
-  TrendingUp, 
-  Shield,
-  ArrowRight 
-} from 'lucide-react';
+import { Brain, Eye, Zap, MessageCircle } from 'lucide-react';
 
 interface Service {
   icon: React.ReactNode;
   title: string;
   description: string;
-  features: string[];
-  useCases: string[];
 }
 
 const ServicesGrid = () => {
+  const whatsappNumber = '5551989889898';
+
   const services: Service[] = [
     {
       icon: <Brain className="w-8 h-8" />,
-      title: "Machine Learning Avançado",
-      description: "Modelos preditivos que transformam dados em decisões inteligentes",
-      features: [
-        "Regressão e classificação",
-        "Clustering e segmentação",
-        "Ensemble methods",
-        "Deep Learning"
-      ],
-      useCases: ["Previsão de demanda", "Scoring de clientes", "Detecção de anomalias"]
+      title: "Implementação de IA",
+      description: "Modelos preditivos e automação de processos com machine learning",
     },
     {
       icon: <Eye className="w-8 h-8" />,
       title: "Visão Computacional",
       description: "IA que enxerga e interpreta imagens e vídeos em tempo real",
-      features: [
-        "Detecção de objetos",
-        "Reconhecimento facial",
-        "OCR avançado",
-        "Análise de vídeo"
-      ],
-      useCases: ["Controle de qualidade", "Segurança", "Automação industrial"]
-    },
-    {
-      icon: <MessageSquare className="w-8 h-8" />,
-      title: "Processamento de Linguagem Natural",
-      description: "Compreensão profunda de textos, chatbots e análise de sentimento",
-      features: [
-        "Chatbots inteligentes",
-        "Análise de sentimento",
-        "Extração de entidades",
-        "Tradução automática"
-      ],
-      useCases: ["Atendimento ao cliente", "Análise de reviews", "Classificação automática"]
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      title: "Automação Inteligente",
-      description: "RPA + IA para automatizar processos complexos e repetitivos",
-      features: [
-        "Automação de workflows",
-        "Processamento de documentos",
-        "Integração de sistemas",
-        "Bot de processos"
-      ],
-      useCases: ["Onboarding digital", "Processamento de pedidos", "Gestão de estoque"]
-    },
-    {
-      icon: <TrendingUp className="w-8 h-8" />,
-      title: "Business Intelligence + IA",
-      description: "Dashboards inteligentes que revelam oportunidades ocultas",
-      features: [
-        "Data warehousing",
-        "Analytics avançado",
-        "Visualização 3D",
-        "Forecasting"
-      ],
-      useCases: ["KPI real-time", "Análise competitiva", "Planejamento estratégico"]
-    },
-    {
-      icon: <Shield className="w-8 h-8" />,
-      title: "Estratégia & Implementação",
-      description: "Roadmap completo de transformação digital com IA para seu negócio",
-      features: [
-        "Diagnóstico de oportunidades",
-        "Seleção de tecnologias",
-        "MVP e prototipagem",
-        "Governance e compliance"
-      ],
-      useCases: ["Transformação digital", "Inovação", "Escala de soluções"]
+      title: "Automação com IA",
+      description: "RPA + IA para automatizar processos complexos do seu negócio",
     },
   ];
+
+  const getWhatsappLink = (service: string) => {
+    const message = encodeURIComponent(
+      `Olá! 👋 Gostaria de saber mais sobre ${service}.`
+    );
+    return `https://wa.me/${whatsappNumber}?text=${message}`;
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -108,8 +50,7 @@ const ServicesGrid = () => {
   };
 
   return (
-    <section className="ui-section-light py-20 md:py-28">
-      <div className="ui-grid-overlay" aria-hidden="true" />
+    <section className="py-20 md:py-28 bg-white">
       <div className="container-width">
         <motion.div
           className="max-w-3xl mx-auto text-center mb-16"
@@ -118,16 +59,16 @@ const ServicesGrid = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Serviços Especializados em IA
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Serviços
           </h2>
           <p className="text-lg text-gray-600">
-            Do diagnóstico à implementação. Soluções end-to-end adaptadas ao seu negócio.
+            Soluções personalizadas de IA para seu negócio.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid md:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -137,44 +78,25 @@ const ServicesGrid = () => {
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="ui-card group p-8"
+              className="group border border-gray-200 rounded-lg p-8 hover:border-yellow-500 hover:bg-yellow-50/30 transition-all duration-300"
             >
-              {/* Icon */}
-              <div className="w-12 h-12 bg-gradient-to-br from-yellow-100 to-white rounded-xl border border-yellow-200 flex items-center justify-center text-yellow-700 mb-4 group-hover:bg-yellow-600 group-hover:text-white group-hover:border-yellow-600 transition-colors ui-shine">
+              <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-yellow-700 mb-6 group-hover:bg-yellow-500 group-hover:text-white transition-colors">
                 {service.icon}
               </div>
 
-              {/* Title */}
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
-              <p className="text-gray-600 text-sm mb-4">{service.description}</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+              <p className="text-gray-600 mb-6 text-sm leading-relaxed">{service.description}</p>
 
-              {/* Features */}
-              <div className="mb-4">
-                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Capacidades</p>
-                <ul className="space-y-1">
-                  {service.features.map((feature, i) => (
-                    <li key={i} className="text-sm text-gray-700 flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full"></span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Use Cases */}
-              <div className="border-t border-gray-200 pt-4">
-                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Aplicações</p>
-                <div className="flex flex-wrap gap-2">
-                  {service.useCases.map((useCase, i) => (
-                    <span
-                      key={i}
-                      className="text-xs bg-yellow-100/70 text-yellow-900 px-2.5 py-1 rounded-full border border-yellow-200/70"
-                    >
-                      {useCase}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <a
+                href={getWhatsappLink(service.title)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-yellow-600 hover:text-yellow-700 font-semibold text-sm group/link"
+              >
+                <MessageCircle className="w-4 h-4" />
+                Saber mais
+                <span className="group-hover/link:translate-x-1 transition-transform">→</span>
+              </a>
             </motion.div>
           ))}
         </motion.div>

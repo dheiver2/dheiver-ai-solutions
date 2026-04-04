@@ -18,13 +18,17 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const whatsappNumber = '5551989889898';
+  const whatsappMessage = encodeURIComponent(
+    'Olá! 👋 Gostaria de saber mais sobre suas soluções de IA.'
+  );
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
   const navItems = [
     { name: 'Início', path: '/', anchor: 'hero' },
-    { name: 'Problemas & Soluções', path: '/', anchor: 'problemas' },
-    { name: 'Cases', path: '/', anchor: 'cases' },
     { name: 'Serviços', path: '/', anchor: 'servicos' },
+    { name: 'Cases', path: '/', anchor: 'cases' },
     { name: 'Investimento', path: '/', anchor: 'pricing' },
-    { name: 'FAQ', path: '/', anchor: 'faq' },
   ];
 
   const isActive = (path: string, anchor?: string) => {
@@ -96,11 +100,13 @@ const Navigation = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-            <a 
-                href="#agendamento"
-                className="bg-black hover:bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg border border-gray-500/20"
+            <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg"
               >
-                Consulta Grátis
+                Falar no WhatsApp
             </a>
             </motion.div>
           </div>
@@ -177,12 +183,14 @@ const Navigation = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
                 >
-              <a 
-                    href="#agendamento"
-                    className="block w-full text-center bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-lg text-base font-semibold transition-all duration-200 shadow-md"
+              <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-lg text-base font-semibold transition-all duration-200 shadow-md"
                     onClick={() => setIsOpen(false)}
                   >
-                    Agendar Consulta
+                    Falar no WhatsApp
               </a>
                 </motion.div>
               </div>
