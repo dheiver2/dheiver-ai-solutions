@@ -33,7 +33,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative overflow-hidden min-h-screen min-h-[100svh] flex items-center pt-20 bg-gradient-to-br from-gray-900 via-black to-gray-950">
+    <section className="relative overflow-hidden min-h-screen min-h-[100svh] flex items-center pt-12 md:pt-20 bg-gradient-to-br from-gray-900 via-black to-gray-950">
       {/* Premium Background - Golden Gradient */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-32 -right-32 w-96 h-96 bg-yellow-500/20 rounded-full mix-blend-screen filter blur-3xl opacity-60"></div>
@@ -69,7 +69,7 @@ const HeroSection = () => {
           {/* Main Headline */}
           <motion.h1
             variants={itemVariants}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-black text-white mb-6 leading-[1.1] tracking-tighter"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-white mb-6 leading-[1.1] tracking-tighter"
           >
             Transforme seu negócio com
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600 mt-2">
@@ -91,7 +91,7 @@ const HeroSection = () => {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black px-10 py-5 rounded-lg font-bold text-lg transition-all duration-300 shadow-lg shadow-yellow-500/50 hover:shadow-yellow-500/80 hover:scale-105 active:scale-95 mb-16"
+            className="group relative w-full sm:w-auto flex items-center justify-center gap-3 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black px-6 sm:px-8 md:px-10 py-3 sm:py-3 md:py-4 lg:py-5 rounded-lg font-bold text-base sm:text-base md:text-lg transition-all duration-300 shadow-lg shadow-yellow-500/50 hover:shadow-yellow-500/80 hover:scale-105 active:scale-95 mb-16"
           >
             <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
             <span>Falar com Especialista</span>

@@ -19,7 +19,7 @@ const CtaFinal = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.65)]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.65)]"
           >
             Pronto para transformar sua empresa?
           </motion.h2>
@@ -44,10 +44,10 @@ const CtaFinal = () => {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black px-10 py-4 rounded-lg font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl group"
+            className="w-full sm:w-auto flex items-center justify-center gap-3 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black px-6 sm:px-8 md:px-10 py-3 sm:py-3 md:py-4 lg:py-5 rounded-lg font-bold text-base sm:text-base md:text-lg transition-all duration-200 shadow-xl hover:shadow-2xl group"
           >
-            <MessageCircle className="w-6 h-6 group-hover:scale-110 transition-transform" />
-            Iniciar Conversa no WhatsApp
+            <MessageCircle className="w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform" />
+            <span>Iniciar Conversa no WhatsApp</span>
           </motion.a>
 
           {/* Trust Info */}

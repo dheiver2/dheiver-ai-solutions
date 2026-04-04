@@ -59,16 +59,16 @@ const ServicesGrid = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Serviços
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-base sm:text-lg text-gray-600">
             Soluções personalizadas de IA para seu negócio.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-3 gap-8"
+          className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -84,14 +84,14 @@ const ServicesGrid = () => {
                 {service.icon}
               </div>
 
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-              <p className="text-gray-600 mb-6 text-sm leading-relaxed">{service.description}</p>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+              <p className="text-gray-600 mb-6 text-sm sm:text-base leading-relaxed">{service.description}</p>
 
               <a
                 href={getWhatsappLink(service.title)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-yellow-600 hover:text-yellow-700 font-semibold text-sm group/link"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 hover:text-yellow-800 font-semibold text-sm px-4 py-2 rounded transition-colors group/link"
               >
                 <MessageCircle className="w-4 h-4" />
                 Saber mais

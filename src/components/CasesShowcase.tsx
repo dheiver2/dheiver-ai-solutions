@@ -47,15 +47,15 @@ const CasesShowcase = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Resultados Reais
           </h2>
-          <p className="text-lg text-gray-300">
+          <p className="text-base sm:text-lg text-gray-300">
             Empresas que transformaram negócios com nossas soluções.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-3xl mx-auto">
           {cases.map((caseStudy, idx) => (
             <motion.div
               key={idx}
@@ -65,13 +65,13 @@ const CasesShowcase = () => {
               viewport={{ once: true }}
               className="border border-yellow-500/30 rounded-lg p-8 hover:border-yellow-500 hover:bg-yellow-500/5 transition-all duration-300 flex flex-col"
             >
-              <div className="flex items-start justify-between mb-6">
+              <div className="flex items-start justify-between mb-6 gap-4">
                 <div>
-                  <h3 className="text-2xl font-bold mb-1">{caseStudy.company}</h3>
-                  <p className="text-sm text-gray-400">{caseStudy.industry}</p>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1">{caseStudy.company}</h3>
+                  <p className="text-xs sm:text-sm text-gray-400">{caseStudy.industry}</p>
                 </div>
-                <div className="bg-yellow-500/20 border border-yellow-500/50 rounded-lg px-3 py-2 text-center">
-                  <p className="text-2xl font-bold text-yellow-400">{caseStudy.roi}</p>
+                <div className="bg-yellow-500/20 border border-yellow-500/50 rounded-lg px-3 py-2 text-center flex-shrink-0">
+                  <p className="text-xl sm:text-2xl font-bold text-yellow-400">{caseStudy.roi}</p>
                   <p className="text-xs text-yellow-300">ROI</p>
                 </div>
               </div>
@@ -79,11 +79,11 @@ const CasesShowcase = () => {
               <div className="space-y-4 mb-8 flex-grow">
                 <div>
                   <p className="text-xs font-semibold text-yellow-400 uppercase mb-2">Desafio</p>
-                  <p className="text-sm text-gray-200">{caseStudy.challenge}</p>
+                  <p className="text-sm sm:text-base text-gray-200">{caseStudy.challenge}</p>
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-yellow-400 uppercase mb-2">Resultado</p>
-                  <p className="text-sm text-gray-200">{caseStudy.result}</p>
+                  <p className="text-sm sm:text-base text-gray-200">{caseStudy.result}</p>
                 </div>
               </div>
 
@@ -91,7 +91,7 @@ const CasesShowcase = () => {
                 href={getWhatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-2 rounded-lg transition-all duration-300 w-full"
+                className="w-full flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-4 sm:px-6 py-3 sm:py-4 rounded-lg text-sm sm:text-base transition-all duration-300"
               >
                 <MessageCircle className="w-4 h-4" />
                 Quero algo assim

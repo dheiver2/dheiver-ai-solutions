@@ -104,9 +104,9 @@ const Navigation = () => {
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg"
+                className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg inline-flex items-center gap-2"
               >
-                Falar no WhatsApp
+                💬 Falar no WhatsApp
             </a>
             </motion.div>
           </div>
@@ -187,10 +187,10 @@ const Navigation = () => {
                     href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full text-center bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-lg text-base font-semibold transition-all duration-200 shadow-md"
+                    className="flex items-center justify-center gap-2 w-full bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-4 rounded-lg text-base font-semibold transition-all duration-200 shadow-md hover:shadow-lg"
                     onClick={() => setIsOpen(false)}
                   >
-                    Falar no WhatsApp
+                    💬 Falar no WhatsApp
               </a>
                 </motion.div>
               </div>
