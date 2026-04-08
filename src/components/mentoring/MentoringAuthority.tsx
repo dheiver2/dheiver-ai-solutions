@@ -37,7 +37,7 @@ const MentoringAuthority = () => {
           <div className="text-black">
             <p className="text-2xl font-bold text-yellow-600 mb-2">15+ Anos</p>
             <p className="font-bold mb-1">Experiência ML & IA</p>
-            <p className="text-sm">Santander • Grupo Fleury • Engie • Petrobras</p>
+            <p className="text-sm">Ex Santander • Grupo Fleury • Engie Energia • Petrobras</p>
           </div>
           <div className="text-black">
             <p className="text-2xl font-bold text-yellow-600 mb-2">100+</p>
