@@ -37,26 +37,26 @@ const MentoringFaq = () => {
   ];
 
   return (
-    <div className="w-full py-12 md:py-16 bg-white">
+    <div className="w-full py-10 md:py-14 bg-white">
       <div className="max-w-3xl mx-auto px-6 md:px-8">
-        <h2 className="text-3xl md:text-4xl font-light text-black mb-10 md:mb-14 text-center tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-bold text-black mb-10 md:mb-12 text-center">
           Dúvidas Frequentes
         </h2>
 
         <div className="space-y-2">
           {faqs.map((faq) => (
-            <div key={faq.id} className="border-b border-stone-200">
+            <div key={faq.id} className="border-b border-stone-300">
               <button
-                className="w-full py-4 flex items-center justify-between font-light text-left text-black hover:text-stone-700 transition-colors duration-300"
+                className="w-full py-4 flex items-center justify-between font-semibold text-left text-black hover:text-stone-700 transition-colors duration-300"
                 onClick={() => setOpenId(openId === faq.id ? null : faq.id)}
               >
                 <span className="text-sm md:text-base">{faq.question}</span>
-                <span className={`text-amber-700 transition-transform duration-300 text-lg ${openId === faq.id ? 'rotate-180' : ''}`}>
+                <span className={`text-amber-700 transition-transform duration-300 text-lg font-bold ${openId === faq.id ? 'rotate-180' : ''}`}>
                   ↓
                 </span>
               </button>
               {openId === faq.id && (
-                <div className="pb-4 text-xs md:text-sm font-light text-stone-600 leading-relaxed">
+                <div className="pb-4 text-sm font-normal text-black leading-relaxed">
                   {faq.answer}
                 </div>
               )}
@@ -65,13 +65,13 @@ const MentoringFaq = () => {
         </div>
 
         {/* Contact */}
-        <div className="mt-10 md:mt-12 pt-8 md:pt-10 border-t border-stone-200">
-          <p className="text-center text-amber-700 font-light text-xs mb-2 tracking-wide uppercase">Dúvidas?</p>
-          <p className="text-center text-stone-600 font-light text-xs mb-4">Respondo em até 2h</p>
+        <div className="mt-10 md:mt-12 pt-8 md:pt-10 border-t border-stone-300">
+          <p className="text-center text-amber-700 font-bold text-xs mb-2">DÚVIDAS?</p>
+          <p className="text-center text-black font-normal text-sm mb-4">Respondo em até 2h</p>
           <div className="flex justify-center">
             <a
               href="https://wa.me/5551989889898"
-              className="inline-block bg-amber-700 hover:bg-amber-800 text-white px-6 py-2 font-light text-xs transition-colors duration-300 uppercase tracking-wide"
+              className="inline-block bg-amber-700 hover:bg-amber-800 text-white px-6 py-2 font-semibold text-xs transition-colors duration-300"
             >
               WHATSAPP
             </a>
