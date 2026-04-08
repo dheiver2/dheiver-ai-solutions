@@ -1,101 +1,64 @@
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Trophy, BookOpen, Briefcase, Award } from 'lucide-react';
 
 const MentoringAuthority = () => {
-  const credentials = [
-    {
-      icon: Award,
-      title: 'PhD em Engenharia Química',
-      detail: 'UFBA / UFRJ',
-      subtitle: 'Especializado em IA em Processos'
-    },
-    {
-      icon: BookOpen,
-      title: '100+ Artigos Publicados',
-      detail: 'Web of Science & Scopus',
-      subtitle: 'Influência: 40K+ leitores'
-    },
-    {
-      icon: Briefcase,
-      title: '15+ Anos de Experiência',
-      detail: 'ML Engineer | GenAI Lead',
-      subtitle: 'Santander, Grupo Fleury, Engie Energia, Petrobras'
-    },
-    {
-      icon: Trophy,
-      title: '150+ Projetos Entregues',
-      detail: 'Saúde, Indústria, Finanças',
-      subtitle: 'Impacto econômico 4x ROI'
-    }
-  ];
-
   const skills = [
     'LLMs & GenAI',
     'RAG Systems',
     'Computer Vision',
-    'Transformers',
-    'MLOps & Cloud',
+    'MLOps',
     'Deep Learning',
-    'Fine-tuning LLMs',
-    'Vector Databases'
+    'Transformers',
+    'Fine-tuning',
+    'Kubernetes'
   ];
 
   const certifications = [
     'Google Cloud ML Engineer',
     'AWS ML Specialty',
     'TensorFlow Developer',
-    'Deep Learning Specialist',
     'Databricks ML Associate',
-    'CKA (Kubernetes)'
   ];
 
   return (
-    <div className="w-full py-12 md:py-20 bg-white">
+    <div className="w-full py-16 md:py-24 bg-white">
       <div className="max-w-4xl mx-auto px-4 md:px-6">
         {/* Título */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Por que aprender com Dr. Dheiver?
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Experiência validada por credenciais internacionais e histórico comprovado
-          </p>
+        <h2 className="text-3xl md:text-4xl font-bold text-black mb-12 text-center">
+          Credenciais & Experiência
+        </h2>
+
+        {/* Credenciais principais */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="text-black">
+            <p className="text-2xl font-bold text-yellow-600 mb-2">PhD</p>
+            <p className="font-bold mb-1">Engenharia Química</p>
+            <p className="text-sm">UFBA / UFRJ • IA em Processos</p>
+          </div>
+          <div className="text-black">
+            <p className="text-2xl font-bold text-yellow-600 mb-2">15+ Anos</p>
+            <p className="font-bold mb-1">Experiência ML & IA</p>
+            <p className="text-sm">Santander • Grupo Fleury • Engie • Petrobras</p>
+          </div>
+          <div className="text-black">
+            <p className="text-2xl font-bold text-yellow-600 mb-2">100+</p>
+            <p className="font-bold mb-1">Artigos Publicados</p>
+            <p className="text-sm">Web of Science • Scopus • 40K+ leitores</p>
+          </div>
+          <div className="text-black">
+            <p className="text-2xl font-bold text-yellow-600 mb-2">150+</p>
+            <p className="font-bold mb-1">Projetos Entregues</p>
+            <p className="text-sm">Saúde • Indústria • Finanças</p>
+          </div>
         </div>
 
-        {/* Credenciais */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12">
-          {credentials.map((cred, idx) => {
-            const Icon = cred.icon;
-            return (
-              <Card key={idx} className="border-2 border-gray-100 hover:border-blue-300 transition">
-                <CardContent className="pt-6">
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
-                      <Icon className="w-8 h-8 text-yellow-600" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-bold text-gray-900 mb-1">{cred.title}</h3>
-                      <p className="text-sm text-blue-600 font-semibold mb-1">{cred.detail}</p>
-                      <p className="text-xs text-gray-500">{cred.subtitle}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-
-        {/* Skills */}
-        <div className="mb-12">
-          <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">
-            Tecnologias & Especializações
-          </h3>
-          <div className="flex flex-wrap gap-3 justify-center">
+        {/* Tecnologias */}
+        <div className="mb-16">
+          <h3 className="text-xl font-bold text-black mb-6">Tecnologias</h3>
+          <div className="flex flex-wrap gap-3">
             {skills.map((skill, idx) => (
               <span
                 key={idx}
-                className="px-4 py-2 bg-yellow-50 text-yellow-900 rounded-full font-medium text-sm border border-yellow-300"
+                className="px-4 py-2 bg-black text-yellow-600 font-bold text-sm"
               >
                 {skill}
               </span>
@@ -103,42 +66,40 @@ const MentoringAuthority = () => {
           </div>
         </div>
 
-        {/* Certifications */}
-        <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-8 rounded-xl border border-yellow-300">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">
-            Certificações Internacionais
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Certificações */}
+        <div className="mb-16">
+          <h3 className="text-xl font-bold text-black mb-6">Certificações Internacionais</h3>
+          <ul className="space-y-2">
             {certifications.map((cert, idx) => (
-              <div key={idx} className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"></div>
-                <span className="text-gray-700">{cert}</span>
-              </div>
+              <li key={idx} className="flex items-center gap-3 text-black">
+                <span className="text-yellow-600 font-bold">✓</span>
+                <span className="font-bold">{cert}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
         {/* Impacto */}
-        <div className="mt-12 p-6 md:p-8 bg-gray-50 rounded-xl border border-gray-200">
-          <h3 className="text-lg font-bold text-gray-900 mb-4">Impacto nos Clientes:</h3>
-          <ul className="space-y-3">
-            <li className="flex items-start gap-3">
-              <span className="text-yellow-600 font-bold text-xl">✓</span>
-              <span className="text-gray-700"><strong>Santander:</strong> Liderou squad de 8 engenheiros, reduziu custos em 60%, acelerou entregas 3x</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-yellow-600 font-bold text-xl">✓</span>
-              <span className="text-gray-700"><strong>Grupo Fleury:</strong> Desenvolveu soluções GenAI e visão computacional para diagnósticos médicos</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-yellow-600 font-bold text-xl">✓</span>
-              <span className="text-gray-700"><strong>Engie Energia:</strong> Criou modelos de otimização de energia e previsão de demanda</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-yellow-600 font-bold text-xl">✓</span>
-              <span className="text-gray-700"><strong>Petrobras:</strong> Implementou pipelines ML para análise de dados operacionais em larga escala</span>
-            </li>
-          </ul>
+        <div className="bg-black p-8 md:p-12">
+          <h3 className="text-xl font-bold text-yellow-600 mb-8">Impacto nos Clientes</h3>
+          <div className="space-y-6 text-white">
+            <div>
+              <p className="font-bold text-yellow-600 mb-1">Santander</p>
+              <p className="text-sm">Squad de 8 engenheiros • -60% custos • +3x velocidade</p>
+            </div>
+            <div>
+              <p className="font-bold text-yellow-600 mb-1">Grupo Fleury</p>
+              <p className="text-sm">GenAI e Computer Vision para diagnósticos médicos</p>
+            </div>
+            <div>
+              <p className="font-bold text-yellow-600 mb-1">Engie Energia</p>
+              <p className="text-sm">Otimização de energia e previsão de demanda</p>
+            </div>
+            <div>
+              <p className="font-bold text-yellow-600 mb-1">Petrobras</p>
+              <p className="text-sm">ML pipelines para análise operacional em larga escala</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
