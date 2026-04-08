@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const MentoringCta = () => {
   return (
-    <div className="w-full py-12 md:py-20 bg-gradient-to-r from-black to-yellow-900">
+    <div className="w-full py-12 md:py-20 bg-black">
       <div className="max-w-3xl mx-auto px-4 md:px-6">
         {/* Testimoniäls simulados */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">

@@ -11,13 +11,13 @@ const MentoringHero = () => {
   };
 
   return (
-    <div className="w-full bg-gradient-to-b from-blue-50 to-white py-8 md:py-16">
+    <div className="w-full bg-white py-8 md:py-16">
       <div className="max-w-2xl mx-auto px-4 md:px-6">
         {/* Foto de Destaque */}
         <div className="flex justify-center mb-8 md:mb-12">
           <div className="relative w-48 h-64 md:w-64 md:h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-yellow-600">
             <img
-              src="/dheiver-profile.jpg"
+              src="/dheiver-photo.png"
               alt="Dr. Dheiver Santos - Mentor em IA"
               className="w-full h-full object-cover"
             />
