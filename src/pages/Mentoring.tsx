@@ -10,6 +10,7 @@ import MentoringObjections from '@/components/mentoring/MentoringObjections';
 import MentoringFaq from '@/components/mentoring/MentoringFaq';
 import MentoringGuarantee from '@/components/mentoring/MentoringGuarantee';
 import MentoringMedia from '@/components/mentoring/MentoringMedia';
+import MentoringLeadCapture from '@/components/mentoring/MentoringLeadCapture';
 import MentoringCta from '@/components/mentoring/MentoringCta';
 
 const Mentoring = () => {
@@ -17,6 +18,10 @@ const Mentoring = () => {
     <div className="min-h-screen bg-white">
       <section id="mentoring-hero">
         <MentoringHero />
+      </section>
+
+      <section id="mentoring-lead-capture">
+        <MentoringLeadCapture />
       </section>
 
       <section id="mentoring-pain">
