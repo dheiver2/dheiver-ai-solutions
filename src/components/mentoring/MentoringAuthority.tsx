@@ -20,45 +20,48 @@ const MentoringAuthority = () => {
   ];
 
   return (
-    <div className="w-full py-16 md:py-24 bg-white">
-      <div className="max-w-4xl mx-auto px-4 md:px-6">
+    <div className="w-full py-20 md:py-40 bg-white">
+      <div className="max-w-4xl mx-auto px-6 md:px-8">
         {/* Título */}
-        <h2 className="text-3xl md:text-4xl font-bold text-black mb-12 text-center">
+        <h2 className="text-4xl md:text-5xl font-light text-black mb-20 md:mb-32 text-center tracking-tight">
           Credenciais & Experiência
         </h2>
 
         {/* Credenciais principais */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <div className="text-black">
-            <p className="text-2xl font-bold text-yellow-600 mb-2">PhD</p>
-            <p className="font-bold mb-1">Engenharia Química</p>
-            <p className="text-sm">UFBA / UFRJ • IA em Processos</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 mb-20 md:mb-32">
+          <div>
+            <p className="text-3xl md:text-4xl font-light text-amber-700 mb-3">PhD</p>
+            <p className="text-sm font-light text-black mb-2">Engenharia Química</p>
+            <p className="text-xs text-stone-600 font-light tracking-wide">UFBA / UFRJ • IA em Processos</p>
           </div>
-          <div className="text-black">
-            <p className="text-2xl font-bold text-yellow-600 mb-2">15+ Anos</p>
-            <p className="font-bold mb-1">Experiência ML & IA</p>
-            <p className="text-sm">Ex Santander • Grupo Fleury • Engie Energia • Petrobras</p>
+          <div>
+            <p className="text-3xl md:text-4xl font-light text-amber-700 mb-3">15+</p>
+            <p className="text-sm font-light text-black mb-2">Anos Experiência</p>
+            <p className="text-xs text-stone-600 font-light tracking-wide">Ex Santander • Grupo Fleury • Engie • Petrobras</p>
           </div>
-          <div className="text-black">
-            <p className="text-2xl font-bold text-yellow-600 mb-2">100+</p>
-            <p className="font-bold mb-1">Artigos Publicados</p>
-            <p className="text-sm">Web of Science • Scopus • 40K+ leitores</p>
+          <div>
+            <p className="text-3xl md:text-4xl font-light text-amber-700 mb-3">100+</p>
+            <p className="text-sm font-light text-black mb-2">Artigos Publicados</p>
+            <p className="text-xs text-stone-600 font-light tracking-wide">Web of Science • Scopus</p>
           </div>
-          <div className="text-black">
-            <p className="text-2xl font-bold text-yellow-600 mb-2">150+</p>
-            <p className="font-bold mb-1">Projetos Entregues</p>
-            <p className="text-sm">Saúde • Indústria • Finanças</p>
+          <div>
+            <p className="text-3xl md:text-4xl font-light text-amber-700 mb-3">150+</p>
+            <p className="text-sm font-light text-black mb-2">Projetos Entregues</p>
+            <p className="text-xs text-stone-600 font-light tracking-wide">Saúde • Indústria • Finanças</p>
           </div>
         </div>
 
+        {/* Divisor */}
+        <div className="h-px bg-stone-200 mb-20 md:mb-32"></div>
+
         {/* Tecnologias */}
-        <div className="mb-16">
-          <h3 className="text-xl font-bold text-black mb-6">Tecnologias</h3>
+        <div className="mb-20 md:mb-32">
+          <h3 className="text-lg font-light text-black mb-8 tracking-tight">Tecnologias</h3>
           <div className="flex flex-wrap gap-3">
             {skills.map((skill, idx) => (
               <span
                 key={idx}
-                className="px-4 py-2 bg-black text-yellow-600 font-bold text-sm"
+                className="px-4 py-2.5 bg-stone-950 text-amber-700 font-light text-xs tracking-wide uppercase transition-colors duration-300 hover:bg-stone-800"
               >
                 {skill}
               </span>
@@ -67,37 +70,37 @@ const MentoringAuthority = () => {
         </div>
 
         {/* Certificações */}
-        <div className="mb-16">
-          <h3 className="text-xl font-bold text-black mb-6">Certificações Internacionais</h3>
-          <ul className="space-y-2">
+        <div className="mb-20 md:mb-32">
+          <h3 className="text-lg font-light text-black mb-8 tracking-tight">Certificações</h3>
+          <ul className="space-y-3">
             {certifications.map((cert, idx) => (
-              <li key={idx} className="flex items-center gap-3 text-black">
-                <span className="text-yellow-600 font-bold">✓</span>
-                <span className="font-bold">{cert}</span>
+              <li key={idx} className="flex items-start gap-3">
+                <span className="text-amber-700 font-light mt-1">→</span>
+                <span className="text-sm font-light text-stone-700">{cert}</span>
               </li>
             ))}
           </ul>
         </div>
 
         {/* Impacto */}
-        <div className="bg-black p-8 md:p-12">
-          <h3 className="text-xl font-bold text-yellow-600 mb-8">Impacto nos Clientes</h3>
+        <div className="bg-stone-950 p-8 md:p-12">
+          <h3 className="text-lg font-light text-amber-700 mb-8 tracking-tight uppercase">Impacto nos Clientes</h3>
           <div className="space-y-6 text-white">
             <div>
-              <p className="font-bold text-yellow-600 mb-1">Santander</p>
-              <p className="text-sm">Squad de 8 engenheiros • -60% custos • +3x velocidade</p>
+              <p className="font-light text-amber-700 mb-1 text-sm">Santander</p>
+              <p className="text-sm font-light text-stone-300">Squad de 8 engenheiros • -60% custos • +3x velocidade</p>
             </div>
             <div>
-              <p className="font-bold text-yellow-600 mb-1">Grupo Fleury</p>
-              <p className="text-sm">GenAI e Computer Vision para diagnósticos médicos</p>
+              <p className="font-light text-amber-700 mb-1 text-sm">Grupo Fleury</p>
+              <p className="text-sm font-light text-stone-300">GenAI e Computer Vision para diagnósticos médicos</p>
             </div>
             <div>
-              <p className="font-bold text-yellow-600 mb-1">Engie Energia</p>
-              <p className="text-sm">Otimização de energia e previsão de demanda</p>
+              <p className="font-light text-amber-700 mb-1 text-sm">Engie Energia</p>
+              <p className="text-sm font-light text-stone-300">Otimização de energia e previsão de demanda</p>
             </div>
             <div>
-              <p className="font-bold text-yellow-600 mb-1">Petrobras</p>
-              <p className="text-sm">ML pipelines para análise operacional em larga escala</p>
+              <p className="font-light text-amber-700 mb-1 text-sm">Petrobras</p>
+              <p className="text-sm font-light text-stone-300">ML pipelines para análise operacional em larga escala</p>
             </div>
           </div>
         </div>

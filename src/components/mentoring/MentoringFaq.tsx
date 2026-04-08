@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
 
 const MentoringFaq = () => {
   const [openId, setOpenId] = useState<string | null>(null);
@@ -38,28 +37,26 @@ const MentoringFaq = () => {
   ];
 
   return (
-    <div className="w-full py-16 md:py-24 bg-white">
-      <div className="max-w-3xl mx-auto px-4 md:px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-black mb-12 text-center">
+    <div className="w-full py-20 md:py-40 bg-white">
+      <div className="max-w-3xl mx-auto px-6 md:px-8">
+        <h2 className="text-4xl md:text-5xl font-light text-black mb-20 md:mb-32 text-center tracking-tight">
           Perguntas Frequentes
         </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((faq) => (
-            <div key={faq.id} className="bg-black text-white">
+            <div key={faq.id} className="border-b border-stone-200">
               <button
-                className="w-full px-6 py-4 flex items-center justify-between font-bold text-left hover:bg-gray-900 transition"
+                className="w-full py-6 flex items-center justify-between font-light text-left text-black hover:text-stone-700 transition-colors duration-300"
                 onClick={() => setOpenId(openId === faq.id ? null : faq.id)}
               >
-                <span>{faq.question}</span>
-                <ChevronDown
-                  className={`w-5 h-5 text-yellow-600 transition ${
-                    openId === faq.id ? 'rotate-180' : ''
-                  }`}
-                />
+                <span className="text-base md:text-lg">{faq.question}</span>
+                <span className={`text-amber-700 transition-transform duration-300 ${openId === faq.id ? 'rotate-180' : ''}`}>
+                  ↓
+                </span>
               </button>
               {openId === faq.id && (
-                <div className="px-6 py-4 bg-gray-900 text-sm border-t border-yellow-600">
+                <div className="pb-6 text-sm font-light text-stone-600 leading-relaxed">
                   {faq.answer}
                 </div>
               )}
@@ -68,15 +65,17 @@ const MentoringFaq = () => {
         </div>
 
         {/* Contact */}
-        <div className="mt-12 bg-black p-8 text-white text-center">
-          <p className="font-bold text-yellow-600 mb-3">Dúvidas?</p>
-          <p className="mb-4 text-sm">Respondo em até 2 horas</p>
-          <a
-            href="https://wa.me/5551989889898"
-            className="inline-block bg-yellow-600 text-black px-8 py-3 font-bold hover:bg-yellow-700"
-          >
-            CHAMAR NO WHATSAPP
-          </a>
+        <div className="mt-20 md:mt-32 pt-12 md:pt-16 border-t border-stone-200">
+          <p className="text-center text-amber-700 font-light text-sm mb-3 tracking-wide uppercase">Dúvidas?</p>
+          <p className="text-center text-stone-600 font-light text-sm mb-6">Respondo em até 2 horas</p>
+          <div className="flex justify-center">
+            <a
+              href="https://wa.me/5551989889898"
+              className="inline-block bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 font-light text-sm transition-colors duration-300"
+            >
+              CHAMAR NO WHATSAPP
+            </a>
+          </div>
         </div>
       </div>
     </div>
