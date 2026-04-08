@@ -71,8 +71,9 @@ const MentoringHero = () => {
 
           {/* Trust */}
           <div className="text-center text-sm text-black">
-            <p>✓ Garantia de 14 dias</p>
-            <p className="mt-2">✓ 3 encontros por mês • R$ 578/mês</p>
+            <p>✓ 8+ Mentees Formados por mês</p>
+            <p className="mt-2">✓ 3 Meses de Programa</p>
+            <p className="mt-2">✓ Garantia ou Devolução</p>
           </div>
         </div>
       </div>
