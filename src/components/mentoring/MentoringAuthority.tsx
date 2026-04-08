@@ -72,7 +72,7 @@ const MentoringAuthority = () => {
                 <CardContent className="pt-6">
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <Icon className="w-8 h-8 text-blue-600" />
+                      <Icon className="w-8 h-8 text-yellow-600" />
                     </div>
                     <div className="flex-1">
                       <h3 className="font-bold text-gray-900 mb-1">{cred.title}</h3>
@@ -95,7 +95,7 @@ const MentoringAuthority = () => {
             {skills.map((skill, idx) => (
               <span
                 key={idx}
-                className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full font-medium text-sm border border-blue-200"
+                className="px-4 py-2 bg-yellow-50 text-yellow-900 rounded-full font-medium text-sm border border-yellow-300"
               >
                 {skill}
               </span>
@@ -104,7 +104,7 @@ const MentoringAuthority = () => {
         </div>
 
         {/* Certifications */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl border border-blue-200">
+        <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-8 rounded-xl border border-yellow-300">
           <h3 className="text-xl font-bold text-gray-900 mb-6">
             Certificações Internacionais
           </h3>

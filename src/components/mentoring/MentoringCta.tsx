@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const MentoringCta = () => {
   return (
-    <div className="w-full py-12 md:py-20 bg-gradient-to-r from-blue-600 to-blue-800">
+    <div className="w-full py-12 md:py-20 bg-gradient-to-r from-black to-yellow-900">
       <div className="max-w-3xl mx-auto px-4 md:px-6">
         {/* Testimoniäls simulados */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
@@ -54,15 +54,14 @@ const MentoringCta = () => {
           <div className="flex flex-col gap-3 md:flex-row md:justify-center">
             <Button
               size="lg"
-              className="w-full md:w-auto bg-white text-blue-600 hover:bg-gray-100 text-base md:text-lg h-14 md:h-16 font-bold"
+              className="w-full md:w-auto bg-yellow-500 text-black hover:bg-yellow-600 text-base md:text-lg h-14 md:h-16 font-bold"
               onClick={() => window.location.href = 'https://wa.me/5551989889898?text=Quero%20me%20inscrever%20na%20mentoria%20em%20IA!'}
             >
               🚀 Me Inscrever Agora
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="w-full md:w-auto text-white border-white hover:bg-white/10 text-base md:text-lg h-14 md:h-16"
+              className="w-full md:w-auto bg-transparent border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500/10 text-base md:text-lg h-14 md:h-16 font-bold"
               onClick={() => window.location.href = 'https://wa.me/5551989889898?text=Quero%20agendar%20uma%20conversa%20sobre%20a%20mentoria'}
             >
               📞 Agendar Conversa

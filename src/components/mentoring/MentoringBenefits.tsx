@@ -85,7 +85,7 @@ const MentoringBenefits = () => {
         {/* Benefícios */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
           {benefits.map((benefit, idx) => (
-            <Card key={idx} className="border-gray-100 hover:shadow-lg transition">
+            <Card key={idx} className="border-yellow-200 hover:shadow-lg hover:border-yellow-400 transition">
               <CardHeader className="pb-3">
                 <div className="flex items-start gap-4">
                   <span className="text-3xl">{benefit.icon}</span>
@@ -100,7 +100,7 @@ const MentoringBenefits = () => {
         </div>
 
         {/* Curriculum */}
-        <div className="bg-white p-8 rounded-xl border-2 border-blue-100 shadow-sm mb-16">
+        <div className="bg-white p-8 rounded-xl border-2 border-yellow-300 shadow-sm mb-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
             Estrutura do Programa
           </h3>
@@ -124,7 +124,7 @@ const MentoringBenefits = () => {
 
         {/* Formato */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card className="border-2 border-green-100 bg-green-50">
+          <Card className="border-2 border-yellow-200 bg-yellow-50">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <span className="text-2xl">📅</span> Formato
@@ -138,7 +138,7 @@ const MentoringBenefits = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-2 border-purple-100 bg-purple-50">
+          <Card className="border-2 border-yellow-200 bg-yellow-50">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <span className="text-2xl">💰</span> Investimento

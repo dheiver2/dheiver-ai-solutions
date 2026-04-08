@@ -15,26 +15,26 @@ const MentoringHero = () => {
       <div className="max-w-2xl mx-auto px-4 md:px-6">
         {/* Foto de Destaque */}
         <div className="flex justify-center mb-8 md:mb-12">
-          <div className="relative w-48 h-64 md:w-64 md:h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-blue-100">
+          <div className="relative w-48 h-64 md:w-64 md:h-80 rounded-2xl overflow-hidden shadow-2xl border-4 border-yellow-600">
             <img
-              src="/dheiver-photo.jpg"
+              src="/dheiver-profile.jpg"
               alt="Dr. Dheiver Santos - Mentor em IA"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
           </div>
         </div>
 
         {/* Headline */}
         <div className="text-center mb-8">
           <div className="mb-4">
-            <span className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
+            <span className="inline-block px-4 py-2 bg-yellow-600 text-white rounded-full text-sm font-semibold mb-4">
               🚀 Mentoria Especializada
             </span>
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-            Torne-se <span className="text-blue-600">Engenheiro de IA</span> em 3 Meses
+            Torne-se <span className="text-yellow-600">Engenheiro de IA</span> em 3 Meses
           </h1>
 
           <p className="text-lg md:text-xl text-gray-600 mb-6">
@@ -61,7 +61,7 @@ const MentoringHero = () => {
           <div className="flex flex-col gap-3 mb-8">
             <Button
               size="lg"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white text-base md:text-lg h-14 md:h-16"
+              className="w-full bg-yellow-600 hover:bg-yellow-700 text-white text-base md:text-lg h-14 md:h-16 font-bold"
               onClick={() => window.location.href = 'https://wa.me/5551989889898?text=Quero%20saber%20mais%20sobre%20a%20mentoria%20em%20IA'}
             >
               💬 Falar com Dr. Dheiver

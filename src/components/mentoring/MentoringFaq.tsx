@@ -62,11 +62,11 @@ const MentoringFaq = () => {
           </p>
         </div>
 
-        <div className="bg-white rounded-lg border border-gray-200">
+        <div className="bg-white rounded-lg border-2 border-yellow-300">
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq) => (
               <AccordionItem key={faq.id} value={faq.id}>
-                <AccordionTrigger className="px-6 py-4 hover:bg-blue-50 transition">
+                <AccordionTrigger className="px-6 py-4 hover:bg-yellow-50 transition">
                   <span className="text-lg font-semibold text-gray-900 text-left">
                     {faq.question}
                   </span>
@@ -79,7 +79,7 @@ const MentoringFaq = () => {
           </Accordion>
         </div>
 
-        <div className="mt-12 p-8 bg-blue-50 rounded-xl border-2 border-blue-200">
+        <div className="mt-12 p-8 bg-yellow-50 rounded-xl border-2 border-yellow-300">
           <h3 className="text-xl font-bold text-gray-900 mb-4">Ainda tem dúvidas?</h3>
           <p className="text-gray-700 mb-6">
             Entre em contato direto comigo! Respondo todas as dúvidas em até 2 horas.

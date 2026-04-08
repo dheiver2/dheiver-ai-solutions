@@ -73,16 +73,16 @@ const Navigation = () => {
                   href={item.anchor ? `#${item.anchor}` : item.path}
                   className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActive(item.path, item.anchor)
-                      ? 'text-black bg-gray-100 shadow-sm'
+                      ? 'text-black bg-yellow-200 shadow-sm'
                       : isScrolled
-                      ? 'text-gray-700 hover:text-black hover:bg-gray-50'
+                      ? 'text-gray-700 hover:text-black hover:bg-yellow-100'
                       : 'text-white hover:text-white hover:bg-white/15'
                   }`}
                 >
                   {item.name}
                   {isActive(item.path, item.anchor) && (
                     <motion.div
-                      className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-gray-500 rounded-full"
+                      className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-yellow-600 rounded-full"
                       layoutId="activeIndicator"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
