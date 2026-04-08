@@ -5,18 +5,14 @@ const MentoringCta = () => {
   const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const getNextFirstMonday = () => {
-      const now = new Date();
-      let target = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-      while (target.getDay() !== 1) target.setDate(target.getDate() + 1);
-      if (target <= now) {
-        target = new Date(now.getFullYear(), now.getMonth() + 2, 1);
-        while (target.getDay() !== 1) target.setDate(target.getDate() + 1);
-      }
-      return target;
-    };
+    const COUNTDOWN_KEY = 'mentoring_cta_countdown_target';
+    const DURATION_MS = 6245 * 1000; // 1h43m65s = 6245 segundos
 
-    const targetTime = getNextFirstMonday().getTime();
+    let targetTime = Number(localStorage.getItem(COUNTDOWN_KEY) || 0);
+    if (!targetTime || targetTime <= Date.now()) {
+      targetTime = Date.now() + DURATION_MS;
+      localStorage.setItem(COUNTDOWN_KEY, String(targetTime));
+    }
 
     const updateTimer = () => {
       const diff = Math.max(0, targetTime - Date.now());
@@ -25,6 +21,10 @@ const MentoringCta = () => {
         minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((diff % (1000 * 60)) / 1000),
       });
+      if (diff <= 0) {
+        targetTime = Date.now() + DURATION_MS;
+        localStorage.setItem(COUNTDOWN_KEY, String(targetTime));
+      }
     };
 
     updateTimer();
