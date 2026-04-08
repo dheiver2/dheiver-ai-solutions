@@ -29,41 +29,37 @@ const MentoringBenefits = () => {
   ];
 
   return (
-    <div className="w-full py-10 md:py-14 bg-white">
-      <div className="max-w-4xl mx-auto px-6 md:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-black mb-10 md:mb-12 text-center">
+    <div className="w-full py-8 bg-white">
+      <div className="max-w-3xl mx-auto px-5">
+        <h2 className="text-2xl md:text-4xl font-bold text-black mb-8 text-center">
           O que você recebe
         </h2>
 
         {/* Benefícios */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-10 md:mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
           {benefits.map((benefit, idx) => (
             <div key={idx} className="flex items-start gap-2">
-              <span className="text-amber-700 font-bold text-sm mt-0.5">✓</span>
-              <span className="text-xs md:text-sm font-normal text-black">{benefit}</span>
+              <span className="text-amber-700 font-bold mt-0.5">✓</span>
+              <span className="text-sm font-normal text-black">{benefit}</span>
             </div>
           ))}
         </div>
 
         {/* Divisor */}
-        <div className="h-px bg-stone-300 mb-10 md:mb-12"></div>
+        <div className="h-px bg-stone-400 mb-8"></div>
 
         {/* Curriculum */}
-        <div className="mb-10 md:mb-12">
-          <h3 className="text-base font-bold text-black mb-6 text-center">
-            Programa
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="mb-8">
+          <h3 className="text-base font-bold text-black mb-5 text-center">Programa</h3>
+          <div className="grid grid-cols-3 gap-3">
             {curriculum.map((phase, idx) => (
-              <div key={idx} className="bg-stone-950 p-5 md:p-6 transition-colors duration-300 hover:bg-stone-900">
-                <p className="text-amber-700 font-bold text-xs mb-3">
-                  {phase.month}
-                </p>
-                <h4 className="text-base font-bold text-white mb-4">{phase.title}</h4>
-                <ul className="space-y-2">
+              <div key={idx} className="bg-stone-950 p-4">
+                <p className="text-amber-700 font-bold text-xs mb-2">{phase.month}</p>
+                <h4 className="text-sm font-bold text-white mb-3">{phase.title}</h4>
+                <ul className="space-y-1.5">
                   {phase.items.map((item, itemIdx) => (
-                    <li key={itemIdx} className="text-xs font-normal text-white flex items-start gap-2">
-                      <span className="text-amber-700 mt-0.5">•</span>
+                    <li key={itemIdx} className="text-xs text-white flex items-start gap-1">
+                      <span className="text-amber-700">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -74,10 +70,10 @@ const MentoringBenefits = () => {
         </div>
 
         {/* Details */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+        <div className="grid grid-cols-2 gap-6">
           <div>
-            <p className="text-amber-700 font-bold text-xs mb-4">FORMATO</p>
-            <ul className="space-y-2 text-xs font-normal text-black">
+            <p className="text-amber-700 font-bold text-xs mb-3">FORMATO</p>
+            <ul className="space-y-1.5 text-sm text-black">
               <li>1 encontro/semana</li>
               <li>3 meses total</li>
               <li>Online ao vivo + gravado</li>
@@ -85,9 +81,9 @@ const MentoringBenefits = () => {
             </ul>
           </div>
           <div>
-            <p className="text-amber-700 font-bold text-xs mb-4">INVESTIMENTO</p>
-            <p className="text-2xl font-bold text-black mb-2">R$ 578<span className="text-sm text-stone-700 font-normal">/mês</span></p>
-            <ul className="space-y-2 text-xs font-normal text-black">
+            <p className="text-amber-700 font-bold text-xs mb-3">INVESTIMENTO</p>
+            <p className="text-2xl font-bold text-black">R$ 578<span className="text-sm text-stone-700 font-normal">/mês</span></p>
+            <ul className="space-y-1.5 text-sm text-black mt-2">
               <li>Total: R$ 1.734</li>
               <li>Até 3x sem juros</li>
               <li>Garantia 14 dias</li>
