@@ -38,7 +38,7 @@ const MentoringHero = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-600 mb-6">
-            Com mentoria 1-on-1 de um <strong>PhD em IA com 150+ projetos entregues</strong> e experiência em empresas como Santander, A3Data e Boticário
+            Com mentoria 1-on-1 de um <strong>PhD em IA com 150+ projetos entregues</strong> e experiência em Santander, Grupo Fleury, Engie Energia e Petrobras
           </p>
 
           {/* Stats */}

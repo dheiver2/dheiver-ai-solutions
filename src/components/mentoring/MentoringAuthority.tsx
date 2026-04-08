@@ -20,7 +20,7 @@ const MentoringAuthority = () => {
       icon: Briefcase,
       title: '15+ Anos de Experiência',
       detail: 'ML Engineer | GenAI Lead',
-      subtitle: 'Santander, A3Data, Boticário, Engie Brasil'
+      subtitle: 'Santander, Grupo Fleury, Engie Energia, Petrobras'
     },
     {
       icon: Trophy,
@@ -128,15 +128,15 @@ const MentoringAuthority = () => {
             </li>
             <li className="flex items-start gap-3">
               <span className="text-yellow-600 font-bold text-xl">✓</span>
-              <span className="text-gray-700"><strong>A3Data:</strong> Implementou soluções GenAI e RAG para setor de saúde com ROI 4x</span>
+              <span className="text-gray-700"><strong>Grupo Fleury:</strong> Desenvolveu soluções GenAI e visão computacional para diagnósticos médicos</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-yellow-600 font-bold text-xl">✓</span>
-              <span className="text-gray-700"><strong>Boticário:</strong> Desenvolveu modelos de previsão de demanda e otimização de estoque</span>
+              <span className="text-gray-700"><strong>Engie Energia:</strong> Criou modelos de otimização de energia e previsão de demanda</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-yellow-600 font-bold text-xl">✓</span>
-              <span className="text-gray-700"><strong>Engie Brasil:</strong> Criou sistemas de recomendação neural e modelos de previsão de demanda</span>
+              <span className="text-gray-700"><strong>Petrobras:</strong> Implementou pipelines ML para análise de dados operacionais em larga escala</span>
             </li>
           </ul>
         </div>
