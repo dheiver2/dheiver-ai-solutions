@@ -113,7 +113,7 @@ const FAQ = () => {
         >
           <p className="text-gray-600 text-base sm:text-lg">
             Ainda tem dúvidas?{' '}
-            <a href="https://wa.me/5551989889898" target="_blank" rel="noopener noreferrer" className="text-yellow-600 font-semibold hover:text-yellow-700 transition-colors">
+            <a href="https://wa.me/5551989889898" target="_blank" rel="noopener noreferrer" className="text-yellow-800 font-semibold hover:text-yellow-900 transition-colors">
               Fale com nosso time
             </a>
           </p>

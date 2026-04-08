@@ -81,16 +81,16 @@ const Certifications = () => {
             >
               {/* Icon */}
               <div className="flex items-center justify-between mb-6">
-                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-yellow-700">
+                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-yellow-800">
                   <Award className="w-6 h-6" />
                 </div>
-                <span className="inline-block bg-yellow-100 text-yellow-700 text-xs font-bold px-3 py-1 rounded-full">
+                <span className="inline-block bg-yellow-100 text-yellow-800 text-xs font-bold px-3 py-1 rounded-full">
                   {cert.year}
                 </span>
               </div>
 
               {/* Provider */}
-              <p className="text-xs font-semibold text-yellow-600 uppercase mb-2">
+              <p className="text-xs font-semibold text-yellow-800 uppercase mb-2">
                 {cert.provider}
               </p>
 
@@ -110,7 +110,7 @@ const Certifications = () => {
                   href={cert.verifyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-yellow-600 hover:text-yellow-700 font-semibold text-sm transition-colors"
+                  className="inline-flex items-center gap-2 text-yellow-800 hover:text-yellow-900 font-semibold text-sm transition-colors"
                 >
                   Verificar certificação
                   <ExternalLink className="w-4 h-4" />

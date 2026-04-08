@@ -75,12 +75,12 @@ const PricingModels = () => {
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
               <p className="text-gray-600 text-sm sm:text-base mb-4">{plan.description}</p>
 
-              <p className="text-2xl sm:text-3xl font-bold text-yellow-600 mb-6">{plan.price}</p>
+              <p className="text-2xl sm:text-3xl font-bold text-yellow-800 mb-6">{plan.price}</p>
 
               <ul className="space-y-3 mb-8 flex-grow">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm sm:text-base text-gray-700">
-                    <Check className="w-4 h-4 text-yellow-600 flex-shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-yellow-800 flex-shrink-0 mt-0.5" />
                     {feature}
                   </li>
                 ))}
@@ -90,7 +90,7 @@ const PricingModels = () => {
                 href={getWhatsappLink(plan.name)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-base transition-all duration-300"
+                className="w-full flex items-center justify-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-black px-4 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-base transition-all duration-300"
               >
                 <MessageCircle className="w-4 h-4" />
                 Escolher pacote

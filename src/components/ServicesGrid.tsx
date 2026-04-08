@@ -80,7 +80,7 @@ const ServicesGrid = () => {
               variants={itemVariants}
               className="group border border-gray-200 rounded-lg p-8 hover:border-yellow-500 hover:bg-yellow-50/30 transition-all duration-300"
             >
-              <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-yellow-700 mb-6 group-hover:bg-yellow-500 group-hover:text-white transition-colors">
+              <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-yellow-800 mb-6 group-hover:bg-yellow-500 group-hover:text-black transition-colors">
                 {service.icon}
               </div>
 
@@ -91,7 +91,7 @@ const ServicesGrid = () => {
                 href={getWhatsappLink(service.title)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-700 hover:text-yellow-800 font-semibold text-sm px-4 py-2 rounded transition-colors group/link"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-800 hover:text-yellow-900 font-semibold text-sm px-4 py-2 rounded transition-colors group/link"
               >
                 <MessageCircle className="w-4 h-4" />
                 Saber mais

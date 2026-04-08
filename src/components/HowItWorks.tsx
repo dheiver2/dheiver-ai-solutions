@@ -79,12 +79,12 @@ const HowItWorks = () => {
             <motion.div key={idx} variants={itemVariants} className="relative">
               <div className="border border-gray-200 rounded-lg p-6 md:p-8 hover:border-yellow-500 hover:bg-yellow-50/30 transition-all duration-300 h-full flex flex-col">
                 {/* Step Number Badge */}
-                <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-700 font-bold text-lg mb-4">
+                <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-800 font-bold text-lg mb-4">
                   {step.number}
                 </div>
 
                 {/* Icon */}
-                <div className="text-yellow-600 mb-4">
+                <div className="text-yellow-800 mb-4">
                   {step.icon}
                 </div>
 

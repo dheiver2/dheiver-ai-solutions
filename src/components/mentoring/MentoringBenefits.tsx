@@ -54,12 +54,12 @@ const MentoringBenefits = () => {
           <div className="grid grid-cols-3 gap-3">
             {curriculum.map((phase, idx) => (
               <div key={idx} className="bg-stone-950 p-4">
-                <p className="text-amber-700 font-bold text-xs mb-2">{phase.month}</p>
+                <p className="text-amber-500 font-bold text-xs mb-2">{phase.month}</p>
                 <h4 className="text-sm font-bold text-white mb-3">{phase.title}</h4>
                 <ul className="space-y-1.5">
                   {phase.items.map((item, itemIdx) => (
                     <li key={itemIdx} className="text-xs text-white flex items-start gap-1">
-                      <span className="text-amber-700">•</span>
+                      <span className="text-amber-500">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
