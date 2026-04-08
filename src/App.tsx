@@ -10,9 +10,7 @@ import { PageLoader } from "@/components/LoadingSpinner";
 import { logger } from "@/services/logger";
 
 // Lazy load pages
-const Index = lazy(() => import("./pages/Index"));
 const Mentoring = lazy(() => import("./pages/Mentoring"));
-const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Configure React Query with better defaults
 const queryClient = new QueryClient({
@@ -74,8 +72,7 @@ const App = () => {
               <ScrollToHash />
               <Suspense fallback={<PageLoader />}>
                 <Routes>
-                  <Route path="mentoria" element={<Mentoring />} />
-                  <Route path="/*" element={<Index />} />
+                  <Route path="/*" element={<Mentoring />} />
                 </Routes>
               </Suspense>
             </HashRouter>

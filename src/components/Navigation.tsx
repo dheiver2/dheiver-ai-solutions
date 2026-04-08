@@ -25,11 +25,10 @@ const Navigation = () => {
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   const navItems = [
-    { name: 'Início', path: '/', anchor: 'hero' },
-    { name: 'Serviços', path: '/', anchor: 'servicos' },
-    { name: 'Cases', path: '/', anchor: 'cases' },
-    { name: 'Investimento', path: '/', anchor: 'pricing' },
-    { name: '🚀 Mentoria IA', path: '/mentoria', anchor: undefined },
+    { name: 'Início', path: '/', anchor: 'mentoring-hero' },
+    { name: 'Credenciais', path: '/', anchor: 'mentoring-authority' },
+    { name: 'Benefícios', path: '/', anchor: 'mentoring-benefits' },
+    { name: 'FAQ', path: '/', anchor: 'mentoring-faq' },
   ];
 
   const isActive = (path: string, anchor?: string) => {
