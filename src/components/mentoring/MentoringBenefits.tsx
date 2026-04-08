@@ -145,8 +145,8 @@ const MentoringBenefits = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <p className="text-gray-700"><strong>Investimento:</strong> R$ 1.578/mês</p>
-              <p className="text-gray-700"><strong>Duração:</strong> 3 meses (R$ 4.734 total)</p>
+              <p className="text-gray-700"><strong>Investimento:</strong> R$ 578/mês</p>
+              <p className="text-gray-700"><strong>Duração:</strong> 3 meses (R$ 1.734 total)</p>
               <p className="text-gray-700"><strong>Parcelas:</strong> até 3x sem juros</p>
               <p className="text-gray-700"><strong>Garantia:</strong> 14 dias ou devolve</p>
             </CardContent>

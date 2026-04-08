@@ -48,7 +48,7 @@ const MentoringCta = () => {
             Inscrições abertas para turmas iniciando <strong>toda primeira segunda-feira do mês</strong>
           </p>
           <p className="text-base md:text-lg mb-8 opacity-80">
-            R$ 1.578/mês • Apenas 5 vagas por turma • Garantia de 14 dias de devolução
+            R$ 578/mês • Apenas 5 vagas por turma • Garantia de 14 dias de devolução
           </p>
 
           <div className="flex flex-col gap-3 md:flex-row md:justify-center">
