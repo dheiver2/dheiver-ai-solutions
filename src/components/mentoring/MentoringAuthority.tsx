@@ -38,11 +38,11 @@ const MentoringAuthority = () => {
             <p className="text-sm font-bold text-black mt-1">Anos Exp.</p>
             <p className="text-xs text-stone-700 mt-0.5">Santander • Fleury • Engie • Petrobras</p>
           </div>
-          <div>
+          <a href="https://orcid.org/0000-0002-8599-9436" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
             <p className="text-2xl md:text-3xl font-bold text-amber-800">100+</p>
             <p className="text-sm font-bold text-black mt-1">Artigos</p>
             <p className="text-xs text-stone-700 mt-0.5">Web of Science • Scopus</p>
-          </div>
+          </a>
           <div>
             <p className="text-2xl md:text-3xl font-bold text-amber-800">150+</p>
             <p className="text-sm font-bold text-black mt-1">Projetos</p>

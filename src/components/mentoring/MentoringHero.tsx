@@ -90,10 +90,10 @@ const MentoringHero = () => {
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4 mb-5 text-center">
-            <div>
+            <a href="https://orcid.org/0000-0002-8599-9436" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
               <p className="text-2xl md:text-3xl font-bold text-amber-800">100+</p>
               <p className="text-xs text-stone-800 font-bold">ARTIGOS</p>
-            </div>
+            </a>
             <div className="border-x border-stone-300">
               <p className="text-2xl md:text-3xl font-bold text-amber-800">150+</p>
               <p className="text-xs text-stone-800 font-bold">PROJETOS</p>

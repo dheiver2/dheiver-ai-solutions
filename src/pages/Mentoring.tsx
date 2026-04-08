@@ -9,6 +9,7 @@ import MentoringPricing from '@/components/mentoring/MentoringPricing';
 import MentoringObjections from '@/components/mentoring/MentoringObjections';
 import MentoringFaq from '@/components/mentoring/MentoringFaq';
 import MentoringGuarantee from '@/components/mentoring/MentoringGuarantee';
+import MentoringMedia from '@/components/mentoring/MentoringMedia';
 import MentoringCta from '@/components/mentoring/MentoringCta';
 
 const Mentoring = () => {
@@ -28,6 +29,10 @@ const Mentoring = () => {
 
       <section id="mentoring-authority">
         <MentoringAuthority />
+      </section>
+
+      <section id="mentoring-media">
+        <MentoringMedia />
       </section>
 
       <section id="mentoring-benefits">
