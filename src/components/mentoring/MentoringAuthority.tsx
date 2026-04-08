@@ -20,7 +20,7 @@ const MentoringAuthority = () => {
       icon: Briefcase,
       title: '15+ Anos de Experiência',
       detail: 'ML Engineer | GenAI Lead',
-      subtitle: 'Santander, A3Data, Engie Brasil'
+      subtitle: 'Santander, A3Data, Boticário, Engie Brasil'
     },
     {
       icon: Trophy,
@@ -123,15 +123,19 @@ const MentoringAuthority = () => {
           <h3 className="text-lg font-bold text-gray-900 mb-4">Impacto nos Clientes:</h3>
           <ul className="space-y-3">
             <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-xl">✓</span>
+              <span className="text-yellow-600 font-bold text-xl">✓</span>
               <span className="text-gray-700"><strong>Santander:</strong> Liderou squad de 8 engenheiros, reduziu custos em 60%, acelerou entregas 3x</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-xl">✓</span>
+              <span className="text-yellow-600 font-bold text-xl">✓</span>
               <span className="text-gray-700"><strong>A3Data:</strong> Implementou soluções GenAI e RAG para setor de saúde com ROI 4x</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-green-600 font-bold text-xl">✓</span>
+              <span className="text-yellow-600 font-bold text-xl">✓</span>
+              <span className="text-gray-700"><strong>Boticário:</strong> Desenvolveu modelos de previsão de demanda e otimização de estoque</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-yellow-600 font-bold text-xl">✓</span>
               <span className="text-gray-700"><strong>Engie Brasil:</strong> Criou sistemas de recomendação neural e modelos de previsão de demanda</span>
             </li>
           </ul>
