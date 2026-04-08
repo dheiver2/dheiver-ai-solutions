@@ -1,4 +1,4 @@
-# Robots.txt for Dr. Dheiver Santos - Consultoria em IA
+# Robots.txt for Dr. Dheiver Santos - Mentoria em IA
 # https://dheiver-ai-solutions.com
 
 User-agent: *

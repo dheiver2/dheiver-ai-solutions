@@ -1,88 +1,111 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 
 const MentoringCta = () => {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const getNextFirstMonday = () => {
+      const now = new Date();
+      let target = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+      while (target.getDay() !== 1) target.setDate(target.getDate() + 1);
+      if (target <= now) {
+        target = new Date(now.getFullYear(), now.getMonth() + 2, 1);
+        while (target.getDay() !== 1) target.setDate(target.getDate() + 1);
+      }
+      return target;
+    };
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const target = getNextFirstMonday().getTime();
+      const diff = target - now;
+      setTimeLeft({
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((diff % (1000 * 60)) / 1000),
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="w-full py-8 bg-stone-950 text-white">
-      <div className="max-w-3xl mx-auto px-5 text-center">
-        {/* Depoimentos */}
-        <div className="mb-8">
-          <div className="mb-6">
-            <p className="text-amber-700 font-bold text-xs mb-1">⭐⭐⭐⭐⭐</p>
-            <p className="text-sm text-white mb-2">
-              "De zero a Junior ML Engineer em 7 meses."
-            </p>
-            <p className="text-xs text-stone-400 font-bold">João Silva • Fintech, SP</p>
-          </div>
-          <div>
-            <p className="text-amber-700 font-bold text-xs mb-1">⭐⭐⭐⭐⭐</p>
-            <p className="text-sm text-white mb-2">
-              "Projeto que triplica produtividade da empresa."
-            </p>
-            <p className="text-xs text-stone-400 font-bold">Marina Costa • AgriTech, MG</p>
-          </div>
-        </div>
-
-        {/* Divisor */}
-        <div className="h-px bg-stone-700 mb-8"></div>
-
-        {/* Main CTA */}
-        <h2 className="text-2xl md:text-4xl font-bold mb-3 leading-tight text-white">
-          Pronto para transformar<br />
-          <span className="text-amber-600">sua carreira</span>?
+    <div className="w-full py-8 bg-white">
+      <div className="max-w-xl mx-auto px-5 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-black mb-3 leading-tight">
+          Sua carreira em IA começa<br />
+          <span className="text-amber-700">com uma decisão.</span>
         </h2>
 
-        <p className="text-sm text-white mb-1">Inscrições abertas</p>
-        <p className="text-sm text-amber-700 font-bold mb-4">
-          toda primeira segunda do mês
+        <p className="text-sm text-stone-700 mb-5 leading-relaxed">
+          Daqui 3 meses, você pode estar no mesmo lugar.<br />
+          Ou pode estar empregado como Engenheiro de IA JR.
         </p>
 
-        <p className="text-xs text-stone-400 font-bold mb-6">
-          R$ 578/mês • 5 vagas • Garantia 14 dias
-        </p>
-
-        {/* Buttons */}
-        <div className="flex flex-col gap-2 mb-6">
-          <Button
-            size="lg"
-            className="w-full bg-amber-700 hover:bg-amber-800 text-white text-sm font-bold h-12 rounded-none transition-colors duration-200"
-            onClick={() => window.location.href = 'https://wa.me/5551989889898?text=Quero%20me%20inscrever%20na%20mentoria%20em%20IA!'}
-          >
-            ME INSCREVER
-          </Button>
-          <Button
-            size="lg"
-            className="w-full bg-transparent hover:bg-stone-900 text-amber-700 border-2 border-amber-700 text-sm font-bold h-12 rounded-none transition-colors duration-200"
-            onClick={() => window.location.href = 'https://wa.me/5551989889898?text=Quero%20agendar%20uma%20conversa%20sobre%20a%20mentoria'}
-          >
-            AGENDAR
-          </Button>
+        {/* Timer */}
+        <div className="bg-stone-950 p-4 mb-5">
+          <p className="text-xs text-amber-600 font-bold mb-2">INSCRIÇÕES FECHAM EM:</p>
+          <div className="flex justify-center gap-3">
+            <div className="text-center">
+              <p className="text-2xl font-bold text-white">{String(timeLeft.days).padStart(2, '0')}</p>
+              <p className="text-xs text-stone-400">DIAS</p>
+            </div>
+            <span className="text-2xl font-bold text-amber-700">:</span>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-white">{String(timeLeft.hours).padStart(2, '0')}</p>
+              <p className="text-xs text-stone-400">HORAS</p>
+            </div>
+            <span className="text-2xl font-bold text-amber-700">:</span>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-white">{String(timeLeft.minutes).padStart(2, '0')}</p>
+              <p className="text-xs text-stone-400">MIN</p>
+            </div>
+            <span className="text-2xl font-bold text-amber-700">:</span>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-white">{String(timeLeft.seconds).padStart(2, '0')}</p>
+              <p className="text-xs text-stone-400">SEG</p>
+            </div>
+          </div>
         </div>
 
-        {/* Steps - horizontal */}
-        <div className="flex justify-center gap-6 text-xs text-stone-400 font-bold mb-6">
+        <Button
+          size="lg"
+          className="w-full bg-amber-700 hover:bg-amber-800 text-white text-sm font-bold h-14 rounded-none transition-colors duration-200 mb-2"
+          onClick={() => window.location.href = 'https://wa.me/5551989889898?text=Quero%20me%20inscrever%20na%20mentoria%20em%20IA!'}
+        >
+          QUERO SER ENGENHEIRO DE IA →
+        </Button>
+
+        <p className="text-xs text-stone-600 font-bold mb-5">
+          ✓ R$ 578/mês &nbsp;|&nbsp; ✓ 5 vagas &nbsp;|&nbsp; ✓ Garantia 14 dias
+        </p>
+
+        {/* Steps */}
+        <div className="flex justify-center gap-6 text-xs text-stone-500 font-bold mb-5">
           <div className="flex items-center gap-1.5">
-            <span className="bg-amber-700 text-stone-950 w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold">1</span>
+            <span className="bg-amber-700 text-white w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold">1</span>
             <span>WhatsApp</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="bg-amber-700 text-stone-950 w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold">2</span>
+            <span className="bg-amber-700 text-white w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold">2</span>
             <span>Conversa</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="bg-amber-700 text-stone-950 w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold">3</span>
+            <span className="bg-amber-700 text-white w-5 h-5 flex items-center justify-center rounded-full text-xs font-bold">3</span>
             <span>Inscrição</span>
           </div>
         </div>
 
-        {/* Contact Footer */}
-        <div className="pt-5 border-t border-stone-700">
+        {/* Contact */}
+        <div className="pt-4 border-t border-stone-200">
           <a
             href="https://wa.me/5551989889898"
-            className="text-amber-700 font-bold text-sm hover:text-amber-600 transition-colors duration-200"
+            className="text-amber-700 font-bold text-sm hover:text-amber-800 transition-colors duration-200"
           >
-            💬 (51) 98988-9898
+            (51) 98988-9898
           </a>
+          <p className="text-xs text-stone-400 mt-1">Dr. Dheiver Santos • PhD em IA</p>
         </div>
       </div>
     </div>

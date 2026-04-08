@@ -73,7 +73,7 @@ const getEnvNumber = (key: string, defaultValue: number = 0): number => {
 
 export const config: AppConfig = {
   app: {
-    name: getEnvVar('VITE_APP_NAME', 'Dr. Dheiver Santos - Consultoria em IA'),
+    name: getEnvVar('VITE_APP_NAME', 'Dr. Dheiver Santos - Mentoria em IA'),
     version: getEnvVar('VITE_APP_VERSION', '1.0.0'),
     env: getEnvVar('VITE_APP_ENV', import.meta.env.MODE),
   },

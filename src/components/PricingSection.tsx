@@ -20,12 +20,12 @@ import {
 const PricingSection = () => {
   const plans = [
     {
-      name: 'Consultoria Básica',
+      name: 'Mentoria Básica',
       price: 'R$ 5.000',
       period: '/mês',
       description: 'Ideal para startups e PMEs iniciando em IA',
       features: [
-        'Consultoria mensal (4h)',
+        'Mentoria mensal (4h)',
         'Análise de viabilidade de IA',
         'Roadmap personalizado',
         'Suporte por email',
@@ -43,7 +43,7 @@ const PricingSection = () => {
       description: 'Para empresas prontas para implementar IA',
       features: [
         'Tudo do plano Básico',
-        'Consultoria semanal (16h/mês)',
+        'Mentoria semanal (16h/mês)',
         'Desenvolvimento de POC',
         'Treinamento de equipe',
         'Suporte prioritário 24/7',

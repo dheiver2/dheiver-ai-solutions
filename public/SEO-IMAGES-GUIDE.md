@@ -7,7 +7,7 @@
 - **Formato**: JPG (alta qualidade)
 - **Conteúdo sugerido**:
   - Logo/Nome: "Dr. Dheiver Santos"
-  - Subtítulo: "Consultoria em Inteligência Artificial"
+  - Subtítulo: "Mentoria em Inteligência Artificial"
   - Background: Gradiente moderno (azul/roxo)
   - Elementos visuais: Ícones de IA, cérebro, circuitos
 
@@ -43,7 +43,7 @@
 ## Template de Conteúdo para as Imagens
 
 **Texto Principal**: "Dr. Dheiver Santos"
-**Subtítulo**: "Consultoria em IA"
+**Subtítulo**: "Mentoria em IA"
 **Tagline**: "Transforme seu negócio com Inteligência Artificial"
 **Cores sugeridas**: 
 - Primária: #2563eb (azul)

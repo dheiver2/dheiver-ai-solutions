@@ -65,7 +65,7 @@ const Contact = () => {
   ];
 
   const benefits = [
-    "Consultoria inicial gratuita",
+    "Mentoria inicial gratuita",
     "Atendimento personalizado",
     "Soluções sob medida",
     "Suporte técnico especializado",
@@ -182,7 +182,7 @@ const Contact = () => {
                 </div>
 
                 <div className="mt-8 p-6 bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl text-white text-center">
-                  <h3 className="text-gray-300 text-sm font-bold text-lg mb-2">Consultoria Inicial Gratuita</h3>
+                  <h3 className="text-gray-300 text-sm font-bold text-lg mb-2">Mentoria Inicial Gratuita</h3>
                   <p className="text-gray-300 text-sm">
                     Primeira conversa sem custo para entender suas necessidades
                   </p>

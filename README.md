@@ -1,13 +1,13 @@
-# Dr. Dheiver Santos - Consultoria em Inteligência Artificial
+# Dr. Dheiver Santos - Mentoria em Inteligência Artificial
 
 [![CI/CD](https://github.com/dheiver2/dheiver-ai-solutions/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/dheiver2/dheiver-ai-solutions/actions)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-18.3-61dafb)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-5.4-646cff)](https://vitejs.dev/)
 
-## 🚀 Plataforma Enterprise de Consultoria em IA
+## 🚀 Plataforma Enterprise de Mentoria em IA
 
-Plataforma profissional madura com infraestrutura completa de nível enterprise para consultoria em soluções de Inteligência Artificial de alta complexidade.
+Plataforma profissional madura com infraestrutura completa de nível enterprise para Mentoria em soluções de Inteligência Artificial de alta complexidade.
 
 ## ✨ Features Enterprise
 

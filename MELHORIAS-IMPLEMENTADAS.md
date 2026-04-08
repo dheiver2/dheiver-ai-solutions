@@ -5,7 +5,7 @@
 ### ✅ README Atualizado
 - **Antes**: Referências a "Lovable" e conteúdo genérico
 - **Depois**: README profissional em português brasileiro
-- **Melhorias**: Foco no projeto de consultoria IA, instruções claras, documentação técnica
+- **Melhorias**: Foco no projeto de Mentoria IA, instruções claras, documentação técnica
 
 ### ✅ SEO Avançado Implementado
 - **Meta Tags Otimizadas**: Títulos, descrições, keywords específicas por página

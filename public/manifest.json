@@ -1,7 +1,7 @@
 {
-  "name": "Dr. Dheiver Santos - Consultoria em Inteligência Artificial",
+  "name": "Dr. Dheiver Santos - Mentoria em Inteligência Artificial",
   "short_name": "Dheiver IA",
-  "description": "Consultoria especializada em Inteligência Artificial avançada - Machine Learning, Visão Computacional, NLP e Estratégias de IA",
+  "description": "Mentoria especializada em Inteligência Artificial avançada - Machine Learning, Visão Computacional, NLP e Estratégias de IA",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -32,7 +32,7 @@
     {
       "name": "Contato",
       "short_name": "Contato",
-      "description": "Entre em contato para consultoria",
+      "description": "Entre em contato para Mentoria",
       "url": "/contact",
       "icons": []
     }

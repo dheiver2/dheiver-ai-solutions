@@ -271,7 +271,7 @@ const Logo: React.FC<LogoProps> = ({
           letterSpacing="2"
           opacity="0.75"
         >
-          CONSULTORIA EM INTELIGÊNCIA ARTIFICIAL
+          Mentoria EM INTELIGÊNCIA ARTIFICIAL
         </text>
 
         <rect x="0" y={parseInt(currentSize.main) + parseInt(currentSize.sub) + 12} width="60" height="2" fill={`url(#${ids.goldGradient})`} rx="1" />

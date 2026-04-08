@@ -14,7 +14,7 @@ const PricingModels = () => {
 
   const plans: PricingPlan[] = [
     {
-      name: "Consultoria",
+      name: "Mentoria",
       description: "Diagnóstico e estratégia de IA",
       price: "a partir de R$ 5.000",
       features: [

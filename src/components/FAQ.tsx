@@ -40,7 +40,7 @@ const FAQ = () => {
     },
     {
       question: "Vocês trabalham com empresas pequenas?",
-      answer: "Sim! Especialmente. A consultoria é totalmente adaptada ao budget da empresa. Temos pacotes desde R$ 5 mil até R$ 250 mil+. O importante é o ROI gerado, não o tamanho da empresa."
+      answer: "Sim! Especialmente. A Mentoria é totalmente adaptada ao budget da empresa. Temos pacotes desde R$ 5 mil até R$ 250 mil+. O importante é o ROI gerado, não o tamanho da empresa."
     }
   ];
 

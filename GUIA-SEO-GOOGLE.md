@@ -123,9 +123,9 @@ useEffect(() => {
 ### 7. Conteúdo e Palavras-Chave
 
 #### Palavras-chave principais:
-- **Primárias**: "consultoria inteligência artificial", "especialista IA", "machine learning"
+- **Primárias**: "Mentoria inteligência artificial", "especialista IA", "machine learning"
 - **Secundárias**: "computer vision", "NLP", "automação inteligente"
-- **Long-tail**: "consultoria IA Porto Alegre", "especialista machine learning Brasil"
+- **Long-tail**: "Mentoria IA Porto Alegre", "especialista machine learning Brasil"
 
 #### Estrutura de headings:
 ```html
@@ -192,7 +192,7 @@ curl -I https://dheiver-ai-solutions.com
 - Aumento de 40% nas conversões de SEO
 
 ### Longo Prazo (6-12 meses):
-- Top 3 para "consultoria IA Porto Alegre"
+- Top 3 para "Mentoria IA Porto Alegre"
 - Top 5 para "especialista machine learning"
 - Aumento de 100% no tráfego orgânico qualificado
 

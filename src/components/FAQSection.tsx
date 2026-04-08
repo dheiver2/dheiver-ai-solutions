@@ -10,15 +10,15 @@ import { getFAQSchema } from '../lib/seo';
 
 const faqData = [
   {
-    question: "O que é consultoria em Inteligência Artificial?",
-    answer: "A consultoria em IA envolve análise, desenvolvimento e implementação de soluções baseadas em inteligência artificial para resolver problemas complexos de negócio, incluindo machine learning, deep learning, visão computacional e processamento de linguagem natural."
+    question: "O que é Mentoria em Inteligência Artificial?",
+    answer: "A Mentoria em IA envolve análise, desenvolvimento e implementação de soluções baseadas em inteligência artificial para resolver problemas complexos de negócio, incluindo machine learning, deep learning, visão computacional e processamento de linguagem natural."
   },
   {
     question: "Quais são os principais serviços oferecidos?",
-    answer: "Oferecemos consultoria estratégica em IA, desenvolvimento de modelos de machine learning, implementação de sistemas de visão computacional, criação de chatbots e assistentes virtuais, automação inteligente de processos e análise preditiva de dados."
+    answer: "Oferecemos Mentoria estratégica em IA, desenvolvimento de modelos de machine learning, implementação de sistemas de visão computacional, criação de chatbots e assistentes virtuais, automação inteligente de processos e análise preditiva de dados."
   },
   {
-    question: "Como funciona o processo de consultoria?",
+    question: "Como funciona o processo de Mentoria?",
     answer: "O processo inicia com uma consulta gratuita para entender suas necessidades, seguido de análise técnica detalhada, proposta customizada, desenvolvimento da solução e acompanhamento pós-implementação para garantir os melhores resultados."
   },
   {
@@ -35,7 +35,7 @@ const faqData = [
   },
   {
     question: "É necessário ter conhecimento técnico em IA?",
-    answer: "Não é necessário. Nossa consultoria inclui treinamento da equipe e documentação completa. Fornecemos todo o suporte técnico necessário e capacitamos sua equipe para utilizar as soluções implementadas."
+    answer: "Não é necessário. Nossa Mentoria inclui treinamento da equipe e documentação completa. Fornecemos todo o suporte técnico necessário e capacitamos sua equipe para utilizar as soluções implementadas."
   },
   {
     question: "Quais tecnologias de IA são utilizadas?",
@@ -55,10 +55,10 @@ export default function FAQSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">
-            Perguntas Frequentes sobre Consultoria em IA
+            Perguntas Frequentes sobre Mentoria em IA
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Esclarecemos as principais dúvidas sobre nossos serviços de consultoria 
+            Esclarecemos as principais dúvidas sobre nossos serviços de Mentoria 
             em Inteligência Artificial e Machine Learning
           </p>
         </div>
@@ -67,7 +67,7 @@ export default function FAQSection() {
           <Card>
             <CardHeader>
               <CardTitle className="text-2xl text-center">
-                FAQ - Consultoria em Inteligência Artificial
+                FAQ - Mentoria em Inteligência Artificial
               </CardTitle>
             </CardHeader>
             <CardContent>

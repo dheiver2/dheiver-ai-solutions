@@ -23,7 +23,7 @@ const ServicesSection = () => {
     },
     {
       title: "Estratégia e Auditoria de IA",
-      description: "Consultoria estratégica para implementação e otimização de sistemas de IA existentes.",
+      description: "Mentoria estratégica para implementação e otimização de sistemas de IA existentes.",
       features: ["Roadmap de IA", "Auditoria Técnica", "Governança de Dados", "ROI de Projetos IA"],
       icon: "📊"
     }

@@ -109,8 +109,8 @@ export default function SEOHead({
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       
       {/* PWA Meta Tags */}
-      <meta name="application-name" content="Dr. Dheiver Santos - Consultoria IA" />
-      <meta name="apple-mobile-web-app-title" content="Consultoria IA" />
+      <meta name="application-name" content="Dr. Dheiver Santos - Mentoria IA" />
+      <meta name="apple-mobile-web-app-title" content="Mentoria IA" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       <meta name="mobile-web-app-capable" content="yes" />
@@ -118,8 +118,8 @@ export default function SEOHead({
       
       {/* Additional Meta Tags for Better Indexing */}
       <meta name="author" content="Dr. Dheiver Santos" />
-      <meta name="publisher" content="Dr. Dheiver Santos - Consultoria IA" />
-      <meta name="copyright" content="© 2024 Dr. Dheiver Santos - Consultoria IA" />
+      <meta name="publisher" content="Dr. Dheiver Santos - Mentoria IA" />
+      <meta name="copyright" content="© 2024 Dr. Dheiver Santos - Mentoria IA" />
       <meta name="distribution" content="global" />
       <meta name="rating" content="general" />
       <meta name="revisit-after" content="7 days" />

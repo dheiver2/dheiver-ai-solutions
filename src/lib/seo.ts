@@ -8,9 +8,9 @@ export interface SEOConfig {
 }
 
 export const defaultSEO: SEOConfig = {
-  title: "Dr. Dheiver Santos - Consultoria Avançada em Inteligência Artificial",
-  description: "🚀 Consultoria especializada em IA avançada e projetos complexos. Dr. Dheiver Santos oferece soluções inovadoras em Machine Learning, Visão Computacional e Processamento de Linguagem Natural. Transforme seu negócio com IA!",
-  keywords: "consultoria inteligência artificial, especialista IA, machine learning, deep learning, visão computacional, processamento linguagem natural, automação inteligente, chatbots, análise preditiva, computer vision, NLP, neural networks, data science, AI consulting",
+  title: "Dr. Dheiver Santos - Mentoria Avançada em Inteligência Artificial",
+  description: "🚀 Mentoria especializada em IA avançada e projetos complexos. Dr. Dheiver Santos oferece soluções inovadoras em Machine Learning, Visão Computacional e Processamento de Linguagem Natural. Transforme seu negócio com IA!",
+  keywords: "Mentoria inteligência artificial, especialista IA, machine learning, deep learning, visão computacional, processamento linguagem natural, automação inteligente, chatbots, análise preditiva, computer vision, NLP, neural networks, data science, AI consulting",
   image: "https://dheiver-ai-solutions.com/dheiver-photo.jpg",
   url: "https://dheiver-ai-solutions.com",
   type: "website"
@@ -18,9 +18,9 @@ export const defaultSEO: SEOConfig = {
 
 export const pageSEO = {
   home: {
-    title: "Dr. Dheiver Santos - Consultoria Avançada em IA | Especialista em Machine Learning",
-    description: "🚀 Transforme seu negócio com IA! Consultoria especializada em Machine Learning, Deep Learning, Visão Computacional e NLP. Soluções de alta complexidade para empresas inovadoras. Consulta gratuita disponível!",
-    keywords: "consultoria IA, machine learning, inteligência artificial empresarial, automação inteligente, consultoria tecnológica, deep learning, computer vision, chatbots, análise preditiva, neural networks, data science"
+    title: "Dr. Dheiver Santos - Mentoria Avançada em IA | Especialista em Machine Learning",
+    description: "🚀 Transforme seu negócio com IA! Mentoria especializada em Machine Learning, Deep Learning, Visão Computacional e NLP. Soluções de alta complexidade para empresas inovadoras. Consulta gratuita disponível!",
+    keywords: "Mentoria IA, machine learning, inteligência artificial empresarial, automação inteligente, Mentoria tecnológica, deep learning, computer vision, chatbots, análise preditiva, neural networks, data science"
   },
   about: {
     title: "Sobre Dr. Dheiver Santos - Especialista em Inteligência Artificial",
@@ -28,9 +28,9 @@ export const pageSEO = {
     keywords: "Dr. Dheiver Santos, especialista IA, experiência machine learning, consultor inteligência artificial, doutor IA, computer vision, NLP, deep learning"
   },
   services: {
-    title: "Serviços de Consultoria em IA - Machine Learning & Deep Learning",
-    description: "Serviços especializados em IA: Consultoria estratégica, Machine Learning, Visão Computacional, NLP, Automação Inteligente, Chatbots. Transforme dados em resultados! Orçamento personalizado.",
-    keywords: "serviços IA, consultoria machine learning, deep learning, visão computacional, NLP, automação, chatbots, análise preditiva, computer vision, neural networks, AI consulting"
+    title: "Serviços de Mentoria em IA - Machine Learning & Deep Learning",
+    description: "Serviços especializados em IA: Mentoria estratégica, Machine Learning, Visão Computacional, NLP, Automação Inteligente, Chatbots. Transforme dados em resultados! Orçamento personalizado.",
+    keywords: "serviços IA, Mentoria machine learning, deep learning, visão computacional, NLP, automação, chatbots, análise preditiva, computer vision, neural networks, AI consulting"
   },
   projects: {
     title: "Projetos de IA Bem-Sucedidos - Cases de Machine Learning",
@@ -43,9 +43,9 @@ export const pageSEO = {
     keywords: "insights IA, tendências machine learning, artigos inteligência artificial, inovação tecnológica, deep learning, computer vision, NLP, neural networks, AI trends"
   },
   contact: {
-    title: "Contato - Consultoria em Inteligência Artificial | Agende sua Consulta",
-    description: "Entre em contato para consultoria especializada em IA. Agende uma consulta gratuita e descubra como transformar seu negócio com Inteligência Artificial. Atendimento personalizado.",
-    keywords: "contato consultoria IA, agendar consulta machine learning, consultoria inteligência artificial, consulta gratuita, orçamento IA, atendimento especializado"
+    title: "Contato - Mentoria em Inteligência Artificial | Agende sua Consulta",
+    description: "Entre em contato para Mentoria especializada em IA. Agende uma consulta gratuita e descubra como transformar seu negócio com Inteligência Artificial. Atendimento personalizado.",
+    keywords: "contato Mentoria IA, agendar consulta machine learning, Mentoria inteligência artificial, consulta gratuita, orçamento IA, atendimento especializado"
   }
 };
 
@@ -69,7 +69,7 @@ export const generateStructuredData = (config: SEOConfig) => {
       "addressCountry": "BR"
     },
     "serviceType": [
-      "Consultoria em Inteligência Artificial",
+      "Mentoria em Inteligência Artificial",
       "Machine Learning",
       "Visão Computacional", 
       "Processamento de Linguagem Natural",
@@ -91,8 +91,8 @@ export const getLocalBusinessSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Dr. Dheiver Santos - Consultoria IA",
-    "description": "Consultoria especializada em soluções de Inteligência Artificial avançada e projetos de alta complexidade",
+    "name": "Dr. Dheiver Santos - Mentoria IA",
+    "description": "Mentoria especializada em soluções de Inteligência Artificial avançada e projetos de alta complexidade",
     "url": "https://dheiver-ai-solutions.com",
     "telephone": "+55-51-99999-9999",
     "email": "contato@dheiver-ai-solutions.com",
@@ -119,13 +119,13 @@ export const getLocalBusinessSchema = () => {
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Serviços de Consultoria IA",
+      "name": "Serviços de Mentoria IA",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Consultoria em Machine Learning",
+            "name": "Mentoria em Machine Learning",
             "description": "Desenvolvimento de soluções personalizadas em ML"
           }
         },
@@ -157,10 +157,10 @@ export const getFAQSchema = () => {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "O que é consultoria em Inteligência Artificial?",
+        "name": "O que é Mentoria em Inteligência Artificial?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A consultoria em IA envolve análise, desenvolvimento e implementação de soluções baseadas em inteligência artificial para resolver problemas complexos de negócio, incluindo machine learning, deep learning, visão computacional e processamento de linguagem natural."
+          "text": "A Mentoria em IA envolve análise, desenvolvimento e implementação de soluções baseadas em inteligência artificial para resolver problemas complexos de negócio, incluindo machine learning, deep learning, visão computacional e processamento de linguagem natural."
         }
       },
       {
@@ -168,12 +168,12 @@ export const getFAQSchema = () => {
         "name": "Quais são os principais serviços oferecidos?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Oferecemos consultoria estratégica em IA, desenvolvimento de modelos de machine learning, implementação de sistemas de visão computacional, criação de chatbots e assistentes virtuais, automação inteligente de processos e análise preditiva de dados."
+          "text": "Oferecemos Mentoria estratégica em IA, desenvolvimento de modelos de machine learning, implementação de sistemas de visão computacional, criação de chatbots e assistentes virtuais, automação inteligente de processos e análise preditiva de dados."
         }
       },
       {
         "@type": "Question",
-        "name": "Como funciona o processo de consultoria?",
+        "name": "Como funciona o processo de Mentoria?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "O processo inicia com uma consulta gratuita para entender suas necessidades, seguido de análise técnica detalhada, proposta customizada, desenvolvimento da solução e acompanhamento pós-implementação para garantir os melhores resultados."
@@ -215,7 +215,7 @@ export const getPersonSchema = () => {
     "image": "https://dheiver-ai-solutions.com/dheiver-photo.jpg",
     "worksFor": {
       "@type": "Organization",
-      "name": "Dr. Dheiver Santos - Consultoria IA"
+      "name": "Dr. Dheiver Santos - Mentoria IA"
     },
     "alumniOf": {
       "@type": "Organization",
