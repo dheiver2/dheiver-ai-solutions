@@ -76,7 +76,7 @@ const ServicesSection = () => {
               <h3 className="font-playfair text-3xl font-bold mb-4">
                 Abordagem Personalizada
               </h3>
-              <p className="text-lg text-gray-300 mb-6">
+              <p className="text-lg text-gray-200 mb-6">
                 Cada projeto é único. Trabalhamos em estreita colaboração com sua equipe 
                 para entender profundamente seus desafios e desenvolver soluções que 
                 se alinhem perfeitamente aos seus objetivos estratégicos.
@@ -84,15 +84,15 @@ const ServicesSection = () => {
               <div className="grid md:grid-cols-3 gap-8 mt-8">
                 <div className="text-center">
                   <div className="text-2xl font-bold mb-2">Análise</div>
-                  <div className="text-sm text-gray-300">Diagnóstico profundo do problema</div>
+                  <div className="text-sm text-gray-200">Diagnóstico profundo do problema</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold mb-2">Desenvolvimento</div>
-                  <div className="text-sm text-gray-300">Criação da solução customizada</div>
+                  <div className="text-sm text-gray-200">Criação da solução customizada</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold mb-2">Implementação</div>
-                  <div className="text-sm text-gray-300">Deploy e acompanhamento</div>
+                  <div className="text-sm text-gray-200">Deploy e acompanhamento</div>
                 </div>
               </div>
             </div>

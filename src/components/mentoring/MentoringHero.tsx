@@ -53,12 +53,12 @@ const MentoringHero = () => {
 
         {/* Headline com DOR */}
         <div className="text-center">
-          <p className="text-sm font-bold text-amber-700 mb-3">
+          <p className="text-sm font-bold text-amber-500 mb-3">
             ⚠️ 3.000+ VAGAS DE IA ABERTAS SÓ ESTE MÊS NO BRASIL
           </p>
 
           <h1 className="text-3xl md:text-5xl font-bold text-black mb-2 leading-tight">
-            Torne-se <span className="text-amber-700">Engenheiro de IA JR</span>
+            Torne-se <span className="text-amber-500">Engenheiro de IA JR</span>
           </h1>
           <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">
             em apenas 3 meses
@@ -76,34 +76,34 @@ const MentoringHero = () => {
             <div className="flex justify-center gap-3">
               <div className="text-center">
                 <p className="text-2xl font-bold text-white">{String(timeLeft.hours).padStart(2, '0')}</p>
-                <p className="text-xs text-stone-400">HORAS</p>
+                <p className="text-xs text-stone-300">HORAS</p>
               </div>
-              <span className="text-2xl font-bold text-amber-700">:</span>
+              <span className="text-2xl font-bold text-amber-500">:</span>
               <div className="text-center">
                 <p className="text-2xl font-bold text-white">{String(timeLeft.minutes).padStart(2, '0')}</p>
-                <p className="text-xs text-stone-400">MIN</p>
+                <p className="text-xs text-stone-300">MIN</p>
               </div>
-              <span className="text-2xl font-bold text-amber-700">:</span>
+              <span className="text-2xl font-bold text-amber-500">:</span>
               <div className="text-center">
                 <p className="text-2xl font-bold text-white">{String(timeLeft.seconds).padStart(2, '0')}</p>
-                <p className="text-xs text-stone-400">SEG</p>
+                <p className="text-xs text-stone-300">SEG</p>
               </div>
             </div>
-            <p className="text-xs text-stone-400 mt-2">Apenas <span className="text-amber-600 font-bold">3 vagas restantes</span></p>
+            <p className="text-xs text-stone-300 mt-2">Apenas <span className="text-amber-600 font-bold">3 vagas restantes</span></p>
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4 mb-5 text-center">
             <div>
-              <p className="text-2xl md:text-3xl font-bold text-amber-700">100+</p>
+              <p className="text-2xl md:text-3xl font-bold text-amber-500">100+</p>
               <p className="text-xs text-stone-800 font-bold">ARTIGOS</p>
             </div>
             <div className="border-x border-stone-300">
-              <p className="text-2xl md:text-3xl font-bold text-amber-700">150+</p>
+              <p className="text-2xl md:text-3xl font-bold text-amber-500">150+</p>
               <p className="text-xs text-stone-800 font-bold">PROJETOS</p>
             </div>
             <div>
-              <p className="text-2xl md:text-3xl font-bold text-amber-700">40K+</p>
+              <p className="text-2xl md:text-3xl font-bold text-amber-500">40K+</p>
               <p className="text-xs text-stone-800 font-bold">LEITORES</p>
             </div>
           </div>

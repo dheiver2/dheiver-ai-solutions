@@ -15,7 +15,7 @@ const MentoringGuarantee = () => {
             devolvemos <strong className="text-white">100% do valor</strong> sem
             burocracia, sem perguntas.
           </p>
-          <p className="text-xs text-stone-500">
+          <p className="text-xs text-stone-300">
             Simples assim. O risco é <span className="text-amber-600 font-bold">zero</span>.
           </p>
         </div>

@@ -15,25 +15,25 @@ const MentoringPricing = () => {
         {/* Ancoragem */}
         <div className="space-y-2 mb-6">
           <div className="flex items-center justify-between bg-stone-900 p-3">
-            <p className="text-xs text-stone-400">Bootcamp presencial</p>
-            <p className="text-sm text-stone-500 line-through">R$ 15.000+</p>
+            <p className="text-xs text-stone-300">Bootcamp presencial</p>
+            <p className="text-sm text-stone-300 line-through">R$ 15.000+</p>
           </div>
           <div className="flex items-center justify-between bg-stone-900 p-3">
-            <p className="text-xs text-stone-400">Pós-graduação em IA</p>
-            <p className="text-sm text-stone-500 line-through">R$ 24.000+</p>
+            <p className="text-xs text-stone-300">Pós-graduação em IA</p>
+            <p className="text-sm text-stone-300 line-through">R$ 24.000+</p>
           </div>
           <div className="flex items-center justify-between bg-stone-900 p-3">
-            <p className="text-xs text-stone-400">Mentoria individual no mercado</p>
-            <p className="text-sm text-stone-500 line-through">R$ 3.000/mês</p>
+            <p className="text-xs text-stone-300">Mentoria individual no mercado</p>
+            <p className="text-sm text-stone-300 line-through">R$ 3.000/mês</p>
           </div>
         </div>
 
         {/* Preço real */}
         <div className="border-2 border-amber-700 p-5 text-center mb-5">
-          <p className="text-xs text-stone-400 mb-1">Mentoria Eng. de IA JR — 3 meses</p>
-          <p className="text-xs text-stone-500 line-through mb-1">de R$ 3.525</p>
+          <p className="text-xs text-stone-300 mb-1">Mentoria Eng. de IA JR — 3 meses</p>
+          <p className="text-xs text-stone-300 line-through mb-1">de R$ 3.525</p>
           <p className="text-4xl font-bold text-amber-600 mb-1">R$ 578<span className="text-lg">/mês</span></p>
-          <p className="text-xs text-stone-400">Total: R$ 1.734 — ou 12x de R$ 156,90</p>
+          <p className="text-xs text-stone-300">Total: R$ 1.734 — ou 12x de R$ 156,90</p>
         </div>
 
         {/* O que está incluso */}
@@ -58,7 +58,7 @@ const MentoringPricing = () => {
         >
           GARANTIR MINHA VAGA →
         </Button>
-        <p className="text-xs text-stone-500 text-center mt-2">Apenas 5 vagas por turma</p>
+        <p className="text-xs text-stone-300 text-center mt-2">Apenas 5 vagas por turma</p>
       </div>
     </div>
   );

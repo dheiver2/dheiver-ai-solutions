@@ -44,7 +44,7 @@ const Footer = () => {
           </div>
 
           <div className="border-t border-gray-800 pt-8">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-300 text-sm">
               © {currentYear} Dheiver Santos. Todos os direitos reservados.
             </p>
           </div>

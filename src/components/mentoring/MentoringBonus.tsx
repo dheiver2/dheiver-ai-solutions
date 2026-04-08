@@ -43,7 +43,7 @@ const MentoringBonus = () => {
                   </span>
                   <p className="text-sm font-bold text-black">{bonus.title}</p>
                 </div>
-                <p className="text-xs text-stone-400 line-through">{bonus.value}</p>
+                <p className="text-xs text-stone-600 line-through">{bonus.value}</p>
               </div>
               <p className="text-xs text-stone-700 leading-relaxed">{bonus.description}</p>
             </div>
@@ -51,7 +51,7 @@ const MentoringBonus = () => {
         </div>
 
         <div className="text-center mt-5">
-          <p className="text-xs text-stone-500">Todos os bônus estão <span className="text-amber-700 font-bold">inclusos gratuitamente</span> na mentoria.</p>
+          <p className="text-xs text-stone-600">Todos os bônus estão <span className="text-amber-700 font-bold">inclusos gratuitamente</span> na mentoria.</p>
         </div>
       </div>
     </div>

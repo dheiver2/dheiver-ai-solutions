@@ -30,7 +30,7 @@ const CtaFinal = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto drop-shadow-[0_1px_12px_rgba(0,0,0,0.5)]"
+            className="text-lg md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto drop-shadow-[0_1px_12px_rgba(0,0,0,0.5)]"
           >
             Fale agora com um especialista em IA e descubra como podemos impulsionar seu negócio.
           </motion.p>
@@ -56,7 +56,7 @@ const CtaFinal = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="mt-10 flex items-center justify-center gap-2 text-gray-400 text-sm"
+            className="mt-10 flex items-center justify-center gap-2 text-gray-300 text-sm"
           >
             <Clock className="w-4 h-4" />
             <p>Resposta em até 2 horas • Sem custo • 100% confidencial</p>

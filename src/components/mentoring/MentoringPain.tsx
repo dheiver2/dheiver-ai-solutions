@@ -37,7 +37,7 @@ const MentoringPain = () => {
           </p>
         </div>
 
-        <p className="text-xs text-stone-400">
+        <p className="text-xs text-stone-300">
           Se você não agir agora, daqui 3 meses vai estar exatamente igual.
         </p>
       </div>

@@ -61,7 +61,7 @@ const ProjectsSection = () => {
                 <div className="grid lg:grid-cols-3 gap-8">
                   <div className="lg:col-span-2">
                     <div className="flex items-center gap-4 mb-4">
-                      <span className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                      <span className="text-sm font-medium text-gray-700 bg-gray-100 px-3 py-1 rounded-full">
                         {project.category}
                       </span>
                     </div>

@@ -106,7 +106,7 @@ const Contact = () => {
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
                 Fale Comigo no WhatsApp
               </h2>
-              <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+              <p className="text-gray-200 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
                 A forma mais rápida e direta de começar sua jornada de transformação digital com IA
               </p>
               
@@ -121,7 +121,7 @@ const Contact = () => {
                 <ArrowRight className="w-6 h-6" />
               </motion.button>
               
-              <p className="text-gray-300 text-sm mt-4">
+              <p className="text-gray-200 text-sm mt-4">
                 +55 (51) 98988-9898 • Disponível das 9h às 18h
               </p>
             </div>
@@ -182,8 +182,8 @@ const Contact = () => {
                 </div>
 
                 <div className="mt-8 p-6 bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl text-white text-center">
-                  <h3 className="text-gray-300 text-sm font-bold text-lg mb-2">Mentoria Inicial Gratuita</h3>
-                  <p className="text-gray-300 text-sm">
+                  <h3 className="text-white text-sm font-bold text-lg mb-2">Mentoria Inicial Gratuita</h3>
+                  <p className="text-gray-200 text-sm">
                     Primeira conversa sem custo para entender suas necessidades
                   </p>
                 </div>
@@ -247,7 +247,7 @@ const Contact = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Pronto para Começar?
               </h2>
-              <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+              <p className="text-gray-200 text-lg mb-8 max-w-2xl mx-auto">
                 Não perca tempo. Sua transformação digital começa com uma simples mensagem.
               </p>
               

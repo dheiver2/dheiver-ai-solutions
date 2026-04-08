@@ -156,7 +156,7 @@ const PricingSection = () => {
                   <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? 'text-white' : 'text-black'}`}>
                     {plan.name}
                   </h3>
-                  <p className={`text-sm ${plan.popular ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <p className={`text-sm ${plan.popular ? 'text-gray-200' : 'text-gray-600'}`}>
                     {plan.description}
                   </p>
                 </div>
@@ -167,7 +167,7 @@ const PricingSection = () => {
                       {plan.price}
                     </span>
                     {plan.period && (
-                      <span className={`text-lg ${plan.popular ? 'text-gray-400' : 'text-gray-500'}`}>
+                      <span className={`text-lg ${plan.popular ? 'text-gray-300' : 'text-gray-500'}`}>
                         {plan.period}
                       </span>
                     )}
@@ -235,7 +235,7 @@ const PricingSection = () => {
           <h3 className="text-3xl font-bold text-white mb-4">
             Não tem certeza qual plano escolher?
           </h3>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-gray-200 mb-8">
             Agende uma consulta gratuita de 30 minutos e vamos encontrar a solução perfeita
           </p>
           <Button asChild size="lg" className="bg-amber-400 hover:bg-amber-500 text-black font-bold px-8 py-6 text-lg">

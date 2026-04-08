@@ -50,7 +50,7 @@ const CasesShowcase = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Resultados Reais
           </h2>
-          <p className="text-base sm:text-lg text-gray-300">
+          <p className="text-base sm:text-lg text-gray-200">
             Empresas que transformaram negócios com nossas soluções.
           </p>
         </motion.div>
@@ -68,7 +68,7 @@ const CasesShowcase = () => {
               <div className="flex items-start justify-between mb-6 gap-4">
                 <div>
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1">{caseStudy.company}</h3>
-                  <p className="text-xs sm:text-sm text-gray-400">{caseStudy.industry}</p>
+                  <p className="text-xs sm:text-sm text-gray-300">{caseStudy.industry}</p>
                 </div>
                 <div className="bg-yellow-500/20 border border-yellow-500/50 rounded-lg px-3 py-2 text-center flex-shrink-0">
                   <p className="text-xl sm:text-2xl font-bold text-yellow-400">{caseStudy.roi}</p>

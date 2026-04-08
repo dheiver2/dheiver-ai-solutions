@@ -108,7 +108,7 @@ const SchedulingCTA = () => {
             {/* Secondary: Phone */}
             <a
               href="tel:+5551989889898"
-              className="inline-flex items-center gap-3 border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200"
+              className="inline-flex items-center gap-3 border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200"
             >
               <Phone className="w-5 h-5" />
               Ligar Agora
@@ -117,7 +117,7 @@ const SchedulingCTA = () => {
             {/* Tertiary: Email */}
             <a
               href="mailto:dheiver.santos@gmail.com?subject=Agendamento%20de%20Consulta%20IA&body=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20sobre%20IA."
-              className="inline-flex items-center gap-3 border-2 border-gray-500 text-gray-300 hover:bg-gray-500 hover:text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200"
+              className="inline-flex items-center gap-3 border-2 border-gray-400 text-gray-200 hover:bg-gray-400 hover:text-black px-8 py-4 rounded-lg font-bold text-lg transition-all duration-200"
             >
               <Mail className="w-5 h-5" />
               Enviar Email
@@ -130,7 +130,7 @@ const SchedulingCTA = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="mt-12 text-center text-gray-400 text-sm"
+            className="mt-12 text-center text-gray-300 text-sm"
           >
             <p>
               ✓ Resposta em até 2 horas  |  ✓ Sem spam  |  ✓ 100% confidencial

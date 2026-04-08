@@ -74,7 +74,7 @@ const Testimonials = () => {
         {Array.from({ length: 5 }).map((_, i) => (
           <Star
             key={i}
-            className={`w-4 h-4 ${i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
+            className={`w-4 h-4 ${i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-500'}`}
           />
         ))}
       </div>
@@ -105,7 +105,7 @@ const Testimonials = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             O Que Clientes Dizem
           </h2>
-          <p className="text-base sm:text-lg text-gray-300">
+          <p className="text-base sm:text-lg text-gray-200">
             Histórias reais de sucesso e transformação com nossas soluções de IA
           </p>
         </motion.div>
@@ -152,10 +152,10 @@ const Testimonials = () => {
                   <p className="text-sm sm:text-base font-bold text-white truncate">
                     {testimonial.name}
                   </p>
-                  <p className="text-xs sm:text-sm text-gray-400">
+                  <p className="text-xs sm:text-sm text-gray-300">
                     {testimonial.role}
                   </p>
-                  <p className="text-xs sm:text-sm text-gray-400">
+                  <p className="text-xs sm:text-sm text-gray-300">
                     {testimonial.company}
                   </p>
                 </div>
@@ -173,7 +173,7 @@ const Testimonials = () => {
           viewport={{ once: true }}
         >
           <div className="inline-block border border-yellow-500/30 rounded-full px-6 py-3 bg-yellow-500/5">
-            <p className="text-gray-300 text-sm sm:text-base">
+            <p className="text-gray-200 text-sm sm:text-base">
               <span className="font-bold text-yellow-400">50+ Projetos Entregues</span>
               {' '}|{' '}
               <span className="font-bold text-yellow-400">98% de Satisfação</span>

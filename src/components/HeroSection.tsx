@@ -80,7 +80,7 @@ const HeroSection = () => {
           {/* Subheadline */}
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto"
           >
             Soluções personalizadas de IA com ROI comprovado em 90 dias.
           </motion.p>
@@ -100,7 +100,7 @@ const HeroSection = () => {
           {/* Quick Trust Metrics */}
           <motion.div
             variants={itemVariants}
-            className="text-center text-gray-400 text-sm space-y-2"
+            className="text-center text-gray-300 text-sm space-y-2"
           >
             <p>✓ 50+ Projetos Entregues  |  ✓ ROI Médio 3.2x  |  ✓ 98% de Satisfação</p>
           </motion.div>
@@ -114,7 +114,7 @@ const HeroSection = () => {
         transition={{ duration: 2, repeat: Infinity }}
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-xs text-gray-400 font-semibold">SCROLL</span>
+          <span className="text-xs text-gray-300 font-semibold">SCROLL</span>
           <svg className="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
