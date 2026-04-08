@@ -29,6 +29,7 @@ const Navigation = () => {
     { name: 'Serviços', path: '/', anchor: 'servicos' },
     { name: 'Cases', path: '/', anchor: 'cases' },
     { name: 'Investimento', path: '/', anchor: 'pricing' },
+    { name: '🚀 Mentoria IA', path: '/mentoria', anchor: undefined },
   ];
 
   const isActive = (path: string, anchor?: string) => {
