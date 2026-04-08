@@ -6,10 +6,10 @@ const MentoringFuture = () => {
       <div className="max-w-xl mx-auto px-5">
         {/* Projeção de Futuro - Erico */}
         <div className="text-center mb-8">
-          <p className="text-amber-700 font-bold text-xs mb-4">DAQUI 90 DIAS...</p>
+          <p className="text-amber-800 font-bold text-xs mb-4">DAQUI 90 DIAS...</p>
           <h2 className="text-2xl md:text-3xl font-bold text-black mb-4 leading-tight">
             Imagine abrir o LinkedIn e ver<br />
-            <span className="text-amber-700">"ML Engineer JR"</span><br />
+            <span className="text-amber-800">"ML Engineer JR"</span><br />
             no seu perfil.
           </h2>
           <p className="text-sm text-stone-800 leading-relaxed">
@@ -49,7 +49,7 @@ const MentoringFuture = () => {
 
         <div className="text-center mt-5">
           <p className="text-sm font-bold text-black">
-            A diferença entre os dois? <span className="text-amber-700">3 meses de mentoria.</span>
+            A diferença entre os dois? <span className="text-amber-800">3 meses de mentoria.</span>
           </p>
         </div>
       </div>

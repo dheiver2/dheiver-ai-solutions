@@ -39,7 +39,7 @@ const MentoringBenefits = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
           {benefits.map((benefit, idx) => (
             <div key={idx} className="flex items-start gap-2">
-              <span className="text-amber-700 font-bold mt-0.5">✓</span>
+              <span className="text-amber-800 font-bold mt-0.5">✓</span>
               <span className="text-sm font-normal text-black">{benefit}</span>
             </div>
           ))}
@@ -72,7 +72,7 @@ const MentoringBenefits = () => {
         {/* Details */}
         <div className="grid grid-cols-2 gap-6">
           <div>
-            <p className="text-amber-700 font-bold text-xs mb-3">FORMATO</p>
+            <p className="text-amber-800 font-bold text-xs mb-3">FORMATO</p>
             <ul className="space-y-1.5 text-sm text-black">
               <li>1 encontro/semana</li>
               <li>3 meses total</li>
@@ -81,7 +81,7 @@ const MentoringBenefits = () => {
             </ul>
           </div>
           <div>
-            <p className="text-amber-700 font-bold text-xs mb-3">INVESTIMENTO</p>
+            <p className="text-amber-800 font-bold text-xs mb-3">INVESTIMENTO</p>
             <p className="text-2xl font-bold text-black">R$ 578<span className="text-sm text-stone-700 font-normal">/mês</span></p>
             <ul className="space-y-1.5 text-sm text-black mt-2">
               <li>Total: R$ 1.734</li>

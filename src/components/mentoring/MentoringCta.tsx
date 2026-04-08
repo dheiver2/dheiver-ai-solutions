@@ -37,7 +37,7 @@ const MentoringCta = () => {
       <div className="max-w-xl mx-auto px-5 text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-black mb-3 leading-tight">
           Sua carreira em IA começa<br />
-          <span className="text-amber-500">com uma decisão.</span>
+          <span className="text-amber-800">com uma decisão.</span>
         </h2>
 
         <p className="text-sm text-stone-700 mb-5 leading-relaxed">
@@ -98,11 +98,11 @@ const MentoringCta = () => {
         <div className="pt-4 border-t border-stone-200">
           <a
             href="https://wa.me/5551989889898"
-            className="text-amber-500 font-bold text-sm hover:text-amber-800 transition-colors duration-200"
+            className="text-amber-800 font-bold text-sm hover:text-amber-900 transition-colors duration-200"
           >
             (51) 98988-9898
           </a>
-          <p className="text-xs text-stone-300 mt-1">Dr. Dheiver Santos • PhD em IA</p>
+          <p className="text-xs text-stone-600 mt-1">Dr. Dheiver Santos • PhD em IA</p>
         </div>
       </div>
     </div>

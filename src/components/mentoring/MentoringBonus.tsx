@@ -26,10 +26,10 @@ const MentoringBonus = () => {
     <div className="w-full py-8 bg-white">
       <div className="max-w-xl mx-auto px-5">
         <div className="text-center mb-6">
-          <p className="text-amber-700 font-bold text-xs mb-3">BÔNUS EXCLUSIVOS</p>
+          <p className="text-amber-800 font-bold text-xs mb-3">BÔNUS EXCLUSIVOS</p>
           <h2 className="text-2xl md:text-3xl font-bold text-black leading-tight">
             Além da mentoria, você leva<br />
-            <span className="text-amber-700">R$ 1.791 em bônus</span>
+            <span className="text-amber-800">R$ 1.791 em bônus</span>
           </h2>
         </div>
 
@@ -51,7 +51,7 @@ const MentoringBonus = () => {
         </div>
 
         <div className="text-center mt-5">
-          <p className="text-xs text-stone-600">Todos os bônus estão <span className="text-amber-700 font-bold">inclusos gratuitamente</span> na mentoria.</p>
+          <p className="text-xs text-stone-600">Todos os bônus estão <span className="text-amber-800 font-bold">inclusos gratuitamente</span> na mentoria.</p>
         </div>
       </div>
     </div>

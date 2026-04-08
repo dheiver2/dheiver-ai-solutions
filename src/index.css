@@ -98,7 +98,7 @@
     letter-spacing: -0.025em;
     word-wrap: break-word;
     margin: 0;
-    color: hsl(var(--gray-900));
+    color: inherit;
     font-family: 'Playfair Display', serif;
   }
 
@@ -148,7 +148,7 @@
     max-width: 65ch;
     word-wrap: break-word;
     margin: 0;
-    color: hsl(var(--gray-700));
+    color: inherit;
     font-size: clamp(0.875rem, 1vw + 0.25rem, 1.125rem);
     font-family: 'Inter', sans-serif;
   }

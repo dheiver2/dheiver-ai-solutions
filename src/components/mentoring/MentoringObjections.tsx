@@ -28,15 +28,15 @@ const MentoringObjections = () => {
     <div className="w-full py-8 bg-white">
       <div className="max-w-xl mx-auto px-5">
         <div className="text-center mb-6">
-          <p className="text-amber-700 font-bold text-xs mb-3">AINDA TEM DÚVIDAS?</p>
+          <p className="text-amber-800 font-bold text-xs mb-3">AINDA TEM DÚVIDAS?</p>
           <h2 className="text-2xl md:text-3xl font-bold text-black leading-tight">
-            Vou ser <span className="text-amber-700">brutalmente honesto</span>
+            Vou ser <span className="text-amber-800">brutalmente honesto</span>
           </h2>
         </div>
 
         <div className="space-y-3">
           {objections.map((item, i) => (
-            <div key={i} className="border-l-2 border-amber-700 pl-4 py-2">
+            <div key={i} className="border-l-2 border-amber-800 pl-4 py-2">
               <p className="text-sm font-bold text-black mb-1">{item.objection}</p>
               <p className="text-xs text-stone-700 leading-relaxed">{item.answer}</p>
             </div>
