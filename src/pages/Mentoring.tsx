@@ -4,14 +4,11 @@ import MentoringAuthority from '@/components/mentoring/MentoringAuthority';
 import MentoringBenefits from '@/components/mentoring/MentoringBenefits';
 import MentoringFaq from '@/components/mentoring/MentoringFaq';
 import MentoringCta from '@/components/mentoring/MentoringCta';
-import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
 const Mentoring = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
-
       <section id="mentoring-hero" className="scroll-mt-20">
         <MentoringHero />
       </section>
