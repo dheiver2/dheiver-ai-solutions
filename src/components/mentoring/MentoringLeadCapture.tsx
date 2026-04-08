@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+// Cole aqui a URL do seu Google Apps Script (Implantar > App da Web > URL)
+const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyyTnwdIIUDTUwutNYmlGEzu-07PURH9PsFT6DJbG_EicYagYj50Hpnhd7HEjAWHq6uoQ/exec';
+
 const MentoringLeadCapture = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -12,8 +15,22 @@ const MentoringLeadCapture = () => {
 
     setLoading(true);
 
-    // Simulate a small delay for UX feedback
-    await new Promise((r) => setTimeout(r, 600));
+    // Envia dados para Google Sheets
+    try {
+      await fetch(GOOGLE_SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          source: 'mentoring-landing',
+        }),
+      });
+    } catch {
+      // Mesmo se falhar a gravação, entrega o PDF ao lead
+      console.warn('Falha ao salvar lead — PDF entregue mesmo assim.');
+    }
 
     setLoading(false);
     setSubmitted(true);
