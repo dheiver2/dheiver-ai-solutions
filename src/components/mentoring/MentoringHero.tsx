@@ -21,16 +21,19 @@ const MentoringHero = () => {
       return target;
     };
 
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const target = getNextFirstMonday().getTime();
-      const diff = target - now;
+    const targetTime = getNextFirstMonday().getTime();
+
+    const updateTimer = () => {
+      const diff = Math.max(0, targetTime - Date.now());
       setTimeLeft({
         hours: Math.floor(diff / (1000 * 60 * 60)),
         minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((diff % (1000 * 60)) / 1000),
       });
-    }, 1000);
+    };
+
+    updateTimer();
+    const timer = setInterval(updateTimer, 1000);
     return () => clearInterval(timer);
   }, []);
 
