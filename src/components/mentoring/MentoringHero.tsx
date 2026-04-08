@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 
 const MentoringHero = () => {
   // Timer para próxima turma (primeira segunda do próximo mês)
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
     const getNextFirstMonday = () => {
@@ -26,8 +26,7 @@ const MentoringHero = () => {
       const target = getNextFirstMonday().getTime();
       const diff = target - now;
       setTimeLeft({
-        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        hours: Math.floor(diff / (1000 * 60 * 60)),
         minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
         seconds: Math.floor((diff % (1000 * 60)) / 1000),
       });
@@ -72,11 +71,6 @@ const MentoringHero = () => {
           <div className="bg-stone-950 p-4 mb-5">
             <p className="text-xs text-amber-600 font-bold mb-2">🔥 PRÓXIMA TURMA FECHA EM:</p>
             <div className="flex justify-center gap-3">
-              <div className="text-center">
-                <p className="text-2xl font-bold text-white">{String(timeLeft.days).padStart(2, '0')}</p>
-                <p className="text-xs text-stone-400">DIAS</p>
-              </div>
-              <span className="text-2xl font-bold text-amber-700">:</span>
               <div className="text-center">
                 <p className="text-2xl font-bold text-white">{String(timeLeft.hours).padStart(2, '0')}</p>
                 <p className="text-xs text-stone-400">HORAS</p>
