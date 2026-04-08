@@ -42,13 +42,13 @@ const MentoringCta = () => {
         {/* CTA Principal */}
         <div className="text-center text-white mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Pronto para transformar sua carreira?
+            Pronto para transformar sua carreira em 3 meses?
           </h2>
           <p className="text-lg md:text-xl mb-4 opacity-90">
-            Inscrições abertas para turmas iniciando <strong>em Maio de 2026</strong>
+            Inscrições abertas para turmas iniciando <strong>toda primeira segunda-feira do mês</strong>
           </p>
           <p className="text-base md:text-lg mb-8 opacity-80">
-            Apenas 5 vagas por turma • Garantia de 14 dias de devolução
+            R$ 1.578/mês • Apenas 5 vagas por turma • Garantia de 14 dias de devolução
           </p>
 
           <div className="flex flex-col gap-3 md:flex-row md:justify-center">

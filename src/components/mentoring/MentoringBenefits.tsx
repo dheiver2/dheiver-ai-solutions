@@ -38,7 +38,7 @@ const MentoringBenefits = () => {
 
   const curriculum = [
     {
-      month: 'Mês 1-2',
+      month: 'Mês 1',
       title: 'Fundamentos Sólidos',
       topics: [
         'Machine Learning Fundamentals',
@@ -48,7 +48,7 @@ const MentoringBenefits = () => {
       ]
     },
     {
-      month: 'Mês 3-4',
+      month: 'Mês 2',
       title: 'GenAI & LLMs',
       topics: [
         'LLMs: GPT, Claude, Llama',
@@ -58,13 +58,13 @@ const MentoringBenefits = () => {
       ]
     },
     {
-      month: 'Mês 5-6',
-      title: 'Produção & Cloud',
+      month: 'Mês 3',
+      title: 'Produção & Deployment',
       topics: [
         'MLOps e Deployment',
         'GCP e AWS para IA',
         'Escalabilidade e Performance',
-        'Projeto 3-5: Sistemas em Produção'
+        'Projeto Final: Sistema em Produção'
       ]
     }
   ];
@@ -131,8 +131,8 @@ const MentoringBenefits = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <p className="text-gray-700"><strong>Frequência:</strong> 2-3 sessions/semana</p>
-              <p className="text-gray-700"><strong>Duração:</strong> 6 meses (24 semanas)</p>
+              <p className="text-gray-700"><strong>Frequência:</strong> 1 encontro por semana</p>
+              <p className="text-gray-700"><strong>Duração:</strong> 3 meses (12 semanas)</p>
               <p className="text-gray-700"><strong>Modalidade:</strong> Online ao vivo + Gravado</p>
               <p className="text-gray-700"><strong>Grupo:</strong> Máximo 5 pessoas por turma</p>
             </CardContent>
@@ -145,8 +145,8 @@ const MentoringBenefits = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <p className="text-gray-700"><strong>Plano Mensal:</strong> R$ 1.997/mês</p>
-              <p className="text-gray-700"><strong>Plano Semestral:</strong> R$ 9.990 (à vista)</p>
+              <p className="text-gray-700"><strong>Investimento:</strong> R$ 1.578/mês</p>
+              <p className="text-gray-700"><strong>Duração:</strong> 3 meses (R$ 4.734 total)</p>
               <p className="text-gray-700"><strong>Parcelas:</strong> até 3x sem juros</p>
               <p className="text-gray-700"><strong>Garantia:</strong> 14 dias ou devolve</p>
             </CardContent>

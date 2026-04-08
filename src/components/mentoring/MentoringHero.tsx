@@ -34,7 +34,7 @@ const MentoringHero = () => {
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-            Torne-se <span className="text-blue-600">Engenheiro de IA</span> em 6 Meses
+            Torne-se <span className="text-blue-600">Engenheiro de IA</span> em 3 Meses
           </h1>
 
           <p className="text-lg md:text-xl text-gray-600 mb-6">

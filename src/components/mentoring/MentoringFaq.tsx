@@ -16,7 +16,7 @@ const MentoringFaq = () => {
     {
       id: '2',
       question: 'Quanto tempo preciso dedicar por semana?',
-      answer: 'Recomendamos 12-15 horas por semana: 6 horas em sessões ao vivo e 6-9 horas em projetos práticos. Você tem flexibilidade para organizar seu próprio tempo, desde que mantenha o ritmo.'
+      answer: 'Recomendamos 8-10 horas por semana: 2-3 horas na sessão ao vivo semanal e 5-7 horas em projetos práticos. Você tem flexibilidade para organizar seu próprio tempo, desde que mantenha o ritmo.'
     },
     {
       id: '3',
@@ -46,7 +46,7 @@ const MentoringFaq = () => {
     {
       id: '8',
       question: 'Como começa uma turma nova?',
-      answer: 'Iniciamos turmas toda primeira segunda-feira do mês. Você pode se inscrever até 1 semana antes. Turmas têm máximo 5 pessoas para garantir mentoria de qualidade.'
+      answer: 'Iniciamos turmas toda primeira segunda-feira de cada mês. Você pode se inscrever até 1 semana antes. Turmas têm máximo 5 pessoas para garantir mentoria de qualidade e atenção individualizada.'
     }
   ];
 
