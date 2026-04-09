@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 
 const MentoringHero = () => {
-  // Timer para próxima turma (primeira segunda do próximo mês)
   const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
     const COUNTDOWN_KEY = 'mentoring_countdown_target';
-    const DURATION_MS = 6245 * 1000; // 1h43m65s = 6245 segundos
+    const DURATION_MS = 6245 * 1000;
 
     let targetTime = Number(localStorage.getItem(COUNTDOWN_KEY) || 0);
     if (!targetTime || targetTime <= Date.now()) {
@@ -34,88 +33,162 @@ const MentoringHero = () => {
   }, []);
 
   return (
-    <div className="w-full bg-white pt-6 pb-6">
-      <div className="max-w-xl mx-auto px-5">
-        {/* Foto */}
-        <div className="flex justify-center mb-5">
-          <div className="w-40 h-52 md:w-48 md:h-60 overflow-hidden">
-            <img
-              src="/dheiver-photo.png"
-              alt="Dr. Dheiver Santos"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
+    <div className="relative w-full min-h-screen bg-[#07090F] overflow-hidden flex items-center">
+      {/* Grid background */}
+      <div className="absolute inset-0 opacity-[0.04]" style={{
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+        backgroundSize: '80px 80px'
+      }} />
 
-        {/* Headline com DOR */}
-        <div className="text-center">
-          <p className="text-sm font-bold text-amber-800 mb-3">
-            ⚠️ 3.000+ VAGAS DE IA ABERTAS SÓ ESTE MÊS NO BRASIL
-          </p>
+      {/* Ambient glow */}
+      <div className="absolute top-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-amber-500/[0.06] blur-[120px]" />
+      <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-blue-500/[0.04] blur-[100px]" />
 
-          <h1 className="text-3xl md:text-5xl font-bold text-black mb-2 leading-tight">
-            Torne-se <span className="text-amber-800">Engenheiro de IA JR</span>
-          </h1>
-          <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">
-            em apenas 3 meses
-          </h2>
-
-          <p className="text-sm text-stone-800 mb-5 leading-relaxed">
-            Mesmo que você <strong>nunca tenha trabalhado com IA.</strong><br />
-            Mentoria 1-on-1 com PhD que já entregou 150+ projetos<br />
-            para Santander, Grupo Fleury e Petrobras.
-          </p>
-
-          {/* Timer de Escassez */}
-          <div className="bg-stone-950 p-4 mb-5">
-            <p className="text-xs text-amber-600 font-bold mb-2">🔥 PRÓXIMA TURMA FECHA EM:</p>
-            <div className="flex justify-center gap-3">
-              <div className="text-center">
-                <p className="text-2xl font-bold text-white">{String(timeLeft.hours).padStart(2, '0')}</p>
-                <p className="text-xs text-stone-300">HORAS</p>
-              </div>
-              <span className="text-2xl font-bold text-amber-500">:</span>
-              <div className="text-center">
-                <p className="text-2xl font-bold text-white">{String(timeLeft.minutes).padStart(2, '0')}</p>
-                <p className="text-xs text-stone-300">MIN</p>
-              </div>
-              <span className="text-2xl font-bold text-amber-500">:</span>
-              <div className="text-center">
-                <p className="text-2xl font-bold text-white">{String(timeLeft.seconds).padStart(2, '0')}</p>
-                <p className="text-xs text-stone-300">SEG</p>
-              </div>
-            </div>
-            <p className="text-xs text-stone-300 mt-2">Apenas <span className="text-amber-600 font-bold">3 vagas restantes</span></p>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 mb-5 text-center">
-            <a href="https://orcid.org/0000-0002-8599-9436" target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
-              <p className="text-2xl md:text-3xl font-bold text-amber-800">100+</p>
-              <p className="text-xs text-stone-800 font-bold">ARTIGOS</p>
-            </a>
-            <div className="border-x border-stone-300">
-              <p className="text-2xl md:text-3xl font-bold text-amber-800">150+</p>
-              <p className="text-xs text-stone-800 font-bold">PROJETOS</p>
-            </div>
-            <div>
-              <p className="text-2xl md:text-3xl font-bold text-amber-800">40K+</p>
-              <p className="text-xs text-stone-800 font-bold">LEITORES</p>
-            </div>
-          </div>
-
-          {/* CTA Emocional */}
-          <Button
-            size="lg"
-            className="w-full bg-amber-700 hover:bg-amber-800 text-white text-sm font-bold h-12 rounded-none transition-colors duration-200 mb-2"
-            onClick={() => window.location.href = 'https://wa.me/5551989889898?text=Quero%20mudar%20minha%20carreira%20com%20a%20mentoria%20em%20IA!'}
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          {/* Left - Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            QUERO SER ENGENHEIRO DE IA →
-          </Button>
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 rounded-full px-4 py-1.5 mb-6"
+            >
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+              <span className="text-amber-400 text-xs font-semibold tracking-wide">
+                3.000+ VAGAS DE IA ABERTAS ESTE MÊS
+              </span>
+            </motion.div>
 
-          <p className="text-xs text-stone-800 font-bold">
-            ✓ 8+ Mentees/mês &nbsp;|&nbsp; ✓ Garantia 14 dias &nbsp;|&nbsp; ✓ R$ 578/mês
-          </p>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>
+              Torne-se{' '}
+              <span className="bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
+                Engenheiro de IA
+              </span>{' '}
+              <br className="hidden md:block" />
+              em 3 meses
+            </h1>
+
+            <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-8 max-w-lg">
+              Mentoria 1-on-1 com PhD que já entregou <strong className="text-slate-200">150+ projetos</strong> para
+              Santander, Grupo Fleury e Petrobras.{' '}
+              <strong className="text-slate-200">Mesmo sem experiência em IA.</strong>
+            </p>
+
+            {/* CTA */}
+            <div className="flex flex-col sm:flex-row gap-3 mb-8">
+              <motion.a
+                href="https://wa.me/5551989889898?text=Quero%20mudar%20minha%20carreira%20com%20a%20mentoria%20em%20IA!"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-sm px-8 py-4 rounded-lg transition-all duration-300 shadow-lg shadow-amber-500/25"
+              >
+                QUERO SER ENGENHEIRO DE IA
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+              </motion.a>
+              <a
+                href="#mentoring-lead-capture"
+                className="inline-flex items-center justify-center gap-2 border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-medium text-sm px-8 py-4 rounded-lg transition-all duration-300"
+              >
+                Baixar Trilha Gratuita
+              </a>
+            </div>
+
+            {/* Social proof */}
+            <div className="flex items-center gap-6 text-sm">
+              <div className="flex items-center gap-2">
+                <span className="text-amber-400 text-xs">✓</span>
+                <span className="text-slate-400">Garantia 14 dias</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-amber-400 text-xs">✓</span>
+                <span className="text-slate-400">R$ 578/mês</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-amber-400 text-xs">✓</span>
+                <span className="text-slate-400">3 vagas</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right - Stats card + Timer */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="relative"
+          >
+            {/* Glow behind card */}
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent rounded-2xl blur-xl" />
+
+            <div className="relative bg-[#0D1117] border border-slate-800/80 rounded-2xl p-8 backdrop-blur-sm">
+              {/* Photo + Name */}
+              <div className="flex items-center gap-4 mb-6 pb-6 border-b border-slate-800/60">
+                <div className="w-16 h-16 rounded-full overflow-hidden ring-2 ring-amber-500/30 flex-shrink-0">
+                  <img
+                    src="/dheiver-photo.png"
+                    alt="Dr. Dheiver Santos"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="text-white font-bold text-base">Dr. Dheiver Santos</p>
+                  <p className="text-slate-400 text-sm">PhD • ML Engineer • 15+ anos</p>
+                </div>
+              </div>
+
+              {/* Stats grid */}
+              <div className="grid grid-cols-3 gap-4 mb-6">
+                <a href="https://orcid.org/0000-0002-8599-9436" target="_blank" rel="noopener noreferrer" className="text-center group">
+                  <p className="text-2xl md:text-3xl font-bold bg-gradient-to-b from-amber-400 to-amber-600 bg-clip-text text-transparent group-hover:from-amber-300 group-hover:to-amber-500 transition-all">100+</p>
+                  <p className="text-[11px] text-slate-500 font-medium tracking-wider mt-1">ARTIGOS</p>
+                </a>
+                <div className="text-center border-x border-slate-800/60">
+                  <p className="text-2xl md:text-3xl font-bold bg-gradient-to-b from-amber-400 to-amber-600 bg-clip-text text-transparent">150+</p>
+                  <p className="text-[11px] text-slate-500 font-medium tracking-wider mt-1">PROJETOS</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-2xl md:text-3xl font-bold bg-gradient-to-b from-amber-400 to-amber-600 bg-clip-text text-transparent">40K+</p>
+                  <p className="text-[11px] text-slate-500 font-medium tracking-wider mt-1">LEITORES</p>
+                </div>
+              </div>
+
+              {/* Countdown */}
+              <div className="bg-[#161B22] rounded-xl p-5">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-[11px] text-amber-400 font-bold tracking-wider">🔥 PRÓXIMA TURMA FECHA EM</p>
+                  <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                </div>
+                <div className="flex justify-center gap-4">
+                  {[
+                    { value: timeLeft.hours, label: 'HRS' },
+                    { value: timeLeft.minutes, label: 'MIN' },
+                    { value: timeLeft.seconds, label: 'SEG' },
+                  ].map((unit, i) => (
+                    <React.Fragment key={i}>
+                      {i > 0 && <span className="text-2xl font-bold text-amber-500/50 self-start">:</span>}
+                      <div className="text-center">
+                        <div className="bg-[#0D1117] rounded-lg px-3 py-2 min-w-[52px] border border-slate-700/50">
+                          <p className="text-2xl font-mono font-bold text-white tabular-nums">
+                            {String(unit.value).padStart(2, '0')}
+                          </p>
+                        </div>
+                        <p className="text-[10px] text-slate-500 font-medium mt-1.5">{unit.label}</p>
+                      </div>
+                    </React.Fragment>
+                  ))}
+                </div>
+                <p className="text-center text-[11px] text-slate-500 mt-3">
+                  Apenas <span className="text-amber-400 font-semibold">3 vagas restantes</span>
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>

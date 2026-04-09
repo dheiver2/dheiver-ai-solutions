@@ -1,64 +1,85 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const MentoringPricing = () => {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+
   return (
-    <div className="w-full py-8 bg-stone-950 text-white">
-      <div className="max-w-xl mx-auto px-5">
-        <div className="text-center mb-6">
-          <p className="text-amber-600 font-bold text-xs mb-3">INVESTIMENTO</p>
-          <h2 className="text-2xl md:text-3xl font-bold leading-tight">
-            Quanto custa <span className="text-amber-600">mudar de vida</span>?
-          </h2>
-        </div>
+    <div className="w-full py-20 md:py-28 bg-[#07090F] relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-amber-500/[0.02] via-transparent to-transparent" />
 
-        {/* Ancoragem */}
-        <div className="space-y-2 mb-6">
-          <div className="flex items-center justify-between bg-stone-900 p-3">
-            <p className="text-xs text-stone-300">Bootcamp presencial</p>
-            <p className="text-sm text-stone-300 line-through">R$ 15.000+</p>
-          </div>
-          <div className="flex items-center justify-between bg-stone-900 p-3">
-            <p className="text-xs text-stone-300">Pós-graduação em IA</p>
-            <p className="text-sm text-stone-300 line-through">R$ 24.000+</p>
-          </div>
-          <div className="flex items-center justify-between bg-stone-900 p-3">
-            <p className="text-xs text-stone-300">Mentoria individual no mercado</p>
-            <p className="text-sm text-stone-300 line-through">R$ 3.000/mês</p>
-          </div>
-        </div>
-
-        {/* Preço real */}
-        <div className="border-2 border-amber-700 p-5 text-center mb-5">
-          <p className="text-xs text-stone-300 mb-1">Mentoria Eng. de IA JR — 3 meses</p>
-          <p className="text-xs text-stone-300 line-through mb-1">de R$ 3.525</p>
-          <p className="text-4xl font-bold text-amber-600 mb-1">R$ 578<span className="text-lg">/mês</span></p>
-          <p className="text-xs text-stone-300">Total: R$ 1.734 — ou 12x de R$ 156,90</p>
-        </div>
-
-        {/* O que está incluso */}
-        <div className="mb-5">
-          <p className="text-xs font-bold text-amber-600 mb-3">TUDO INCLUSO:</p>
-          <div className="grid grid-cols-2 gap-2 text-xs text-stone-300">
-            <p>✓ 12 sessões individuais</p>
-            <p>✓ 5+ projetos portfólio</p>
-            <p>✓ CV template para IA</p>
-            <p>✓ Comunidade exclusiva</p>
-            <p>✓ 3 mock interviews</p>
-            <p>✓ Suporte via WhatsApp</p>
-            <p>✓ Certificado de conclusão</p>
-            <p>✓ Garantia de 14 dias</p>
-          </div>
-        </div>
-
-        <Button
-          size="lg"
-          className="w-full bg-amber-700 hover:bg-amber-800 text-white text-sm font-bold h-12 rounded-none transition-colors duration-200"
-          onClick={() => window.location.href = 'https://wa.me/5551989889898?text=Quero%20me%20inscrever%20na%20mentoria%20em%20IA!'}
+      <div ref={ref} className="relative z-10 max-w-3xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
         >
-          GARANTIR MINHA VAGA →
-        </Button>
-        <p className="text-xs text-stone-300 text-center mt-2">Apenas 5 vagas por turma</p>
+          <span className="inline-block text-amber-400 text-xs font-bold tracking-[0.2em] mb-4">INVESTIMENTO</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+            Quanto custa{' '}
+            <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">mudar de vida</span>?
+          </h2>
+        </motion.div>
+
+        {/* Price anchoring */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="space-y-2 mb-8"
+        >
+          {[
+            { label: 'Bootcamp presencial', price: 'R$ 15.000+' },
+            { label: 'Pós-graduação em IA', price: 'R$ 24.000+' },
+            { label: 'Mentoria individual no mercado', price: 'R$ 3.000/mês' },
+          ].map((item, i) => (
+            <div key={i} className="flex items-center justify-between bg-[#0D1117] border border-slate-800/40 rounded-lg p-4">
+              <p className="text-sm text-slate-400">{item.label}</p>
+              <p className="text-sm text-slate-500 line-through">{item.price}</p>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Main price card */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="relative bg-gradient-to-b from-[#161B22] to-[#0D1117] border-2 border-amber-500/30 rounded-2xl p-8 text-center mb-8"
+        >
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-black text-xs font-bold px-4 py-1 rounded-full">
+            MELHOR VALOR
+          </div>
+
+          <p className="text-sm text-slate-400 mb-1">Mentoria Eng. de IA JR — 3 meses</p>
+          <p className="text-sm text-slate-600 line-through mb-2">de R$ 3.525</p>
+          <p className="text-5xl md:text-6xl font-bold bg-gradient-to-b from-amber-400 to-amber-600 bg-clip-text text-transparent mb-1">
+            R$ 578<span className="text-xl">/mês</span>
+          </p>
+          <p className="text-sm text-slate-400 mb-6">Total: R$ 1.734 — ou 12x de R$ 156,90</p>
+
+          {/* Included */}
+          <div className="grid grid-cols-2 gap-2 text-sm text-left mb-8">
+            {['12 sessões individuais', '5+ projetos portfólio', 'CV template para IA', 'Comunidade exclusiva', '3 mock interviews', 'Suporte via WhatsApp', 'Certificado de conclusão', 'Garantia de 14 dias'].map((item, i) => (
+              <div key={i} className="flex items-center gap-2 text-slate-300">
+                <span className="text-amber-400 text-xs">✓</span>
+                <span className="text-xs">{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <motion.a
+            href="https://wa.me/5551989889898?text=Quero%20me%20inscrever%20na%20mentoria%20em%20IA!"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="block w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-sm py-4 rounded-lg transition-all duration-300 shadow-lg shadow-amber-500/25"
+          >
+            GARANTIR MINHA VAGA →
+          </motion.a>
+          <p className="text-xs text-slate-500 mt-3">Apenas 5 vagas por turma</p>
+        </motion.div>
       </div>
     </div>
   );
