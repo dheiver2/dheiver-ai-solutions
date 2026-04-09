@@ -29,6 +29,7 @@ const MentoringLeadCapture = () => {
 
     setLoading(false);
     setSubmitted(true);
+    if (typeof window !== 'undefined' && window.fbq) { window.fbq('track', 'CompleteRegistration', { content_name: 'lead_capture_pdf' }); }
 
     const link = document.createElement('a');
     link.href = '/trilha-engenharia-ia-90-dias.pdf';
