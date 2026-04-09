@@ -11,14 +11,15 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       react(),
-      // Sentry source maps upload (only in production)
-      isProduction && process.env.VITE_SENTRY_DSN && sentryVitePlugin({
-        org: process.env.SENTRY_ORG,
-        project: process.env.SENTRY_PROJECT,
-        authToken: process.env.SENTRY_AUTH_TOKEN,
-        telemetry: false,
-      }),
-    ].filter(Boolean),
+      ...(isProduction && process.env.VITE_SENTRY_DSN
+        ? [sentryVitePlugin({
+            org: process.env.SENTRY_ORG,
+            project: process.env.SENTRY_PROJECT,
+            authToken: process.env.SENTRY_AUTH_TOKEN,
+            telemetry: false,
+          })]
+        : []),
+    ],
     
     resolve: {
       alias: {

@@ -4,20 +4,13 @@ export const GA_TRACKING_ID = typeof window !== 'undefined' ? (window as unknown
 // Google Ads configuration
 export const GOOGLE_ADS_ID = typeof window !== 'undefined' ? (window as unknown as { VITE_GOOGLE_ADS_ID?: string }).VITE_GOOGLE_ADS_ID || '' : '';
 
-declare global {
-  interface Window {
-    gtag: (...args: unknown[]) => void;
-    dataLayer: unknown[];
-  }
+interface LayoutShift extends PerformanceEntry {
+  value: number;
+  hadRecentInput: boolean;
+}
 
-  interface LayoutShift extends PerformanceEntry {
-    value: number;
-    hadRecentInput: boolean;
-  }
-
-  interface PerformanceEventTiming extends PerformanceEntry {
-    processingStart: number;
-  }
+interface PerformanceEventTiming extends PerformanceEntry {
+  readonly processingStart: number;
 }
 
 // Initialize Google Analytics
