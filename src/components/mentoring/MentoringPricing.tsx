@@ -72,6 +72,7 @@ const MentoringPricing = () => {
 
           <motion.a
             href="https://wa.me/5551989889898?text=Quero%20me%20inscrever%20na%20mentoria%20em%20IA!"
+            onClick={() => { if (typeof window !== 'undefined' && window.fbq) { window.fbq('track', 'InitiateCheckout', { content_name: 'pricing_whatsapp_cta', value: 297, currency: 'BRL' }); } }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="block w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-sm py-4 rounded-lg transition-all duration-300 shadow-lg shadow-amber-500/25"

@@ -127,6 +127,7 @@ const MentoringHero = () => {
             <div className="flex flex-col gap-3 mb-5">
               <motion.a
                 href="https://wa.me/5551989889898?text=Quero%20mudar%20minha%20carreira%20com%20a%20mentoria%20em%20IA!"
+                onClick={() => { if (typeof window !== 'undefined' && window.fbq) { window.fbq('track', 'Lead', { content_name: 'hero_whatsapp_cta' }); } }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-sm px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-amber-500/25"
