@@ -1,80 +1,87 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const MentoringFaq = () => {
   const [openId, setOpenId] = useState<string | null>(null);
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
   const faqs = [
-    {
-      id: '1',
-      question: 'Qual nível de experiência necessário?',
-      answer: 'Conhecimentos básicos de Python. Não precisa de experiência anterior em IA.'
-    },
-    {
-      id: '2',
-      question: 'Quanto tempo dedicar por semana?',
-      answer: '8-10 horas: 2-3h aula + 5-7h projetos. Você organiza seu próprio tempo.'
-    },
-    {
-      id: '3',
-      question: 'Posso assistir as aulas gravadas?',
-      answer: 'Sim! Todas gravadas com acesso lifetime. Recomendamos participar ao vivo.'
-    },
-    {
-      id: '4',
-      question: 'E se eu quiser parar?',
-      answer: 'Garantia de 14 dias com reembolso integral. Após, reembolso proporcional.'
-    },
-    {
-      id: '5',
-      question: 'Os projetos são reais?',
-      answer: 'Sim! Datasets verdadeiros. Portfólio pronto para recrutadores.'
-    },
-    {
-      id: '6',
-      question: 'Tem auxílio para emprego?',
-      answer: 'Sim! Prep. entrevistas, revisão CV, conexões com empresas.'
-    }
+    { id: '1', question: 'Qual nível de experiência necessário?', answer: 'Conhecimentos básicos de Python. Não precisa de experiência anterior em IA.' },
+    { id: '2', question: 'Quanto tempo dedicar por semana?', answer: '8-10 horas: 2-3h aula + 5-7h projetos. Você organiza seu próprio tempo.' },
+    { id: '3', question: 'Posso assistir as aulas gravadas?', answer: 'Sim! Todas gravadas com acesso lifetime. Recomendamos participar ao vivo.' },
+    { id: '4', question: 'E se eu quiser parar?', answer: 'Garantia de 14 dias com reembolso integral. Após, reembolso proporcional.' },
+    { id: '5', question: 'Os projetos são reais?', answer: 'Sim! Datasets verdadeiros. Portfólio pronto para recrutadores.' },
+    { id: '6', question: 'Tem auxílio para emprego?', answer: 'Sim! Prep. entrevistas, revisão CV, conexões com empresas.' },
   ];
 
   return (
-    <div className="w-full py-8 bg-white">
-      <div className="max-w-3xl mx-auto px-5">
-        <h2 className="text-2xl md:text-4xl font-bold text-black mb-8 text-center">
-          Dúvidas Frequentes
-        </h2>
+    <div className="w-full py-20 md:py-28 bg-[#07090F]">
+      <div ref={ref} className="max-w-3xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold text-white">Dúvidas Frequentes</h2>
+        </motion.div>
 
-        <div>
+        <div className="space-y-2">
           {faqs.map((faq) => (
-            <div key={faq.id} className="border-b border-stone-400">
+            <motion.div
+              key={faq.id}
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: 0.05 * parseInt(faq.id) }}
+              className="bg-[#0D1117] border border-slate-800/60 rounded-xl overflow-hidden"
+            >
               <button
-                className="w-full py-3 flex items-center justify-between font-bold text-left text-black text-sm hover:text-stone-700 transition-colors duration-200"
+                className="w-full p-5 flex items-center justify-between text-left text-white hover:bg-white/[0.02] transition-colors"
                 onClick={() => setOpenId(openId === faq.id ? null : faq.id)}
               >
-                <span>{faq.question}</span>
-                <span className={`text-amber-800 font-bold text-base ml-4 transition-transform duration-200 ${openId === faq.id ? 'rotate-45' : ''}`}>
+                <span className="text-sm font-semibold pr-4">{faq.question}</span>
+                <motion.span
+                  animate={{ rotate: openId === faq.id ? 45 : 0 }}
+                  className="text-amber-400 text-lg flex-shrink-0"
+                >
                   +
-                </span>
+                </motion.span>
               </button>
-              {openId === faq.id && (
-                <div className="pb-3 text-sm text-stone-800 leading-relaxed">
-                  {faq.answer}
-                </div>
-              )}
-            </div>
+              <AnimatePresence>
+                {openId === faq.id && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="overflow-hidden"
+                  >
+                    <p className="px-5 pb-5 text-sm text-slate-400 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           ))}
         </div>
 
         {/* Contact */}
-        <div className="mt-8 text-center">
-          <p className="text-amber-800 font-bold text-xs mb-1">DÚVIDAS?</p>
-          <p className="text-black text-sm mb-3">Respondo em até 2h</p>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.5 }}
+          className="mt-10 text-center"
+        >
+          <p className="text-slate-500 text-sm mb-3">Outra dúvida? Respondo em até 2h</p>
           <a
             href="https://wa.me/5551989889898"
-            className="inline-block bg-amber-800 hover:bg-amber-900 text-white px-6 py-2.5 font-bold text-xs transition-colors duration-200"
+            className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-slate-700 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all"
           >
             WHATSAPP
           </a>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

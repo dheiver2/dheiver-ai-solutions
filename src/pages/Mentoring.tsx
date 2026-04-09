@@ -15,7 +15,7 @@ import MentoringCta from '@/components/mentoring/MentoringCta';
 
 const Mentoring = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#07090F]">
       <section id="mentoring-hero">
         <MentoringHero />
       </section>
