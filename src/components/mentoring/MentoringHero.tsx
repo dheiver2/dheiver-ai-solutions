@@ -96,7 +96,7 @@ const MentoringHero = () => {
             <h1 className="text-[2.2rem] leading-[1.08] md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>
               Torne-se{' '}
               <span className="bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
-                Engenheiro de IA
+                Engenheiro de IA Jr
               </span>{' '}
               em 3 meses
             </h1>
