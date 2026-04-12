@@ -92,14 +92,19 @@ const MentoringFuture = () => {
           </motion.div>
         </div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.6 }}
-          className="text-center mt-8 text-sm text-slate-400"
+          className="text-center mt-8"
         >
-          A diferença entre os dois? <span className="text-amber-400 font-semibold">3 meses de mentoria.</span>
-        </motion.p>
+          <p className="text-sm text-slate-400">
+            A diferença entre os dois? <span className="text-amber-400 font-semibold">90 dias de mentoria com quem já fez isso 150+ vezes.</span>
+          </p>
+          <p className="text-xs text-slate-500 mt-2">
+            Você não precisa de mais um curso. Precisa de alguém que já chegou onde você quer ir te mostrando o caminho.
+          </p>
+        </motion.div>
       </div>
     </div>
   );

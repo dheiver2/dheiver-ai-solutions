@@ -46,12 +46,16 @@ const MentoringCta = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
-            Sua carreira em IA começa{' '}
-            <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">com uma decisão.</span>
+            Daqui 90 dias, você vai estar em{' '}
+            <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">um desses dois lugares.</span>
           </h2>
 
-          <p className="text-base text-slate-400 mb-8 max-w-lg mx-auto">
-            Daqui 3 meses, você pode estar no mesmo lugar. Ou pode estar empregado como Engenheiro de IA JR.
+          <p className="text-base text-slate-400 mb-4 max-w-lg mx-auto">
+            No mesmo cargo, com o mesmo salário, assistindo o mesmo tutorial.<br />
+            Ou com "Engenheiro de IA JR" no LinkedIn, recebendo mensagens de recrutadores.
+          </p>
+          <p className="text-sm text-amber-400/80 font-medium mb-8 max-w-lg mx-auto">
+            A única diferença entre os dois cenários? Uma decisão. Esta. Agora.
           </p>
 
           {/* Timer */}
@@ -83,7 +87,7 @@ const MentoringCta = () => {
             whileTap={{ scale: 0.98 }}
             className="block w-full max-w-sm mx-auto bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-base py-4 rounded-lg transition-all duration-300 shadow-lg shadow-amber-500/25 mb-3"
           >
-            QUERO SER ENGENHEIRO DE IA →
+            SIM, QUERO MINHA VAGA NA MENTORIA →
           </motion.a>
 
           <p className="text-xs text-slate-500 font-medium mb-8">

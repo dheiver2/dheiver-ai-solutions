@@ -28,9 +28,15 @@ const MentoringAuthority = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-white">
-            Credenciais & Experiência
+          <span className="inline-block text-amber-400 text-xs font-bold tracking-[0.2em] mb-4">QUEM VAI TE MENTORAR</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+            Por que eu faço isso?
           </h2>
+          <p className="text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Eu passei 15 anos construindo IA para grandes empresas. Vi de perto como é difícil entrar nesse mercado sem orientação —
+            porque eu também passei por isso. Decidi mentorar porque acredito que <strong className="text-slate-200">talento sem direção é desperdício</strong>,
+            e o Brasil precisa de mais engenheiros de IA que vieram da vida real, não só de universidades de elite.
+          </p>
         </motion.div>
 
         {/* Stats */}

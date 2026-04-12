@@ -78,7 +78,7 @@ const MentoringPricing = () => {
             whileTap={{ scale: 0.98 }}
             className="block w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-sm py-4 rounded-lg transition-all duration-300 shadow-lg shadow-amber-500/25"
           >
-            GARANTIR MINHA VAGA →
+            QUERO COMEÇAR MINHA TRANSIÇÃO PARA IA →
           </motion.a>
           <p className="text-xs text-slate-500 mt-3">Apenas 5 vagas por turma</p>
         </motion.div>

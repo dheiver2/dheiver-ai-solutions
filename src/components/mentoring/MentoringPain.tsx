@@ -6,10 +6,10 @@ const MentoringPain = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
   const pains = [
-    { icon: '📺', text: 'Você assiste tutoriais no YouTube há meses e continua no mesmo lugar' },
-    { icon: '💰', text: 'Vê vagas de IA pagando R$ 8.000 a R$ 25.000 e não consegue aplicar' },
-    { icon: '📂', text: 'Não tem portfólio, não tem experiência, não sabe por onde começar' },
-    { icon: '🎓', text: 'Bootcamps cobram R$ 15.000+ e não te dão mentoria individual' },
+    { icon: '📺', text: 'Assiste tutoriais no YouTube há meses — e o máximo que construiu foi um "hello world" de ML que não impressiona ninguém' },
+    { icon: '💰', text: 'Abre o LinkedIn e vê 47 vagas de IA pagando R$ 8.000 a R$ 25.000... mas nem consegue passar na triagem do currículo' },
+    { icon: '📂', text: 'Seu portfólio está vazio. Recrutadores olham seu GitHub em 8 segundos e seguem para o próximo candidato' },
+    { icon: '🎓', text: 'Já pesquisou bootcamps a R$ 21.900 e pós-graduações a R$ 24.000 — e mesmo assim, nenhum te dá mentoria individual' },
   ];
 
   return (
@@ -27,9 +27,12 @@ const MentoringPain = () => {
             A VERDADE QUE NINGUÉM TE CONTA
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-            Enquanto você pensa,<br />
-            <span className="text-red-400">alguém está tomando sua vaga.</span>
+            Eu já vi isso acontecer<br />
+            <span className="text-red-400">300 vezes.</span>
           </h2>
+          <p className="text-base text-slate-400 mt-4 max-w-xl mx-auto">
+            Pessoas inteligentes, capazes, que ficam travadas no ciclo de "estudar sozinhas" por 1, 2, 3 anos — enquanto gente com metade da capacidade passa na frente porque teve orientação certa.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-4 mb-12">
@@ -54,10 +57,10 @@ const MentoringPain = () => {
           className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 rounded-xl p-6 text-center"
         >
           <p className="text-base font-semibold text-amber-300">
-            O mercado de IA no Brasil cresce 35% ao ano.
+            Enquanto você lê isso, 12 pessoas acabaram de se candidatar para a vaga de IA que você queria.
           </p>
           <p className="text-sm text-slate-400 mt-1">
-            Cada mês que passa, mais gente entra antes de você.
+            O mercado de IA cresce 35% ao ano. A pergunta não é SE vai ter vaga — é se VOCÊ vai estar pronto quando ela aparecer.
           </p>
         </motion.div>
       </div>

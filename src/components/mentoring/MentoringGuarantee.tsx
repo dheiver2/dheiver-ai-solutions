@@ -17,18 +17,24 @@ const MentoringGuarantee = () => {
           <div className="w-16 h-16 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-5">
             <span className="text-3xl">🛡️</span>
           </div>
-          <span className="inline-block text-amber-400 text-xs font-bold tracking-[0.2em] mb-3">GARANTIA INCONDICIONAL</span>
+          <span className="inline-block text-amber-400 text-xs font-bold tracking-[0.2em] mb-3">GARANTIA INCONDICIONAL DE 14 DIAS</span>
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            14 dias ou seu<br />dinheiro de volta.
+            Se não for o melhor investimento<br />da sua carreira, eu devolvo <span className="text-amber-400">cada centavo.</span>
           </h2>
+          <p className="text-sm text-slate-400 leading-relaxed mb-3 max-w-md mx-auto">
+            Participe das primeiras 2 sessões completas. Faça os exercícios. Converse comigo.
+            Se depois disso você sentir que não é para você — por <strong className="text-white">qualquer motivo</strong> —
+            eu pessoalmente devolvo <strong className="text-white">100% do valor</strong>. Sem burocracia.
+            Sem perguntas. Sem ressentimento.
+          </p>
           <p className="text-sm text-slate-400 leading-relaxed mb-4 max-w-md mx-auto">
-            Participe das primeiras 2 sessões. Se sentir que não é para você,
-            devolvemos <strong className="text-white">100% do valor</strong> sem
-            burocracia, sem perguntas.
+            E você ainda fica com todo o material das 2 primeiras semanas. <strong className="text-white">De graça.</strong>
           </p>
-          <p className="text-sm text-slate-500">
-            Simples assim. O risco é <span className="text-amber-400 font-bold">zero</span>.
-          </p>
+          <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg px-4 py-3 inline-block">
+            <p className="text-sm text-amber-400 font-bold">
+              O risco é ZERO para você. Todo o risco é meu.
+            </p>
+          </div>
         </motion.div>
       </div>
     </div>

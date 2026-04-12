@@ -93,18 +93,22 @@ const MentoringHero = () => {
               </span>
             </div>
 
-            <h1 className="text-[2.2rem] leading-[1.08] md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>
-              Torne-se{' '}
+            <h1 className="text-[2rem] leading-[1.12] md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3" style={{ fontFamily: "'Inter', sans-serif" }}>
+              Você vai continuar assistindo tutorial{' '}
               <span className="bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
-                Engenheiro de IA Jr
+                enquanto alguém com metade da sua capacidade
               </span>{' '}
-              em 3 meses
+              é contratado como Engenheiro de IA?
             </h1>
 
-            <p className="text-[15px] md:text-lg text-slate-400 leading-relaxed mb-6 max-w-lg mx-auto md:mx-0">
-              Mentoria 1-on-1 com PhD e professor de universidades federais que já entregou <strong className="text-slate-200">150+ projetos</strong> para
-              Santander, Grupo Boticário e Petrobras.{' '}
-              <strong className="text-slate-200">Mesmo sem experiência em IA.</strong>
+            <p className="text-[15px] md:text-lg text-slate-400 leading-relaxed mb-4 max-w-lg mx-auto md:mx-0">
+              Em 90 dias, você sai do zero ao seu primeiro emprego em IA — com{' '}
+              <strong className="text-slate-200">portfólio, preparação para entrevistas e mentoria individual</strong> com
+              PhD e professor de universidades federais que já entregou 150+ projetos para Santander, Boticário e Petrobras.
+            </p>
+
+            <p className="text-[13px] text-amber-400/80 font-medium mb-5 max-w-lg mx-auto md:mx-0">
+              ⚡ Mesmo que você nunca tenha escrito uma linha de código em Machine Learning.
             </p>
 
             {/* Stats row — mobile */}
@@ -132,7 +136,7 @@ const MentoringHero = () => {
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-sm px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-amber-500/25"
               >
-                QUERO SER ENGENHEIRO DE IA
+                QUERO MINHA VAGA NA MENTORIA
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
               </motion.a>
               <a

@@ -6,11 +6,11 @@ const MentoringObjections = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
   const objections = [
-    { objection: '"Não tenho experiência com IA"', answer: 'Perfeito. A mentoria começa do zero. 70% dos mentorados nunca tinham tocado em Machine Learning antes.' },
-    { objection: '"R$ 697/mês é caro"', answer: 'Um engenheiro de IA JR ganha R$ 8.000-15.000/mês. O investimento total (R$ 2.091) se paga no primeiro salário. Bootcamps cobram R$ 21.900 sem mentoria individual.' },
-    { objection: '"Não tenho tempo"', answer: 'São 1h por semana de sessão + 3-4h de prática. Menos que assistir uma série na Netflix.' },
-    { objection: '"Existem cursos gratuitos"', answer: 'Cursos ensinam teoria. Mentoria entrega portfólio, networking e preparação para entrevistas reais.' },
-    { objection: '"E se não funcionar?"', answer: 'Garantia incondicional de 14 dias. Se não gostar, devolvemos 100% do valor sem perguntas.' },
+    { objection: '"Não tenho experiência com IA"', answer: 'Ótimo. A mentoria foi FEITA para quem está no zero. 70% dos mentorados nunca tinham tocado em Machine Learning. Em 4 semanas já estavam construindo modelos reais. A questão não é de onde você começa — é ter alguém te guiando.' },
+    { objection: '"R$ 697/mês é caro"', answer: 'Caro é ganhar R$ 3.000 pelos próximos 5 anos porque você não investiu R$ 697 em si mesmo. Um Eng. de IA JR ganha R$ 8K-15K/mês — você recupera o investimento TOTAL no primeiro salário. Bootcamps cobram R$ 21.900 sem mentoria individual. Qual é o custo de NÃO fazer?' },
+    { objection: '"Não tenho tempo"', answer: '1 hora por semana de sessão + 3-4h de prática. Menos que uma série na Netflix. A pergunta real é: você tem tempo para ficar MAIS 2 anos no mesmo cargo, com o mesmo salário, fazendo a mesma coisa?' },
+    { objection: '"Existem cursos gratuitos"', answer: 'Sim. E é exatamente por isso que você ainda está aqui lendo isso em vez de trabalhando como Engenheiro de IA. Cursos ensinam teoria. Mentoria entrega portfólio REAL, preparação para entrevistas REAIS e um PhD te corrigindo em tempo real.' },
+    { objection: '"E se não funcionar?"', answer: 'Participe das 2 primeiras sessões. Se você sentir que não é para você — por QUALQUER motivo — eu pessoalmente devolvo 100% do seu dinheiro. Sem burocracia, sem perguntas, sem ressentimento. O risco é literalmente zero. O único risco real é não tentar.' },
   ];
 
   return (
