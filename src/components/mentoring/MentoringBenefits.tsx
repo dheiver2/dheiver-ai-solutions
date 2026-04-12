@@ -91,9 +91,9 @@ const MentoringBenefits = () => {
           </div>
           <div className="bg-[#161B22] border border-slate-800/60 rounded-xl p-6">
             <p className="text-xs font-bold text-amber-400 tracking-wider mb-4">INVESTIMENTO</p>
-            <p className="text-3xl font-bold text-white">R$ 578<span className="text-base text-slate-500 font-normal">/mês</span></p>
+            <p className="text-3xl font-bold text-white">R$ 697<span className="text-base text-slate-500 font-normal">/mês</span></p>
             <ul className="space-y-2 text-sm text-slate-400 mt-3">
-              <li>• Total: R$ 1.734</li>
+              <li>• Total: R$ 2.091</li>
               <li>• Até 3x sem juros</li>
               <li>• Garantia 14 dias</li>
             </ul>

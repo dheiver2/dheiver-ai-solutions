@@ -31,9 +31,9 @@ const MentoringPricing = () => {
           className="space-y-2 mb-8"
         >
           {[
-            { label: 'Bootcamp presencial', price: 'R$ 15.000+' },
+            { label: 'Bootcamp presencial (Le Wagon, etc.)', price: 'R$ 21.900' },
             { label: 'Pós-graduação em IA', price: 'R$ 24.000+' },
-            { label: 'Mentoria individual no mercado', price: 'R$ 3.000/mês' },
+            { label: 'Mentoria individual no mercado (R$ 700-1.000/h)', price: 'R$ 8.400+' },
           ].map((item, i) => (
             <div key={i} className="flex items-center justify-between bg-[#0D1117] border border-slate-800/40 rounded-lg p-4">
               <p className="text-sm text-slate-400">{item.label}</p>
@@ -54,15 +54,16 @@ const MentoringPricing = () => {
           </div>
 
           <p className="text-sm text-slate-400 mb-1">Mentoria Eng. de IA JR — 3 meses</p>
-          <p className="text-sm text-slate-600 line-through mb-2">de R$ 3.525</p>
+          <p className="text-sm text-slate-600 line-through mb-2">de R$ 4.197</p>
           <p className="text-5xl md:text-6xl font-bold bg-gradient-to-b from-amber-400 to-amber-600 bg-clip-text text-transparent mb-1">
-            R$ 578<span className="text-xl">/mês</span>
+            R$ 697<span className="text-xl">/mês</span>
           </p>
-          <p className="text-sm text-slate-400 mb-6">Total: R$ 1.734 — ou 12x de R$ 156,90</p>
+          <p className="text-sm text-slate-400 mb-4">Total: R$ 2.091 — ou 12x de R$ 189,90</p>
+          <p className="text-[11px] text-amber-400/70 font-medium mb-6">Apenas R$ 174/sessão com PhD e Prof. Federal — mercado cobra R$ 700+/h</p>
 
           {/* Included */}
           <div className="grid grid-cols-2 gap-2 text-sm text-left mb-8">
-            {['12 sessões individuais', '5+ projetos portfólio', 'CV template para IA', 'Comunidade exclusiva', '3 mock interviews', 'Suporte via WhatsApp', 'Certificado de conclusão', 'Garantia de 14 dias'].map((item, i) => (
+            {['12 sessões individuais', '5+ projetos portfólio', 'CV template para IA', 'Comunidade exclusiva', '3 mock interviews', 'Suporte via WhatsApp', 'Certificado de conclusão', 'Garantia de 14 dias', 'Acesso vitalício às gravações', 'Mentor PhD + Prof. Federal'].map((item, i) => (
               <div key={i} className="flex items-center gap-2 text-slate-300">
                 <span className="text-amber-400 text-xs">✓</span>
                 <span className="text-xs">{item}</span>

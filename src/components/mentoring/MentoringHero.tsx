@@ -73,7 +73,7 @@ const MentoringHero = () => {
               {/* Name badge overlaying photo */}
               <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#0D1117]/90 backdrop-blur-sm border border-slate-700/60 rounded-full px-5 py-2 whitespace-nowrap">
                 <p className="text-white text-sm font-bold">Dr. Dheiver Santos</p>
-                <p className="text-amber-400 text-[10px] text-center font-medium">PhD • ML Engineer • 15+ anos</p>
+                <p className="text-amber-400 text-[10px] text-center font-medium">PhD • Prof. Federal • ML Engineer • 15+ anos</p>
               </div>
             </div>
           </motion.div>
@@ -102,8 +102,8 @@ const MentoringHero = () => {
             </h1>
 
             <p className="text-[15px] md:text-lg text-slate-400 leading-relaxed mb-6 max-w-lg mx-auto md:mx-0">
-              Mentoria 1-on-1 com PhD que já entregou <strong className="text-slate-200">150+ projetos</strong> para
-              Santander, Grupo Fleury e Petrobras.{' '}
+              Mentoria 1-on-1 com PhD e professor de universidades federais que já entregou <strong className="text-slate-200">150+ projetos</strong> para
+              Santander, Grupo Boticário e Petrobras.{' '}
               <strong className="text-slate-200">Mesmo sem experiência em IA.</strong>
             </p>
 
@@ -146,7 +146,7 @@ const MentoringHero = () => {
             {/* Social proof */}
             <div className="flex flex-wrap justify-center md:justify-start gap-4 text-[13px] text-slate-500">
               <span>✓ Garantia 14 dias</span>
-              <span>✓ R$ 578/mês</span>
+              <span>✓ R$ 697/mês</span>
               <span>✓ 3 vagas</span>
             </div>
           </motion.div>

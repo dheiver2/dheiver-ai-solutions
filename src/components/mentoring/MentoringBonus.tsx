@@ -6,9 +6,9 @@ const MentoringBonus = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
   const bonuses = [
-    { number: '01', title: 'Template de CV para IA', description: 'Modelo usado por engenheiros contratados em Big Techs brasileiras. Formatação ATS-friendly.', value: 'R$ 297' },
-    { number: '02', title: 'Acesso à Comunidade Privada', description: 'Grupo exclusivo com mentorados, vagas em primeira mão e networking direto com profissionais de IA.', value: 'R$ 497' },
-    { number: '03', title: '3 Entrevistas Simuladas', description: 'Mock interviews reais com feedback detalhado. O mesmo processo usado por Santander e Petrobras.', value: 'R$ 997' },
+    { number: '01', title: 'Template de CV para IA', description: 'Modelo usado por engenheiros contratados em Big Techs brasileiras. Formatação ATS-friendly otimizada.', value: 'R$ 397' },
+    { number: '02', title: 'Acesso à Comunidade Privada', description: 'Grupo exclusivo com mentorados, vagas em primeira mão e networking direto com profissionais de IA do mercado.', value: 'R$ 597' },
+    { number: '03', title: '3 Entrevistas Simuladas', description: 'Mock interviews reais com feedback detalhado. O mesmo processo usado por Santander, Grupo Boticário e Petrobras.', value: 'R$ 1.197'},
   ];
 
   return (
@@ -23,7 +23,7 @@ const MentoringBonus = () => {
           <span className="inline-block text-amber-400 text-xs font-bold tracking-[0.2em] mb-4">BÔNUS EXCLUSIVOS</span>
           <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
             Além da mentoria, você leva{' '}
-            <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">R$ 1.791 em bônus</span>
+            <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">R$ 2.191 em bônus</span>
           </h2>
         </motion.div>
 

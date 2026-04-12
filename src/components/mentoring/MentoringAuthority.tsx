@@ -10,9 +10,11 @@ const MentoringAuthority = () => {
 
   const impacts = [
     { company: 'Santander', result: 'Squad 8 eng • -60% custos • +3x velocidade' },
+    { company: 'Grupo Boticário', result: 'IA para personalização e supply chain inteligente' },
     { company: 'Grupo Fleury', result: 'GenAI e Computer Vision para diagnósticos' },
-    { company: 'Engie Energia', result: 'Otimização de energia e previsão de demanda' },
     { company: 'Petrobras', result: 'ML pipelines para análise operacional' },
+    { company: 'Engie Energia', result: 'Otimização de energia e previsão de demanda' },
+    { company: 'Universidades Federais', result: 'Professor de IA e Machine Learning na academia' },
   ];
 
   return (
@@ -39,8 +41,8 @@ const MentoringAuthority = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
         >
           {[
-            { value: 'PhD', label: 'Eng. Química', sub: 'UFBA / UFRJ' },
-            { value: '15+', label: 'Anos Exp.', sub: 'Santander • Fleury • Engie' },
+            { value: 'PhD', label: 'Eng. Química', sub: 'UFBA / UFRJ • Prof. Universidades Federais' },
+            { value: '15+', label: 'Anos Exp.', sub: 'Santander • Boticário • Fleury • Petrobras' },
             { value: '100+', label: 'Artigos', sub: 'Web of Science • Scopus', link: 'https://orcid.org/0000-0002-8599-9436' },
             { value: '150+', label: 'Projetos', sub: 'Saúde • Indústria • Finanças' },
           ].map((stat, i) => {

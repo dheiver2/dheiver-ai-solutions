@@ -7,7 +7,7 @@ const MentoringObjections = () => {
 
   const objections = [
     { objection: '"Não tenho experiência com IA"', answer: 'Perfeito. A mentoria começa do zero. 70% dos mentorados nunca tinham tocado em Machine Learning antes.' },
-    { objection: '"R$ 578/mês é caro"', answer: 'Um engenheiro de IA JR ganha R$ 8.000-15.000/mês. Você recupera o investimento total no primeiro salário.' },
+    { objection: '"R$ 697/mês é caro"', answer: 'Um engenheiro de IA JR ganha R$ 8.000-15.000/mês. O investimento total (R$ 2.091) se paga no primeiro salário. Bootcamps cobram R$ 21.900 sem mentoria individual.' },
     { objection: '"Não tenho tempo"', answer: 'São 1h por semana de sessão + 3-4h de prática. Menos que assistir uma série na Netflix.' },
     { objection: '"Existem cursos gratuitos"', answer: 'Cursos ensinam teoria. Mentoria entrega portfólio, networking e preparação para entrevistas reais.' },
     { objection: '"E se não funcionar?"', answer: 'Garantia incondicional de 14 dias. Se não gostar, devolvemos 100% do valor sem perguntas.' },

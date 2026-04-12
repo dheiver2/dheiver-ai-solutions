@@ -87,7 +87,7 @@ const MentoringCta = () => {
           </motion.a>
 
           <p className="text-xs text-slate-500 font-medium mb-8">
-            ✓ R$ 578/mês &nbsp;|&nbsp; ✓ 5 vagas &nbsp;|&nbsp; ✓ Garantia 14 dias
+            ✓ R$ 697/mês &nbsp;|&nbsp; ✓ 5 vagas &nbsp;|&nbsp; ✓ Garantia 14 dias
           </p>
 
           {/* Steps */}
@@ -109,7 +109,7 @@ const MentoringCta = () => {
             <a href="https://wa.me/5551989889898" className="text-amber-400 font-bold text-sm hover:text-amber-300 transition-colors">
               (51) 98988-9898
             </a>
-            <p className="text-xs text-slate-500 mt-1">Dr. Dheiver Santos • PhD em IA</p>
+            <p className="text-xs text-slate-500 mt-1">Dr. Dheiver Santos • PhD • Prof. Universidades Federais</p>
           </div>
         </motion.div>
       </div>
