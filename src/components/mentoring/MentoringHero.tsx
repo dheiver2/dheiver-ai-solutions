@@ -93,22 +93,17 @@ const MentoringHero = () => {
               </span>
             </div>
 
-            <h1 className="text-[2rem] leading-[1.12] md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3" style={{ fontFamily: "'Inter', sans-serif" }}>
-              Você vai continuar assistindo tutorial{' '}
+            <h1 className="text-[2.2rem] leading-[1.08] md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>
+              De zero a{' '}
               <span className="bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
-                enquanto alguém com metade da sua capacidade
+                Engenheiro de IA
               </span>{' '}
-              é contratado como Engenheiro de IA?
+              em 90 dias
             </h1>
 
-            <p className="text-[15px] md:text-lg text-slate-400 leading-relaxed mb-4 max-w-lg mx-auto md:mx-0">
-              Em 90 dias, você sai do zero ao seu primeiro emprego em IA — com{' '}
-              <strong className="text-slate-200">portfólio, preparação para entrevistas e mentoria individual</strong> com
-              PhD e professor de universidades federais que já entregou 150+ projetos para Santander, Boticário e Petrobras.
-            </p>
-
-            <p className="text-[13px] text-amber-400/80 font-medium mb-5 max-w-lg mx-auto md:mx-0">
-              ⚡ Mesmo que você nunca tenha escrito uma linha de código em Machine Learning.
+            <p className="text-[15px] md:text-lg text-slate-400 leading-relaxed mb-6 max-w-lg mx-auto md:mx-0">
+              Mentoria individual com PhD e professor de universidades federais.{' '}
+              <strong className="text-slate-200">Portfólio, entrevistas e emprego</strong> — mesmo que você nunca tenha tocado em Machine Learning.
             </p>
 
             {/* Stats row — mobile */}
