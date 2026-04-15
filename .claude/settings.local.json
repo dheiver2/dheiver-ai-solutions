@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -sL \"https://script.google.com/macros/s/AKfycbyyTnwdIIUDTUwutNYmlGEzu-07PURH9PsFT6DJbG_EicYagYj50Hpnhd7HEjAWHq6uoQ/exec\")"
+    ]
+  }
+}

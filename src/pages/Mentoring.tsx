@@ -1,5 +1,4 @@
 import React from 'react';
-import Navigation from '@/components/Navigation';
 import MentoringHero from '@/components/mentoring/MentoringHero';
 import MentoringPain from '@/components/mentoring/MentoringPain';
 import MentoringFuture from '@/components/mentoring/MentoringFuture';
@@ -18,8 +17,6 @@ import { MENTORING_SEATS_LEFT, buildMentoringWhatsAppLink } from '@/components/m
 const Mentoring = () => {
   return (
     <div className="min-h-screen bg-[#07090F] pb-24 md:pb-0">
-      <Navigation />
-
       {/* 1. GANCHO — Atenção imediata + promessa */}
       <section id="mentoring-hero" className="scroll-mt-24">
         <MentoringHero />

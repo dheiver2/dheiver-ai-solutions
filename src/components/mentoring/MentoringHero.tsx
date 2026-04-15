@@ -48,7 +48,7 @@ const MentoringHero = () => {
       <div className="relative z-10 w-full max-w-6xl mx-auto px-5 md:px-8">
         {/* ===== MOBILE: Stacked layout (photo first) ===== */}
         {/* ===== DESKTOP: Side by side ===== */}
-        <div className="flex flex-col md:grid md:grid-cols-2 md:gap-12 md:items-center md:min-h-screen pt-20 md:pt-24">
+        <div className="flex flex-col md:grid md:grid-cols-2 md:gap-12 md:items-center md:min-h-screen pt-8 md:pt-12">
 
           {/* PHOTO — Always visible first on mobile */}
           <motion.div
