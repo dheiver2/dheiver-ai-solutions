@@ -68,7 +68,7 @@ const MentoringPricing = () => {
           <p className="text-[11px] text-amber-400/70 font-medium mb-6">Inclui acompanhamento individual, projetos guiados, revisão de currículo e preparação para entrevistas.</p>
 
           {/* Included */}
-          <div className="grid grid-cols-2 gap-2 text-sm text-left mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-left mb-8">
             {['12 sessões individuais', '5+ projetos de portfólio', 'Currículo adaptado para IA', 'Plano de estudos semanal', '3 simulações de entrevista', 'Suporte via WhatsApp', 'Certificado de conclusão', 'Garantia de 14 dias', 'Acesso às gravações', 'Mentor PhD + professor'].map((item, i) => (
               <div key={i} className="flex items-center gap-2 text-slate-300">
                 <span className="text-amber-400 text-xs">✓</span>
@@ -79,6 +79,8 @@ const MentoringPricing = () => {
 
           <motion.a
             href={buildMentoringWhatsAppLink('Quero entender como funciona a inscrição da mentoria em Engenharia de IA.')}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => { if (typeof window !== 'undefined' && window.fbq) { window.fbq('track', 'InitiateCheckout', { content_name: 'pricing_whatsapp_cta', value: MENTORING_MONTHLY_PRICE, currency: 'BRL' }); } }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
