@@ -6,11 +6,11 @@ const MentoringObjections = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
   const objections = [
-    { objection: '"Não tenho experiência com IA"', answer: 'Ótimo. A mentoria foi FEITA para quem está no zero. 70% dos mentorados nunca tinham tocado em Machine Learning. Em 4 semanas já estavam construindo modelos reais. A questão não é de onde você começa — é ter alguém te guiando.' },
-    { objection: '"R$ 697/mês é caro"', answer: 'Caro é ganhar R$ 3.000 pelos próximos 5 anos porque você não investiu R$ 697 em si mesmo. Um Eng. de IA JR ganha R$ 8K-15K/mês — você recupera o investimento TOTAL no primeiro salário. Bootcamps cobram R$ 21.900 sem mentoria individual. Qual é o custo de NÃO fazer?' },
-    { objection: '"Não tenho tempo"', answer: '1 hora por semana de sessão + 3-4h de prática. Menos que uma série na Netflix. A pergunta real é: você tem tempo para ficar MAIS 2 anos no mesmo cargo, com o mesmo salário, fazendo a mesma coisa?' },
-    { objection: '"Existem cursos gratuitos"', answer: 'Sim. E é exatamente por isso que você ainda está aqui lendo isso em vez de trabalhando como Engenheiro de IA. Cursos ensinam teoria. Mentoria entrega portfólio REAL, preparação para entrevistas REAIS e um PhD te corrigindo em tempo real.' },
-    { objection: '"E se não funcionar?"', answer: 'Participe das 2 primeiras sessões. Se você sentir que não é para você — por QUALQUER motivo — eu pessoalmente devolvo 100% do seu dinheiro. Sem burocracia, sem perguntas, sem ressentimento. O risco é literalmente zero. O único risco real é não tentar.' },
+    { objection: '"Estou começando do zero em IA"', answer: 'Tudo bem. A mentoria foi desenhada para quem está partindo do zero, mas quer acelerar com sequência, feedback e aplicações reais. Você não precisa chegar sabendo IA; precisa chegar disposto a executar um plano claro.' },
+    { objection: '"R$ 697/mês pesa no orçamento"', answer: 'Faz sentido olhar com cuidado para o investimento. Por isso a oferta inclui mentoria individual, revisão de currículo, projetos guiados e preparação para entrevistas. A pergunta útil aqui é: quanto custa continuar estudando sem direção por mais seis meses?' },
+    { objection: '"Minha rotina já é corrida"', answer: 'A estrutura foi pensada para caber na vida real: um encontro por semana e uma trilha objetiva de prática. O foco não é consumir horas e horas de conteúdo, e sim transformar o pouco tempo disponível em progresso consistente.' },
+    { objection: '"Já existem cursos gratuitos"', answer: 'Existem, e muitos são bons. O diferencial aqui não é só conteúdo: é diagnóstico do seu momento, correção de rota, portfólio com contexto e alguém experiente revisando o que você entrega.' },
+    { objection: '"E se eu entrar e não for para mim?"', answer: 'Você participa das primeiras sessões, sente o ritmo da mentoria e decide com segurança. Se perceber que não faz sentido para o seu momento, a garantia de 14 dias reduz o risco dessa decisão.' },
   ];
 
   return (
@@ -24,7 +24,7 @@ const MentoringObjections = () => {
         >
           <span className="inline-block text-amber-400 text-xs font-bold tracking-[0.2em] mb-4">AINDA TEM DÚVIDAS?</span>
           <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Vou ser <span className="text-amber-400">brutalmente honesto</span>
+            Respostas diretas para as objeções mais comuns
           </h2>
         </motion.div>
 

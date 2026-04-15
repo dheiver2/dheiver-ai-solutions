@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
+import { buildMentoringWhatsAppLink } from './mentoring/mentoringConfig';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,22 +19,21 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const whatsappNumber = '5551989889898';
-  const whatsappMessage = encodeURIComponent(
-    'Olá! 👋 Gostaria de saber mais sobre suas soluções de IA.'
+  const whatsappLink = buildMentoringWhatsAppLink(
+    'Olá! Quero entender se a mentoria em Engenharia de IA faz sentido para o meu momento.'
   );
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   const navItems = [
     { name: 'Início', path: '/', anchor: 'mentoring-hero' },
-    { name: 'Credenciais', path: '/', anchor: 'mentoring-authority' },
-    { name: 'Benefícios', path: '/', anchor: 'mentoring-benefits' },
+    { name: 'Método', path: '/', anchor: 'mentoring-future' },
+    { name: 'Mentoria', path: '/', anchor: 'mentoring-benefits' },
+    { name: 'Investimento', path: '/', anchor: 'mentoring-pricing' },
     { name: 'FAQ', path: '/', anchor: 'mentoring-faq' },
   ];
 
   const isActive = (path: string, anchor?: string) => {
     if (anchor) {
-      return location.hash === `#${anchor}` || (anchor === 'hero' && location.hash === '');
+      return location.hash === `#${anchor}` || (anchor === 'mentoring-hero' && location.hash === '');
     }
     return location.pathname === path;
   };
@@ -106,7 +106,7 @@ const Navigation = () => {
                 rel="noopener noreferrer"
                 className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-lg text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg inline-flex items-center gap-2"
               >
-                💬 Falar no WhatsApp
+                Falar no WhatsApp
             </a>
             </motion.div>
           </div>
@@ -190,7 +190,7 @@ const Navigation = () => {
                     className="flex items-center justify-center gap-2 w-full bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-4 rounded-lg text-base font-semibold transition-all duration-200 shadow-md hover:shadow-lg"
                     onClick={() => setIsOpen(false)}
                   >
-                    💬 Falar no WhatsApp
+                    Falar no WhatsApp
               </a>
                 </motion.div>
               </div>

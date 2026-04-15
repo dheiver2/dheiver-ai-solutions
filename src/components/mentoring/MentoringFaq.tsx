@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { buildMentoringWhatsAppLink } from './mentoringConfig';
 
 const MentoringFaq = () => {
   const [openId, setOpenId] = useState<string | null>(null);
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
   const faqs = [
-    { id: '1', question: 'Qual nível de experiência necessário?', answer: 'Conhecimentos básicos de Python. Não precisa de experiência anterior em IA.' },
+    { id: '1', question: 'Qual nível de experiência necessário?', answer: 'Conhecimentos básicos de Python já ajudam, mas você consegue acompanhar mesmo começando do zero em IA.' },
     { id: '2', question: 'Quanto tempo dedicar por semana?', answer: '8-10 horas: 2-3h aula + 5-7h projetos. Você organiza seu próprio tempo.' },
     { id: '3', question: 'Posso assistir as aulas gravadas?', answer: 'Sim! Todas gravadas com acesso lifetime. Recomendamos participar ao vivo.' },
     { id: '4', question: 'E se eu quiser parar?', answer: 'Garantia de 14 dias com reembolso integral. Após, reembolso proporcional.' },
@@ -76,7 +77,7 @@ const MentoringFaq = () => {
         >
           <p className="text-slate-500 text-sm mb-3">Outra dúvida? Respondo em até 2h</p>
           <a
-            href="https://wa.me/5551989889898"
+            href={buildMentoringWhatsAppLink('Tenho uma dúvida sobre a mentoria em Engenharia de IA.')}
             className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-slate-700 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all"
           >
             WHATSAPP

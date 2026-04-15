@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight, BriefcaseBusiness, CalendarDays, Download } from 'lucide-react';
+import { MENTORING_SEATS_LEFT, buildMentoringWhatsAppLink } from './mentoringConfig';
 
 const MentoringHero = () => {
   const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
@@ -46,7 +48,7 @@ const MentoringHero = () => {
       <div className="relative z-10 w-full max-w-6xl mx-auto px-5 md:px-8">
         {/* ===== MOBILE: Stacked layout (photo first) ===== */}
         {/* ===== DESKTOP: Side by side ===== */}
-        <div className="flex flex-col md:grid md:grid-cols-2 md:gap-12 md:items-center md:min-h-screen">
+        <div className="flex flex-col md:grid md:grid-cols-2 md:gap-12 md:items-center md:min-h-screen pt-20 md:pt-24">
 
           {/* PHOTO — Always visible first on mobile */}
           <motion.div
@@ -89,56 +91,54 @@ const MentoringHero = () => {
             <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 rounded-full px-4 py-1.5 mb-5">
               <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
               <span className="text-amber-400 text-[11px] font-semibold tracking-wide">
-                3.000+ VAGAS DE IA ABERTAS ESTE MÊS
+                MENTORIA 1:1 PARA TRANSIÇÃO DE CARREIRA EM IA
               </span>
             </div>
 
             <h1 className="text-[2.2rem] leading-[1.08] md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>
-              De zero a{' '}
+              Do zero à sua{' '}
               <span className="bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
-                Engenheiro de IA
+                primeira vaga em Engenharia de IA
               </span>{' '}
-              em 90 dias
+              com um plano claro de 90 dias
             </h1>
 
             <p className="text-[15px] md:text-lg text-slate-400 leading-relaxed mb-6 max-w-lg mx-auto md:mx-0">
-              Mentoria individual com PhD e professor de universidades federais.{' '}
-              <strong className="text-slate-200">Portfólio, entrevistas e emprego</strong> — mesmo que você nunca tenha tocado em Machine Learning.
+              Mentoria individual com PhD e professor universitário para quem está partindo do zero em IA e quer sair com{' '}
+              <strong className="text-slate-200">portfólio, rotina de estudos, revisão de currículo e preparação para entrevistas</strong>.
             </p>
 
-            {/* Stats row — mobile */}
-            <div className="flex justify-center md:justify-start gap-6 mb-6">
-              <a href="https://orcid.org/0000-0002-8599-9436" target="_blank" rel="noopener noreferrer" className="text-center">
-                <p className="text-2xl font-bold bg-gradient-to-b from-amber-400 to-amber-600 bg-clip-text text-transparent">100+</p>
-                <p className="text-[10px] text-slate-500 font-medium tracking-wider">ARTIGOS</p>
-              </a>
-              <div className="text-center border-x border-slate-800 px-6">
-                <p className="text-2xl font-bold bg-gradient-to-b from-amber-400 to-amber-600 bg-clip-text text-transparent">150+</p>
-                <p className="text-[10px] text-slate-500 font-medium tracking-wider">PROJETOS</p>
-              </div>
-              <div className="text-center">
-                <p className="text-2xl font-bold bg-gradient-to-b from-amber-400 to-amber-600 bg-clip-text text-transparent">40K+</p>
-                <p className="text-[10px] text-slate-500 font-medium tracking-wider">LEITORES</p>
-              </div>
+            <div className="grid gap-3 mb-6 sm:grid-cols-3">
+              {[
+                { icon: CalendarDays, title: '12 semanas', text: 'roteiro objetivo para sair da dispersão' },
+                { icon: BriefcaseBusiness, title: '5 projetos guiados', text: 'para montar um portfólio com narrativa' },
+                { icon: Download, title: 'Sessões 1:1', text: 'com feedback real em currículo e entrevistas' },
+              ].map((item) => (
+                <div key={item.title} className="rounded-2xl border border-slate-800/80 bg-white/[0.03] p-4 text-left">
+                  <item.icon className="mb-3 h-4 w-4 text-amber-400" />
+                  <p className="text-sm font-semibold text-white">{item.title}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-slate-500">{item.text}</p>
+                </div>
+              ))}
             </div>
 
             {/* CTA */}
             <div className="flex flex-col gap-3 mb-5">
               <motion.a
-                href="https://wa.me/5551989889898?text=Quero%20mudar%20minha%20carreira%20com%20a%20mentoria%20em%20IA!"
+                href={buildMentoringWhatsAppLink('Quero conversar sobre a mentoria em Engenharia de IA e entender se ela serve para mim.')}
                 onClick={() => { if (typeof window !== 'undefined' && window.fbq) { window.fbq('track', 'Lead', { content_name: 'hero_whatsapp_cta' }); } }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-sm px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-amber-500/25"
               >
-                QUERO MINHA VAGA NA MENTORIA
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                Quero avaliar minha entrada na mentoria
+                <ArrowRight className="w-4 h-4" />
               </motion.a>
               <a
                 href="#mentoring-lead-capture"
                 className="inline-flex items-center justify-center gap-2 border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-medium text-sm px-8 py-3.5 rounded-xl transition-all duration-300"
               >
-                Baixar Trilha Gratuita
+                Baixar trilha gratuita de 90 dias
               </a>
             </div>
 
@@ -146,7 +146,7 @@ const MentoringHero = () => {
             <div className="flex flex-wrap justify-center md:justify-start gap-4 text-[13px] text-slate-500">
               <span>✓ Garantia 14 dias</span>
               <span>✓ R$ 697/mês</span>
-              <span>✓ 3 vagas</span>
+              <span>✓ {MENTORING_SEATS_LEFT} vagas restantes</span>
             </div>
           </motion.div>
         </div>
@@ -183,7 +183,7 @@ const MentoringHero = () => {
               ))}
             </div>
             <p className="text-center text-[11px] text-slate-500 mt-2">
-              Apenas <span className="text-amber-400 font-semibold">3 vagas restantes</span>
+              Apenas <span className="text-amber-400 font-semibold">{MENTORING_SEATS_LEFT} vagas restantes</span>
             </p>
           </div>
         </motion.div>

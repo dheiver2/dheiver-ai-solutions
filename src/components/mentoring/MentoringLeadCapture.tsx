@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { buildMentoringWhatsAppLink } from './mentoringConfig';
 
 const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyyTnwdIIUDTUwutNYmlGEzu-07PURH9PsFT6DJbG_EicYagYj50Hpnhd7HEjAWHq6uoQ/exec';
 
@@ -75,7 +76,7 @@ const MentoringLeadCapture = () => {
             <div className="border-t border-slate-800 pt-4 mt-4">
               <p className="text-xs text-slate-500 mb-3">Quer acelerar sua jornada?</p>
               <a
-                href="https://wa.me/5551989889898?text=Baixei%20a%20trilha%20de%20IA%20e%20quero%20saber%20mais%20sobre%20a%20mentoria!"
+                href={buildMentoringWhatsAppLink('Baixei a trilha de IA e quero saber mais sobre a mentoria.')}
                 className="inline-block bg-white/5 hover:bg-white/10 border border-slate-700 text-white px-6 py-2.5 rounded-lg font-bold text-xs transition-all"
               >
                 FALAR COM DR. DHEIVER NO WHATSAPP →
@@ -105,7 +106,7 @@ const MentoringLeadCapture = () => {
               <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">em 90 Dias</span>
             </h2>
             <p className="text-sm text-slate-400 leading-relaxed mb-6">
-              Roadmap completo semana a semana — do zero ao nível júnior.
+              Roadmap completo, semana a semana, para sair do zero em IA com direção, projetos e próximos passos claros.
             </p>
             <div className="grid grid-cols-1 gap-2.5">
               {features.map((f, i) => (
@@ -117,6 +118,12 @@ const MentoringLeadCapture = () => {
                 </div>
               ))}
             </div>
+            <div className="mt-6 rounded-2xl border border-amber-500/15 bg-amber-500/[0.04] p-4">
+              <p className="text-xs font-bold tracking-[0.16em] text-amber-400">O QUE VOCÊ LEVA</p>
+              <p className="mt-2 text-sm leading-relaxed text-slate-300">
+                Um mapa prático para estudar sem se perder: fundamentos, stack recomendada, projetos de portfólio e como se posicionar para vagas júnior.
+              </p>
+            </div>
           </motion.div>
 
           {/* Right - Form */}
@@ -127,7 +134,7 @@ const MentoringLeadCapture = () => {
           >
             <form onSubmit={handleSubmit} className="bg-[#161B22] border border-slate-800/80 rounded-2xl p-6 md:p-8">
               <p className="text-white font-bold text-lg mb-1">Receba o PDF gratuito</p>
-              <p className="text-slate-500 text-sm mb-6">Preencha abaixo e baixe agora.</p>
+              <p className="text-slate-500 text-sm mb-6">Preencha abaixo e baixe agora. Sem cartão e sem enrolação.</p>
 
               <div className="space-y-3 mb-4">
                 <input
@@ -162,12 +169,12 @@ const MentoringLeadCapture = () => {
                     ENVIANDO...
                   </>
                 ) : (
-                  'QUERO A TRILHA GRATUITA →'
+                  'QUERO BAIXAR A TRILHA →'
                 )}
               </button>
 
               <p className="text-[11px] text-slate-600 text-center mt-3">
-                🔒 Seus dados estão seguros. Não enviamos spam.
+                Seus dados ficam protegidos. Nada de spam.
               </p>
             </form>
           </motion.div>

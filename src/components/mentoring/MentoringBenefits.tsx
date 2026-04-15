@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { MENTORING_MONTHLY_PRICE, MENTORING_TOTAL_PRICE } from './mentoringConfig';
 
 const MentoringBenefits = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -91,9 +92,9 @@ const MentoringBenefits = () => {
           </div>
           <div className="bg-[#161B22] border border-slate-800/60 rounded-xl p-6">
             <p className="text-xs font-bold text-amber-400 tracking-wider mb-4">INVESTIMENTO</p>
-            <p className="text-3xl font-bold text-white">R$ 697<span className="text-base text-slate-500 font-normal">/mês</span></p>
+            <p className="text-3xl font-bold text-white">R$ {MENTORING_MONTHLY_PRICE}<span className="text-base text-slate-500 font-normal">/mês</span></p>
             <ul className="space-y-2 text-sm text-slate-400 mt-3">
-              <li>• Total: R$ 2.091</li>
+              <li>• Total: R$ {MENTORING_TOTAL_PRICE}</li>
               <li>• Até 3x sem juros</li>
               <li>• Garantia 14 dias</li>
             </ul>

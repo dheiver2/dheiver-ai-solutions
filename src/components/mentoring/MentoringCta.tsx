@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import {
+  MENTORING_DISPLAY_PHONE,
+  MENTORING_MONTHLY_PRICE,
+  MENTORING_SEATS_LEFT,
+  buildMentoringWhatsAppLink,
+} from './mentoringConfig';
 
 const MentoringCta = () => {
   const [timeLeft, setTimeLeft] = useState({ hours: 0, minutes: 0, seconds: 0 });
@@ -46,16 +52,15 @@ const MentoringCta = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
-            Daqui 90 dias, você vai estar em{' '}
-            <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">um desses dois lugares.</span>
+            Nos próximos 90 dias, você pode seguir em tentativa e erro ou{' '}
+            <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">entrar com um plano acompanhado.</span>
           </h2>
 
           <p className="text-base text-slate-400 mb-4 max-w-lg mx-auto">
-            No mesmo cargo, com o mesmo salário, assistindo o mesmo tutorial.<br />
-            Ou com "Engenheiro de IA JR" no LinkedIn, recebendo mensagens de recrutadores.
+            Se a sua meta é migrar para IA com mais clareza, esta mentoria junta direção, execução e feedback em um só lugar.
           </p>
           <p className="text-sm text-amber-400/80 font-medium mb-8 max-w-lg mx-auto">
-            A única diferença entre os dois cenários? Uma decisão. Esta. Agora.
+            Você não precisa fazer tudo sozinho para começar certo.
           </p>
 
           {/* Timer */}
@@ -81,17 +86,17 @@ const MentoringCta = () => {
           </div>
 
           <motion.a
-            href="https://wa.me/5551989889898?text=Quero%20me%20inscrever%20na%20mentoria%20em%20IA!"
+            href={buildMentoringWhatsAppLink('Quero reservar uma conversa sobre a mentoria em Engenharia de IA.')}
             onClick={() => { if (typeof window !== 'undefined' && window.fbq) { window.fbq('track', 'Lead', { content_name: 'cta_final_whatsapp' }); } }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="block w-full max-w-sm mx-auto bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-base py-4 rounded-lg transition-all duration-300 shadow-lg shadow-amber-500/25 mb-3"
           >
-            SIM, QUERO MINHA VAGA NA MENTORIA →
+            Quero conversar sobre a mentoria →
           </motion.a>
 
           <p className="text-xs text-slate-500 font-medium mb-8">
-            ✓ R$ 697/mês &nbsp;|&nbsp; ✓ 5 vagas &nbsp;|&nbsp; ✓ Garantia 14 dias
+            ✓ R$ {MENTORING_MONTHLY_PRICE}/mês &nbsp;|&nbsp; ✓ {MENTORING_SEATS_LEFT} vagas restantes &nbsp;|&nbsp; ✓ Garantia 14 dias
           </p>
 
           {/* Steps */}
@@ -110,8 +115,8 @@ const MentoringCta = () => {
 
           {/* Contact */}
           <div className="pt-6 border-t border-slate-800/60">
-            <a href="https://wa.me/5551989889898" className="text-amber-400 font-bold text-sm hover:text-amber-300 transition-colors">
-              (51) 98988-9898
+            <a href={buildMentoringWhatsAppLink('Quero tirar uma dúvida rápida sobre a mentoria em IA.')} className="text-amber-400 font-bold text-sm hover:text-amber-300 transition-colors">
+              {MENTORING_DISPLAY_PHONE}
             </a>
             <p className="text-xs text-slate-500 mt-1">Dr. Dheiver Santos • PhD • Prof. Universidades Federais</p>
           </div>

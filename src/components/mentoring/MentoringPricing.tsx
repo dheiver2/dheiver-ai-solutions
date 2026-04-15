@@ -1,6 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import {
+  MENTORING_MONTHLY_PRICE,
+  MENTORING_SEATS_LEFT,
+  MENTORING_TOTAL_PRICE,
+  buildMentoringWhatsAppLink,
+} from './mentoringConfig';
 
 const MentoringPricing = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -19,7 +25,7 @@ const MentoringPricing = () => {
           <span className="inline-block text-amber-400 text-xs font-bold tracking-[0.2em] mb-4">INVESTIMENTO</span>
           <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
             Quanto custa{' '}
-            <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">mudar de vida</span>?
+            <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">encurtar a sua transição</span>?
           </h2>
         </motion.div>
 
@@ -53,17 +59,17 @@ const MentoringPricing = () => {
             MELHOR VALOR
           </div>
 
-          <p className="text-sm text-slate-400 mb-1">Mentoria Eng. de IA JR — 3 meses</p>
+          <p className="text-sm text-slate-400 mb-1">Mentoria Engenharia de IA Júnior — 3 meses</p>
           <p className="text-sm text-slate-600 line-through mb-2">de R$ 4.197</p>
           <p className="text-5xl md:text-6xl font-bold bg-gradient-to-b from-amber-400 to-amber-600 bg-clip-text text-transparent mb-1">
-            R$ 697<span className="text-xl">/mês</span>
+            R$ {MENTORING_MONTHLY_PRICE}<span className="text-xl">/mês</span>
           </p>
-          <p className="text-sm text-slate-400 mb-4">Total: R$ 2.091 — ou 12x de R$ 189,90</p>
-          <p className="text-[11px] text-amber-400/70 font-medium mb-6">Apenas R$ 174/sessão com PhD e Prof. Federal — mercado cobra R$ 700+/h</p>
+          <p className="text-sm text-slate-400 mb-4">Total: R$ {MENTORING_TOTAL_PRICE} — ou 12x de R$ 189,90</p>
+          <p className="text-[11px] text-amber-400/70 font-medium mb-6">Inclui acompanhamento individual, projetos guiados, revisão de currículo e preparação para entrevistas.</p>
 
           {/* Included */}
           <div className="grid grid-cols-2 gap-2 text-sm text-left mb-8">
-            {['12 sessões individuais', '5+ projetos portfólio', 'CV template para IA', 'Comunidade exclusiva', '3 mock interviews', 'Suporte via WhatsApp', 'Certificado de conclusão', 'Garantia de 14 dias', 'Acesso vitalício às gravações', 'Mentor PhD + Prof. Federal'].map((item, i) => (
+            {['12 sessões individuais', '5+ projetos de portfólio', 'Currículo adaptado para IA', 'Plano de estudos semanal', '3 simulações de entrevista', 'Suporte via WhatsApp', 'Certificado de conclusão', 'Garantia de 14 dias', 'Acesso às gravações', 'Mentor PhD + professor'].map((item, i) => (
               <div key={i} className="flex items-center gap-2 text-slate-300">
                 <span className="text-amber-400 text-xs">✓</span>
                 <span className="text-xs">{item}</span>
@@ -72,15 +78,15 @@ const MentoringPricing = () => {
           </div>
 
           <motion.a
-            href="https://wa.me/5551989889898?text=Quero%20me%20inscrever%20na%20mentoria%20em%20IA!"
-            onClick={() => { if (typeof window !== 'undefined' && window.fbq) { window.fbq('track', 'InitiateCheckout', { content_name: 'pricing_whatsapp_cta', value: 297, currency: 'BRL' }); } }}
+            href={buildMentoringWhatsAppLink('Quero entender como funciona a inscrição da mentoria em Engenharia de IA.')}
+            onClick={() => { if (typeof window !== 'undefined' && window.fbq) { window.fbq('track', 'InitiateCheckout', { content_name: 'pricing_whatsapp_cta', value: MENTORING_MONTHLY_PRICE, currency: 'BRL' }); } }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="block w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-bold text-sm py-4 rounded-lg transition-all duration-300 shadow-lg shadow-amber-500/25"
           >
             QUERO COMEÇAR MINHA TRANSIÇÃO PARA IA →
           </motion.a>
-          <p className="text-xs text-slate-500 mt-3">Apenas 5 vagas por turma</p>
+          <p className="text-xs text-slate-500 mt-3">Apenas {MENTORING_SEATS_LEFT} vagas restantes nesta turma</p>
         </motion.div>
       </div>
     </div>
