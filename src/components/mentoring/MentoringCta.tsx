@@ -87,6 +87,8 @@ const MentoringCta = () => {
 
           <motion.a
             href={buildMentoringWhatsAppLink('Quero reservar uma conversa sobre a mentoria em Engenharia de IA.')}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => { if (typeof window !== 'undefined' && window.fbq) { window.fbq('track', 'Lead', { content_name: 'cta_final_whatsapp' }); } }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}

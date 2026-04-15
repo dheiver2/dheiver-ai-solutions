@@ -46,23 +46,21 @@ const MentoringHero = () => {
       <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full bg-amber-500/[0.08] blur-[100px]" />
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-5 md:px-8">
-        {/* ===== MOBILE: Stacked layout (photo first) ===== */}
-        {/* ===== DESKTOP: Side by side ===== */}
-        <div className="flex flex-col md:grid md:grid-cols-2 md:gap-12 md:items-center md:min-h-screen pt-8 md:pt-12">
+        <div className="flex flex-col md:grid md:grid-cols-2 md:gap-12 md:items-center md:min-h-screen pt-6 md:pt-12">
 
-          {/* PHOTO — Always visible first on mobile */}
+          {/* PHOTO — Destaque absoluto no mobile */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="order-1 md:order-2 pt-8 md:pt-0 flex justify-center"
+            className="order-1 md:order-2 pt-6 md:pt-0 flex justify-center"
           >
             <div className="relative">
               {/* Glow ring */}
-              <div className="absolute -inset-4 md:-inset-6 bg-gradient-to-br from-amber-500/20 via-amber-500/5 to-transparent rounded-full blur-xl" />
+              <div className="absolute -inset-5 md:-inset-6 bg-gradient-to-br from-amber-500/20 via-amber-500/5 to-transparent rounded-full blur-xl" />
 
-              {/* Photo container */}
-              <div className="relative w-52 h-64 md:w-72 md:h-[360px] lg:w-80 lg:h-[400px] overflow-hidden rounded-2xl ring-2 ring-amber-500/20 shadow-2xl shadow-amber-500/10">
+              {/* Photo container — bigger on mobile */}
+              <div className="relative w-64 h-80 md:w-72 md:h-[360px] lg:w-80 lg:h-[400px] overflow-hidden rounded-2xl ring-2 ring-amber-500/20 shadow-2xl shadow-amber-500/10">
                 <img
                   src="/dheiver-photo.png"
                   alt="Dr. Dheiver Santos — Mentor de Engenharia de IA"
@@ -72,8 +70,8 @@ const MentoringHero = () => {
                 <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#07090F] to-transparent" />
               </div>
 
-              {/* Name badge overlaying photo */}
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#0D1117]/90 backdrop-blur-sm border border-slate-700/60 rounded-full px-5 py-2 whitespace-nowrap">
+              {/* Name badge */}
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-[#0D1117]/90 backdrop-blur-sm border border-slate-700/60 rounded-full px-5 py-2.5 whitespace-nowrap">
                 <p className="text-white text-sm font-bold">Dr. Dheiver Santos</p>
                 <p className="text-amber-400 text-[10px] text-center font-medium">PhD • Prof. Federal • ML Engineer • 15+ anos</p>
               </div>
@@ -85,7 +83,7 @@ const MentoringHero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="order-2 md:order-1 mt-12 md:mt-0 text-center md:text-left pb-6 md:pb-0"
+            className="order-2 md:order-1 mt-10 md:mt-0 text-center md:text-left pb-6 md:pb-0"
           >
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 rounded-full px-4 py-1.5 mb-5">
@@ -95,7 +93,7 @@ const MentoringHero = () => {
               </span>
             </div>
 
-            <h1 className="text-[2.2rem] leading-[1.08] md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>
+            <h1 className="text-[2rem] leading-[1.1] md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>
               Do zero à sua{' '}
               <span className="bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                 primeira vaga em Engenharia de IA
@@ -108,7 +106,7 @@ const MentoringHero = () => {
               <strong className="text-slate-200">portfólio, rotina de estudos, revisão de currículo e preparação para entrevistas</strong>.
             </p>
 
-            <div className="grid gap-3 mb-6 sm:grid-cols-3">
+            <div className="grid gap-3 mb-6 grid-cols-1 sm:grid-cols-3">
               {[
                 { icon: CalendarDays, title: '12 semanas', text: 'roteiro objetivo para sair da dispersão' },
                 { icon: BriefcaseBusiness, title: '5 projetos guiados', text: 'para montar um portfólio com narrativa' },
@@ -126,6 +124,8 @@ const MentoringHero = () => {
             <div className="flex flex-col gap-3 mb-5">
               <motion.a
                 href={buildMentoringWhatsAppLink('Quero conversar sobre a mentoria em Engenharia de IA e entender se ela serve para mim.')}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => { if (typeof window !== 'undefined' && window.fbq) { window.fbq('track', 'Lead', { content_name: 'hero_whatsapp_cta' }); } }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -151,7 +151,7 @@ const MentoringHero = () => {
           </motion.div>
         </div>
 
-        {/* Countdown bar — sticky feel at bottom of hero */}
+        {/* Countdown bar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
