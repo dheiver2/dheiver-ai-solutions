@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   ArrowLeft,
-  ArrowRight,
   BookOpen,
-  Brain,
   BriefcaseBusiness,
   CheckCircle2,
+  ChevronRight,
   Code2,
-  Download,
+  ExternalLink,
   FileText,
   Github,
+  GraduationCap,
   Laptop2,
+  LibraryBig,
+  LogOut,
   MessageCircle,
   PlayCircle,
   Rocket,
-  Search,
   Sparkles,
   Target,
   Wrench,
@@ -24,73 +25,130 @@ import Footer from '@/components/Footer';
 import { buildMentoringWhatsAppLink } from '@/components/mentoring/mentoringConfig';
 import { getCurrentMentorando, logoutMentorando } from '@/lib/mentorandoAuth';
 
-const journeySteps = [
+type SectionId = 'dashboard' | 'trilha' | 'videos' | 'ferramentas';
+
+const sidebarItems: Array<{
+  id: SectionId;
+  title: string;
+  subtitle: string;
+  icon: React.ComponentType<{ className?: string }>;
+}> = [
   {
-    phase: 'Fase 1',
-    title: 'Fundamentos e rotina',
-    duration: 'Semanas 1 a 3',
-    description: 'Organize sua base técnica, defina rotina de estudo e aprenda o fluxo mínimo para começar a produzir em IA.',
-    topics: ['Python para automação', 'Git e GitHub', 'APIs e LLMs', 'Prompting com método'],
+    id: 'dashboard',
+    title: 'Visao geral',
+    subtitle: 'O plano de ataque dos 90 dias',
+    icon: Target,
   },
   {
-    phase: 'Fase 2',
-    title: 'Projetos guiados',
-    duration: 'Semanas 4 a 6',
-    description: 'Saia do tutorial infinito com projetos pequenos e progressivos para ganhar repertório prático.',
-    topics: ['Chat com documentos', 'Classificação de texto', 'Pipeline com embeddings', 'Deploy simples'],
+    id: 'trilha',
+    title: 'Trilha de conteudo',
+    subtitle: 'Roadmap + PDFs e ebooks',
+    icon: LibraryBig,
   },
   {
-    phase: 'Fase 3',
-    title: 'Portfólio e consistência',
-    duration: 'Semanas 7 a 9',
-    description: 'Transforme entregas técnicas em provas de competência com README, narrativa e demonstração.',
-    topics: ['Case study', 'README forte', 'Métricas de projeto', 'Comunicação técnica'],
+    id: 'videos',
+    title: 'Videos de apoio',
+    subtitle: 'Curadoria no YouTube',
+    icon: PlayCircle,
   },
   {
-    phase: 'Fase 4',
-    title: 'Mercado e entrevistas',
-    duration: 'Semanas 10 a 12',
-    description: 'Prepare currículo, posicionamento e repertório de entrevista para disputar vagas júnior com clareza.',
-    topics: ['Currículo orientado a resultado', 'LinkedIn', 'Pitch pessoal', 'Simulação de entrevista'],
+    id: 'ferramentas',
+    title: 'Ferramentas essenciais',
+    subtitle: 'Links e tutoriais oficiais',
+    icon: Wrench,
   },
 ];
 
-const videoLibrary = [
+const roadmap = [
   {
-    title: 'Mapa da Engenharia de IA Júnior',
-    duration: '12 min',
-    category: 'Visão de carreira',
-    description: 'Entenda o que estudar primeiro, o que pode esperar e o que realmente pesa para a primeira vaga.',
+    phase: 'Fase 1',
+    title: 'Base tecnica e rotina',
+    duration: 'Semanas 1 a 3',
+    focus: 'Python, Git, GitHub, terminal e leitura de API.',
+    outcome: 'Conseguir clonar, editar, commitar e publicar um projeto simples.',
   },
   {
-    title: 'Python e automações que importam',
-    duration: '18 min',
-    category: 'Base técnica',
-    description: 'Os comandos, bibliotecas e padrões que já colocam você para construir sem se perder em teoria.',
+    phase: 'Fase 2',
+    title: 'IA aplicada com projetos pequenos',
+    duration: 'Semanas 4 a 6',
+    focus: 'OpenAI API, Colab, notebooks, prompting e integracao com documentos.',
+    outcome: 'Entregar 2 mini projetos com README e video-demo.',
   },
   {
-    title: 'Primeiro projeto com LLM + API',
-    duration: '24 min',
-    category: 'Projeto guiado',
-    description: 'Monte um app simples com entrada, processamento e saída útil para começar o portfólio.',
+    phase: 'Fase 3',
+    title: 'Portifolio e narrativa tecnica',
+    duration: 'Semanas 7 a 9',
+    focus: 'Documentacao, portfolio no GitHub, pagina de projeto e estudo de caso.',
+    outcome: 'Montar portfolio que explique problema, stack, arquitetura e resultado.',
   },
   {
-    title: 'Embeddings, RAG e busca sem drama',
-    duration: '20 min',
-    category: 'Arquitetura aplicada',
-    description: 'Aprenda onde essas peças entram e como explicar isso de forma júnior, mas sólida.',
+    phase: 'Fase 4',
+    title: 'Empregabilidade junior',
+    duration: 'Semanas 10 a 12',
+    focus: 'Curriculo, LinkedIn, pitch, simulacao de entrevista e rotina de aplicacao.',
+    outcome: 'Chegar pronto para disputar vaga junior com material organizado.',
+  },
+];
+
+const documents = [
+  {
+    title: 'Trilha de Engenharia de IA em 90 dias',
+    type: 'PDF',
+    level: 'Inicio guiado',
+    description: 'Material central da area do mentorando para organizar a jornada, as semanas e as entregas.',
+    href: '/trilha-engenharia-ia-90-dias.pdf',
+    cta: 'Abrir PDF',
   },
   {
-    title: 'Como documentar um projeto para recrutador',
-    duration: '10 min',
-    category: 'Portfólio',
-    description: 'Estruture README, problema, solução e próximos passos de um jeito que faça sentido para quem avalia.',
+    title: 'Introducao a analise de dados com Python',
+    type: 'Livro PDF',
+    level: 'Python aplicado',
+    description: 'Livro aberto da UFMG para ganhar base em Python, dados e boas praticas de analise.',
+    href: 'https://www.bu.ufmg.br/imagem/00002c/00002cd9.pdf',
+    cta: 'Ler ebook',
   },
   {
-    title: 'Simulado de entrevista para Eng IA Jr',
-    duration: '16 min',
-    category: 'Empregabilidade',
-    description: 'Treine respostas para perguntas comuns sobre projetos, stack, estudos e tomada de decisão.',
+    title: 'IA na educacao: usos, oportunidades e riscos',
+    type: 'Ebook PDF',
+    level: 'Contexto de mercado',
+    description: 'Leitura em portugues para ampliar repertorio sobre aplicacoes reais e discussao critica de IA no Brasil.',
+    href: 'https://cetic.br/pt/publicacao/inteligencia-artificial-na-educacao-usos-oportunidades-e-riscos-no-cenario-brasileiro/',
+    cta: 'Abrir publicacao',
+  },
+  {
+    title: 'IA na saude: potencialidades, riscos e perspectivas',
+    type: 'Ebook PDF',
+    level: 'Casos de uso',
+    description: 'Material em portugues para entender como IA entra em setores regulados e como pensar impacto real.',
+    href: 'https://cetic.br/pt/publicacao/inteligencia-artificial-na-saude-potencialidades-riscos-e-perspectivas-para-o-brasil/',
+    cta: 'Ver PDF',
+  },
+];
+
+const curatedVideos = [
+  {
+    title: 'Curso Python para Iniciantes',
+    creator: 'Hashtag Programacao',
+    duration: '4h+',
+    why: 'Boa porta de entrada para sair do zero e chegar em variaveis, listas, funcoes e arquivos.',
+    href: 'https://www.youtube.com/watch?v=BxMtSb2w9Sk',
+    stage: 'Base tecnica',
+  },
+  {
+    title: 'Git e GitHub para Iniciantes - Passo a Passo Completo',
+    creator: 'Mario Mac Sete | Inteligencia Artificial',
+    duration: '2h+',
+    why: 'Explica fluxo real de versionamento e publicacao no GitHub, que pesa muito no portfolio junior.',
+    href: 'https://www.youtube.com/watch?v=_BGPayFgzQ4',
+    stage: 'Portfolio e colaboracao',
+  },
+  {
+    title: "Machine Learning Crash Course: Intro & What's New",
+    creator: 'Google for Developers',
+    duration: 'Video de entrada',
+    why: 'Curadoria boa para entender o mapa de ML e seguir depois para os modulos do curso da Google.',
+    href: 'https://www.youtube.com/watch?v=SAUeGtyLsrk&vl=en',
+    stage: 'Fundamentos de ML',
   },
 ];
 
@@ -98,79 +156,411 @@ const tools = [
   {
     name: 'VS Code',
     icon: Laptop2,
-    description: 'Seu ambiente principal para codar, testar e navegar por projetos com produtividade.',
+    category: 'Editor',
+    description: 'Seu ambiente principal para programar, depurar, abrir terminal e organizar projetos.',
+    href: 'https://code.visualstudio.com/',
+    tutorialHref: 'https://code.visualstudio.com/docs/getstarted/getting-started',
+    firstSteps: 'Instale, abra um projeto local, use terminal integrado e extensoes de Python/GitHub.',
   },
   {
     name: 'GitHub',
     icon: Github,
-    description: 'Onde seu portfólio vive e onde você prova consistência, versionamento e colaboração.',
-  },
-  {
-    name: 'Postman',
-    icon: Wrench,
-    description: 'Útil para entender e testar APIs antes de integrar tudo no código.',
-  },
-  {
-    name: 'OpenAI API',
-    icon: Sparkles,
-    description: 'Para prototipar fluxos com LLM, classificação, extração e copilotos.',
-  },
-  {
-    name: 'Langflow / Dify',
-    icon: Brain,
-    description: 'Ferramentas visuais para acelerar aprendizado de pipelines e agentes sem travar no começo.',
-  },
-  {
-    name: 'Notion',
-    icon: FileText,
-    description: 'Centralize estudos, backlog semanal, ideias de projeto e checkpoints.',
-  },
-  {
-    name: 'LinkedIn',
-    icon: BriefcaseBusiness,
-    description: 'Canal para posicionamento profissional, networking e descoberta das primeiras vagas.',
+    category: 'Portifolio',
+    description: 'Onde seu portfolio vive. Repositorios, README, historico de commits e colaboracao.',
+    href: 'https://github.com/',
+    tutorialHref: 'https://docs.github.com/pt/get-started',
+    firstSteps: 'Crie conta, publique um projeto simples e complete o tutorial Hello World.',
   },
   {
     name: 'Google Colab',
     icon: Code2,
-    description: 'Atalho para testar notebooks e experimentos sem depender da máquina local.',
+    category: 'Notebook',
+    description: 'Atalho rapido para experimentar Python, notebooks, dados e prototipos sem configurar ambiente.',
+    href: 'https://colab.google/',
+    tutorialHref: 'https://colab.google/articles/welcome?hl=pt-BR',
+    firstSteps: 'Abra um notebook, rode celulas em Python e salve no Drive ou no GitHub.',
   },
-];
-
-const milestones = [
-  'Dia 1 a 30: base em Python, Git, APIs e primeiro mini projeto funcional.',
-  'Dia 31 a 60: dois projetos aplicados com documentação e repertório técnico melhor.',
-  'Dia 61 a 90: portfólio organizado, currículo revisado e simulações de entrevista.',
+  {
+    name: 'OpenAI API',
+    icon: Sparkles,
+    category: 'LLM',
+    description: 'Base para prototipos com chat, extracao, classificacao, analise de arquivos e copilotos.',
+    href: 'https://platform.openai.com/docs',
+    tutorialHref: 'https://platform.openai.com/docs/quickstart?lang=python',
+    firstSteps: 'Crie chave de API, rode o quickstart e monte seu primeiro script com prompts.',
+  },
+  {
+    name: 'Machine Learning Crash Course',
+    icon: GraduationCap,
+    category: 'Fundamentos',
+    description: 'Curso da Google para consolidar conceitos de ML que ajudam a diferenciar dev de Eng IA junior.',
+    href: 'https://developers.google.com/machine-learning/crash-course',
+    tutorialHref: 'https://developers.google.com/machine-learning/crash-course/prereqs-and-prework',
+    firstSteps: 'Veja prerequisitos, complete os modulos iniciais e conecte o aprendizado aos seus projetos.',
+  },
+  {
+    name: 'GitHub Pages',
+    icon: BriefcaseBusiness,
+    category: 'Exibicao',
+    description: 'Forma simples de publicar portfolio, landing de projeto ou documentacao de estudo.',
+    href: 'https://pages.github.com/',
+    tutorialHref: 'https://docs.github.com/pt/pages/quickstart',
+    firstSteps: 'Publique uma pagina com links dos seus projetos e uma breve bio tecnica.',
+  },
+  {
+    name: 'Postman',
+    icon: Wrench,
+    category: 'APIs',
+    description: 'Ajuda a testar endpoints e entender requests e responses antes de codar integracoes.',
+    href: 'https://www.postman.com/',
+    tutorialHref: 'https://learning.postman.com/docs/getting-started/first-steps/get-postman/',
+    firstSteps: 'Teste uma API publica, monte uma collection e documente exemplos no README.',
+  },
+  {
+    name: 'LinkedIn',
+    icon: FileText,
+    category: 'Empregabilidade',
+    description: 'Canal para networking, posicionamento profissional e distribuicao do portfolio.',
+    href: 'https://www.linkedin.com/',
+    tutorialHref: 'https://www.linkedin.com/help/linkedin/answer/a554351',
+    firstSteps: 'Atualize headline, destaque projetos e publique aprendizados tecnicos com frequencia.',
+  },
 ];
 
 const MentorandoArea = () => {
   const navigate = useNavigate();
   const currentUser = getCurrentMentorando();
+  const [activeSection, setActiveSection] = useState<SectionId>('dashboard');
 
   const handleLogout = () => {
     logoutMentorando();
     navigate('/area-mentorando/login', { replace: true });
   };
 
+  const stats = useMemo(
+    () => [
+      { label: 'Fases da trilha', value: `${roadmap.length}` },
+      { label: 'PDFs e ebooks', value: `${documents.length}` },
+      { label: 'Videos curados', value: `${curatedVideos.length}` },
+      { label: 'Ferramentas base', value: `${tools.length}` },
+    ],
+    []
+  );
+
+  const renderContent = () => {
+    if (activeSection === 'dashboard') {
+      return (
+        <div className="space-y-8">
+          <section className="rounded-[32px] border border-white/10 bg-[linear-gradient(135deg,rgba(251,191,36,0.12),rgba(15,23,42,0.92),rgba(59,130,246,0.1))] p-6 md:p-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">
+              <Rocket className="h-4 w-4" />
+              Portal do mentorando
+            </div>
+
+            <h1 className="mt-5 text-3xl font-bold leading-tight text-white md:text-5xl" style={{ fontFamily: "'Inter', sans-serif" }}>
+              Um painel unico para estudar, construir portfolio e entrar em Engenharia de IA Junior com mais clareza.
+            </h1>
+
+            <p className="mt-5 max-w-3xl text-sm leading-8 text-slate-300 md:text-base">
+              Aqui o mentorando nao fica perdido. A sidebar organiza o que estudar primeiro, quais materiais em portugues abrir, quais videos valem o tempo e quais ferramentas precisa dominar.
+            </p>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-4">
+              {stats.map((item) => (
+                <div key={item.label} className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                  <p className="text-2xl font-bold text-white">{item.value}</p>
+                  <p className="mt-1 text-sm text-slate-400">{item.label}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
+            <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
+              <div className="flex items-center gap-3">
+                <BookOpen className="h-5 w-5 text-sky-300" />
+                <h2 className="text-2xl text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+                  Roadmap de 90 dias
+                </h2>
+              </div>
+
+              <div className="mt-6 space-y-4">
+                {roadmap.map((step) => (
+                  <article key={step.title} className="rounded-2xl border border-white/10 bg-black/20 p-5">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="rounded-full bg-amber-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-amber-300">
+                        {step.phase}
+                      </span>
+                      <span className="text-xs font-medium text-sky-200">{step.duration}</span>
+                    </div>
+                    <h3 className="mt-3 text-xl text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-7 text-slate-300">{step.focus}</p>
+                    <p className="mt-3 text-sm font-medium text-emerald-300">Entrega esperada: {step.outcome}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="rounded-[28px] border border-white/10 bg-white/5 p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">Check de evolucao</p>
+                <div className="mt-5 space-y-3">
+                  {[
+                    'Ja publico projetos no GitHub com README.',
+                    'Sei explicar meu stack em entrevistas.',
+                    'Consigo testar APIs e integrar LLM em um projeto.',
+                    'Tenho uma rotina semanal com metas pequenas e visiveis.',
+                  ].map((item) => (
+                    <div key={item} className="flex items-start gap-3 rounded-2xl border border-white/10 bg-black/20 p-4">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
+                      <p className="text-sm text-slate-200">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-[28px] border border-amber-400/20 bg-amber-400/10 p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-200">Atalho rapido</p>
+                <p className="mt-3 text-sm leading-7 text-amber-50/90">
+                  Se o foco desta semana for montar base, comece por Trilha de conteudo. Se travou em execucao, va para Ferramentas essenciais. Se precisa de repertorio visual, abra Videos de apoio.
+                </p>
+                <a
+                  href={buildMentoringWhatsAppLink('Quero ajuda para montar minha proxima semana de estudos dentro da area do mentorando.')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-slate-100"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  Pedir orientacao ao mentor
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      );
+    }
+
+    if (activeSection === 'trilha') {
+      return (
+        <div className="space-y-8">
+          <section className="rounded-[28px] border border-white/10 bg-white/5 p-6">
+            <div className="flex items-center gap-3">
+              <LibraryBig className="h-5 w-5 text-sky-300" />
+              <div>
+                <h2 className="text-2xl text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+                  Trilha de conteudo
+                </h2>
+                <p className="mt-2 text-sm leading-7 text-slate-300">
+                  Roadmap pratico + biblioteca de PDFs e ebooks em portugues para apoiar a formacao do mentorando.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 grid gap-4 xl:grid-cols-2">
+              {documents.map((doc) => (
+                <article key={doc.title} className="rounded-[24px] border border-white/10 bg-black/20 p-5">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-1 text-xs font-semibold text-amber-300">
+                      {doc.type}
+                    </span>
+                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
+                      {doc.level}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 text-xl text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    {doc.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-300">{doc.description}</p>
+                  <a
+                    href={doc.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-amber-300 transition hover:text-amber-200"
+                  >
+                    {doc.cta}
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="rounded-[28px] border border-white/10 bg-white/5 p-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">Como estudar nesta secao</p>
+            <div className="mt-5 grid gap-4 md:grid-cols-3">
+              {[
+                'Comece abrindo o PDF da trilha para saber qual fase voce esta atravessando.',
+                'Use os ebooks em PT-BR para ampliar repertorio e vocabulario tecnico.',
+                'Converta cada leitura em uma entrega: resumo, README, notebook ou projeto.',
+              ].map((tip) => (
+                <div key={tip} className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm leading-7 text-slate-200">
+                  {tip}
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      );
+    }
+
+    if (activeSection === 'videos') {
+      return (
+        <div className="space-y-8">
+          <section className="rounded-[28px] border border-white/10 bg-white/5 p-6">
+            <div className="flex items-center gap-3">
+              <PlayCircle className="h-5 w-5 text-rose-300" />
+              <div>
+                <h2 className="text-2xl text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+                  Videos de apoio com curadoria
+                </h2>
+                <p className="mt-2 text-sm leading-7 text-slate-300">
+                  Selecionei videos do YouTube que ajudam mais no momento de entrada: Python, Git/GitHub e fundamentos de ML.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 grid gap-4 xl:grid-cols-3">
+              {curatedVideos.map((video) => (
+                <article key={video.title} className="overflow-hidden rounded-[24px] border border-white/10 bg-[#0B1020]">
+                  <div className="h-36 bg-[linear-gradient(135deg,rgba(251,191,36,0.18),rgba(59,130,246,0.22),rgba(15,23,42,0.92))] p-5">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                      <PlayCircle className="h-3.5 w-3.5" />
+                      {video.duration}
+                    </div>
+                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-rose-200">{video.stage}</p>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="text-xl text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+                      {video.title}
+                    </h3>
+                    <p className="mt-2 text-sm font-medium text-sky-200">{video.creator}</p>
+                    <p className="mt-3 text-sm leading-7 text-slate-300">{video.why}</p>
+                    <a
+                      href={video.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-amber-300 transition hover:text-amber-200"
+                    >
+                      Assistir no YouTube
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="rounded-[28px] border border-white/10 bg-white/5 p-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">Regra para consumir video</p>
+            <div className="mt-5 grid gap-4 md:grid-cols-3">
+              {[
+                'Nao tente zerar tudo. Assista com objetivo claro e reproduza no mesmo dia.',
+                'Cada video precisa gerar nota tecnica, codigo, diagrama ou projeto pequeno.',
+                'Volte para a trilha depois do video; o video apoia a execucao, nao substitui pratica.',
+              ].map((rule) => (
+                <div key={rule} className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm leading-7 text-slate-200">
+                  {rule}
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      );
+    }
+
+    return (
+      <div className="space-y-8">
+        <section className="rounded-[28px] border border-white/10 bg-white/5 p-6">
+          <div className="flex items-center gap-3">
+            <Wrench className="h-5 w-5 text-emerald-300" />
+            <div>
+              <h2 className="text-2xl text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+                Ferramentas essenciais
+              </h2>
+              <p className="mt-2 text-sm leading-7 text-slate-300">
+                Stack minima para um Eng IA Junior construir, publicar e explicar trabalho com autonomia.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 grid gap-4 xl:grid-cols-2">
+            {tools.map((tool) => (
+              <article key={tool.name} className="rounded-[24px] border border-white/10 bg-black/20 p-5">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10">
+                      <tool.icon className="h-5 w-5 text-emerald-300" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+                        {tool.name}
+                      </h3>
+                      <p className="text-sm text-slate-400">{tool.category}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="mt-4 text-sm leading-7 text-slate-300">{tool.description}</p>
+                <p className="mt-3 text-sm font-medium text-sky-200">Primeiros passos: {tool.firstSteps}</p>
+
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <a
+                    href={tool.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+                  >
+                    Abrir ferramenta
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                  <a
+                    href={tool.tutorialHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm font-semibold text-emerald-300 transition hover:border-emerald-300/40 hover:bg-emerald-400/15"
+                  >
+                    Ver tutorial
+                    <ChevronRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-[#050816] text-white">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.18),transparent_28%),radial-gradient(circle_at_right,rgba(59,130,246,0.12),transparent_22%),linear-gradient(180deg,#050816_0%,#0B1020_45%,#050816_100%)]" />
 
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-[#050816]/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-[#050816]/85 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-8">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-300">Area do Mentorando</p>
             <p className="text-sm text-slate-400">
-              {currentUser ? `Bem-vindo, ${currentUser.name}.` : 'Trilha de conteudo para Engenharia de IA Junior'}
+              {currentUser ? `Bem-vindo, ${currentUser.name}.` : 'Portal de estudo para Engenharia de IA Junior'}
             </p>
           </div>
 
           <div className="flex items-center gap-3">
+            <a
+              href={buildMentoringWhatsAppLink('Quero ajuda para usar melhor a area do mentorando e priorizar meus estudos em IA.')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden rounded-full bg-amber-400 px-4 py-2 text-sm font-semibold text-black transition hover:bg-amber-300 md:inline-flex"
+            >
+              Tirar duvidas
+            </a>
             <button
               type="button"
               onClick={handleLogout}
               className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-slate-200 transition hover:border-white/30 hover:bg-white/5"
             >
+              <LogOut className="h-4 w-4" />
               Sair
             </button>
             <Link
@@ -180,231 +570,60 @@ const MentorandoArea = () => {
               <ArrowLeft className="h-4 w-4" />
               Voltar
             </Link>
-            <a
-              href={buildMentoringWhatsAppLink('Quero saber como usar a area do mentorando para acelerar minha entrada em Engenharia de IA Junior.')}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden rounded-full bg-amber-400 px-4 py-2 text-sm font-semibold text-black transition hover:bg-amber-300 md:inline-flex"
-            >
-              Tirar duvidas
-            </a>
           </div>
         </div>
       </header>
 
-      <main>
-        <section className="mx-auto grid max-w-7xl gap-10 px-5 pb-12 pt-12 md:grid-cols-[1.2fr_0.8fr] md:px-8 md:pt-20">
-          <div className="max-w-3xl">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">
-              <Rocket className="h-4 w-4" />
-              Jornada de 90 dias
-            </div>
-
-            <h1 className="text-4xl font-bold leading-tight md:text-6xl" style={{ fontFamily: "'Inter', sans-serif" }}>
-              A trilha para sair do estudo solto e se preparar para a sua primeira vaga como Eng IA Junior.
-            </h1>
-
-            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
-              Esta area organiza o que estudar, que projetos construir, que videos assistir e quais ferramentas dominar para evoluir com clareza.
-            </p>
-
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="/trilha-engenharia-ia-90-dias.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-amber-400 to-orange-400 px-6 py-4 text-sm font-bold text-black transition hover:brightness-105"
-              >
-                <Download className="h-4 w-4" />
-                Abrir trilha em PDF
-              </a>
-
-              <a
-                href="#videos"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 px-6 py-4 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/5"
-              >
-                <PlayCircle className="h-4 w-4" />
-                Ver biblioteca de videos
-              </a>
-            </div>
-          </div>
-
-          <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/20">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-semibold text-white">Painel de progresso</p>
-                <p className="text-sm text-slate-400">O que um mentorando junior precisa fechar</p>
-              </div>
-              <Target className="h-5 w-5 text-amber-300" />
-            </div>
-
-            <div className="mt-6 space-y-4">
-              {[
-                'Entender o stack minimo da area',
-                'Construir 3 a 5 projetos guiados',
-                'Publicar portfolio no GitHub',
-                'Treinar discurso tecnico para entrevistas',
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-2xl border border-white/8 bg-black/20 px-4 py-3">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
-                  <p className="text-sm text-slate-200">{item}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-6 rounded-2xl border border-amber-400/20 bg-amber-400/10 p-4">
-              <p className="text-sm font-semibold text-amber-200">Resultado esperado</p>
-              <p className="mt-2 text-sm leading-7 text-amber-50/90">
-                Ao final da trilha, voce deve conseguir demonstrar fundamentos, portfolio e maturidade de execucao para vagas de entrada em IA aplicada.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-5 py-10 md:px-8">
-          <div className="mb-8 flex items-end justify-between gap-4">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">Trilha de conteudo</p>
-              <h2 className="mt-2 text-3xl text-white md:text-4xl" style={{ fontFamily: "'Inter', sans-serif" }}>
-                Quatro etapas para construir base, projetos e empregabilidade
-              </h2>
-            </div>
-            <BookOpen className="hidden h-6 w-6 text-sky-300 md:block" />
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-2">
-            {journeySteps.map((step, index) => (
-              <article
-                key={step.title}
-                className="rounded-[28px] border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-amber-300/40"
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">{step.phase}</p>
-                    <h3 className="mt-2 text-2xl text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
-                      {step.title}
-                    </h3>
-                  </div>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-sm font-bold text-white">
-                    0{index + 1}
-                  </div>
-                </div>
-
-                <p className="mt-3 text-sm font-medium text-sky-200">{step.duration}</p>
-                <p className="mt-4 text-sm leading-7 text-slate-300">{step.description}</p>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {step.topics.map((topic) => (
-                    <span
-                      key={topic}
-                      className="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-xs font-medium text-slate-200"
-                    >
-                      {topic}
-                    </span>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="videos" className="mx-auto max-w-7xl px-5 py-10 md:px-8">
-          <div className="mb-8 max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-rose-300">Videos de apoio</p>
-            <h2 className="mt-2 text-3xl text-white md:text-4xl" style={{ fontFamily: "'Inter', sans-serif" }}>
-              Biblioteca organizada para estudar sem cair no excesso de conteudo
-            </h2>
-            <p className="mt-4 text-sm leading-7 text-slate-300 md:text-base">
-              Cada video abaixo representa um bloco de aprendizado que acelera a trilha. Eles funcionam como checkpoints da jornada.
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {videoLibrary.map((video) => (
-              <article
-                key={video.title}
-                className="overflow-hidden rounded-[28px] border border-white/10 bg-[#0B1020] shadow-xl shadow-black/20"
-              >
-                <div className="relative flex h-44 items-end bg-[linear-gradient(135deg,rgba(251,191,36,0.18),rgba(59,130,246,0.22),rgba(15,23,42,0.95))] p-5">
-                  <div className="absolute right-5 top-5 inline-flex items-center gap-1 rounded-full border border-white/10 bg-black/25 px-3 py-1 text-xs text-white">
-                    <PlayCircle className="h-3.5 w-3.5" />
-                    {video.duration}
-                  </div>
-                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-slate-100">
-                    {video.category}
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-xl text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
-                    {video.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{video.description}</p>
-                  <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-amber-300">
-                    Assistir neste modulo
-                    <ArrowRight className="h-4 w-4" />
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="mx-auto grid max-w-7xl gap-10 px-5 py-10 md:px-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">Ferramentas essenciais</p>
-            <h2 className="mt-2 text-3xl text-white md:text-4xl" style={{ fontFamily: "'Inter', sans-serif" }}>
-              O stack minimo para um junior conseguir construir e mostrar trabalho
-            </h2>
-
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
-              {tools.map((tool) => (
-                <article key={tool.name} className="rounded-[24px] border border-white/10 bg-white/5 p-5">
-                  <tool.icon className="h-5 w-5 text-emerald-300" />
-                  <h3 className="mt-4 text-lg text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
-                    {tool.name}
-                  </h3>
-                  <p className="mt-2 text-sm leading-7 text-slate-300">{tool.description}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-[28px] border border-white/10 bg-gradient-to-b from-white/8 to-white/4 p-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">Plano 30-60-90</p>
-            <h2 className="mt-2 text-3xl text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
-              O que precisa acontecer em cada janela
-            </h2>
-
-            <div className="mt-8 space-y-4">
-              {milestones.map((item) => (
-                <div key={item} className="rounded-2xl border border-white/10 bg-black/20 p-4">
-                  <div className="flex gap-3">
-                    <Search className="mt-1 h-4 w-4 shrink-0 text-amber-300" />
-                    <p className="text-sm leading-7 text-slate-200">{item}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 rounded-2xl border border-sky-400/20 bg-sky-400/10 p-5">
-              <p className="text-sm font-semibold text-sky-200">Regra da area</p>
-              <p className="mt-2 text-sm leading-7 text-sky-50/90">
-                Menos consumo passivo, mais projeto publicado. O objetivo nao e assistir tudo. E terminar cada etapa com uma entrega visivel.
+      <main className="mx-auto grid max-w-7xl gap-6 px-5 py-8 md:px-8 lg:grid-cols-[300px_minmax(0,1fr)]">
+        <aside className="lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)]">
+          <div className="rounded-[30px] border border-white/10 bg-white/5 p-4">
+            <div className="rounded-[24px] border border-amber-400/20 bg-amber-400/10 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">Acesso ativo</p>
+              <p className="mt-2 text-lg font-semibold text-white">{currentUser?.name || 'Mentorando'}</p>
+              <p className="mt-1 text-sm text-slate-300">
+                Escolha uma area na sidebar e foque em uma entrega por vez.
               </p>
             </div>
 
-            <a
-              href={buildMentoringWhatsAppLink('Quero apoio para seguir a trilha da area do mentorando e virar Engenheiro de IA Junior.')}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 text-sm font-bold text-slate-950 transition hover:bg-slate-100"
-            >
-              <MessageCircle className="h-4 w-4" />
-              Falar com o mentor
-            </a>
+            <div className="mt-4 space-y-2">
+              {sidebarItems.map((item) => {
+                const isActive = activeSection === item.id;
+
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => setActiveSection(item.id)}
+                    className={`w-full rounded-[22px] border px-4 py-4 text-left transition ${
+                      isActive
+                        ? 'border-amber-300/40 bg-amber-400/10'
+                        : 'border-white/10 bg-black/20 hover:border-white/20 hover:bg-white/5'
+                    }`}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className={`mt-0.5 flex h-10 w-10 items-center justify-center rounded-2xl ${isActive ? 'bg-amber-400 text-black' : 'bg-white/10 text-slate-200'}`}>
+                        <item.icon className="h-5 w-5" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-white">{item.title}</p>
+                        <p className="mt-1 text-xs leading-6 text-slate-400">{item.subtitle}</p>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="mt-4 rounded-[24px] border border-white/10 bg-black/20 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">Meta da semana</p>
+              <p className="mt-2 text-sm leading-7 text-slate-200">
+                Escolha um PDF, um video e uma ferramenta. Termine a semana com uma entrega publicada.
+              </p>
+            </div>
           </div>
-        </section>
+        </aside>
+
+        <section className="min-w-0">{renderContent()}</section>
       </main>
 
       <Footer />
