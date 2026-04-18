@@ -1,0 +1,236 @@
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { ArrowLeft, LockKeyhole, Sparkles, UserPlus } from 'lucide-react';
+import Footer from '@/components/Footer';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useToast } from '@/hooks/use-toast';
+import {
+  getCurrentMentorando,
+  loginMentorando,
+  registerMentorando,
+} from '@/lib/mentorandoAuth';
+
+const MentorandoAuth = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { toast } = useToast();
+  const redirectTo = location.state?.from?.pathname || '/area-mentorando';
+
+  const [activeTab, setActiveTab] = useState('login');
+  const [loginData, setLoginData] = useState({ email: '', password: '' });
+  const [registerData, setRegisterData] = useState({ name: '', email: '', password: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (getCurrentMentorando()) {
+      navigate(redirectTo, { replace: true });
+    }
+  }, [navigate, redirectTo]);
+
+  const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const user = loginMentorando(loginData);
+      toast({
+        title: 'Login realizado',
+        description: `${user.name}, sua area do mentorando esta liberada.`,
+      });
+      navigate(redirectTo, { replace: true });
+    } catch (error) {
+      toast({
+        title: 'Nao foi possivel entrar',
+        description: error instanceof Error ? error.message : 'Tente novamente.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleRegister = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const user = registerMentorando(registerData);
+      toast({
+        title: 'Cadastro criado',
+        description: `${user.name}, agora voce ja pode acessar sua trilha.`,
+      });
+      navigate(redirectTo, { replace: true });
+    } catch (error) {
+      toast({
+        title: 'Nao foi possivel cadastrar',
+        description: error instanceof Error ? error.message : 'Tente novamente.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-[#050816] text-white">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.18),transparent_28%),radial-gradient(circle_at_left,rgba(59,130,246,0.12),transparent_24%),linear-gradient(180deg,#050816_0%,#0B1020_45%,#050816_100%)]" />
+
+      <main className="mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-5 py-10 md:grid-cols-[1.05fr_0.95fr] md:px-8">
+        <section className="max-w-2xl">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-slate-200 transition hover:border-white/30 hover:bg-white/5"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Voltar para mentoria
+          </Link>
+
+          <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">
+            <LockKeyhole className="h-4 w-4" />
+            Acesso restrito ao mentorando
+          </div>
+
+          <h1 className="mt-6 text-4xl font-bold leading-tight md:text-6xl" style={{ fontFamily: "'Inter', sans-serif" }}>
+            Cadastre-se ou faca login para entrar na area do mentorando.
+          </h1>
+
+          <p className="mt-6 max-w-xl text-base leading-8 text-slate-300 md:text-lg">
+            O acesso agora exige identificacao para liberar a trilha, os videos e o material de apoio de quem esta se preparando para Engenharia de IA Junior.
+          </p>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-2">
+            {[
+              'Cadastro rapido com nome, email e senha.',
+              'Login salvo no navegador para retorno mais simples.',
+              'Bloqueio de acesso direto sem autenticacao.',
+              'Fluxo pronto para evoluir depois para backend real.',
+            ].map((item) => (
+              <div key={item} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm text-slate-200">
+                {item}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="rounded-[32px] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/20 backdrop-blur md:p-8">
+          <div className="mb-6 flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-400 text-black">
+              <Sparkles className="h-5 w-5" />
+            </div>
+            <div>
+              <p className="text-lg font-semibold text-white">Portal do Mentorando</p>
+              <p className="text-sm text-slate-400">Entre para acessar a trilha protegida</p>
+            </div>
+          </div>
+
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+            <TabsList className="grid w-full grid-cols-2 rounded-2xl bg-[#0D1427] p-1">
+              <TabsTrigger value="login" className="rounded-xl data-[state=active]:bg-white data-[state=active]:text-slate-950">
+                Login
+              </TabsTrigger>
+              <TabsTrigger value="register" className="rounded-xl data-[state=active]:bg-white data-[state=active]:text-slate-950">
+                Cadastro
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="login" className="mt-6">
+              <form className="space-y-5" onSubmit={handleLogin}>
+                <div className="space-y-2">
+                  <Label htmlFor="login-email" className="text-slate-200">Email</Label>
+                  <Input
+                    id="login-email"
+                    type="email"
+                    placeholder="voce@exemplo.com"
+                    value={loginData.email}
+                    onChange={(event) => setLoginData((current) => ({ ...current, email: event.target.value }))}
+                    className="h-12 rounded-xl border-white/10 bg-[#0D1427] text-white placeholder:text-slate-500"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="login-password" className="text-slate-200">Senha</Label>
+                  <Input
+                    id="login-password"
+                    type="password"
+                    placeholder="Sua senha"
+                    value={loginData.password}
+                    onChange={(event) => setLoginData((current) => ({ ...current, password: event.target.value }))}
+                    className="h-12 rounded-xl border-white/10 bg-[#0D1427] text-white placeholder:text-slate-500"
+                    required
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-amber-400 px-5 text-sm font-bold text-black transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-70"
+                >
+                  {isSubmitting ? 'Entrando...' : 'Entrar na area'}
+                </button>
+              </form>
+            </TabsContent>
+
+            <TabsContent value="register" className="mt-6">
+              <form className="space-y-5" onSubmit={handleRegister}>
+                <div className="space-y-2">
+                  <Label htmlFor="register-name" className="text-slate-200">Nome</Label>
+                  <Input
+                    id="register-name"
+                    type="text"
+                    placeholder="Seu nome"
+                    value={registerData.name}
+                    onChange={(event) => setRegisterData((current) => ({ ...current, name: event.target.value }))}
+                    className="h-12 rounded-xl border-white/10 bg-[#0D1427] text-white placeholder:text-slate-500"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="register-email" className="text-slate-200">Email</Label>
+                  <Input
+                    id="register-email"
+                    type="email"
+                    placeholder="voce@exemplo.com"
+                    value={registerData.email}
+                    onChange={(event) => setRegisterData((current) => ({ ...current, email: event.target.value }))}
+                    className="h-12 rounded-xl border-white/10 bg-[#0D1427] text-white placeholder:text-slate-500"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="register-password" className="text-slate-200">Senha</Label>
+                  <Input
+                    id="register-password"
+                    type="password"
+                    placeholder="Crie uma senha"
+                    value={registerData.password}
+                    onChange={(event) => setRegisterData((current) => ({ ...current, password: event.target.value }))}
+                    className="h-12 rounded-xl border-white/10 bg-[#0D1427] text-white placeholder:text-slate-500"
+                    required
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-white px-5 text-sm font-bold text-slate-950 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-70"
+                >
+                  <UserPlus className="h-4 w-4" />
+                  {isSubmitting ? 'Criando cadastro...' : 'Criar cadastro e entrar'}
+                </button>
+              </form>
+            </TabsContent>
+          </Tabs>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default MentorandoAuth;
