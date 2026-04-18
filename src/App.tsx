@@ -14,6 +14,7 @@ import { isMentorandoAuthenticated } from "@/lib/mentorandoAuth";
 const Mentoring = lazy(() => import("./pages/Mentoring"));
 const MentorandoArea = lazy(() => import("./pages/MentorandoArea"));
 const MentorandoAuth = lazy(() => import("./pages/MentorandoAuth"));
+const MentorandoCertificate = lazy(() => import("./pages/MentorandoCertificate"));
 const Obrigado = lazy(() => import("./pages/Obrigado"));
 
 // Configure React Query with better defaults
@@ -88,6 +89,14 @@ const App = () => {
                     element={
                       <ProtectedMentorandoRoute>
                         <MentorandoArea />
+                      </ProtectedMentorandoRoute>
+                    }
+                  />
+                  <Route
+                    path="/area-mentorando/certificado"
+                    element={
+                      <ProtectedMentorandoRoute>
+                        <MentorandoCertificate />
                       </ProtectedMentorandoRoute>
                     }
                   />
