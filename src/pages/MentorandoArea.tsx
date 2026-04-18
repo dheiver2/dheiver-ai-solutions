@@ -27,6 +27,16 @@ import { getCurrentMentorando, logoutMentorando } from '@/lib/mentorandoAuth';
 
 type SectionId = 'dashboard' | 'trilha' | 'videos' | 'ferramentas';
 
+const getYouTubeId = (url: string): string | null => {
+  const match = url.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|v\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+  return match ? match[1] : null;
+};
+
+const getYouTubeThumbnail = (url: string): string | null => {
+  const id = getYouTubeId(url);
+  return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : null;
+};
+
 const sidebarItems: Array<{
   id: SectionId;
   title: string;
@@ -105,12 +115,12 @@ const documents = [
     cta: 'Abrir PDF',
   },
   {
-    title: 'Introducao a analise de dados com Python',
+    title: 'Introducao a analise de dados em saude com Python',
     type: 'Livro PDF',
     level: 'Python aplicado',
-    description: 'Livro aberto da UFMG para ganhar base em Python, dados e boas praticas de analise.',
-    href: 'https://www.bu.ufmg.br/imagem/00002c/00002cd9.pdf',
-    cta: 'Ler ebook',
+    description: 'Livro aberto da UFMG (CIIA-Saude) com fundamentos de Python, Pandas e analise de dados aplicada a saude.',
+    href: 'https://docs.bvsalud.org/biblioref/2023/06/1437637/introducao-a-analise-de-dados-em-saude-com-python-ciia-saude.pdf',
+    cta: 'Abrir PDF',
   },
   {
     title: 'IA na educacao: usos, oportunidades e riscos',
@@ -429,33 +439,66 @@ const MentorandoArea = () => {
             </div>
 
             <div className="mt-5 grid gap-4 md:mt-6 xl:grid-cols-3">
-              {curatedVideos.map((video) => (
-                <article key={video.title} className="overflow-hidden rounded-2xl md:rounded-[24px] border border-white/10 bg-[#0B1020]">
-                  <div className="h-28 bg-[linear-gradient(135deg,rgba(251,191,36,0.18),rgba(59,130,246,0.22),rgba(15,23,42,0.92))] p-4 md:h-36 md:p-5">
-                    <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[11px] text-white md:text-xs">
-                      <PlayCircle className="h-3.5 w-3.5" />
-                      {video.duration}
-                    </div>
-                    <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-200 md:mt-4 md:text-xs">{video.stage}</p>
-                  </div>
-                  <div className="p-4 md:p-5">
-                    <h3 className="text-lg text-white md:text-xl" style={{ fontFamily: "'Inter', sans-serif" }}>
-                      {video.title}
-                    </h3>
-                    <p className="mt-2 text-sm font-medium text-sky-200">{video.creator}</p>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-300 md:leading-7">{video.why}</p>
+              {curatedVideos.map((video) => {
+                const thumbnail = getYouTubeThumbnail(video.href);
+                return (
+                  <article key={video.title} className="group overflow-hidden rounded-2xl md:rounded-[24px] border border-white/10 bg-[#0B1020] transition hover:border-white/20">
                     <a
                       href={video.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-amber-300 transition hover:text-amber-200 md:mt-5"
+                      className="relative block aspect-video w-full overflow-hidden bg-[#0B1020]"
+                      aria-label={`Assistir no YouTube: ${video.title}`}
                     >
-                      Assistir no YouTube
-                      <ExternalLink className="h-4 w-4" />
+                      {thumbnail ? (
+                        <img
+                          src={thumbnail}
+                          alt={`Thumbnail do video ${video.title}`}
+                          loading="lazy"
+                          className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(251,191,36,0.18),rgba(59,130,246,0.22),rgba(15,23,42,0.92))]" />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/30" />
+
+                      {/* Play button overlay */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-black/60 ring-2 ring-white/40 backdrop-blur-sm transition group-hover:bg-red-600/90 group-hover:ring-white/80 md:h-16 md:w-16">
+                          <PlayCircle className="h-7 w-7 text-white md:h-8 md:w-8" />
+                        </span>
+                      </div>
+
+                      {/* Duration badge */}
+                      <span className="absolute right-2 top-2 inline-flex items-center gap-1 rounded-md bg-black/75 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur md:text-xs">
+                        {video.duration}
+                      </span>
+
+                      {/* Stage label */}
+                      <span className="absolute bottom-2 left-2 inline-flex items-center rounded-full bg-rose-500/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur">
+                        {video.stage}
+                      </span>
                     </a>
-                  </div>
-                </article>
-              ))}
+
+                    <div className="p-4 md:p-5">
+                      <h3 className="text-lg text-white md:text-xl" style={{ fontFamily: "'Inter', sans-serif" }}>
+                        {video.title}
+                      </h3>
+                      <p className="mt-2 text-sm font-medium text-sky-200">{video.creator}</p>
+                      <p className="mt-3 text-sm leading-relaxed text-slate-300 md:leading-7">{video.why}</p>
+                      <a
+                        href={video.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-amber-300 transition hover:text-amber-200 md:mt-5"
+                      >
+                        Assistir no YouTube
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </section>
 
