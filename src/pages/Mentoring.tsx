@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { LogIn, MessageCircle } from 'lucide-react';
 import MentoringHero from '@/components/mentoring/MentoringHero';
 import MentoringPain from '@/components/mentoring/MentoringPain';
 import MentoringFuture from '@/components/mentoring/MentoringFuture';
@@ -17,13 +18,17 @@ import { MENTORING_SEATS_LEFT, buildMentoringWhatsAppLink } from '@/components/m
 
 const Mentoring = () => {
   return (
-    <div className="min-h-screen bg-[#07090F] pb-24 md:pb-0">
-      <div className="fixed right-5 top-5 z-50 hidden md:block">
+    <div className="min-h-screen bg-[#07090F] pb-20 md:pb-0">
+      {/* Top-right Area de Membros access — visible on all breakpoints now */}
+      <div className="fixed right-3 top-3 z-50 md:right-5 md:top-5">
         <Link
           to="/area-mentorando/login"
-          className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-[#0B1020]/90 px-5 py-3 text-sm font-semibold text-emerald-300 shadow-xl shadow-black/30 backdrop-blur transition hover:border-emerald-300/60 hover:bg-[#10182f]"
+          aria-label="Entrar na area de membros"
+          className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-[#0B1020]/90 px-3 py-2 text-[11px] font-semibold text-emerald-300 shadow-xl shadow-black/30 backdrop-blur transition hover:border-emerald-300/60 hover:bg-[#10182f] md:gap-2 md:px-5 md:py-3 md:text-sm"
         >
-          Entrar na Area de Membros
+          <LogIn className="h-3.5 w-3.5 md:h-4 md:w-4" />
+          <span className="sm:hidden">Membros</span>
+          <span className="hidden sm:inline">Area de Membros</span>
         </Link>
       </div>
 
@@ -92,27 +97,33 @@ const Mentoring = () => {
         <MentoringCta />
       </section>
 
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-amber-500/20 bg-[#07090F]/95 px-4 py-3 backdrop-blur md:hidden">
-        <div className="mx-auto flex max-w-md items-center justify-between gap-3">
-          <div className="min-w-0">
-            <p className="text-xs font-semibold text-white">Mentoria em IA</p>
-            <p className="text-[11px] text-amber-400">{MENTORING_SEATS_LEFT} vagas restantes nesta turma</p>
-          </div>
-          <div className="flex shrink-0 gap-2">
-            <Link
-              to="/area-mentorando/login"
-              className="rounded-lg border border-emerald-400/30 bg-emerald-400/10 px-3 py-2 text-[11px] font-bold text-emerald-300"
-            >
-              Area de membros
-            </Link>
+      {/* Bottom sticky CTA — mobile only, cleaner hierarchy */}
+      <div
+        className="fixed inset-x-0 bottom-0 z-40 border-t border-amber-500/20 bg-[#07090F]/95 backdrop-blur md:hidden"
+        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+      >
+        <div className="mx-auto max-w-md px-3 py-2.5">
+          <p className="mb-1.5 text-center text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-400/80">
+            {MENTORING_SEATS_LEFT} vagas restantes
+          </p>
+          <div className="flex items-center gap-2">
             <a
               href={buildMentoringWhatsAppLink('Quero falar sobre a mentoria em Engenharia de IA.')}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-2 text-xs font-bold text-black shadow-lg shadow-amber-500/20"
+              className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-2.5 text-xs font-bold text-black shadow-lg shadow-amber-500/20 active:scale-[0.98]"
             >
-              Falar agora
+              <MessageCircle className="h-3.5 w-3.5" />
+              Falar no WhatsApp
             </a>
+            <Link
+              to="/area-mentorando/login"
+              className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-emerald-400/30 bg-emerald-400/10 px-3 py-2.5 text-[11px] font-semibold text-emerald-300 active:scale-[0.98]"
+              aria-label="Entrar na area de membros"
+            >
+              <LogIn className="h-3.5 w-3.5" />
+              Membros
+            </Link>
           </div>
         </div>
       </div>

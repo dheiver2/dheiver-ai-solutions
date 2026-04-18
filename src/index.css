@@ -303,6 +303,15 @@
 }
 
 @layer components {
+  /* Hide scrollbars on horizontal tab bars while keeping scroll */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Responsive Container System */
   .container-width {
     @apply max-w-7xl mx-auto w-full;
