@@ -88,14 +88,6 @@ const sidebarItems: Array<{
 
 const templates = [
   {
-    title: 'Template de curriculo Eng IA Junior',
-    format: 'PDF',
-    description: 'Modelo pronto com secoes de projetos, stack, resultados e metricas para vaga junior em IA.',
-    href: '/templates/curriculo-eng-ia-junior.pdf',
-    cta: 'Baixar PDF',
-    icon: FileText,
-  },
-  {
     title: 'Template editavel no Figma',
     format: 'Figma',
     description: 'Arquivo editavel para montar variacoes do curriculo sem quebrar o layout.',
@@ -104,19 +96,27 @@ const templates = [
     icon: Sparkles,
   },
   {
+    title: 'Template de curriculo Eng IA Junior',
+    format: 'Em breve',
+    description: 'Modelo pronto com secoes de projetos, stack, resultados e metricas para vaga junior em IA. Disponivel em breve.',
+    href: '',
+    cta: 'Em breve',
+    icon: FileText,
+  },
+  {
     title: 'Checklist de perfil LinkedIn',
-    format: 'PDF',
-    description: 'Headline, sobre, destaques e como publicar aprendizados que atraem recrutador.',
-    href: '/templates/checklist-linkedin.pdf',
-    cta: 'Baixar PDF',
+    format: 'Em breve',
+    description: 'Headline, sobre, destaques e como publicar aprendizados que atraem recrutador. Disponivel em breve.',
+    href: '',
+    cta: 'Em breve',
     icon: BriefcaseBusiness,
   },
   {
     title: 'Template de README de projeto',
-    format: 'PDF',
-    description: 'Estrutura de README que comunica problema, stack, arquitetura, metricas e aprendizados.',
-    href: '/templates/readme-projeto.pdf',
-    cta: 'Baixar PDF',
+    format: 'Em breve',
+    description: 'Estrutura de README que comunica problema, stack, arquitetura, metricas e aprendizados. Disponivel em breve.',
+    href: '',
+    cta: 'Em breve',
     icon: BookOpen,
   },
 ];

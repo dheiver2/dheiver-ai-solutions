@@ -15,9 +15,26 @@ export const ALLOWED_MENTORANDO_EMAILS: string[] = [
   'dheiver.santos@gmail.com',
 ];
 
-export const isEmailAllowed = (email: string): boolean => {
+const isInStaticAllowlist = (email: string): boolean => {
   const normalized = email.trim().toLowerCase();
   return ALLOWED_MENTORANDO_EMAILS.map((item) => item.trim().toLowerCase()).includes(normalized);
+};
+
+export const isEmailAllowed = async (email: string): Promise<boolean> => {
+  const normalized = email.trim().toLowerCase();
+
+  if (isInStaticAllowlist(normalized)) {
+    return true;
+  }
+
+  try {
+    const response = await fetch(`/api/is-paid-email?email=${encodeURIComponent(normalized)}`);
+    if (!response.ok) return false;
+    const data = (await response.json()) as { allowed?: boolean };
+    return Boolean(data.allowed);
+  } catch {
+    return false;
+  }
 };
 
 const canUseStorage = () => typeof window !== 'undefined';
@@ -55,11 +72,11 @@ export const getCurrentMentorando = (): MentorandoUser | null => {
 
 export const isMentorandoAuthenticated = (): boolean => Boolean(getCurrentMentorando());
 
-export const registerMentorando = (input: {
+export const registerMentorando = async (input: {
   name: string;
   email: string;
   password: string;
-}): MentorandoUser => {
+}): Promise<MentorandoUser> => {
   if (!canUseStorage()) {
     throw new Error('Cadastro indisponivel neste ambiente.');
   }
@@ -72,7 +89,8 @@ export const registerMentorando = (input: {
     throw new Error('Preencha nome, email e senha.');
   }
 
-  if (!isEmailAllowed(normalizedEmail)) {
+  const allowed = await isEmailAllowed(normalizedEmail);
+  if (!allowed) {
     throw new Error('Este email ainda nao foi liberado. Confirme o pagamento e aguarde o email com as credenciais.');
   }
 

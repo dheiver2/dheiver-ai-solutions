@@ -104,19 +104,40 @@ const MentoringAuthority = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="bg-[#0D1117] border border-slate-800/60 rounded-2xl p-6 md:p-8"
+          className="bg-[#0D1117] border border-slate-800/60 rounded-2xl p-6 md:p-8 overflow-hidden"
         >
           <p className="text-xs font-bold text-amber-400 tracking-wider mb-6">IMPACTO EM EMPRESAS</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {impacts.map((item, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <div className="w-1 h-full bg-gradient-to-b from-amber-400 to-amber-600 rounded-full flex-shrink-0" />
-                <div>
-                  <p className="font-bold text-amber-400 text-sm">{item.company}</p>
-                  <p className="text-sm text-slate-400 mt-0.5">{item.result}</p>
+          <style>{`
+            @keyframes impactMarquee {
+              from { transform: translateX(0); }
+              to { transform: translateX(-50%); }
+            }
+            .impact-marquee-track {
+              animation: impactMarquee 28s linear infinite;
+              will-change: transform;
+            }
+            .impact-marquee-viewport:hover .impact-marquee-track {
+              animation-play-state: paused;
+            }
+          `}</style>
+          <div className="impact-marquee-viewport relative">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#0D1117] to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#0D1117] to-transparent" />
+            <div className="impact-marquee-track flex gap-5 w-max">
+              {[...impacts, ...impacts].map((item, i) => (
+                <div
+                  key={`${item.company}-${i}`}
+                  className="flex items-start gap-3 min-w-[260px] md:min-w-[320px] flex-shrink-0"
+                  aria-hidden={i >= impacts.length ? true : undefined}
+                >
+                  <div className="w-1 self-stretch bg-gradient-to-b from-amber-400 to-amber-600 rounded-full flex-shrink-0" />
+                  <div>
+                    <p className="font-bold text-amber-400 text-sm">{item.company}</p>
+                    <p className="text-sm text-slate-400 mt-0.5">{item.result}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

@@ -51,12 +51,12 @@ const MentorandoAuth = () => {
     }
   };
 
-  const handleRegister = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleRegister = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const user = registerMentorando(registerData);
+      const user = await registerMentorando(registerData);
       toast({
         title: 'Cadastro criado',
         description: `${user.name}, agora voce ja pode acessar sua trilha.`,
