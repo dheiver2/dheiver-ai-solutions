@@ -95,10 +95,10 @@ const MentoringMedia = () => {
 
           {/* Arrows */}
           <button onClick={() => setCurrent((prev) => (prev - 1 + mediaItems.length) % mediaItems.length)}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-9 h-9 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm"
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm text-lg"
             aria-label="Anterior">‹</button>
           <button onClick={() => setCurrent((prev) => (prev + 1) % mediaItems.length)}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-9 h-9 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm"
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors backdrop-blur-sm text-lg"
             aria-label="Próximo">›</button>
         </div>
 
