@@ -9,6 +9,17 @@ export interface MentorandoUser {
 const USERS_KEY = 'mentorando_users';
 const SESSION_KEY = 'mentorando_session';
 
+// Allowlist de quem pagou a mentoria e pode criar cadastro na area.
+// Adicione o email (minusculo) apos confirmar o pagamento no Stripe.
+export const ALLOWED_MENTORANDO_EMAILS: string[] = [
+  'dheiver.santos@gmail.com',
+];
+
+export const isEmailAllowed = (email: string): boolean => {
+  const normalized = email.trim().toLowerCase();
+  return ALLOWED_MENTORANDO_EMAILS.map((item) => item.trim().toLowerCase()).includes(normalized);
+};
+
 const canUseStorage = () => typeof window !== 'undefined';
 
 const generateId = (): string =>
@@ -59,6 +70,10 @@ export const registerMentorando = (input: {
 
   if (!normalizedName || !normalizedEmail || !normalizedPassword) {
     throw new Error('Preencha nome, email e senha.');
+  }
+
+  if (!isEmailAllowed(normalizedEmail)) {
+    throw new Error('Este email ainda nao foi liberado. Confirme o pagamento e aguarde o email com as credenciais.');
   }
 
   const users = getUsers();

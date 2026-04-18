@@ -102,10 +102,10 @@ const MentorandoAuth = () => {
 
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {[
-              'Cadastro rapido com nome, email e senha.',
+              'Acesso exclusivo para quem comprou a mentoria.',
+              'Primeiro acesso usa o mesmo email do pagamento.',
               'Login salvo no navegador para retorno mais simples.',
-              'Bloqueio de acesso direto sem autenticacao.',
-              'Fluxo pronto para evoluir depois para backend real.',
+              'Duvidas? Chame o Dheiver direto no WhatsApp.',
             ].map((item) => (
               <div key={item} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm text-slate-200">
                 {item}
@@ -174,6 +174,12 @@ const MentorandoAuth = () => {
             </TabsContent>
 
             <TabsContent value="register" className="mt-6">
+              <div className="mb-5 rounded-xl border border-amber-400/30 bg-amber-400/10 p-4 text-sm text-amber-100">
+                <p className="font-semibold text-amber-200">Ja comprou a mentoria?</p>
+                <p className="mt-1 text-amber-100/80">
+                  Use o email que voce informou no pagamento. Se ele ainda nao estiver liberado, aguarde ate 2h uteis apos a compra ou me chame no WhatsApp.
+                </p>
+              </div>
               <form className="space-y-5" onSubmit={handleRegister}>
                 <div className="space-y-2">
                   <Label htmlFor="register-name" className="text-slate-200">Nome</Label>
