@@ -7,6 +7,25 @@ import { initAnalytics } from './services/analytics';
 import { initPerformanceMonitoring } from './utils/performance';
 import { logger } from './services/logger';
 
+const normalizeHashRoutes = () => {
+  const { pathname, search, hash } = window.location;
+
+  if (hash) return;
+
+  if (pathname === '/area-mentorando' || pathname === '/area-mentorando/') {
+    window.history.replaceState(null, '', `/#/area-mentorando${search}`);
+  }
+
+  if (
+    pathname === '/area-mentorando/login' ||
+    pathname === '/area-mentorando/login/'
+  ) {
+    window.history.replaceState(null, '', `/#/area-mentorando/login${search}`);
+  }
+};
+
+normalizeHashRoutes();
+
 // Initialize error tracking
 initSentry();
 
