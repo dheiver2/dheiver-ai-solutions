@@ -2,7 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import {
+  MENTORING_INSTALLMENTS,
   MENTORING_MONTHLY_PRICE,
+  MENTORING_PIX_DISCOUNT_PERCENT,
+  MENTORING_PIX_PRICE,
+  MENTORING_PIX_SAVINGS,
   MENTORING_SEATS_LEFT,
   MENTORING_TOTAL_PRICE,
   buildMentoringWhatsAppLink,
@@ -64,7 +68,24 @@ const MentoringPricing = () => {
           <p className="text-5xl md:text-6xl font-bold bg-gradient-to-b from-amber-400 to-amber-600 bg-clip-text text-transparent mb-1">
             R$ {MENTORING_MONTHLY_PRICE}<span className="text-xl">/mês</span>
           </p>
-          <p className="text-sm text-slate-400 mb-4">Total: R$ {MENTORING_TOTAL_PRICE} — ou 12x de R$ 189,90</p>
+          <p className="text-sm text-slate-400 mb-6">Total: R$ {MENTORING_TOTAL_PRICE} em {MENTORING_INSTALLMENTS} pagamentos</p>
+
+          {/* Payment options — 2 clear choices */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+            <div className="relative bg-[#0D1117] border-2 border-emerald-500/30 rounded-xl p-4 text-left">
+              <span className="absolute -top-2.5 left-3 text-[9px] font-bold tracking-wider bg-emerald-500 text-black px-2 py-0.5 rounded">SEM JUROS</span>
+              <p className="text-[11px] uppercase tracking-wider text-slate-500 mb-1">Cartão de crédito</p>
+              <p className="text-xl font-bold text-white leading-tight">{MENTORING_INSTALLMENTS}x de R$ {MENTORING_MONTHLY_PRICE}</p>
+              <p className="text-[11px] text-slate-400 mt-1">Total: R$ {MENTORING_TOTAL_PRICE}</p>
+            </div>
+            <div className="relative bg-[#0D1117] border-2 border-amber-500/30 rounded-xl p-4 text-left">
+              <span className="absolute -top-2.5 left-3 text-[9px] font-bold tracking-wider bg-amber-500 text-black px-2 py-0.5 rounded">-{MENTORING_PIX_DISCOUNT_PERCENT}% PIX</span>
+              <p className="text-[11px] uppercase tracking-wider text-slate-500 mb-1">À vista no Pix</p>
+              <p className="text-xl font-bold text-white leading-tight">R$ {MENTORING_PIX_PRICE}</p>
+              <p className="text-[11px] text-emerald-400 mt-1">Economize R$ {MENTORING_PIX_SAVINGS}</p>
+            </div>
+          </div>
+
           <p className="text-[11px] text-amber-400/70 font-medium mb-6">Inclui acompanhamento individual, projetos guiados, revisão de currículo e preparação para entrevistas.</p>
 
           {/* Included */}
