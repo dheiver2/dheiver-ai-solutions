@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, BriefcaseBusiness, CalendarDays, Download } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { MENTORING_SEATS_LEFT, buildMentoringWhatsAppLink } from './mentoringConfig';
 
 const MentoringHero = () => {
@@ -140,6 +141,13 @@ const MentoringHero = () => {
               >
                 Baixar trilha gratuita de 90 dias
               </a>
+              <Link
+                to="/area-mentorando/login"
+                className="inline-flex items-center justify-center gap-2 text-sm font-medium text-amber-300 transition hover:text-amber-200"
+              >
+                Ver como funciona a area do mentorando
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Social proof */}

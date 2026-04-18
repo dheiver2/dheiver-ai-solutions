@@ -3,14 +3,17 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Navigate, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { PageLoader } from "@/components/LoadingSpinner";
 import { logger } from "@/services/logger";
+import { isMentorandoAuthenticated } from "@/lib/mentorandoAuth";
 
 // Lazy load pages
 const Mentoring = lazy(() => import("./pages/Mentoring"));
+const MentorandoArea = lazy(() => import("./pages/MentorandoArea"));
+const MentorandoAuth = lazy(() => import("./pages/MentorandoAuth"));
 
 // Configure React Query with better defaults
 const queryClient = new QueryClient({
@@ -54,6 +57,16 @@ const ScrollToHash = () => {
   return null;
 };
 
+const ProtectedMentorandoRoute = ({ children }: { children: React.ReactElement }) => {
+  const location = useLocation();
+
+  if (!isMentorandoAuthenticated()) {
+    return <Navigate to="/area-mentorando/login" replace state={{ from: location }} />;
+  }
+
+  return children;
+};
+
 const App = () => {
   return (
     <ErrorBoundary>
@@ -66,7 +79,17 @@ const App = () => {
               <ScrollToHash />
               <Suspense fallback={<PageLoader />}>
                 <Routes>
-                  <Route path="/*" element={<Mentoring />} />
+                  <Route path="/" element={<Mentoring />} />
+                  <Route path="/area-mentorando/login" element={<MentorandoAuth />} />
+                  <Route
+                    path="/area-mentorando"
+                    element={
+                      <ProtectedMentorandoRoute>
+                        <MentorandoArea />
+                      </ProtectedMentorandoRoute>
+                    }
+                  />
+                  <Route path="*" element={<Mentoring />} />
                 </Routes>
               </Suspense>
             </HashRouter>
