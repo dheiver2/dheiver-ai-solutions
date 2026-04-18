@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { GraduationCap } from 'lucide-react';
 
 const MentoringAuthority = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
@@ -8,13 +9,15 @@ const MentoringAuthority = () => {
   const skills = ['LLMs & GenAI', 'RAG Systems', 'Computer Vision', 'MLOps', 'Deep Learning', 'Transformers', 'Fine-tuning', 'Kubernetes'];
   const certifications = ['Google Cloud ML Engineer', 'AWS ML Specialty', 'TensorFlow Developer', 'Databricks ML Associate'];
 
+  const logoFor = (domain: string) => `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+
   const impacts = [
-    { company: 'Santander', result: 'Squad 8 eng • -60% custos • +3x velocidade' },
-    { company: 'Grupo Boticário', result: 'IA para personalização e supply chain inteligente' },
-    { company: 'Grupo Fleury', result: 'GenAI e Computer Vision para diagnósticos' },
-    { company: 'Petrobras', result: 'ML pipelines para análise operacional' },
-    { company: 'Engie Energia', result: 'Otimização de energia e previsão de demanda' },
-    { company: 'Universidades Federais', result: 'Professor de IA e Machine Learning na academia' },
+    { company: 'Santander', result: 'Squad 8 eng • -60% custos • +3x velocidade', logo: logoFor('santander.com.br') },
+    { company: 'Grupo Boticário', result: 'IA para personalização e supply chain inteligente', logo: logoFor('grupoboticario.com.br') },
+    { company: 'Grupo Fleury', result: 'GenAI e Computer Vision para diagnósticos', logo: logoFor('fleury.com.br') },
+    { company: 'Petrobras', result: 'ML pipelines para análise operacional', logo: logoFor('petrobras.com.br') },
+    { company: 'Engie Energia', result: 'Otimização de energia e previsão de demanda', logo: logoFor('engie.com.br') },
+    { company: 'Universidades Federais', result: 'Professor de IA e Machine Learning na academia', icon: GraduationCap },
   ];
 
   return (
@@ -124,19 +127,33 @@ const MentoringAuthority = () => {
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#0D1117] to-transparent" />
             <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#0D1117] to-transparent" />
             <div className="impact-marquee-track flex gap-5 w-max">
-              {[...impacts, ...impacts].map((item, i) => (
-                <div
-                  key={`${item.company}-${i}`}
-                  className="flex items-start gap-3 min-w-[260px] md:min-w-[320px] flex-shrink-0"
-                  aria-hidden={i >= impacts.length ? true : undefined}
-                >
-                  <div className="w-1 self-stretch bg-gradient-to-b from-amber-400 to-amber-600 rounded-full flex-shrink-0" />
-                  <div>
-                    <p className="font-bold text-amber-400 text-sm">{item.company}</p>
-                    <p className="text-sm text-slate-400 mt-0.5">{item.result}</p>
+              {[...impacts, ...impacts].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={`${item.company}-${i}`}
+                    className="flex items-center gap-3 min-w-[260px] md:min-w-[320px] flex-shrink-0"
+                    aria-hidden={i >= impacts.length ? true : undefined}
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center p-2 flex-shrink-0 shadow-sm ring-1 ring-amber-400/20">
+                      {item.logo ? (
+                        <img
+                          src={item.logo}
+                          alt={item.company}
+                          loading="lazy"
+                          className="max-w-full max-h-full object-contain"
+                        />
+                      ) : Icon ? (
+                        <Icon className="w-6 h-6 text-amber-600" />
+                      ) : null}
+                    </div>
+                    <div className="min-w-0">
+                      <p className="font-bold text-amber-400 text-sm truncate">{item.company}</p>
+                      <p className="text-sm text-slate-400 mt-0.5">{item.result}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </motion.div>
