@@ -8,7 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { PageLoader } from "@/components/LoadingSpinner";
 import { logger } from "@/services/logger";
-import { isMentorandoAuthenticated } from "@/lib/mentorandoAuth";
+import { useMentorandoSession } from "@/hooks/useMentorandoSession";
 
 // Lazy load pages
 const Mentoring = lazy(() => import("./pages/Mentoring"));
@@ -61,8 +61,13 @@ const ScrollToHash = () => {
 
 const ProtectedMentorandoRoute = ({ children }: { children: React.ReactElement }) => {
   const location = useLocation();
+  const { user, loading } = useMentorandoSession();
 
-  if (!isMentorandoAuthenticated()) {
+  if (loading) {
+    return <PageLoader />;
+  }
+
+  if (!user) {
     return <Navigate to="/area-mentorando/login" replace state={{ from: location }} />;
   }
 

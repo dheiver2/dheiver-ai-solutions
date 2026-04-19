@@ -50,7 +50,7 @@ const Obrigado = () => {
           </h1>
 
           <p className="mt-5 max-w-lg text-base leading-7 text-slate-300 md:text-lg">
-            Você receberá um email do Stripe com o recibo. Em até <strong className="text-white">2 horas úteis</strong>, o Dheiver te envia as credenciais de acesso à área do mentorando e o link pra agendar sua primeira sessão.
+            Seu acesso já está <strong className="text-white">liberado</strong>. Em alguns minutos você recebe um email com o link da área do mentorando e o próximo passo para agendar sua primeira sessão 1:1.
           </p>
         </div>
 
@@ -73,8 +73,8 @@ const Obrigado = () => {
                 <UserPlus className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-white">2. Credenciais da área do mentorando</p>
-                <p className="mt-1 text-sm text-slate-400">Enviamos por email em até 2h úteis. Com elas, você faz seu cadastro em <Link to="/area-mentorando/login" className="text-amber-300 underline-offset-4 hover:underline">área do mentorando</Link>.</p>
+                <p className="text-sm font-semibold text-white">2. Acesso à área do mentorando</p>
+                <p className="mt-1 text-sm text-slate-400">Enviamos um email com o link. Você também pode ir direto para <Link to="/area-mentorando/login" className="text-amber-300 underline-offset-4 hover:underline">área do mentorando</Link> e fazer seu cadastro usando o mesmo email do pagamento.</p>
               </div>
             </div>
           </div>

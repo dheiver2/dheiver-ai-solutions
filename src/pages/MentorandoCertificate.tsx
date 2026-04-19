@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Award, Printer } from 'lucide-react';
-import { getCurrentMentorando } from '@/lib/mentorandoAuth';
+import { toMentorandoUser } from '@/lib/mentorandoAuth';
+import { useMentorandoSession } from '@/hooks/useMentorandoSession';
 import { getProgress } from '@/lib/mentorandoProgress';
 
 const REQUIRED_CHECKLIST_KEYS = [
@@ -26,7 +27,8 @@ const formatDate = (iso: string): string => {
 
 const MentorandoCertificate = () => {
   const navigate = useNavigate();
-  const user = getCurrentMentorando();
+  const { user: sessionUser } = useMentorandoSession();
+  const user = toMentorandoUser(sessionUser);
 
   const allDone = useMemo(() => {
     if (!user) return false;

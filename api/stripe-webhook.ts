@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import Stripe from 'stripe';
 import { Resend } from 'resend';
+import { getSupabaseAdmin } from './_lib/supabase';
 
 export const config = {
   api: {
@@ -11,9 +12,16 @@ export const config = {
 const stripeSecret = process.env.STRIPE_SECRET_KEY;
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 const resendKey = process.env.RESEND_API_KEY;
-const resendFrom = process.env.RESEND_FROM_EMAIL || 'Mentoria Dheiver <onboarding@resend.dev>';
+const resendFromEnv = process.env.RESEND_FROM_EMAIL;
+const resendFrom = resendFromEnv || 'Mentoria Dheiver <onboarding@resend.dev>';
 const siteUrl = process.env.VITE_SITE_URL || 'https://dheiver.com.br';
 const mentorWhatsApp = process.env.VITE_MENTORING_WHATSAPP || '5551997636679';
+
+if (!resendFromEnv) {
+  console.error(
+    '[resend] RESEND_FROM_EMAIL not set — falling back to onboarding@resend.dev. Emails likely go to spam. Verify a domain in Resend and set RESEND_FROM_EMAIL.'
+  );
+}
 
 const readRawBody = async (req: VercelRequest): Promise<Buffer> => {
   const chunks: Buffer[] = [];
@@ -40,7 +48,7 @@ const buildWelcomeEmail = (params: { name: string | null; email: string }) => {
     `Acabei de comprar a mentoria (${params.email}) e quero agendar a primeira sessão.`
   )}`;
 
-  const subject = 'Bem-vindo à mentoria — credenciais e próximos passos';
+  const subject = 'Bem-vindo à mentoria — acesso liberado agora';
 
   const text = [
     `Olá, ${greetingName}!`,
@@ -187,20 +195,54 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       payment_status: session.payment_status,
     });
 
+    if (email && session.payment_status === 'paid') {
+      const supabase = getSupabaseAdmin();
+      if (supabase) {
+        const { error } = await supabase.from('paid_customers').upsert(
+          {
+            email,
+            stripe_session_id: session.id,
+            stripe_customer_id:
+              typeof session.customer === 'string' ? session.customer : session.customer?.id ?? null,
+            amount_total: session.amount_total ?? null,
+            currency: session.currency ?? null,
+            name,
+            raw_session: session as unknown as Record<string, unknown>,
+          },
+          { onConflict: 'stripe_session_id' }
+        );
+        if (error) {
+          console.error('[supabase] failed to upsert paid_customer', { email, error: error.message });
+          return res.status(500).json({ error: 'DB write failed — Stripe should retry.' });
+        }
+        console.log('[supabase] paid_customer upserted', { email, session: session.id });
+      } else {
+        console.warn('[supabase] not configured — skipping paid_customer persistence', { email });
+      }
+    }
+
     if (email && session.payment_status === 'paid' && resendKey) {
       try {
         const resend = new Resend(resendKey);
         const { subject, text, html } = buildWelcomeEmail({ name, email });
-        const sendResult = await resend.emails.send({
-          from: resendFrom,
-          to: email,
-          subject,
-          text,
-          html,
-        });
-        console.log('[resend] welcome email sent', { to: email, id: sendResult.data?.id, error: sendResult.error });
+        const sendResult = await resend.emails.send(
+          {
+            from: resendFrom,
+            to: email,
+            subject,
+            text,
+            html,
+          },
+          { idempotencyKey: session.id }
+        );
+        if (sendResult.error) {
+          console.error('[resend] send returned error', { to: email, error: sendResult.error });
+          return res.status(500).json({ error: 'Email send failed — Stripe should retry.' });
+        }
+        console.log('[resend] welcome email sent', { to: email, id: sendResult.data?.id });
       } catch (err) {
         console.error('[resend] failed to send welcome email', { to: email, error: err instanceof Error ? err.message : err });
+        return res.status(500).json({ error: 'Email send threw — Stripe should retry.' });
       }
     } else if (email && !resendKey) {
       console.warn('[resend] RESEND_API_KEY missing — skipping welcome email', { to: email });

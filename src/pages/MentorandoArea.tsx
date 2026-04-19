@@ -27,7 +27,8 @@ import {
 } from 'lucide-react';
 import Footer from '@/components/Footer';
 import { buildMentoringWhatsAppLink } from '@/components/mentoring/mentoringConfig';
-import { getCurrentMentorando, logoutMentorando } from '@/lib/mentorandoAuth';
+import { logoutMentorando, toMentorandoUser } from '@/lib/mentorandoAuth';
+import { useMentorandoSession } from '@/hooks/useMentorandoSession';
 import { getProgress, toggleProgress, type ProgressMap } from '@/lib/mentorandoProgress';
 
 type SectionId = 'dashboard' | 'trilha' | 'videos' | 'ferramentas' | 'recursos';
@@ -600,7 +601,8 @@ const tools = [
 
 const MentorandoArea = () => {
   const navigate = useNavigate();
-  const currentUser = getCurrentMentorando();
+  const { user: sessionUser } = useMentorandoSession();
+  const currentUser = toMentorandoUser(sessionUser);
   const [activeSection, setActiveSection] = useState<SectionId>('dashboard');
   const [progress, setProgressState] = useState<ProgressMap>({});
 
@@ -623,8 +625,8 @@ const MentorandoArea = () => {
   );
   const progressPct = Math.round((completedCount / checklistItems.length) * 100);
 
-  const handleLogout = () => {
-    logoutMentorando();
+  const handleLogout = async () => {
+    await logoutMentorando();
     navigate('/area-mentorando/login', { replace: true });
   };
 

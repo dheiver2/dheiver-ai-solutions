@@ -1,33 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { ArrowLeft, LockKeyhole, Sparkles, UserPlus } from 'lucide-react';
+import { ArrowLeft, LockKeyhole, Mail, Sparkles, UserPlus } from 'lucide-react';
 import Footer from '@/components/Footer';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
-import {
-  getCurrentMentorando,
-  loginMentorando,
-  registerMentorando,
-} from '@/lib/mentorandoAuth';
+import { useMentorandoSession } from '@/hooks/useMentorandoSession';
+import { loginMentorando, registerMentorando } from '@/lib/mentorandoAuth';
 
 const MentorandoAuth = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { toast } = useToast();
+  const { user: sessionUser, loading: sessionLoading } = useMentorandoSession();
   const redirectTo = location.state?.from?.pathname || '/area-mentorando';
 
   const [activeTab, setActiveTab] = useState('login');
   const [loginData, setLoginData] = useState({ email: '', password: '' });
   const [registerData, setRegisterData] = useState({ name: '', email: '', password: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [pendingVerificationEmail, setPendingVerificationEmail] = useState<string | null>(null);
 
   useEffect(() => {
-    if (getCurrentMentorando()) {
+    if (!sessionLoading && sessionUser) {
       navigate(redirectTo, { replace: true });
     }
-  }, [navigate, redirectTo]);
+  }, [sessionUser, sessionLoading, navigate, redirectTo]);
 
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -56,12 +55,20 @@ const MentorandoAuth = () => {
     setIsSubmitting(true);
 
     try {
-      const user = await registerMentorando(registerData);
-      toast({
-        title: 'Cadastro criado',
-        description: `${user.name}, agora você já pode acessar sua trilha.`,
-      });
-      navigate(redirectTo, { replace: true });
+      const result = await registerMentorando(registerData);
+      if (result.needsEmailConfirmation) {
+        setPendingVerificationEmail(registerData.email.trim().toLowerCase());
+        toast({
+          title: 'Confirme seu email',
+          description: 'Enviamos um link de confirmação. Abra sua caixa de entrada para liberar o acesso.',
+        });
+      } else {
+        toast({
+          title: 'Cadastro criado',
+          description: `${result.user?.name ?? 'Bem-vindo(a)'}, sua área do mentorando está liberada.`,
+        });
+        navigate(redirectTo, { replace: true });
+      }
     } catch (error) {
       toast({
         title: 'Não foi possível cadastrar',
@@ -125,6 +132,30 @@ const MentorandoAuth = () => {
             </div>
           </div>
 
+          {pendingVerificationEmail ? (
+            <div className="space-y-5 text-center">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-400/15 text-amber-300">
+                <Mail className="h-7 w-7" />
+              </div>
+              <div>
+                <h2 className="text-xl font-semibold text-white">Confirme seu email</h2>
+                <p className="mt-2 text-sm leading-6 text-slate-300">
+                  Enviamos um link de confirmação para{' '}
+                  <strong className="text-white">{pendingVerificationEmail}</strong>. Clique no link do email para liberar sua conta.
+                </p>
+                <p className="mt-3 text-xs text-slate-500">
+                  Não chegou em 2 minutos? Confira a pasta de spam ou tente de novo.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setPendingVerificationEmail(null)}
+                className="inline-flex h-11 items-center justify-center rounded-xl border border-white/15 px-4 text-sm font-semibold text-slate-200 transition hover:border-white/30 hover:bg-white/5"
+              >
+                Voltar para login
+              </button>
+            </div>
+          ) : (
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid w-full grid-cols-2 rounded-2xl bg-[#0D1427] p-1">
               <TabsTrigger value="login" className="rounded-xl data-[state=active]:bg-white data-[state=active]:text-slate-950">
@@ -177,7 +208,7 @@ const MentorandoAuth = () => {
               <div className="mb-5 rounded-xl border border-amber-400/30 bg-amber-400/10 p-4 text-sm text-amber-100">
                 <p className="font-semibold text-amber-200">Já comprou a mentoria?</p>
                 <p className="mt-1 text-amber-100/80">
-                  Use o email que você informou no pagamento. Se ele ainda não estiver liberado, aguarde até 2h úteis após a compra ou me chame no WhatsApp.
+                  Use o mesmo email do pagamento — o acesso é liberado automaticamente assim que o Stripe confirma a compra. Se der erro, confira o email do recibo ou me chame no WhatsApp.
                 </p>
               </div>
               <form className="space-y-5" onSubmit={handleRegister}>
@@ -231,6 +262,7 @@ const MentorandoAuth = () => {
               </form>
             </TabsContent>
           </Tabs>
+          )}
         </section>
       </main>
 
