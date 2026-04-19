@@ -1,7 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Award, Printer } from 'lucide-react';
 import { getCurrentMentorando } from '@/lib/mentorandoAuth';
+import { getProgress } from '@/lib/mentorandoProgress';
+
+const REQUIRED_CHECKLIST_KEYS = [
+  'github-publicado',
+  'explicar-stack',
+  'testar-apis',
+  'rotina-semanal',
+] as const;
 
 const formatDate = (iso: string): string => {
   try {
@@ -20,13 +28,23 @@ const MentorandoCertificate = () => {
   const navigate = useNavigate();
   const user = getCurrentMentorando();
 
+  const allDone = useMemo(() => {
+    if (!user) return false;
+    const progress = getProgress(user.id);
+    return REQUIRED_CHECKLIST_KEYS.every((key) => progress[key]);
+  }, [user]);
+
   useEffect(() => {
     if (!user) {
       navigate('/area-mentorando/login', { replace: true });
+      return;
     }
-  }, [user, navigate]);
+    if (!allDone) {
+      navigate('/area-mentorando', { replace: true });
+    }
+  }, [user, allDone, navigate]);
 
-  if (!user) return null;
+  if (!user || !allDone) return null;
 
   const issueDate = formatDate(new Date().toISOString());
   const startDate = formatDate(user.createdAt);
@@ -81,7 +99,7 @@ const MentorandoCertificate = () => {
             <div className="flex items-center justify-between">
               <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/40 bg-amber-400/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-amber-300 print:border-amber-600 print:bg-amber-100 print:text-amber-800">
                 <Award className="h-4 w-4" />
-                Certificado de conclusao
+                Comprovante de participação
               </div>
               <div className="hidden text-right md:block">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-slate-400 print:text-slate-600">
@@ -105,9 +123,9 @@ const MentorandoCertificate = () => {
             <div className="mx-auto mt-6 h-px w-48 bg-gradient-to-r from-transparent via-amber-400 to-transparent md:w-72 print:via-amber-600" />
 
             <p className="mx-auto mt-8 max-w-3xl text-center text-base leading-relaxed text-slate-300 md:mt-10 md:text-lg md:leading-9 print:text-slate-700">
-              concluiu o programa <strong className="text-white print:text-slate-900">Engenharia de IA Junior em 90 dias</strong>, com foco em
-              Python, Git/GitHub, OpenAI API, construcao de portfolio e preparacao para disputar vagas junior
-              no mercado de IA.
+              participou do programa <strong className="text-white print:text-slate-900">Engenharia de IA Junior em 90 dias</strong>, percorrendo a trilha de
+              Python, Git/GitHub, OpenAI API, construção de portfólio e preparação para disputar vagas junior
+              no mercado de IA. Este documento é um comprovante de participação e <strong className="text-white print:text-slate-900">não substitui certificação acreditada</strong>.
             </p>
 
             <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-3">

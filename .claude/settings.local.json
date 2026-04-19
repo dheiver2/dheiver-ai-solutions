@@ -108,7 +108,8 @@
       "Bash(curl -s -o /dev/null -w '%{http_code} ' 'https://www.google.com/s2/favicons?domain=__TRACKED_VAR__&sz=128')",
       "Bash(curl -s -o /dev/null -w '%{http_code}\\\\n' https://icons.duckduckgo.com/ip3/__TRACKED_VAR__.ico)",
       "Bash(curl -sL \"https://www.google.com/s2/favicons?domain=santander.com.br&sz=128\" -o /tmp/santander.png)",
-      "Bash(curl -sL \"https://icons.duckduckgo.com/ip3/santander.com.br.ico\" -o /tmp/santander_ddg.ico)"
+      "Bash(curl -sL \"https://icons.duckduckgo.com/ip3/santander.com.br.ico\" -o /tmp/santander_ddg.ico)",
+      "Bash(npx --yes tsc --noEmit -p tsconfig.json)"
     ]
   }
 }

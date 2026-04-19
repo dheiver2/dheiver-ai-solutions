@@ -29,20 +29,20 @@ const MentorandoAuth = () => {
     }
   }, [navigate, redirectTo]);
 
-  const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const user = loginMentorando(loginData);
+      const user = await loginMentorando(loginData);
       toast({
         title: 'Login realizado',
-        description: `${user.name}, sua area do mentorando esta liberada.`,
+        description: `${user.name}, sua área do mentorando está liberada.`,
       });
       navigate(redirectTo, { replace: true });
     } catch (error) {
       toast({
-        title: 'Nao foi possivel entrar',
+        title: 'Não foi possível entrar',
         description: error instanceof Error ? error.message : 'Tente novamente.',
         variant: 'destructive',
       });
@@ -59,12 +59,12 @@ const MentorandoAuth = () => {
       const user = await registerMentorando(registerData);
       toast({
         title: 'Cadastro criado',
-        description: `${user.name}, agora voce ja pode acessar sua trilha.`,
+        description: `${user.name}, agora você já pode acessar sua trilha.`,
       });
       navigate(redirectTo, { replace: true });
     } catch (error) {
       toast({
-        title: 'Nao foi possivel cadastrar',
+        title: 'Não foi possível cadastrar',
         description: error instanceof Error ? error.message : 'Tente novamente.',
         variant: 'destructive',
       });
@@ -93,11 +93,11 @@ const MentorandoAuth = () => {
           </div>
 
           <h1 className="mt-6 text-4xl font-bold leading-tight md:text-6xl" style={{ fontFamily: "'Inter', sans-serif" }}>
-            Cadastre-se ou faca login para entrar na area do mentorando.
+            Cadastre-se ou faça login para entrar na área do mentorando.
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-8 text-slate-300 md:text-lg">
-            O acesso agora exige identificacao para liberar a trilha, os videos e o material de apoio de quem esta se preparando para Engenharia de IA Junior.
+            O acesso agora exige identificação para liberar a trilha, os vídeos e o material de apoio de quem está se preparando para Engenharia de IA Júnior.
           </p>
 
           <div className="mt-10 grid gap-4 md:grid-cols-2">
@@ -105,7 +105,7 @@ const MentorandoAuth = () => {
               'Acesso exclusivo para quem comprou a mentoria.',
               'Primeiro acesso usa o mesmo email do pagamento.',
               'Login salvo no navegador para retorno mais simples.',
-              'Duvidas? Chame o Dheiver direto no WhatsApp.',
+              'Dúvidas? Chame o Dheiver direto no WhatsApp.',
             ].map((item) => (
               <div key={item} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm text-slate-200">
                 {item}
@@ -168,16 +168,16 @@ const MentorandoAuth = () => {
                   disabled={isSubmitting}
                   className="inline-flex h-12 w-full items-center justify-center rounded-xl bg-amber-400 px-5 text-sm font-bold text-black transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  {isSubmitting ? 'Entrando...' : 'Entrar na area'}
+                  {isSubmitting ? 'Entrando...' : 'Entrar na área'}
                 </button>
               </form>
             </TabsContent>
 
             <TabsContent value="register" className="mt-6">
               <div className="mb-5 rounded-xl border border-amber-400/30 bg-amber-400/10 p-4 text-sm text-amber-100">
-                <p className="font-semibold text-amber-200">Ja comprou a mentoria?</p>
+                <p className="font-semibold text-amber-200">Já comprou a mentoria?</p>
                 <p className="mt-1 text-amber-100/80">
-                  Use o email que voce informou no pagamento. Se ele ainda nao estiver liberado, aguarde ate 2h uteis apos a compra ou me chame no WhatsApp.
+                  Use o email que você informou no pagamento. Se ele ainda não estiver liberado, aguarde até 2h úteis após a compra ou me chame no WhatsApp.
                 </p>
               </div>
               <form className="space-y-5" onSubmit={handleRegister}>
