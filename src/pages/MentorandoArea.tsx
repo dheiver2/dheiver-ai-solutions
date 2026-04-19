@@ -29,7 +29,12 @@ import Footer from '@/components/Footer';
 import { buildMentoringWhatsAppLink } from '@/components/mentoring/mentoringConfig';
 import { logoutMentorando, toMentorandoUser } from '@/lib/mentorandoAuth';
 import { useMentorandoSession } from '@/hooks/useMentorandoSession';
-import { getProgress, toggleProgress, type ProgressMap } from '@/lib/mentorandoProgress';
+import {
+  fetchProgress,
+  getProgressCached,
+  toggleProgress,
+  type ProgressMap,
+} from '@/lib/mentorandoProgress';
 
 type SectionId = 'dashboard' | 'trilha' | 'videos' | 'ferramentas' | 'recursos';
 
@@ -608,15 +613,24 @@ const MentorandoArea = () => {
 
   const userId = currentUser?.id;
   useEffect(() => {
-    if (userId) {
-      setProgressState(getProgress(userId));
-    }
+    if (!userId) return;
+    setProgressState(getProgressCached(userId));
+    let cancelled = false;
+    fetchProgress(userId).then((remote) => {
+      if (!cancelled) setProgressState(remote);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [userId]);
 
-  const handleToggle = (key: string) => {
+  const handleToggle = async (key: string) => {
     if (!currentUser) return;
-    const updated = toggleProgress(currentUser.id, key);
-    setProgressState(updated);
+    const previous = progress;
+    const optimistic: ProgressMap = { ...previous, [key]: !previous[key] };
+    setProgressState(optimistic);
+    const persisted = await toggleProgress(currentUser.id, key);
+    setProgressState(persisted);
   };
 
   const completedCount = useMemo(

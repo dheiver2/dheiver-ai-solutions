@@ -1,9 +1,9 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Award, Printer } from 'lucide-react';
 import { toMentorandoUser } from '@/lib/mentorandoAuth';
 import { useMentorandoSession } from '@/hooks/useMentorandoSession';
-import { getProgress } from '@/lib/mentorandoProgress';
+import { fetchProgress, getProgressCached } from '@/lib/mentorandoProgress';
 
 const REQUIRED_CHECKLIST_KEYS = [
   'github-publicado',
@@ -27,24 +27,31 @@ const formatDate = (iso: string): string => {
 
 const MentorandoCertificate = () => {
   const navigate = useNavigate();
-  const { user: sessionUser } = useMentorandoSession();
+  const { user: sessionUser, loading: sessionLoading } = useMentorandoSession();
   const user = toMentorandoUser(sessionUser);
 
-  const allDone = useMemo(() => {
-    if (!user) return false;
-    const progress = getProgress(user.id);
-    return REQUIRED_CHECKLIST_KEYS.every((key) => progress[key]);
-  }, [user]);
+  const userId = user?.id;
+  const [allDone, setAllDone] = useState<boolean | null>(() =>
+    userId ? REQUIRED_CHECKLIST_KEYS.every((key) => getProgressCached(userId)[key]) : null
+  );
 
   useEffect(() => {
-    if (!user) {
+    if (sessionLoading) return;
+    if (!userId) {
       navigate('/area-mentorando/login', { replace: true });
       return;
     }
-    if (!allDone) {
-      navigate('/area-mentorando', { replace: true });
-    }
-  }, [user, allDone, navigate]);
+    let cancelled = false;
+    fetchProgress(userId).then((remote) => {
+      if (cancelled) return;
+      const done = REQUIRED_CHECKLIST_KEYS.every((key) => remote[key]);
+      setAllDone(done);
+      if (!done) navigate('/area-mentorando', { replace: true });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [userId, sessionLoading, navigate]);
 
   if (!user || !allDone) return null;
 
@@ -133,19 +140,19 @@ const MentorandoCertificate = () => {
             <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-3">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center print:border-slate-300 print:bg-slate-50">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400 print:text-slate-600">
-                  Inicio da jornada
+                  Início da jornada
                 </p>
                 <p className="mt-2 text-sm font-bold text-white print:text-slate-900">{startDate}</p>
               </div>
               <div className="rounded-2xl border border-amber-400/30 bg-amber-400/10 p-4 text-center print:border-amber-600 print:bg-amber-50">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-300 print:text-amber-800">
-                  Data de emissao
+                  Data de emissão
                 </p>
                 <p className="mt-2 text-sm font-bold text-white print:text-slate-900">{issueDate}</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center print:border-slate-300 print:bg-slate-50">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400 print:text-slate-600">
-                  Codigo
+                  Código
                 </p>
                 <p className="mt-2 text-sm font-mono font-bold text-white print:text-slate-900">
                   {user.id.slice(-8).toUpperCase()}
@@ -163,7 +170,7 @@ const MentorandoCertificate = () => {
                   Dr. Dheiver Santos
                 </p>
                 <p className="text-xs text-slate-400 print:text-slate-600">
-                  Engenheiro e mentor responsavel
+                  Engenheiro e mentor responsável
                 </p>
               </div>
 
@@ -180,7 +187,7 @@ const MentorandoCertificate = () => {
         </article>
 
         <p className="print-hide mt-6 text-center text-xs text-slate-500">
-          Clique em &ldquo;Baixar em PDF&rdquo; e selecione &ldquo;Salvar como PDF&rdquo; no dialogo de impressao.
+          Clique em &ldquo;Baixar em PDF&rdquo; e selecione &ldquo;Salvar como PDF&rdquo; no diálogo de impressão.
         </p>
       </main>
     </div>
