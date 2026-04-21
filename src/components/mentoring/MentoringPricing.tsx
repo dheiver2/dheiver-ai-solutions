@@ -82,10 +82,10 @@ const MentoringPricing = () => {
               onClick={() => { if (typeof window !== 'undefined' && window.fbq) { window.fbq('track', 'InitiateCheckout', { content_name: 'pricing_card_stripe', value: MENTORING_TOTAL_PRICE, currency: 'BRL' }); } }}
               className="relative bg-[#0D1117] border-2 border-emerald-500/30 rounded-xl p-4 text-left transition-all hover:border-emerald-400/60 hover:bg-[#0F1620] hover:-translate-y-0.5"
             >
-              <span className="absolute -top-2.5 left-3 text-[9px] font-bold tracking-wider bg-emerald-500 text-black px-2 py-0.5 rounded">SEM JUROS</span>
-              <p className="text-[11px] uppercase tracking-wider text-slate-500 mb-1">Cartão de crédito</p>
+              <span className="absolute -top-2.5 left-3 text-[9px] font-bold tracking-wider bg-emerald-500 text-black px-2 py-0.5 rounded">MENSAL</span>
+              <p className="text-[11px] uppercase tracking-wider text-slate-500 mb-1">Cartão — {MENTORING_INSTALLMENTS} parcelas</p>
               <p className="text-xl font-bold text-white leading-tight">{MENTORING_INSTALLMENTS}x de R$ {MENTORING_MONTHLY_PRICE}</p>
-              <p className="text-[11px] text-slate-400 mt-1">Total: R$ {MENTORING_TOTAL_PRICE}</p>
+              <p className="text-[11px] text-slate-400 mt-1">Total: R$ {MENTORING_TOTAL_PRICE} · cobrança mensal</p>
               <p className="text-[10px] text-emerald-400 mt-2 font-semibold">Pagar agora →</p>
             </a>
             <a
@@ -103,7 +103,8 @@ const MentoringPricing = () => {
             </a>
           </div>
 
-          <p className="text-[11px] text-amber-400/70 font-medium mb-6">Inclui acompanhamento individual, projetos guiados, revisão de currículo e preparação para entrevistas.</p>
+          <p className="text-[11px] text-amber-400/70 font-medium mb-2">Inclui acompanhamento individual, projetos guiados, revisão de currículo e preparação para entrevistas.</p>
+          <p className="text-[10px] text-slate-500 mb-6">No cartão, a cobrança é mensal e cancela automaticamente após a 3ª parcela — nunca há 4ª cobrança.</p>
 
           {/* Included */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-left mb-8">
