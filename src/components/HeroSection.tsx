@@ -5,7 +5,7 @@ import { MessageCircle } from 'lucide-react';
 const HeroSection = () => {
   const whatsappNumber = '5551989889898';
   const whatsappMessage = encodeURIComponent(
-    'Olá! 👋 Estou interessado em transformar meu negócio com IA.'
+    'Olá! 👋 Quero agendar meu diagnóstico gratuito de carreira em IA.'
   );
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
@@ -71,7 +71,7 @@ const HeroSection = () => {
             variants={itemVariants}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-white mb-6 leading-[1.1] tracking-tighter"
           >
-            Transforme seu negócio com
+            Construa sua carreira em
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600 mt-2">
               Inteligência Artificial
             </span>
@@ -82,7 +82,7 @@ const HeroSection = () => {
             variants={itemVariants}
             className="text-lg md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto"
           >
-            Soluções personalizadas de IA com ROI comprovado em 90 dias.
+            Mentoria 1:1 com PhD para te levar de Júnior a Pleno em IA. Diagnóstico gratuito de 20 min, sem compromisso.
           </motion.p>
 
           {/* CTA Button */}
@@ -94,7 +94,7 @@ const HeroSection = () => {
             className="group relative w-full sm:w-auto flex items-center justify-center gap-3 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black px-6 sm:px-8 md:px-10 py-3 sm:py-3 md:py-4 lg:py-5 rounded-lg font-bold text-base sm:text-base md:text-lg transition-all duration-300 shadow-lg shadow-yellow-500/50 hover:shadow-yellow-500/80 hover:scale-105 active:scale-95 mb-16"
           >
             <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            <span>Falar com Especialista</span>
+            <span>Agendar Diagnóstico Gratuito</span>
           </motion.a>
 
           {/* Quick Trust Metrics */}
