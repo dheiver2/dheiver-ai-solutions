@@ -4,14 +4,6 @@ import { useInView } from 'react-intersection-observer';
 
 const mediaItems = [
   {
-    source: 'CNN Brasil',
-    badge: 'DESTAQUE',
-    badgeColor: 'bg-red-500',
-    title: 'Brasileiro Desafia Big Techs com Nova Tecnologia para Criação de Agentes de IA',
-    subtitle: 'Plataforma Mangaba AI foca em "engenharia de agentes" para criar sistemas cognitivos autônomos.',
-    link: 'https://cnnbra.com.br/artigo/15870001',
-  },
-  {
     source: 'UFAL',
     badge: 'ACADÊMICO',
     badgeColor: 'bg-blue-500',
