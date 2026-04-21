@@ -3,8 +3,8 @@ import { ShoppingCart } from 'lucide-react';
 import {
   MENTORING_INSTALLMENTS,
   MENTORING_MONTHLY_PRICE,
+  MENTORING_STRIPE_CARD_LINK,
   MENTORING_TOTAL_PRICE,
-  startMentoringCheckout,
 } from './mentoringConfig';
 
 const SCROLL_THRESHOLD = 500;
@@ -43,7 +43,6 @@ const StickyBuyCta = () => {
         currency: 'BRL',
       });
     }
-    void startMentoringCheckout();
   };
 
   return (
@@ -66,19 +65,23 @@ const StickyBuyCta = () => {
               {MENTORING_INSTALLMENTS}x R$ {MENTORING_MONTHLY_PRICE}
             </p>
           </div>
-          <button
-            type="button"
+          <a
+            href={MENTORING_STRIPE_CARD_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={handleClick}
             className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-2.5 text-xs font-bold text-black shadow-lg shadow-amber-500/20 active:scale-[0.98]"
           >
             <ShoppingCart className="h-3.5 w-3.5" />
             Compre aqui
-          </button>
+          </a>
         </div>
       </div>
 
-      <button
-        type="button"
+      <a
+        href={MENTORING_STRIPE_CARD_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
         onClick={handleClick}
         className="pointer-events-auto hidden items-center gap-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-5 py-3 text-sm font-bold text-black shadow-2xl shadow-amber-500/30 transition hover:scale-[1.02] hover:shadow-amber-500/50 md:inline-flex"
       >
@@ -86,7 +89,7 @@ const StickyBuyCta = () => {
         <span>
           Compre aqui &middot; {MENTORING_INSTALLMENTS}x R$ {MENTORING_MONTHLY_PRICE}
         </span>
-      </button>
+      </a>
     </div>
   );
 };
