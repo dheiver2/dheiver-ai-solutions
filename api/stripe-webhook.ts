@@ -182,6 +182,36 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: `Webhook signature verification failed: ${message}` });
   }
 
+  if (event.type === 'invoice.paid') {
+    const invoice = event.data.object as Stripe.Invoice;
+    const subRef = (invoice as unknown as { subscription?: string | { id: string } }).subscription;
+    const subId = typeof subRef === 'string' ? subRef : subRef?.id;
+    if (subId) {
+      try {
+        const sub = await stripe.subscriptions.retrieve(subId);
+        const maxInvoicesRaw = sub.metadata?.max_invoices;
+        const maxInvoices = maxInvoicesRaw ? parseInt(maxInvoicesRaw, 10) : 0;
+        if (maxInvoices > 0 && !sub.cancel_at_period_end && sub.status !== 'canceled') {
+          const paidInvoices = await stripe.invoices.list({ subscription: subId, status: 'paid', limit: 100 });
+          if (paidInvoices.data.length >= maxInvoices) {
+            await stripe.subscriptions.update(subId, { cancel_at_period_end: true });
+            console.log('[stripe] subscription scheduled to cancel at period end', {
+              subId,
+              paid: paidInvoices.data.length,
+              max: maxInvoices,
+            });
+          }
+        }
+      } catch (err) {
+        console.error('[stripe] invoice.paid auto-cancel failed', {
+          subId,
+          error: err instanceof Error ? err.message : err,
+        });
+        return res.status(500).json({ error: 'invoice.paid handler failed — Stripe should retry.' });
+      }
+    }
+  }
+
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object as Stripe.Checkout.Session;
     const email = session.customer_details?.email;
