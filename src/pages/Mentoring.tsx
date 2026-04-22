@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LogIn } from 'lucide-react';
 import MentoringHero from '@/components/mentoring/MentoringHero';
+import MentoringVideoPitch from '@/components/mentoring/MentoringVideoPitch';
 import MentoringPain from '@/components/mentoring/MentoringPain';
 import MentoringFuture from '@/components/mentoring/MentoringFuture';
 import MentoringAuthority from '@/components/mentoring/MentoringAuthority';
@@ -17,10 +18,47 @@ import MentoringCta from '@/components/mentoring/MentoringCta';
 import StickyBuyCta from '@/components/mentoring/StickyBuyCta';
 
 const Mentoring = () => {
+  // Auto-hide top-right Members badge on scroll-down so it stops covering
+  // section content on mobile (e.g. pricing card title). Re-shows on scroll-up
+  // and is always visible at the very top.
+  const [navHidden, setNavHidden] = useState(false);
+
+  useEffect(() => {
+    let lastY = window.scrollY;
+    let ticking = false;
+
+    const handle = () => {
+      const y = window.scrollY;
+      if (y < 120) {
+        setNavHidden(false);
+      } else if (y > lastY + 6) {
+        setNavHidden(true);
+      } else if (y < lastY - 6) {
+        setNavHidden(false);
+      }
+      lastY = y;
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(handle);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#07090F] pb-20 md:pb-0">
-      {/* Top-right Area de Membros access — visible on all breakpoints now */}
-      <div className="fixed right-3 top-3 z-50 md:right-5 md:top-5">
+      {/* Top-right Area de Membros access — auto-hides on scroll-down to avoid covering content */}
+      <div
+        className={`fixed right-3 top-3 z-50 md:right-5 md:top-5 transition-all duration-300 ease-out ${
+          navHidden ? 'pointer-events-none -translate-y-4 opacity-0' : 'translate-y-0 opacity-100'
+        }`}
+      >
         <Link
           to="/area-mentorando/login"
           aria-label="Entrar na area de membros"
@@ -37,7 +75,12 @@ const Mentoring = () => {
         <MentoringHero />
       </section>
 
-      {/* 2. DOR — Agita o problema */}
+      {/* 2. VSL — Vídeo de apresentação curto (60s) logo após o gancho */}
+      <section id="mentoring-video-pitch" className="scroll-mt-24">
+        <MentoringVideoPitch />
+      </section>
+
+      {/* 3. DOR — Agita o problema */}
       <section id="mentoring-pain" className="scroll-mt-24">
         <MentoringPain />
       </section>
