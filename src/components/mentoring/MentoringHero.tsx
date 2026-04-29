@@ -95,16 +95,16 @@ const MentoringHero = () => {
             </div>
 
             <h1 className="text-[1.75rem] leading-[1.15] md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-3 md:mb-4" style={{ fontFamily: "'Inter', sans-serif" }}>
-              Do zero à sua{' '}
+              Em 90 dias, sua{' '}
               <span className="bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
-                primeira vaga em Engenharia de IA
-              </span>{' '}
-              com um plano claro de 90 dias
+                próxima conquista em IA
+              </span>: vaga, promoção ou virar referência na sua área
             </h1>
 
             <p className="text-sm md:text-lg text-slate-400 leading-relaxed mb-5 md:mb-6 max-w-lg mx-auto md:mx-0">
-              Mentoria individual com PhD e professor universitário para quem está partindo do zero em IA e quer sair com{' '}
-              <strong className="text-slate-200">portfólio, rotina de estudos, revisão de currículo e preparação para entrevistas</strong>.
+              Mentoria 1:1 com PhD e professor universitário para profissionais — do zero ao tech mid-level — que querem sair com{' '}
+              <strong className="text-slate-200">portfólio real, projetos em produção e plano concreto de carreira</strong>{' '}
+              para serem contratados, promovidos ou se posicionarem como referência em IA.
             </p>
 
             <div className="grid gap-2.5 md:gap-3 mb-5 md:mb-6 grid-cols-1 sm:grid-cols-3">
@@ -158,7 +158,7 @@ const MentoringHero = () => {
             {/* CTA hierarchy — primary + secondary + tertiary text link */}
             <div className="flex flex-col gap-2.5 md:gap-3 mb-4 md:mb-5">
               <motion.a
-                href={buildMentoringWhatsAppLink('Quero conversar sobre a mentoria em Engenharia de IA e entender se ela serve para mim.')}
+                href={buildMentoringWhatsAppLink('Quero conversar sobre a mentoria e entender qual caminho se aplica ao meu caso (vaga, promoção ou virar referência em IA).')}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => { if (typeof window !== 'undefined' && window.fbq) { window.fbq('track', 'Lead', { content_name: 'hero_whatsapp_cta' }); } }}

@@ -9,11 +9,14 @@ const MentoringFaq = () => {
 
   const faqs = [
     { id: '1', question: 'Qual nível de experiência necessário?', answer: 'Conhecimentos básicos de Python já ajudam, mas você consegue acompanhar mesmo começando do zero em IA.' },
-    { id: '2', question: 'Quanto tempo dedicar por semana?', answer: '8-10 horas: 2-3h aula + 5-7h projetos. Você organiza seu próprio tempo.' },
-    { id: '3', question: 'Posso assistir as aulas gravadas?', answer: 'Sim! Todas gravadas com acesso lifetime. Recomendamos participar ao vivo.' },
-    { id: '4', question: 'E se eu quiser parar?', answer: 'Garantia de 14 dias com reembolso integral. Após, reembolso proporcional.' },
-    { id: '5', question: 'Os projetos são reais?', answer: 'Sim! Datasets verdadeiros. Portfólio pronto para recrutadores.' },
-    { id: '6', question: 'Tem auxílio para emprego?', answer: 'Sim! Prep. entrevistas, revisão CV, conexões com empresas.' },
+    { id: '2', question: 'Já sou dev. Vale a pena ou é básico demais?', answer: 'A trilha é personalizada na sessão de diagnóstico — quem já tem base técnica pula fundamentos e foca em LLMs, RAG, MLOps e construção de portfólio aplicado, com projeto-âncora para mostrar à liderança ou usar em entrevistas de vaga IA pleno.' },
+    { id: '3', question: 'Não quero mudar de emprego, quero ser promovido. Funciona?', answer: 'Sim. Os mesmos projetos guiados viram seu case interno: você apresenta entregas reais à liderança, justifica a promoção com resultados mensuráveis e ainda revisa o LinkedIn para se posicionar como o profissional de IA da sua área.' },
+    { id: '4', question: 'Trabalho fora de tech. Tenho como me beneficiar?', answer: 'Se tem base mínima de programação, lógica ou análise de dados, sim. Se está totalmente fora de tech, te avisamos com clareza no diagnóstico antes de você comprar — preferimos te dizer que não é o momento certo do que vender mentoria que não vai funcionar.' },
+    { id: '5', question: 'Quanto tempo dedicar por semana?', answer: '8-10 horas: 2-3h aula + 5-7h projetos. Você organiza seu próprio tempo.' },
+    { id: '6', question: 'Posso assistir as aulas gravadas?', answer: 'Sim! Todas gravadas com acesso lifetime. Recomendamos participar ao vivo.' },
+    { id: '7', question: 'E se eu quiser parar?', answer: 'Garantia de 14 dias com reembolso integral. Após, reembolso proporcional.' },
+    { id: '8', question: 'Os projetos são reais?', answer: 'Sim! Datasets verdadeiros. Portfólio pronto para recrutadores ou para apresentar internamente.' },
+    { id: '9', question: 'Tem auxílio para emprego?', answer: 'Sim! Prep. entrevistas, revisão CV, conexões com empresas — vale também para quem busca promoção interna ou recolocação lateral.' },
   ];
 
   return (

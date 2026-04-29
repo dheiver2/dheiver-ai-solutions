@@ -108,7 +108,7 @@ const MentoringPricing = () => {
 
           {/* Included */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-left mb-8">
-            {['12 sessões individuais', '5+ projetos de portfólio', 'Currículo adaptado para IA', 'Plano de estudos semanal', '3 simulações de entrevista', 'Suporte via WhatsApp', 'Certificado de conclusão', 'Garantia de 14 dias', 'Acesso às gravações', 'Mentor PhD + professor'].map((item, i) => (
+            {['12 sessões individuais', '5+ projetos de portfólio', 'Currículo + LinkedIn revisados — para vaga, promoção ou autoridade', 'Plano de estudos semanal', '3 simulações de entrevista', 'Suporte via WhatsApp', 'Certificado de conclusão', 'Garantia de 14 dias', 'Acesso às gravações', 'Mentor PhD + professor'].map((item, i) => (
               <div key={i} className="flex items-center gap-2 text-slate-300">
                 <span className="text-amber-400 text-xs">✓</span>
                 <span className="text-xs">{item}</span>
