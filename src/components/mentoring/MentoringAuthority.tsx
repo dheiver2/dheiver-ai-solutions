@@ -8,10 +8,13 @@ const MentoringAuthority = () => {
 
   const logoFor = (domain: string) => `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
 
+  // Official brand SVGs served via Iconify CDN.
+  // - Claude / OpenAI: full-color official logos from the `logos` collection.
+  // - Cursor: monochrome from simple-icons (no full-color version published yet).
   const skills: { label: string; logo?: string }[] = [
-    { label: 'Claude AI', logo: logoFor('claude.ai') },
-    { label: 'Cursor', logo: logoFor('cursor.com') },
-    { label: 'ChatGPT', logo: logoFor('openai.com') },
+    { label: 'Claude AI', logo: 'https://api.iconify.design/logos/claude-icon.svg' },
+    { label: 'Cursor', logo: 'https://api.iconify.design/simple-icons/cursor.svg' },
+    { label: 'ChatGPT', logo: 'https://api.iconify.design/logos/openai-icon.svg' },
     { label: 'AI Agents' },
     { label: 'LLMs & GenAI' },
     { label: 'RAG Systems' },
@@ -95,13 +98,14 @@ const MentoringAuthority = () => {
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/10 border border-amber-500/20 text-amber-400 rounded-full font-medium text-xs"
               >
                 {skill.logo && (
-                  <img
-                    src={skill.logo}
-                    alt=""
-                    aria-hidden="true"
-                    loading="lazy"
-                    className="w-3.5 h-3.5 rounded-sm bg-white/90 p-[1px] object-contain"
-                  />
+                  <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-white shadow-sm shrink-0">
+                    <img
+                      src={skill.logo}
+                      alt={`${skill.label} logo`}
+                      loading="lazy"
+                      className="w-3 h-3 object-contain"
+                    />
+                  </span>
                 )}
                 {skill.label}
               </span>
