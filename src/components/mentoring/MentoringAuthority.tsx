@@ -6,10 +6,23 @@ import { GraduationCap } from 'lucide-react';
 const MentoringAuthority = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
-  const skills = ['Claude AI', 'Cursor', 'AI Agents', 'LLMs & GenAI', 'RAG Systems', 'MLOps', 'Computer Vision', 'Deep Learning', 'Transformers', 'Fine-tuning', 'Kubernetes'];
-  const certifications = ['Google Cloud ML Engineer', 'AWS ML Specialty', 'TensorFlow Developer', 'Databricks ML Associate'];
-
   const logoFor = (domain: string) => `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+
+  const skills: { label: string; logo?: string }[] = [
+    { label: 'Claude AI', logo: logoFor('claude.ai') },
+    { label: 'Cursor', logo: logoFor('cursor.com') },
+    { label: 'ChatGPT', logo: logoFor('openai.com') },
+    { label: 'AI Agents' },
+    { label: 'LLMs & GenAI' },
+    { label: 'RAG Systems' },
+    { label: 'MLOps' },
+    { label: 'Computer Vision' },
+    { label: 'Deep Learning' },
+    { label: 'Transformers' },
+    { label: 'Fine-tuning' },
+    { label: 'Kubernetes' },
+  ];
+  const certifications = ['Google Cloud ML Engineer', 'AWS ML Specialty', 'TensorFlow Developer', 'Databricks ML Associate'];
 
   const impacts = [
     { company: 'Santander', result: 'Squad 8 eng • -60% custos • +3x velocidade', logo: logoFor('santander.com.br') },
@@ -77,8 +90,20 @@ const MentoringAuthority = () => {
           <p className="text-xs font-bold text-slate-500 tracking-wider mb-4">TECNOLOGIAS</p>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill, idx) => (
-              <span key={idx} className="px-3 py-1.5 bg-amber-500/10 border border-amber-500/20 text-amber-400 rounded-full font-medium text-xs">
-                {skill}
+              <span
+                key={idx}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/10 border border-amber-500/20 text-amber-400 rounded-full font-medium text-xs"
+              >
+                {skill.logo && (
+                  <img
+                    src={skill.logo}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    className="w-3.5 h-3.5 rounded-sm bg-white/90 p-[1px] object-contain"
+                  />
+                )}
+                {skill.label}
               </span>
             ))}
           </div>
