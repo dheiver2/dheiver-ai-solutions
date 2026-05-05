@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { LogIn } from 'lucide-react';
 import MentoringHero from '@/components/mentoring/MentoringHero';
 import MentoringVideoPitch from '@/components/mentoring/MentoringVideoPitch';
+import MentoringStack from '@/components/mentoring/MentoringStack';
 import MentoringPain from '@/components/mentoring/MentoringPain';
 import MentoringFuture from '@/components/mentoring/MentoringFuture';
 import MentoringAuthority from '@/components/mentoring/MentoringAuthority';
@@ -80,7 +81,12 @@ const Mentoring = () => {
         <MentoringVideoPitch />
       </section>
 
-      {/* 3. DOR — Agita o problema */}
+      {/* 3. STACK MODERNA — Tools que separam quem estuda de quem trabalha com IA */}
+      <section id="mentoring-stack" className="scroll-mt-24">
+        <MentoringStack />
+      </section>
+
+      {/* 4. DOR — Agita o problema */}
       <section id="mentoring-pain" className="scroll-mt-24">
         <MentoringPain />
       </section>

@@ -81,6 +81,41 @@ const MentoringBenefits = () => {
           </div>
         </motion.div>
 
+        {/* AI-Augmented Project callout */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="mt-8 rounded-2xl border border-amber-500/25 bg-gradient-to-br from-amber-500/[0.06] to-transparent p-5 md:p-6"
+        >
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div className="flex-1">
+              <p className="text-[11px] font-bold text-amber-400 tracking-wider mb-2">
+                🤖 PROJETO AI-AUGMENTED — DESTAQUE NO PORTFÓLIO
+              </p>
+              <p className="text-sm text-slate-300 leading-relaxed">
+                Pelo menos <strong className="text-white">1 dos seus 5 projetos</strong> é construído com Claude + Cursor + Agents do início ao fim. Você não é "alguém que estuda IA" — você é{' '}
+                <strong className="text-white">alguém que constrói com IA</strong>.
+              </p>
+            </div>
+            <div className="flex items-center gap-2 md:gap-3 shrink-0">
+              {[
+                { src: '/logos/claude.svg', alt: 'Claude AI' },
+                { src: '/logos/cursor.svg', alt: 'Cursor' },
+                { src: '/logos/openai.svg', alt: 'ChatGPT' },
+              ].map((l) => (
+                <span
+                  key={l.alt}
+                  className="inline-flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-xl bg-white shadow-md"
+                  title={l.alt}
+                >
+                  <img src={l.src} alt={`${l.alt} logo`} loading="lazy" className="h-5 w-5 md:h-6 md:w-6 object-contain" />
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
         {/* Format + Investment */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

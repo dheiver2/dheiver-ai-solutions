@@ -122,6 +122,11 @@ const MentoringCta = () => {
             </a>
             <p className="text-xs text-slate-500 mt-1">Dr. Dheiver Santos • PhD • Prof. Universidades Federais</p>
           </div>
+
+          {/* Trademarks disclaimer */}
+          <p className="mt-8 text-[10px] leading-relaxed text-slate-600 max-w-xl mx-auto">
+            Claude, Cursor e ChatGPT são marcas registradas dos seus respectivos proprietários (Anthropic, Anysphere e OpenAI). O programa ensina o uso profissional destas ferramentas — não há afiliação, parceria ou endosso oficial.
+          </p>
         </motion.div>
       </div>
     </div>

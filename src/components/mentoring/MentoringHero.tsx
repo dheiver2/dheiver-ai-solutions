@@ -190,6 +190,33 @@ const MentoringHero = () => {
               <span>✓ R$ 697/mês</span>
               <span>✓ {MENTORING_SEATS_LEFT} vagas restantes</span>
             </div>
+
+            {/* Stack strip — sinal visual de modernidade */}
+            <div className="mt-4 md:mt-5 flex flex-wrap items-center justify-center md:justify-start gap-x-3 gap-y-2">
+              <span className="text-[10px] md:text-[11px] font-bold tracking-wider text-slate-500">
+                STACK QUE VOCÊ DOMINA
+              </span>
+              <a
+                href="#mentoring-stack"
+                aria-label="Saiba mais sobre a stack de IA do programa"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-700/60 bg-white/[0.03] px-2.5 py-1 transition hover:border-amber-500/40"
+              >
+                {[
+                  { src: '/logos/claude.svg', alt: 'Claude AI' },
+                  { src: '/logos/cursor.svg', alt: 'Cursor' },
+                  { src: '/logos/openai.svg', alt: 'ChatGPT' },
+                ].map((l) => (
+                  <span
+                    key={l.alt}
+                    className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-white shadow-sm"
+                    title={l.alt}
+                  >
+                    <img src={l.src} alt={`${l.alt} logo`} loading="lazy" className="h-3 w-3 object-contain" />
+                  </span>
+                ))}
+                <span className="text-[10px] md:text-[11px] text-slate-400">+ LLMs · MLOps · RAG</span>
+              </a>
+            </div>
           </motion.div>
         </div>
 
