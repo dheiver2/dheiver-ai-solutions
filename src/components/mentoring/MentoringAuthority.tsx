@@ -6,7 +6,7 @@ import { GraduationCap } from 'lucide-react';
 const MentoringAuthority = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
-  const skills = ['LLMs & GenAI', 'RAG Systems', 'Computer Vision', 'MLOps', 'Deep Learning', 'Transformers', 'Fine-tuning', 'Kubernetes'];
+  const skills = ['Claude AI', 'Cursor', 'AI Agents', 'LLMs & GenAI', 'RAG Systems', 'MLOps', 'Computer Vision', 'Deep Learning', 'Transformers', 'Fine-tuning', 'Kubernetes'];
   const certifications = ['Google Cloud ML Engineer', 'AWS ML Specialty', 'TensorFlow Developer', 'Databricks ML Associate'];
 
   const logoFor = (domain: string) => `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;

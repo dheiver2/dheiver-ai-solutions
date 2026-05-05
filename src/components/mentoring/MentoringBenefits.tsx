@@ -15,6 +15,7 @@ const MentoringBenefits = () => {
   const benefits = [
     { icon: '🚀', text: '5+ projetos reais' },
     { icon: '🎯', text: 'Mentoria 1-on-1 semanal' },
+    { icon: '🤖', text: 'Workflow com Claude & Cursor' },
     { icon: '💻', text: 'Código em produção' },
     { icon: '🤝', text: 'Network profissional' },
     { icon: '📋', text: 'Prep. entrevistas' },
@@ -23,7 +24,7 @@ const MentoringBenefits = () => {
 
   const curriculum = [
     { month: 'Mês 1', title: 'Fundamentos', items: ['ML Fundamentals', 'Deep Learning', 'Classificador'], color: 'from-blue-500/20 to-blue-500/5', border: 'border-blue-500/20' },
-    { month: 'Mês 2', title: 'GenAI & LLMs', items: ['LLMs Avançado', 'Fine-tuning', 'Chatbot RAG'], color: 'from-purple-500/20 to-purple-500/5', border: 'border-purple-500/20' },
+    { month: 'Mês 2', title: 'GenAI & LLMs', items: ['LLMs Avançado', 'Workflow Claude & Cursor', 'Chatbot RAG', 'AI Agents'], color: 'from-purple-500/20 to-purple-500/5', border: 'border-purple-500/20' },
     { month: 'Mês 3', title: 'Produção', items: ['MLOps', 'Cloud Deploy', 'Projeto Final'], color: 'from-amber-500/20 to-amber-500/5', border: 'border-amber-500/20' },
   ];
 

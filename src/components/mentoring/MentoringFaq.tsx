@@ -12,11 +12,12 @@ const MentoringFaq = () => {
     { id: '2', question: 'Já sou dev. Vale a pena ou é básico demais?', answer: 'A trilha é personalizada na sessão de diagnóstico — quem já tem base técnica pula fundamentos e foca em LLMs, RAG, MLOps e construção de portfólio aplicado, com projeto-âncora para mostrar à liderança ou usar em entrevistas de vaga IA pleno.' },
     { id: '3', question: 'Não quero mudar de emprego, quero ser promovido. Funciona?', answer: 'Sim. Os mesmos projetos guiados viram seu case interno: você apresenta entregas reais à liderança, justifica a promoção com resultados mensuráveis e ainda revisa o LinkedIn para se posicionar como o profissional de IA da sua área.' },
     { id: '4', question: 'Trabalho fora de tech. Tenho como me beneficiar?', answer: 'Se tem base mínima de programação, lógica ou análise de dados, sim. Se está totalmente fora de tech, te avisamos com clareza no diagnóstico antes de você comprar — preferimos te dizer que não é o momento certo do que vender mentoria que não vai funcionar.' },
-    { id: '5', question: 'Quanto tempo dedicar por semana?', answer: '8-10 horas: 2-3h aula + 5-7h projetos. Você organiza seu próprio tempo.' },
-    { id: '6', question: 'Posso assistir as aulas gravadas?', answer: 'Sim! Todas gravadas com acesso lifetime. Recomendamos participar ao vivo.' },
-    { id: '7', question: 'E se eu quiser parar?', answer: 'Garantia de 14 dias com reembolso integral. Após, reembolso proporcional.' },
-    { id: '8', question: 'Os projetos são reais?', answer: 'Sim! Datasets verdadeiros. Portfólio pronto para recrutadores ou para apresentar internamente.' },
-    { id: '9', question: 'Tem auxílio para emprego?', answer: 'Sim! Prep. entrevistas, revisão CV, conexões com empresas — vale também para quem busca promoção interna ou recolocação lateral.' },
+    { id: '5', question: 'Vou aprender a usar Claude AI, Cursor e ChatGPT na prática?', answer: 'Sim — esse é um pilar central do programa. Nas últimas vagas júnior/pleno de IA que acompanhei, 100% pediram experiência prática com pelo menos uma dessas tools. Você vai construir pelo menos 1 projeto AI-augmented (do jeito que Big Tech constrói hoje) usando Claude/Cursor como pair-programming, RAG e AI Agents — sem deixar os fundamentos (Python, ML, MLOps) de lado.' },
+    { id: '6', question: 'Quanto tempo dedicar por semana?', answer: '8-10 horas: 2-3h aula + 5-7h projetos. Você organiza seu próprio tempo.' },
+    { id: '7', question: 'Posso assistir as aulas gravadas?', answer: 'Sim! Todas gravadas com acesso lifetime. Recomendamos participar ao vivo.' },
+    { id: '8', question: 'E se eu quiser parar?', answer: 'Garantia de 14 dias com reembolso integral. Após, reembolso proporcional.' },
+    { id: '9', question: 'Os projetos são reais?', answer: 'Sim! Datasets verdadeiros. Portfólio pronto para recrutadores ou para apresentar internamente.' },
+    { id: '10', question: 'Tem auxílio para emprego?', answer: 'Sim! Prep. entrevistas, revisão CV, conexões com empresas — vale também para quem busca promoção interna ou recolocação lateral.' },
   ];
 
   return (
