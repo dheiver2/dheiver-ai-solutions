@@ -7,6 +7,7 @@ import MentoringStack from '@/components/mentoring/MentoringStack';
 import MentoringPain from '@/components/mentoring/MentoringPain';
 import MentoringFuture from '@/components/mentoring/MentoringFuture';
 import MentoringAuthority from '@/components/mentoring/MentoringAuthority';
+import MentoringClaudeCerts from '@/components/mentoring/MentoringClaudeCerts';
 import MentoringBenefits from '@/components/mentoring/MentoringBenefits';
 import MentoringBonus from '@/components/mentoring/MentoringBonus';
 import MentoringPricing from '@/components/mentoring/MentoringPricing';
@@ -106,7 +107,12 @@ const Mentoring = () => {
         <MentoringAuthority />
       </section>
 
-      {/* 6. MÍDIA — Prova social externa */}
+      {/* 6. CERTIFICAÇÕES CLAUDE — Carrossel de certificados oficiais Anthropic */}
+      <section id="mentoring-claude-certs" className="scroll-mt-24">
+        <MentoringClaudeCerts />
+      </section>
+
+      {/* 7. MÍDIA — Prova social externa */}
       <section id="mentoring-media" className="scroll-mt-24">
         <MentoringMedia />
       </section>
