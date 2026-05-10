@@ -1,7 +1,0 @@
-# Place the 4 Anthropic Claude certificates here:
-#   intro-claude-cowork.png   (Introduction to Claude Cowork)
-#   claude-101.png            (Claude 101 — cert no 9q6ac38oss9v)
-#   claude-code-101.png       (Claude Code 101)
-#   claude-code-in-action.png (Claude Code in Action — cert no bt4ixjbmcjrq)
-#
-# Rendered by src/components/mentoring/MentoringClaudeCerts.tsx

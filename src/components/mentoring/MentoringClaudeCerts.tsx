@@ -14,24 +14,24 @@ type Cert = {
 const certs: Cert[] = [
   {
     title: 'Introduction to Claude Cowork',
-    image: '/certificates/intro-claude-cowork.png',
+    image: '/certificates/intro-claude-cowork.jpg',
     issued: 'Mai 2026',
   },
   {
     title: 'Claude 101',
-    image: '/certificates/claude-101.png',
+    image: '/certificates/claude-101.jpg',
     issued: 'Mai 2026',
     certNo: '9q6ac38oss9v',
     verifyUrl: 'https://verify.skilljar.com/c/9q6ac38oss9v',
   },
   {
     title: 'Claude Code 101',
-    image: '/certificates/claude-code-101.png',
+    image: '/certificates/claude-code-101.jpg',
     issued: 'Mai 2026',
   },
   {
     title: 'Claude Code in Action',
-    image: '/certificates/claude-code-in-action.png',
+    image: '/certificates/claude-code-in-action.jpg',
     issued: 'Mai 2026',
     certNo: 'bt4ixjbmcjrq',
     verifyUrl: 'https://verify.skilljar.com/c/bt4ixjbmcjrq',
