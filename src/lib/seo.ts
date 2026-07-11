@@ -11,7 +11,7 @@ export const defaultSEO: SEOConfig = {
   title: "Dr. Dheiver Santos - Mentoria Avançada em Inteligência Artificial",
   description: "🚀 Mentoria especializada em IA avançada e projetos complexos. Dr. Dheiver Santos oferece soluções inovadoras em Machine Learning, Visão Computacional e Processamento de Linguagem Natural. Transforme seu negócio com IA!",
   keywords: "Mentoria inteligência artificial, especialista IA, machine learning, deep learning, visão computacional, processamento linguagem natural, automação inteligente, chatbots, análise preditiva, computer vision, NLP, neural networks, data science, AI consulting",
-  image: "https://dheiver-ai-solutions.com/dheiver-photo.jpg",
+  image: "https://dheiver-ai-solutions.com/og-image.jpg",
   url: "https://dheiver-ai-solutions.com",
   type: "website"
 };
@@ -111,7 +111,7 @@ export const getLocalBusinessSchema = () => {
       "Mo-Fr 09:00-18:00"
     ],
     "priceRange": "$$-$$$",
-    "image": "https://dheiver-ai-solutions.com/dheiver-photo.jpg",
+    "image": "https://dheiver-ai-solutions.com/og-image.jpg",
     "logo": "https://dheiver-ai-solutions.com/logo.svg",
     "sameAs": [
       "https://linkedin.com/in/dheiver-santos",
@@ -212,7 +212,7 @@ export const getPersonSchema = () => {
     "jobTitle": "Especialista em Inteligência Artificial",
     "description": "Doutor e especialista em IA com mais de 10 anos de experiência em projetos complexos de Machine Learning, Visão Computacional e Processamento de Linguagem Natural",
     "url": "https://dheiver-ai-solutions.com/about",
-    "image": "https://dheiver-ai-solutions.com/dheiver-photo.jpg",
+    "image": "https://dheiver-ai-solutions.com/og-image.jpg",
     "worksFor": {
       "@type": "Organization",
       "name": "Dr. Dheiver Santos - Mentoria IA"

@@ -14,11 +14,11 @@
   "icons": [],
   "screenshots": [
     {
-      "src": "/dheiver-photo.jpg",
-      "sizes": "1280x720",
+      "src": "/og-image.jpg",
+      "sizes": "1200x630",
       "type": "image/jpeg",
       "platform": "wide",
-      "label": "Dr. Dheiver Santos - Especialista em IA"
+      "label": "Dr. Dheiver Santos - Mentoria em IA"
     }
   ],
   "shortcuts": [
