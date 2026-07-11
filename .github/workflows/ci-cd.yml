@@ -191,4 +191,4 @@ jobs:
           text: 'CI/CD ${{ job.status }} (prod: ${{ needs.deploy-production.result }}, dev: ${{ needs.deploy-staging.result }})'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-        if: ${{ always() && secrets.SLACK_WEBHOOK != '' }}
+        if: always() && env.SLACK_WEBHOOK_URL != ''
